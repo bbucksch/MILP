@@ -6,3 +6,10 @@ from tqdm import tqdm
 
 #this is the constraint file for the single apollo mission test case
 #it contains the info to make matrices for the constraints
+
+# commodities continuous
+comodCONT = ['Propellant','Equipment','Samples']
+# commodities integer
+comodINT = ['crew']
+
+#Demands
