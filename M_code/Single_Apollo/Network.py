@@ -25,6 +25,6 @@ Freewindow = True
 optimizeSC = False
 
 #list of SC data
-#Propellant capacity kg,Isp s, Payload capacity kg, structure masskg
+#[Name, Propellant capacity kg,Isp s, Payload capacity kg, structure masskg]
 #that is the order of data per SC
-SC = [[452045,421,0,38415],[107725,421,0,12014],[0,0,524,4841],[18413,314,60,6053],[8804,311,500,2770],[2358,311,250,1719]]
+SC = [['V1',452045,421,0,38415],['V2',107725,421,0,12014],['V3',0,0,524,4841],['V4',18413,314,60,6053],['V5',8804,311,500,2770],['V6',2358,311,250,1719]]
