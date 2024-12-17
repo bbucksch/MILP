@@ -110,6 +110,15 @@ def Const4(model,variables,updatematrix,deltav,Vehicles):
     Endnx = float(x[5].replace('Endnode ',''))
     print(y)
     print(vehx,Comm,Startnx,Endnx)
+    vehdata = [element for element in Vehicles if vehx in element[0]]
+    if Startnx == Endnx:
+        HoldoverCon4()
 
 
+
+    return
+
+
+def HoldoverCon4():
+    
     return
