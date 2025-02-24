@@ -32,7 +32,7 @@ def main():
         print(len(Netdata.SC))
        
 
-        #Create variables 1 per arc per vehicle
+        #Create variables 1 per arc per vehicle, per commodity +1 per vehicle
 
         
         Arcmaker.MakeArcs(SpaceMod,Netdata.nodeconnect,Netdata.node_travel, Netdata.timesteps,Netdata.SC,DemandData.comodCONT,DemandData.comodINT,variables)

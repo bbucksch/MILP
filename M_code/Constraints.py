@@ -9,7 +9,7 @@ def Const2n3(model,variables,nodes, Maxtimesteps, ComodCONT,ComodINT, demand, ve
     #extract keylist
     #extract keys with Outflow
     #use the other values to dupe the keys
-    #our format matches the ending in flow times to the starting outflow times
+    #our format matches the ending inflow times to the starting outflow times
     #per node per time per commodity add them (all vehicles)
     
     keylist =list(variables.keys())
@@ -42,8 +42,8 @@ def Const2n3(model,variables,nodes, Maxtimesteps, ComodCONT,ComodINT, demand, ve
                 model.addConstr(sum(OutVar) - sum(InVar) <= Dmat[c1][t][n])
 
 
-    #for spacecraft do the same but the first time step has infinitesupply
-    #OR technically we do not care as long as conservaiton occurs, so no constraitns on start or end flows are required
+    #for spacecraft do the same but the first time step has infinite supply
+    #OR technically we do not care as long as conservation occurs, so no constraitns on start or end flows are required
     # leaving spacecraft stranded should be fine
     #later constraints about cost of holdover vs movement arcs will leave spacecraft where they , 
 
