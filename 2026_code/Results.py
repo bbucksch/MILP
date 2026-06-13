@@ -40,7 +40,8 @@ def extract_flows(
     T,
     T_adv,
     CommMass,
-    tol=1e-6
+    tol=1e-6,
+    AllArcs=None
 ):
     rows = []
     Shiprows = []
@@ -50,23 +51,44 @@ def extract_flows(
             for j in arcs[i]:    
                 for t in T_adv:
                     if check_destination_window(i,j,t,T_adv,tof):
+                        if AllArcs != None:
+                            if (t in AllArcs) and (i in AllArcs[t]) and (j in AllArcs[t][i]):
+                        
+                    
                         
                         
-                        n_ships = val(y_outflow[v][i][j][t][0])
+                                n_ships = val(y_outflow[v][i][j][t][0])
 
-                        # Skip unused vehicle arcs
-                        if n_ships <= tol:
-                            continue
+                                # Skip unused vehicle arcs
+                                if n_ships <= tol:
+                                    continue
 
-                        #Commodities
-                        for k, commodity in enumerate(commodity_names):
-                            out_mass = val(x_outflow[v][i][j][t][k])*CommMass[k]
-                            in_mass = val(x_inflow[v][i][j][t][k])*CommMass[k]
+                                #Commodities
+                                for k, commodity in enumerate(commodity_names):
+                                    out_mass = val(x_outflow[v][i][j][t][k])*CommMass[k]
+                                    in_mass = val(x_inflow[v][i][j][t][k])*CommMass[k]
 
-                            if abs(out_mass) <= tol and abs(in_mass) <= tol:
-                                continue
+                                    if abs(out_mass) <= tol and abs(in_mass) <= tol:
+                                        continue
 
-                            rows.append({
+                                    rows.append({
+                                        "vehicle": vehicle,
+                                        "v": v,
+                                        "from_node": node_names[i],
+                                        "to_node": node_names[j],
+                                        "i": i,
+                                        "j": j,
+                                        "t_depart": t,
+                                        "t_arrive": t + tof[i][j],
+                                        "commodity": commodity,
+                                        "out_mass": out_mass,
+                                        "in_mass": in_mass,
+                                        "mass_change": in_mass - out_mass,
+                                        "n_ships": n_ships
+                                    })
+                                
+                                #Ships
+                                Shiprows.append({
                                 "vehicle": vehicle,
                                 "v": v,
                                 "from_node": node_names[i],
@@ -75,25 +97,8 @@ def extract_flows(
                                 "j": j,
                                 "t_depart": t,
                                 "t_arrive": t + tof[i][j],
-                                "commodity": commodity,
-                                "out_mass": out_mass,
-                                "in_mass": in_mass,
-                                "mass_change": in_mass - out_mass,
                                 "n_ships": n_ships
                             })
-                        
-                        #Ships
-                        Shiprows.append({
-                        "vehicle": vehicle,
-                        "v": v,
-                        "from_node": node_names[i],
-                        "to_node": node_names[j],
-                        "i": i,
-                        "j": j,
-                        "t_depart": t,
-                        "t_arrive": t + tof[i][j],
-                        "n_ships": n_ships
-                    })
 
 
     return pd.DataFrame(rows), pd.DataFrame(Shiprows)
