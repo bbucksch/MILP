@@ -28,6 +28,17 @@ def val(x):
 
 
 #Extract Ships and Commodities
+def val(x):
+    """Safely get Gurobi variable value."""
+    try:
+        return x.X
+    except AttributeError:
+        try:
+            return x[0].X
+        except Exception:
+            return float(x)
+
+
 def extract_flows(
     x_outflow,
     x_inflow,
@@ -40,55 +51,106 @@ def extract_flows(
     T,
     T_adv,
     CommMass,
+    StructMass,
     tol=1e-6,
-    AllArcs=None
+    AllArcs=None,
+    payloadflows=None,
+    Carryship=None
 ):
-    rows = []
-    Shiprows = []
+    """
+    Returns:
+        cargo_df:
+            One row per commodity or carried spacecraft on each active vehicle arc.
+
+        ship_df:
+            One row per active spacecraft leg, including total outgoing mass.
+    """
+
+    cargo_rows = []
+    ship_rows = []
 
     for v, vehicle in enumerate(vehicle_names):
         for i in arcs:
-            for j in arcs[i]:    
+            for j in arcs[i]:
                 for t in T_adv:
-                    if check_destination_window(i,j,t,T_adv,tof):
-                        if AllArcs != None:
-                            if (t in AllArcs) and (i in AllArcs[t]) and (j in AllArcs[t][i]):
-                        
-                    
-                        
-                        
-                                n_ships = val(y_outflow[v][i][j][t][0])
 
-                                # Skip unused vehicle arcs
-                                if n_ships <= tol:
-                                    continue
+                    #if not check_destination_window(i, j, t, T_adv, tof):
+                    #    continue
 
-                                #Commodities
-                                for k, commodity in enumerate(commodity_names):
-                                    out_mass = val(x_outflow[v][i][j][t][k])*CommMass[k]
-                                    in_mass = val(x_inflow[v][i][j][t][k])*CommMass[k]
+                    if AllArcs is not None:
+                        if not (
+                            (t in AllArcs)
+                            and (i in AllArcs[t])
+                            and (j in AllArcs[t][i])
+                        ):
+                            continue
 
-                                    if abs(out_mass) <= tol and abs(in_mass) <= tol:
-                                        continue
+                        t_arrive = AllArcs[t][i][j]["ArrivalTime"]
+                    else:
+                        t_arrive = t + tof[i][j]
 
-                                    rows.append({
-                                        "vehicle": vehicle,
-                                        "v": v,
-                                        "from_node": node_names[i],
-                                        "to_node": node_names[j],
-                                        "i": i,
-                                        "j": j,
-                                        "t_depart": t,
-                                        "t_arrive": t + tof[i][j],
-                                        "commodity": commodity,
-                                        "out_mass": out_mass,
-                                        "in_mass": in_mass,
-                                        "mass_change": in_mass - out_mass,
-                                        "n_ships": n_ships
-                                    })
-                                
-                                #Ships
-                                Shiprows.append({
+                    n_ships = val(y_outflow[v][i][j][t][0])
+
+                    # Skip arcs without an active carrier spacecraft
+                    if n_ships <= tol:
+                        continue
+
+                    total_mass_out = 0.0
+
+                    # --------------------------------------------------
+                    # 1. Normal commodities
+                    # --------------------------------------------------
+                    for k, commodity in enumerate(commodity_names):
+                        out_quantity = val(x_outflow[v][i][j][t][k])
+                        in_quantity = val(x_inflow[v][i][j][t][k])
+
+                        out_mass = out_quantity * CommMass[k]
+                        in_mass = in_quantity * CommMass[k]
+
+                        total_mass_out += out_mass
+
+                        if abs(out_mass) <= tol and abs(in_mass) <= tol:
+                            continue
+
+                        cargo_rows.append({
+                            "vehicle": vehicle,
+                            "v": v,
+                            "from_node": node_names[i],
+                            "to_node": node_names[j],
+                            "i": i,
+                            "j": j,
+                            "t_depart": t,
+                            "t_arrive": t_arrive,
+
+                            # Common cargo fields
+                            "cargo_type": "commodity",
+                            "item": commodity,
+                            "quantity": out_quantity,
+                            "out_mass": out_mass,
+                            "in_mass": in_mass,
+                            "mass_change": in_mass - out_mass,
+
+                            # Carried-spacecraft-specific fields
+                            "carried_ship_type": None,
+                            "carried_ship_index": None,
+
+                            "n_ships": n_ships
+                        })
+
+                    # --------------------------------------------------
+                    # 2. Carried spacecraft as cargo
+                    # --------------------------------------------------
+                    if payloadflows is not None and Carryship is not None:
+                        for v1 in Carryship:
+                            carried_number = val(payloadflows[v][i][j][t][v1])
+
+                            if abs(carried_number) <= tol:
+                                continue
+
+                            carried_mass = carried_number * StructMass[v1]
+                            total_mass_out += carried_mass
+
+                            cargo_rows.append({
                                 "vehicle": vehicle,
                                 "v": v,
                                 "from_node": node_names[i],
@@ -96,18 +158,52 @@ def extract_flows(
                                 "i": i,
                                 "j": j,
                                 "t_depart": t,
-                                "t_arrive": t + tof[i][j],
+                                "t_arrive": t_arrive,
+
+                                # Common cargo fields
+                                "cargo_type": "carried_spacecraft",
+                                "item": f"Carried SC: {vehicle_names[v1]}",
+                                "quantity": carried_number,
+                                "out_mass": carried_mass,
+                                "in_mass": carried_mass,
+                                "mass_change": 0.0,
+
+                                # Carried-spacecraft-specific fields
+                                "carried_ship_type": vehicle_names[v1],
+                                "carried_ship_index": v1,
+
                                 "n_ships": n_ships
                             })
 
+                    # --------------------------------------------------
+                    # 3. Active spacecraft dry mass
+                    # --------------------------------------------------
+                    active_vehicle_mass = StructMass[v] * n_ships
+                    total_mass_out += active_vehicle_mass
 
-    return pd.DataFrame(rows), pd.DataFrame(Shiprows)
+                    ship_rows.append({
+                        "vehicle": vehicle,
+                        "v": v,
+                        "from_node": node_names[i],
+                        "to_node": node_names[j],
+                        "i": i,
+                        "j": j,
+                        "t_depart": t,
+                        "t_arrive": t_arrive,
+                        "active_vehicle_mass": active_vehicle_mass,
+                        "cargo_mass": total_mass_out - active_vehicle_mass,
+                        "total_outgoing_mass": total_mass_out,
+                        "n_ships": n_ships
+                    })
+
+    return pd.DataFrame(cargo_rows), pd.DataFrame(ship_rows)
 
 def plot_time_space_network(
     legs,
     cargo=None,
     node_order=None,
-    title="Time-space spacecraft solution"
+    title="Time-space spacecraft solution",
+    tol=1e-6
 ):
     if legs.empty:
         print("No spacecraft legs found.")
@@ -122,21 +218,25 @@ def plot_time_space_network(
 
     node_y = {node: idx for idx, node in enumerate(node_order)}
 
-    # Optional: add cargo summary to each spacecraft leg
+    merge_cols = [
+        "vehicle",
+        "v",
+        "from_node",
+        "to_node",
+        "i",
+        "j",
+        "t_depart",
+        "t_arrive"
+    ]
+
+    # --------------------------------------------------
+    # Build cargo summary for normal commodities + carried spacecraft
+    # --------------------------------------------------
     if cargo is not None and not cargo.empty:
         cargo_summary = (
             cargo.pivot_table(
-                index=[
-                    "vehicle",
-                    "v",
-                    "from_node",
-                    "to_node",
-                    "i",
-                    "j",
-                    "t_depart",
-                    "t_arrive"
-                ],
-                columns="commodity",
+                index=merge_cols,
+                columns="item",
                 values="out_mass",
                 aggfunc="sum",
                 fill_value=0
@@ -146,35 +246,37 @@ def plot_time_space_network(
 
         legs_plot = legs.merge(
             cargo_summary,
-            on=[
-                "vehicle",
-                "v",
-                "from_node",
-                "to_node",
-                "i",
-                "j",
-                "t_depart",
-                "t_arrive"
-            ],
+            on=merge_cols,
             how="left"
         )
 
-        commodity_cols = [
+        item_cols = [
             c for c in cargo_summary.columns
-            if c not in [
-                "vehicle", "v", "from_node", "to_node",
-                "i", "j", "t_depart", "t_arrive"
-            ]
+            if c not in merge_cols
         ]
 
-        for c in commodity_cols:
+        for c in item_cols:
             legs_plot[c] = legs_plot[c].fillna(0)
 
-        legs_plot["total_cargo_mass"] = legs_plot[commodity_cols].sum(axis=1)
+        legs_plot["total_cargo_mass"] = legs_plot[item_cols].sum(axis=1)
+
+        # Also keep quantity summary for carried spacecraft
+        carried_summary = (
+            cargo[cargo["cargo_type"] == "carried_spacecraft"]
+            .pivot_table(
+                index=merge_cols,
+                columns="item",
+                values="quantity",
+                aggfunc="sum",
+                fill_value=0
+            )
+            .reset_index()
+        )
 
     else:
         legs_plot = legs.copy()
-        commodity_cols = []
+        item_cols = []
+        carried_summary = pd.DataFrame()
         legs_plot["total_cargo_mass"] = 0.0
 
     fig = go.Figure()
@@ -199,8 +301,7 @@ def plot_time_space_network(
         showlegend = vehicle not in used_legend
         used_legend.add(vehicle)
 
-        # Empty spacecraft legs are still plotted, but thinner/dashed
-        is_empty = row["total_cargo_mass"] <= 1e-6
+        is_empty = row["total_cargo_mass"] <= tol
 
         line_width = 2 if is_empty else 4
         line_dash = "dot" if is_empty else "solid"
@@ -210,18 +311,27 @@ def plot_time_space_network(
             f"{from_node} → {to_node}",
             f"Depart: day {row['t_depart']}",
             f"Arrive: day {row['t_arrive']}",
-            f"Number of ships: {row['n_ships']}",
-            f"Cargo mass: {row['total_cargo_mass']:.2f} kg"
+            f"Active ships: {row['n_ships']}",
+            f"Active vehicle dry mass: {row.get('active_vehicle_mass', 0):.2f} kg",
+            f"Cargo + carried spacecraft mass: {row['total_cargo_mass']:.2f} kg",
+            f"Total outgoing mass: {row.get('total_outgoing_mass', 0):.2f} kg"
         ]
 
         if is_empty:
             hover_lines.append("<b>Empty spacecraft transfer</b>")
         else:
             hover_lines.append("")
-            hover_lines.append("<b>Commodities</b>")
-            for c in commodity_cols:
-                if row[c] > 1e-6:
-                    hover_lines.append(f"{c}: {row[c]:.2f} kg")
+            hover_lines.append("<b>Cargo and carried spacecraft</b>")
+
+            for item in item_cols:
+                mass = row[item]
+                if mass <= tol:
+                    continue
+
+                if str(item).startswith("Carried SC:"):
+                    hover_lines.append(f"{item}: {mass:.2f} kg dry mass")
+                else:
+                    hover_lines.append(f"{item}: {mass:.2f} kg")
 
         fig.add_trace(go.Scatter(
             x=[row["t_depart"], row["t_arrive"]],
@@ -250,7 +360,7 @@ def plot_time_space_network(
     )
 
     fig.show()
-    return
+    return fig
 
 #mass flows table may have extra code in the show file
 def make_mass_flow_table(flows, use="out_mass"):
@@ -263,7 +373,7 @@ def make_mass_flow_table(flows, use="out_mass"):
             "vehicle",
             "n_ships"
         ],
-        columns="commodity",
+        columns="item",
         values=use,
         aggfunc="sum",
         fill_value=0
@@ -276,7 +386,7 @@ def make_mass_flow_table(flows, use="out_mass"):
     )
 
 def propellantUsage(flows):
-    prop = flows[flows["commodity"] == "propellant"].copy()
+    prop = flows[flows["item"] == "propellant"].copy()
     prop["propellant_used"] = prop["out_mass"] - prop["in_mass"]
 
     prop_by_leg = (
