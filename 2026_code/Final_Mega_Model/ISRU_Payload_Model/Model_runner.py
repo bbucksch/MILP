@@ -72,13 +72,25 @@ from Results import (
 
 
 def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, isru_config=None,
-                model_name="MissionPlanning+ISRU", optimize=False, vizualize=False):
+                commodities = None, model_name="MissionPlanning+ISRU", optimize=False, vizualize=False):
     network = network or NetworkModel()
     vehicle_data = vehicle_data or VehicleModel()
     isru_config = isru_config or ISRUModel()
+    Commodities = commodities or define_commodities(isru_config)
     T_adv = list(range(network.T))
     V = vehicle_data.number_vehicle_types
-    PayloadSC = vehicle_data.carriable.count(True)
+    
+
+    for node,time in network.node_windows.items():
+        y2list = []
+        for y1 in time:
+            y2list.append(y1+365)
+            network.T = y1+366
+        network.node_windows[node].extend(y2list)
+
+
+    print(network.node_windows)
+    T_adv = list(range(network.T))
     
 
     #all_arcs and rev_arcs are dictionaries of all the possible open arcs
@@ -88,6 +100,8 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
         window=network.node_windows, 
         tof_used=network.tof)
     
+    print(all_arcs[365])
+    
     
     rev_arcs = all_possible_outflow_arcs(
         connections=network.connections,
@@ -96,7 +110,7 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
         tof_used=reverse_tof(network.tof),
     )
 
-    Commodities = define_commodities(isru_config)
+    
     print(Commodities)
 
     Demands,V_Demands = demand_supply(
@@ -192,7 +206,11 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
     add_arc_transformation_constraints(Lin_model, ctx)
     
     add_concurrency_constraints(Lin_model, ctx)
-    ctx["objective"] = set_initial_mass_objective(Lin_model, ctx)
+    
+    obj1 = set_initial_mass_objective(Lin_model, ctx)
+    obj2 = set_initial_mass_objective(Lin_model, ctx)
+    ctx["objective"] = sum()
+    Lin_model.setObjective(ctx["objective"], GRB.MINIMIZE)
     Lin_model.update()
 
     if optimize:
@@ -234,7 +252,7 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
         Cargoflows, Shipflows =extract_flows(
             x_outflow= ctx["x_outflow"],
             x_inflow=ctx["x_inflow"],
-            y_outflow=ctx["y_outflow"],
+            y_outflow=ctx["y_outflow"], 
             arcs= ctx["connections"],
             node_names=ctx["network"].node_names,
             vehicle_names= ctx["vehicle_data"].vehicle_type_names,

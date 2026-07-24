@@ -113,6 +113,7 @@ def NetworkModel():
 
 
     validate_network_model(Net)
+
     return Net
 
 #reverse the tof list (negative travel times, to see what nodes can travel to a single end result)
@@ -151,7 +152,7 @@ def VehicleModel():
     #Vehicle design parameters
     Vehicle.structure_mass = np.array([2500, 30])
     Vehicle.isp = np.array([900, 200])
-    Vehicle.payload_cap = np.array([10000, 75])
+    Vehicle.payload_cap = np.array([10000, 130])
     Vehicle.propellant_cap = np.array([4000, 17000])
     Vehicle.sc_vtype = GRB.INTEGER
     Vehicle.number_vehicle_types = 2 #How many vehicles are being defined

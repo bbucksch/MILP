@@ -1,0 +1,59 @@
+\ Model MissionPlanning+ISRU_copy
+\ LP format - for model browsing. Use MPS format to capture full model detail.
+\ Signature: 0x95a8480507b6cc36
+Minimize
+ 
+Subject To
+ mass_balance_x_node0_time11_comm2:
+   - Classic_commodity_inflow_0,0,0,Tstart10,Tend11,Commoditycrew_return
+   - Classic_commodity_inflow_0,1,0,Tstart10,Tend11,Commoditycrew_return
+   - Classic_commodity_inflow_1,0,0,Tstart10,Tend11,Commoditycrew_return
+   - Classic_commodity_inflow_1,1,0,Tstart10,Tend11,Commoditycrew_return
+   <= -3
+ Arc_transformationConstraint_Start0_End0_Starttime10_Vehicle0_Commodity2:
+   - 7.1 Classic_commodity_outflow_0,0,0,Tstart10,Tend11,Commoditycrew
+   - 7.1 Classic_commodity_outflow_0,0,0,Tstart10,Tend11,Commoditycrew_interim
+   - 7.1 Classic_commodity_outflow_0,0,0,Tstart10,Tend11,Commoditycrew_return
+   - Classic_commodity_inflow_0,0,0,Tstart10,Tend11,Commoditycrew_return
+   = 0
+ Arc_transformationConstraint_Start0_End0_Starttime10_Vehicle1_Commodity2:
+   - 7.1 Classic_commodity_outflow_1,0,0,Tstart10,Tend11,Commoditycrew
+   - 7.1 Classic_commodity_outflow_1,0,0,Tstart10,Tend11,Commoditycrew_interim
+   - 7.1 Classic_commodity_outflow_1,0,0,Tstart10,Tend11,Commoditycrew_return
+   - Classic_commodity_inflow_1,0,0,Tstart10,Tend11,Commoditycrew_return
+   = 0
+ Arc_transformationConstraint_Start1_End0_Starttime10_Vehicle0_Commodity2:
+   - 7.1 Classic_commodity_outflow_0,1,0,Tstart10,Tend11,Commoditycrew
+   - 7.1 Classic_commodity_outflow_0,1,0,Tstart10,Tend11,Commoditycrew_interim
+   - 7.1 Classic_commodity_outflow_0,1,0,Tstart10,Tend11,Commoditycrew_return
+   - Classic_commodity_inflow_0,1,0,Tstart10,Tend11,Commoditycrew_return
+   = 0
+ Arc_transformationConstraint_Start1_End0_Starttime10_Vehicle1_Commodity2:
+   - 7.1 Classic_commodity_outflow_1,1,0,Tstart10,Tend11,Commoditycrew
+   - 7.1 Classic_commodity_outflow_1,1,0,Tstart10,Tend11,Commoditycrew_interim
+   - 7.1 Classic_commodity_outflow_1,1,0,Tstart10,Tend11,Commoditycrew_return
+   - Classic_commodity_inflow_1,1,0,Tstart10,Tend11,Commoditycrew_return
+   = 0
+Bounds
+ Classic_commodity_inflow_0,0,0,Tstart10,Tend11,Commoditycrew_return free
+ Classic_commodity_inflow_0,1,0,Tstart10,Tend11,Commoditycrew_return free
+ Classic_commodity_inflow_1,0,0,Tstart10,Tend11,Commoditycrew_return free
+ Classic_commodity_inflow_1,1,0,Tstart10,Tend11,Commoditycrew_return free
+Generals
+ Classic_commodity_outflow_0,0,0,Tstart10,Tend11,Commoditycrew
+ Classic_commodity_outflow_0,0,0,Tstart10,Tend11,Commoditycrew_interim
+ Classic_commodity_outflow_0,0,0,Tstart10,Tend11,Commoditycrew_return
+ Classic_commodity_outflow_0,1,0,Tstart10,Tend11,Commoditycrew
+ Classic_commodity_outflow_0,1,0,Tstart10,Tend11,Commoditycrew_interim
+ Classic_commodity_outflow_0,1,0,Tstart10,Tend11,Commoditycrew_return
+ Classic_commodity_outflow_1,0,0,Tstart10,Tend11,Commoditycrew
+ Classic_commodity_outflow_1,0,0,Tstart10,Tend11,Commoditycrew_interim
+ Classic_commodity_outflow_1,0,0,Tstart10,Tend11,Commoditycrew_return
+ Classic_commodity_outflow_1,1,0,Tstart10,Tend11,Commoditycrew
+ Classic_commodity_outflow_1,1,0,Tstart10,Tend11,Commoditycrew_interim
+ Classic_commodity_outflow_1,1,0,Tstart10,Tend11,Commoditycrew_return
+ Classic_commodity_inflow_0,0,0,Tstart10,Tend11,Commoditycrew_return
+ Classic_commodity_inflow_0,1,0,Tstart10,Tend11,Commoditycrew_return
+ Classic_commodity_inflow_1,0,0,Tstart10,Tend11,Commoditycrew_return
+ Classic_commodity_inflow_1,1,0,Tstart10,Tend11,Commoditycrew_return
+End

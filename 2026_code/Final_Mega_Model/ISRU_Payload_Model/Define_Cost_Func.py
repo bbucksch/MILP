@@ -35,5 +35,5 @@ def set_initial_mass_objective(model, ctx, start_node=1, start_time=0):
             for j in ctx["all_arcs"][start_time][start_node]
         )
     )
-    model.setObjective(cost, GRB.MINIMIZE)
+    
     return cost

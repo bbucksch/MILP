@@ -23,6 +23,8 @@ def define_commodities(ISRUModelvar):
     Comm = Commodities()
     Comm.commodity_names = [
             "crew",
+            "crew_interim",
+            "crew_return",
             "consumables",
             "equipment",
             "samples",
@@ -32,6 +34,8 @@ def define_commodities(ISRUModelvar):
     ]
     Comm.Variable_type = [
             GRB.INTEGER,
+            GRB.INTEGER,
+            GRB.INTEGER,
             GRB.CONTINUOUS,
             GRB.CONTINUOUS,
             GRB.CONTINUOUS,
@@ -40,10 +44,10 @@ def define_commodities(ISRUModelvar):
             GRB.CONTINUOUS,
     ]
     
-    Comm.prop_index = 4 #Index of propellant in the commodities list
-    Comm.isru_indices = {"packaged": 5, "active": 6}
+    Comm.prop_index = 6 #Index of propellant in the commodities list
+    Comm.isru_indices = {"packaged": 7, "active": 8}
     Comm.crew_mass = 100
-    Comm.mass_conversion = [Comm.crew_mass, 1, 1, 1, 1, 1, 1]
+    Comm.mass_conversion = [Comm.crew_mass, Comm.crew_mass, Comm.crew_mass, 1, 1, 1, 1, 1, 1]
     Comm.consumption_rate = 1.0 + 5.0 + 1.1
     return Comm
 
@@ -85,26 +89,77 @@ def demand_supply(network, n_commodities, n_vehicles):
           for _ in T_adv]
          for _ in network.connections]
 
+    #Crew
     D[1][0][0] = 3
-    D[1][0][1] = 99999
-    D[1][0][2] = 99999
-    D[1][0][4] = 99999999
-
-    for t in network.node_windows[3]:
-        D[3][t][3] = 999999
-
     D[3][4][0] = -2
     D[2][3][0] = -1
-    D[3][5][0] = 2
-    D[2][6][0] = 1
-    D[0][11][0] = -3
-    D[3][4][2] = -420
-    D[0][11][3] = -110
+    #D[3][5][0] = 2
+    #D[2][6][0] = 1
+    #D[0][11][0] = -3
+    
+    D[1][0+365][0] = 3
+    D[3][4+365][0] = -2
+    D[2][3+365][0] = -1
+    #Crew Interim
+    D[3][4][1] = 2
+    D[2][3][1] = 1
+    D[3][5][1] = -2
+    D[2][6][1] = -1
+
+    D[3][4+365][1] = 2
+    D[2][3+365][1] = 1
+    D[3][5+365][1] = -2
+    D[2][6+365][1] = -1
+
+    #CrewReturn
+    D[3][5][2] = 2
+    D[2][6][2] = 1
+    D[0][11][2] = -3
+
+    D[3][5+365][2] = 2
+    D[2][6+365][2] = 1
+    D[0][11+365][2] = -3
+
+    #Consumables
+    D[1][0][3] = 99999
+
+    D[1][0+365][3] = 99999
+
+    #Equipment
+    D[1][0][4] = 99999
+    D[3][4][4] = -420
+
+    D[1][0+365][4] = 99999
+    D[3][4+365][4] = -420
+
+    #Samples
+    for t in network.node_windows[3]:
+        D[3][t][5] = 999999
+    
+    D[0][11][5] = -110
+
+    D[0][11+365][5] = -110
+    
+    #Propellant
+    D[1][0][6] = 99999999
+
+    D[1][0+365][6] = 99999999
+
+    #ISRU packaged
+    D[1][0][7] = 10000.0
+
+    
+
+    
+    
+    
+   
 
     #Vehicle Demand array [Node][vehicle][Time]
-    d = [[[1 if (i == 1 and t == 0) else 0 for t in range(network.T)]
+    d = [[[2 if (i == 1 and t == 0) else 0 for t in range(network.T)]
           for _ in range(n_vehicles)]
          for i in network.connections]
+    d[1][0][365] = 1
     
     #Validate D and d
     Validation_Demand_Supply(network, D, d)
@@ -137,7 +192,7 @@ def consumption_matrix(i, j, v, commodity_count, prop_index, crew_mass,
     full_len = commodity_count + 1 + Extra_carry_payloads
     mat = np.zeros((full_len, full_len))
 
-    #matrix works by going throuhg the commodity vector first
+    #matrix works by going through the commodity vector first
     #then the spacecraft structure variable
     #then the payload spacecrafts
     #all collated in 1 vector for matrix multiplication
@@ -153,11 +208,17 @@ def consumption_matrix(i, j, v, commodity_count, prop_index, crew_mass,
         mat[c, c] = 1
     
     
-    #exceptions consumption of consumables: crew ->consumables [0->1]
-    mat[1, 0] = -daily_consumption * network.tof[i][j] #Decrease in consumables due to crew consumption
+    #exceptions consumption of consumables: crew ->consumables [3]
+    mat[3, 0] = -daily_consumption * network.tof[i][j] #Decrease in consumables due to crew consumption
+    mat[3, 1] = -daily_consumption * network.tof[i][j] #Decrease in consumables due to crew consumption
+    mat[3, 2] = -daily_consumption * network.tof[i][j] #Decrease in consumables due to crew consumption
+    #crew, crew interim, crew return -> consumables
     
+    #crew, crew interim, crew return -> propellant
     mat[prop_index, 0] = -crew_mass * active_phi #crew mass multiplication
-    
+    mat[prop_index, 1] = -crew_mass * active_phi #crew mass multiplication
+    mat[prop_index, 2] = -crew_mass * active_phi #crew mass multiplication
+
     mat[prop_index, prop_index] = 1 - active_phi #propellant function
     
     mat[prop_index, commodity_count] = -vehicle_data.structure_mass[v] * active_phi
