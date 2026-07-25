@@ -1,5 +1,6 @@
 import plotly.express as px
 import plotly.graph_objects as go
+import plotly.colors as pc
 import pandas as pd
 import numpy as np
 
@@ -275,6 +276,12 @@ def plot_time_space_network(
         for idx, vehicle in enumerate(vehicles)
     }
 
+    palette = px.colors.qualitative.Plotly   # px is already imported at the top of the file
+    vehicle_colors = {
+        vehicle: palette[idx % len(palette)]
+        for idx, vehicle in enumerate(vehicles)
+    }
+
     used_legend = set()
 
     for _, row in legs_plot.iterrows():
@@ -329,8 +336,8 @@ def plot_time_space_network(
             name=vehicle,
             legendgroup=vehicle,
             showlegend=showlegend,
-            line=dict(width=line_width, dash=line_dash),
-            marker=dict(size=8),
+            line=dict(width=line_width, dash=line_dash, color=vehicle_colors[vehicle]),
+            marker=dict(size=8, color=vehicle_colors[vehicle]),
             hovertext="<br>".join(hover_lines),
             hoverinfo="text"
         ))
