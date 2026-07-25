@@ -50,7 +50,8 @@ from Variable_Creation import (
 from Constraints_creation import (
     add_mass_balance_constraints,
     add_arc_transformation_constraints,
-    add_concurrency_constraints
+    add_concurrency_constraints,
+    add_ISRU_negation_constraint
 )
 
 from Define_Cost_Func import (
@@ -210,6 +211,7 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
 
     add_mass_balance_constraints(Lin_model, ctx)
     add_arc_transformation_constraints(Lin_model, ctx)
+    add_ISRU_negation_constraint(Lin_model, ctx)
     
     add_concurrency_constraints(Lin_model, ctx)
     

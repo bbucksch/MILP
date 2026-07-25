@@ -171,6 +171,15 @@ def phi(i, j, v, delta_v, isp, g0):
         return 1
     return 1 - np.exp(-(1000 * delta_v[i][j] / (isp[v] * g0)))
 
+
+
+
+def are_we_on_earth(i,j):
+    
+    #only return true on a holdover arc on earth (index 0)
+    return i == j == 0
+
+
 #create a consumption matrix for the network model,based on number of commodities,
 #index position of propellant, and ISRU indices and masses of various systems
 def consumption_matrix(i, j, v, commodity_count, prop_index, crew_mass,
@@ -207,13 +216,20 @@ def consumption_matrix(i, j, v, commodity_count, prop_index, crew_mass,
     for c in range(commodity_count):
         mat[c, c] = 1
     
+    #no consumable consumption on earth (default zeros)
+    if are_we_on_earth(i,j) == False:
+        
+        #exceptions consumption of consumables: crew ->consumables [3]
+        mat[3, 0] = -daily_consumption * network.tof[i][j] #Decrease in consumables due to crew consumption
+        mat[3, 1] = -daily_consumption * network.tof[i][j] #Decrease in consumables due to crew consumption
+        mat[3, 2] = -daily_consumption * network.tof[i][j] #Decrease in consumables due to crew consumption
+        #crew, crew interim, crew return -> consumables
     
-    #exceptions consumption of consumables: crew ->consumables [3]
-    mat[3, 0] = -daily_consumption * network.tof[i][j] #Decrease in consumables due to crew consumption
-    mat[3, 1] = -daily_consumption * network.tof[i][j] #Decrease in consumables due to crew consumption
-    mat[3, 2] = -daily_consumption * network.tof[i][j] #Decrease in consumables due to crew consumption
-    #crew, crew interim, crew return -> consumables
-    
+    #else: 
+    #    print(i,j)
+    #    print(mat[3,0])
+
+
     #crew, crew interim, crew return -> propellant
     mat[prop_index, 0] = -crew_mass * active_phi #crew mass multiplication
     mat[prop_index, 1] = -crew_mass * active_phi #crew mass multiplication

@@ -104,7 +104,7 @@ class ISRUConfig:
 
 @dataclass
 class VehicleData:
-    """Defaults match the active payload-sharing test case in the notebook."""
+    
     number_vehicle_types: int = 2
     vehicle_type_names: list = field(default_factory=lambda: ["Vehicle_0", "Vehicle_1"])
     structure_mass: np.ndarray = field(default_factory=lambda: np.array([2500, 30]))

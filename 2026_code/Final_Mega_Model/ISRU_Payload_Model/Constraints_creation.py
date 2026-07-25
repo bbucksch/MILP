@@ -174,10 +174,10 @@ def add_arc_transformation_constraints(model, ctx):
 
                                 enterarc += arc_annual_output* (hold_days / ctx['isru_config'].days_per_year)
 
-                            else:
-                                #Commodity for Active ISRU is 0 if not eligible
-                                model.addConstr(ctx['x_outflow'][v][i][j][t][ctx['Commodities'].isru_indices['active']][0] == 0,
-                                                 name=f"ActiveISRU_negationConstraint_Start{i}_End{j}_Starttime{t}_Vehicle{v}_Commodity{row}"
+                        else:
+                            #Commodity for Active ISRU is 0 if not eligible
+                            model.addConstr(ctx['x_outflow'][v][i][j][t][ctx['Commodities'].isru_indices['active']][0] == 0,
+                                             name=f"ActiveISRU_negationConstraint_Start{i}_End{j}_Starttime{t}_Vehicle{v}_Commodity{row}"
                                 )
 
                         model.addConstr(
@@ -194,7 +194,17 @@ def add_arc_transformation_constraints(model, ctx):
 
 
 
-
+def add_ISRU_negation_constraint(model,ctx):
+    for t in ctx["all_arcs"]:
+        for i in ctx["all_arcs"][t]:
+            for j in ctx["all_arcs"][t][i]:
+                for v in range(ctx["V"]):
+                    if ctx["isru_config"].enabled == False or is_eligible_isru_arc(i, j, ctx["isru_config"]) == False:    
+                        
+                        model.addConstr(ctx['x_outflow'][v][i][j][t][ctx['Commodities'].isru_indices['active']][0] == 0,
+                                             name=f"ActiveISRU_negationConstraint_Start{i}_End{j}_Starttime{t}_Vehicle{v}"
+                        )
+    return
 
 
 def create_concurrency_constraint(connections, mass_conversion, prop_index, structure_mass, carriable):
