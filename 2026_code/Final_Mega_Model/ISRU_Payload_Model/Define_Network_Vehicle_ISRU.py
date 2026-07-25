@@ -185,7 +185,12 @@ def ISRUfunc(x):
     c3 = 1 - math.exp(x / -3967.2644)
     return c1 + (6.9623 * c2) + (2.0173 * c3)
 
+def ISRUfunc_test(x):
+    return 0.1*x
+
 #Function defining total ISRU outpu in kg O2/year, given mass of ISRU in kg
 def ISRU_total_annual_output(mass):
     return mass * ISRUfunc(mass)
 
+def ISRUtotal_test(mass):
+    return mass*ISRUfunc_test(mass)

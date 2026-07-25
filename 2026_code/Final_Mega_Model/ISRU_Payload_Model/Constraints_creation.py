@@ -52,7 +52,7 @@ def add_mass_balance_constraints(model, ctx):
             if is_eligible_isru_arc(i,i,ctx["isru_config"]):
                 
                 
-                #active + packaged IN == active +packaged OUT
+                #active + packaged IN => active +packaged OUT
                 #applied here
                 model.addConstr(x_outflow_sum[ctx['Commodities'].isru_indices['active']][0] 
                                 +x_outflow_sum[ctx['Commodities'].isru_indices['packaged']][0]
@@ -62,7 +62,7 @@ def add_mass_balance_constraints(model, ctx):
                                 + ctx["Demands"][i][t][ctx['Commodities'].isru_indices['packaged']])
                 
                 
-                #active +packaged IN + demands <= active OUT
+                #active +packaged IN + demands => active OUT
                 # Applied in normal constraint. active now has a changed sum 
                 x_inflow_sum[ctx['Commodities'].isru_indices['active']] =sum(
                     x_inflow_sum[ctx['Commodities'].isru_indices['active']],
@@ -109,6 +109,7 @@ def add_mass_balance_constraints(model, ctx):
                 y_outflow_sum = y_outflow_sum + payload_out
                 y_inflow_sum = y_inflow_sum + payload_in
                 
+                #print(i,t)
                 model.addConstr(
                     y_outflow_sum[0] - y_inflow_sum[0] <= ctx["V_Demands"][i][v][t],
                     name=f"SC_mass_balance_x_node{i}_time{t}_vehicle{v}",
@@ -160,7 +161,7 @@ def add_arc_transformation_constraints(model, ctx):
 
                                 add_log_pwl_1d(
                                     model=model,
-                                    func=ISRU_total_annual_output,
+                                    func=ctx['isru_production_model'],
                                     x_lb=0,
                                     x_ub=ctx['isru_config'].max_mass,
                                     n_segments =ctx['isru_config'].n_segments,
@@ -173,6 +174,11 @@ def add_arc_transformation_constraints(model, ctx):
 
                                 enterarc += arc_annual_output* (hold_days / ctx['isru_config'].days_per_year)
 
+                            else:
+                                #Commodity for Active ISRU is 0 if not eligible
+                                model.addConstr(ctx['x_outflow'][v][i][j][t][ctx['Commodities'].isru_indices['active']][0] == 0,
+                                                 name=f"ActiveISRU_negationConstraint_Start{i}_End{j}_Starttime{t}_Vehicle{v}_Commodity{row}"
+                                )
 
                         model.addConstr(
                             enterarc == leavearc,

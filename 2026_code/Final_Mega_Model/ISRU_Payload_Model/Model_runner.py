@@ -29,7 +29,9 @@ from Define_Network_Vehicle_ISRU import (
     all_possible_outflow_arcs,
     VehicleModel,
     ISRUModel,
-    ISRU_total_annual_output
+    ISRU_total_annual_output,
+    ISRUfunc_test,
+    ISRUtotal_test
 )
 
 from Define_Commodities_Supply_Demand import (
@@ -71,7 +73,7 @@ from Results import (
 #remember to make carriable
 
 
-def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, isru_config=None,
+def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, isru_config=None, isru_prod_model = ISRU_total_annual_output,
                 commodities = None, model_name="MissionPlanning+ISRU", optimize=False, vizualize=False):
     network = network or NetworkModel()
     vehicle_data = vehicle_data or VehicleModel()
@@ -100,7 +102,7 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
         window=network.node_windows, 
         tof_used=network.tof)
     
-    print(all_arcs[365])
+    #print(all_arcs[365])
     
     
     rev_arcs = all_possible_outflow_arcs(
@@ -169,7 +171,7 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
     )
 
     Lin_model.update()
-    print(sc_payload_outflow[0][1][2][0])
+    #print(sc_payload_outflow[0][1][2][0])
 
     sc_payload_inflow = create_commodity_flow(
         model=Lin_model,
@@ -181,6 +183,9 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
         typeC="SC_payload"
     )
 
+
+    #test model line
+    #isru_prod_model = ISRUtotal_test
     #compiling the data into a single model variable
     ctx = {
         "model": Lin_model,
@@ -189,6 +194,7 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
         "V": V,
         "Commodities": Commodities,
         "isru_config":isru_config,
+        "isru_production_model": isru_prod_model,
         "Demands": Demands,
         "V_Demands": V_Demands,
         "connections": network.connections,
@@ -207,10 +213,12 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
     
     add_concurrency_constraints(Lin_model, ctx)
     
-    obj1 = set_initial_mass_objective(Lin_model, ctx)
-    obj2 = set_initial_mass_objective(Lin_model, ctx)
-    ctx["objective"] = sum()
+    obj1 = set_initial_mass_objective(Lin_model, ctx) #default start time 0
+    obj2 = set_initial_mass_objective(Lin_model, ctx,start_time=365) #start time 365
+    ctx["objective"] = obj1+obj2
     Lin_model.setObjective(ctx["objective"], GRB.MINIMIZE)
+
+
     Lin_model.update()
 
     if optimize:

@@ -1,16 +1,1 @@
-"model": Lin_model,
-        "network": network,
-        "vehicle_data": vehicle_data,
-        "V": V,
-        "Commodities": Commodities,
-        "D": D,
-        "d": d,
-        "connections": network.connections,
-        "all_arcs": all_arcs,
-        "rev_arcs": rev_arcs,
-        "x_outflow": x_outflow,
-        "x_inflow": x_inflow,
-        "y_outflow": y_outflow,
-        "y_inflow": y_inflow,
-        "scpayload_outflow": sc_payload_outflow,
-        "scpayload_inflow": sc_payload_inflow
+print

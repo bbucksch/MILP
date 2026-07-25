@@ -1,6 +1,6 @@
 \ Model MissionPlanning+ISRU
 \ LP format - for model browsing. Use MPS format to capture full model detail.
-\ Signature: 0x165cf98bbc4813ef
+\ Signature: 0x832cddf6cb637816
 Minimize
   100 Classic_commodity_outflow_0,1,1,Tstart0,Tend5,Commoditycrew
    + 100 Classic_commodity_outflow_0,1,1,Tstart0,Tend5,Commoditycrew_interim
@@ -11,6 +11,15 @@ Minimize
    + Classic_commodity_outflow_0,1,1,Tstart0,Tend5,Commoditypropellant
    + Classic_commodity_outflow_0,1,1,Tstart0,Tend5,Commoditypackaged_isru
    + Classic_commodity_outflow_0,1,1,Tstart0,Tend5,Commodityactive_isru
+   + 100 Classic_commodity_outflow_0,1,1,Tstart365,Tend370,Commoditycrew
+   + 100 Classic_commodity_outflow_0,1,1,Tstart365,Tend370,Commoditycrew_interim
+   + 100 Classic_commodity_outflow_0,1,1,Tstart365,Tend370,Commoditycrew_return
+   + Classic_commodity_outflow_0,1,1,Tstart365,Tend370,Commodityconsumables
+   + Classic_commodity_outflow_0,1,1,Tstart365,Tend370,Commodityequipment
+   + Classic_commodity_outflow_0,1,1,Tstart365,Tend370,Commoditysamples
+   + Classic_commodity_outflow_0,1,1,Tstart365,Tend370,Commoditypropellant
+   + Classic_commodity_outflow_0,1,1,Tstart365,Tend370,Commoditypackaged_isru
+   + Classic_commodity_outflow_0,1,1,Tstart365,Tend370,Commodityactive_isru
    + 100 Classic_commodity_outflow_0,1,2,Tstart0,Tend3,Commoditycrew
    + 100 Classic_commodity_outflow_0,1,2,Tstart0,Tend3,Commoditycrew_interim
    + 100 Classic_commodity_outflow_0,1,2,Tstart0,Tend3,Commoditycrew_return
@@ -20,6 +29,15 @@ Minimize
    + Classic_commodity_outflow_0,1,2,Tstart0,Tend3,Commoditypropellant
    + Classic_commodity_outflow_0,1,2,Tstart0,Tend3,Commoditypackaged_isru
    + Classic_commodity_outflow_0,1,2,Tstart0,Tend3,Commodityactive_isru
+   + 100 Classic_commodity_outflow_0,1,2,Tstart365,Tend368,Commoditycrew
+   + 100 Classic_commodity_outflow_0,1,2,Tstart365,Tend368,Commoditycrew_interim
+   + 100 Classic_commodity_outflow_0,1,2,Tstart365,Tend368,Commoditycrew_return
+   + Classic_commodity_outflow_0,1,2,Tstart365,Tend368,Commodityconsumables
+   + Classic_commodity_outflow_0,1,2,Tstart365,Tend368,Commodityequipment
+   + Classic_commodity_outflow_0,1,2,Tstart365,Tend368,Commoditysamples
+   + Classic_commodity_outflow_0,1,2,Tstart365,Tend368,Commoditypropellant
+   + Classic_commodity_outflow_0,1,2,Tstart365,Tend368,Commoditypackaged_isru
+   + Classic_commodity_outflow_0,1,2,Tstart365,Tend368,Commodityactive_isru
    + 100 Classic_commodity_outflow_1,1,1,Tstart0,Tend5,Commoditycrew
    + 100 Classic_commodity_outflow_1,1,1,Tstart0,Tend5,Commoditycrew_interim
    + 100 Classic_commodity_outflow_1,1,1,Tstart0,Tend5,Commoditycrew_return
@@ -29,6 +47,15 @@ Minimize
    + Classic_commodity_outflow_1,1,1,Tstart0,Tend5,Commoditypropellant
    + Classic_commodity_outflow_1,1,1,Tstart0,Tend5,Commoditypackaged_isru
    + Classic_commodity_outflow_1,1,1,Tstart0,Tend5,Commodityactive_isru
+   + 100 Classic_commodity_outflow_1,1,1,Tstart365,Tend370,Commoditycrew
+   + 100 Classic_commodity_outflow_1,1,1,Tstart365,Tend370,Commoditycrew_interim
+   + 100 Classic_commodity_outflow_1,1,1,Tstart365,Tend370,Commoditycrew_return
+   + Classic_commodity_outflow_1,1,1,Tstart365,Tend370,Commodityconsumables
+   + Classic_commodity_outflow_1,1,1,Tstart365,Tend370,Commodityequipment
+   + Classic_commodity_outflow_1,1,1,Tstart365,Tend370,Commoditysamples
+   + Classic_commodity_outflow_1,1,1,Tstart365,Tend370,Commoditypropellant
+   + Classic_commodity_outflow_1,1,1,Tstart365,Tend370,Commoditypackaged_isru
+   + Classic_commodity_outflow_1,1,1,Tstart365,Tend370,Commodityactive_isru
    + 100 Classic_commodity_outflow_1,1,2,Tstart0,Tend3,Commoditycrew
    + 100 Classic_commodity_outflow_1,1,2,Tstart0,Tend3,Commoditycrew_interim
    + 100 Classic_commodity_outflow_1,1,2,Tstart0,Tend3,Commoditycrew_return
@@ -38,18 +65,39 @@ Minimize
    + Classic_commodity_outflow_1,1,2,Tstart0,Tend3,Commoditypropellant
    + Classic_commodity_outflow_1,1,2,Tstart0,Tend3,Commoditypackaged_isru
    + Classic_commodity_outflow_1,1,2,Tstart0,Tend3,Commodityactive_isru
+   + 100 Classic_commodity_outflow_1,1,2,Tstart365,Tend368,Commoditycrew
+   + 100 Classic_commodity_outflow_1,1,2,Tstart365,Tend368,Commoditycrew_interim
+   + 100 Classic_commodity_outflow_1,1,2,Tstart365,Tend368,Commoditycrew_return
+   + Classic_commodity_outflow_1,1,2,Tstart365,Tend368,Commodityconsumables
+   + Classic_commodity_outflow_1,1,2,Tstart365,Tend368,Commodityequipment
+   + Classic_commodity_outflow_1,1,2,Tstart365,Tend368,Commoditysamples
+   + Classic_commodity_outflow_1,1,2,Tstart365,Tend368,Commoditypropellant
+   + Classic_commodity_outflow_1,1,2,Tstart365,Tend368,Commoditypackaged_isru
+   + Classic_commodity_outflow_1,1,2,Tstart365,Tend368,Commodityactive_isru
    + 2500 sc_commodity_outflow_0,1,1,Tstart0,Tend5
+   + 2500 sc_commodity_outflow_0,1,1,Tstart365,Tend370
    + 2500 sc_commodity_outflow_0,1,2,Tstart0,Tend3
+   + 2500 sc_commodity_outflow_0,1,2,Tstart365,Tend368
    + 30 sc_commodity_outflow_1,1,1,Tstart0,Tend5
+   + 30 sc_commodity_outflow_1,1,1,Tstart365,Tend370
    + 30 sc_commodity_outflow_1,1,2,Tstart0,Tend3
+   + 30 sc_commodity_outflow_1,1,2,Tstart365,Tend368
    + 2500 SC_payload_commodity_outflow_0,1,1,Tstart0,Tend5,CommoditypayloadVarVehicle_0
    + 30 SC_payload_commodity_outflow_0,1,1,Tstart0,Tend5,CommoditypayloadVarVehicle_1
+   + 2500 SC_payload_commodity_outflow_0,1,1,Tstart365,Tend370,CommoditypayloadVarVehicle_0
+   + 30 SC_payload_commodity_outflow_0,1,1,Tstart365,Tend370,CommoditypayloadVarVehicle_1
    + 2500 SC_payload_commodity_outflow_0,1,2,Tstart0,Tend3,CommoditypayloadVarVehicle_0
    + 30 SC_payload_commodity_outflow_0,1,2,Tstart0,Tend3,CommoditypayloadVarVehicle_1
+   + 2500 SC_payload_commodity_outflow_0,1,2,Tstart365,Tend368,CommoditypayloadVarVehicle_0
+   + 30 SC_payload_commodity_outflow_0,1,2,Tstart365,Tend368,CommoditypayloadVarVehicle_1
    + 2500 SC_payload_commodity_outflow_1,1,1,Tstart0,Tend5,CommoditypayloadVarVehicle_0
    + 30 SC_payload_commodity_outflow_1,1,1,Tstart0,Tend5,CommoditypayloadVarVehicle_1
+   + 2500 SC_payload_commodity_outflow_1,1,1,Tstart365,Tend370,CommoditypayloadVarVehicle_0
+   + 30 SC_payload_commodity_outflow_1,1,1,Tstart365,Tend370,CommoditypayloadVarVehicle_1
    + 2500 SC_payload_commodity_outflow_1,1,2,Tstart0,Tend3,CommoditypayloadVarVehicle_0
    + 30 SC_payload_commodity_outflow_1,1,2,Tstart0,Tend3,CommoditypayloadVarVehicle_1
+   + 2500 SC_payload_commodity_outflow_1,1,2,Tstart365,Tend368,CommoditypayloadVarVehicle_0
+   + 30 SC_payload_commodity_outflow_1,1,2,Tstart365,Tend368,CommoditypayloadVarVehicle_1
 Subject To
  mass_balance_x_node0_time0_comm0:
    Classic_commodity_outflow_0,0,0,Tstart0,Tend4,Commoditycrew
@@ -3340,7 +3388,7 @@ Subject To
    + Classic_commodity_outflow_1,1,2,Tstart365,Tend368,Commodityconsumables
    - Classic_commodity_inflow_0,1,1,Tstart11,Tend365,Commodityconsumables
    - Classic_commodity_inflow_1,1,1,Tstart11,Tend365,Commodityconsumables
-   <= 99999
+   <= 0
  mass_balance_x_node1_time365_comm4:
    Classic_commodity_outflow_0,1,1,Tstart365,Tend370,Commodityequipment
    + Classic_commodity_outflow_0,1,2,Tstart365,Tend368,Commodityequipment
@@ -3348,7 +3396,7 @@ Subject To
    + Classic_commodity_outflow_1,1,2,Tstart365,Tend368,Commodityequipment
    - Classic_commodity_inflow_0,1,1,Tstart11,Tend365,Commodityequipment
    - Classic_commodity_inflow_1,1,1,Tstart11,Tend365,Commodityequipment
-   <= 99999
+   <= 0
  mass_balance_x_node1_time365_comm5:
    Classic_commodity_outflow_0,1,1,Tstart365,Tend370,Commoditysamples
    + Classic_commodity_outflow_0,1,2,Tstart365,Tend368,Commoditysamples
@@ -4508,7 +4556,7 @@ Subject To
    - Classic_commodity_inflow_0,3,3,Tstart368,Tend369,Commodityequipment
    - Classic_commodity_inflow_1,2,3,Tstart368,Tend369,Commodityequipment
    - Classic_commodity_inflow_1,3,3,Tstart368,Tend369,Commodityequipment
-   <= -420
+   <= 0
  mass_balance_x_node3_time369_comm5:
    Classic_commodity_outflow_0,3,2,Tstart369,Tend370,Commoditysamples
    + Classic_commodity_outflow_0,3,3,Tstart369,Tend370,Commoditysamples
@@ -7019,25 +7067,37 @@ Subject To
    - Classic_commodity_outflow_1,3,2,Tstart0,Tend1,Commoditypropellant
    + Classic_commodity_inflow_1,3,2,Tstart0,Tend1,Commoditypropellant
    >= -17000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime0_Vehicle0_Commodity0:
+   Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime0_Vehicle0_Commodity0:
    Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commoditycrew
    - Classic_commodity_inflow_0,3,3,Tstart0,Tend2,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime0_Vehicle0_Commodity1:
+   Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime0_Vehicle0_Commodity1:
    Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commoditycrew_interim
    - Classic_commodity_inflow_0,3,3,Tstart0,Tend2,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime0_Vehicle0_Commodity2:
+   Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime0_Vehicle0_Commodity2:
    Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commoditycrew_return
    - Classic_commodity_inflow_0,3,3,Tstart0,Tend2,Commoditycrew_return = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime0_Vehicle0_Commodity3:
+   Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime0_Vehicle0_Commodity3:
    - 7.1 Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commoditycrew
    - 7.1 Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commoditycrew_interim
    - 7.1 Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commoditycrew_return
    + Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commodityconsumables
    - Classic_commodity_inflow_0,3,3,Tstart0,Tend2,Commodityconsumables = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime0_Vehicle0_Commodity4:
+   Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime0_Vehicle0_Commodity4:
    Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commodityequipment
    - Classic_commodity_inflow_0,3,3,Tstart0,Tend2,Commodityequipment = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime0_Vehicle0_Commodity5:
+   Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime0_Vehicle0_Commodity5:
    Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commoditysamples
    - Classic_commodity_inflow_0,3,3,Tstart0,Tend2,Commoditysamples = 0
@@ -8208,20 +8268,30 @@ Subject To
    Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commoditypropellant
    - Classic_commodity_inflow_0,3,3,Tstart0,Tend2,Commoditypropellant
    + 0.00547945205479452 isru_arc_propellant_vehicle0_node3_time0 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime0_Vehicle0_Commodity7:
+   Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime0_Vehicle0_Commodity7:
    Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commoditypackaged_isru
    - Classic_commodity_inflow_0,3,3,Tstart0,Tend2,Commoditypackaged_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime0_Vehicle0_Commodity8:
+   Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime0_Vehicle0_Commodity8:
    Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commodityactive_isru
    - Classic_commodity_inflow_0,3,3,Tstart0,Tend2,Commodityactive_isru = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime0_Vehicle0_Commodity9:
+   Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime0_Vehicle0_Commodity9:
    sc_commodity_outflow_0,3,3,Tstart0,Tend2
    - sc_commodity_inflow_0,3,3,Tstart0,Tend2 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime0_Vehicle0_Commodity10:
+   Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime0_Vehicle0_Commodity10:
    SC_payload_commodity_outflow_0,3,3,Tstart0,Tend2,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_0,3,3,Tstart0,Tend2,CommoditypayloadVarVehicle_0
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime0_Vehicle0_Commodity11:
+   Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime0_Vehicle0_Commodity11:
    SC_payload_commodity_outflow_0,3,3,Tstart0,Tend2,CommoditypayloadVarVehicle_1
    - SC_payload_commodity_inflow_0,3,3,Tstart0,Tend2,CommoditypayloadVarVehicle_1
@@ -8230,25 +8300,37 @@ Subject To
    - Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commoditypropellant
    + Classic_commodity_inflow_0,3,3,Tstart0,Tend2,Commoditypropellant
    >= -4000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime0_Vehicle1_Commodity0:
+   Classic_commodity_outflow_1,3,3,Tstart0,Tend2,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime0_Vehicle1_Commodity0:
    Classic_commodity_outflow_1,3,3,Tstart0,Tend2,Commoditycrew
    - Classic_commodity_inflow_1,3,3,Tstart0,Tend2,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime0_Vehicle1_Commodity1:
+   Classic_commodity_outflow_1,3,3,Tstart0,Tend2,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime0_Vehicle1_Commodity1:
    Classic_commodity_outflow_1,3,3,Tstart0,Tend2,Commoditycrew_interim
    - Classic_commodity_inflow_1,3,3,Tstart0,Tend2,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime0_Vehicle1_Commodity2:
+   Classic_commodity_outflow_1,3,3,Tstart0,Tend2,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime0_Vehicle1_Commodity2:
    Classic_commodity_outflow_1,3,3,Tstart0,Tend2,Commoditycrew_return
    - Classic_commodity_inflow_1,3,3,Tstart0,Tend2,Commoditycrew_return = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime0_Vehicle1_Commodity3:
+   Classic_commodity_outflow_1,3,3,Tstart0,Tend2,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime0_Vehicle1_Commodity3:
    - 7.1 Classic_commodity_outflow_1,3,3,Tstart0,Tend2,Commoditycrew
    - 7.1 Classic_commodity_outflow_1,3,3,Tstart0,Tend2,Commoditycrew_interim
    - 7.1 Classic_commodity_outflow_1,3,3,Tstart0,Tend2,Commoditycrew_return
    + Classic_commodity_outflow_1,3,3,Tstart0,Tend2,Commodityconsumables
    - Classic_commodity_inflow_1,3,3,Tstart0,Tend2,Commodityconsumables = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime0_Vehicle1_Commodity4:
+   Classic_commodity_outflow_1,3,3,Tstart0,Tend2,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime0_Vehicle1_Commodity4:
    Classic_commodity_outflow_1,3,3,Tstart0,Tend2,Commodityequipment
    - Classic_commodity_inflow_1,3,3,Tstart0,Tend2,Commodityequipment = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime0_Vehicle1_Commodity5:
+   Classic_commodity_outflow_1,3,3,Tstart0,Tend2,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime0_Vehicle1_Commodity5:
    Classic_commodity_outflow_1,3,3,Tstart0,Tend2,Commoditysamples
    - Classic_commodity_inflow_1,3,3,Tstart0,Tend2,Commoditysamples = 0
@@ -9419,20 +9501,30 @@ Subject To
    Classic_commodity_outflow_1,3,3,Tstart0,Tend2,Commoditypropellant
    - Classic_commodity_inflow_1,3,3,Tstart0,Tend2,Commoditypropellant
    + 0.00547945205479452 isru_arc_propellant_vehicle1_node3_time0 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime0_Vehicle1_Commodity7:
+   Classic_commodity_outflow_1,3,3,Tstart0,Tend2,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime0_Vehicle1_Commodity7:
    Classic_commodity_outflow_1,3,3,Tstart0,Tend2,Commoditypackaged_isru
    - Classic_commodity_inflow_1,3,3,Tstart0,Tend2,Commoditypackaged_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime0_Vehicle1_Commodity8:
+   Classic_commodity_outflow_1,3,3,Tstart0,Tend2,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime0_Vehicle1_Commodity8:
    Classic_commodity_outflow_1,3,3,Tstart0,Tend2,Commodityactive_isru
    - Classic_commodity_inflow_1,3,3,Tstart0,Tend2,Commodityactive_isru = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime0_Vehicle1_Commodity9:
+   Classic_commodity_outflow_1,3,3,Tstart0,Tend2,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime0_Vehicle1_Commodity9:
    sc_commodity_outflow_1,3,3,Tstart0,Tend2
    - sc_commodity_inflow_1,3,3,Tstart0,Tend2 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime0_Vehicle1_Commodity10:
+   Classic_commodity_outflow_1,3,3,Tstart0,Tend2,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime0_Vehicle1_Commodity10:
    SC_payload_commodity_outflow_1,3,3,Tstart0,Tend2,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_1,3,3,Tstart0,Tend2,CommoditypayloadVarVehicle_0
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime0_Vehicle1_Commodity11:
+   Classic_commodity_outflow_1,3,3,Tstart0,Tend2,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime0_Vehicle1_Commodity11:
    SC_payload_commodity_outflow_1,3,3,Tstart0,Tend2,CommoditypayloadVarVehicle_1
    - SC_payload_commodity_inflow_1,3,3,Tstart0,Tend2,CommoditypayloadVarVehicle_1
@@ -10093,25 +10185,37 @@ Subject To
    - Classic_commodity_outflow_1,3,2,Tstart2,Tend3,Commoditypropellant
    + Classic_commodity_inflow_1,3,2,Tstart2,Tend3,Commoditypropellant
    >= -17000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime2_Vehicle0_Commodity0:
+   Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime2_Vehicle0_Commodity0:
    Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commoditycrew
    - Classic_commodity_inflow_0,3,3,Tstart2,Tend3,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime2_Vehicle0_Commodity1:
+   Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime2_Vehicle0_Commodity1:
    Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commoditycrew_interim
    - Classic_commodity_inflow_0,3,3,Tstart2,Tend3,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime2_Vehicle0_Commodity2:
+   Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime2_Vehicle0_Commodity2:
    Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commoditycrew_return
    - Classic_commodity_inflow_0,3,3,Tstart2,Tend3,Commoditycrew_return = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime2_Vehicle0_Commodity3:
+   Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime2_Vehicle0_Commodity3:
    - 7.1 Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commoditycrew
    - 7.1 Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commoditycrew_interim
    - 7.1 Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commoditycrew_return
    + Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commodityconsumables
    - Classic_commodity_inflow_0,3,3,Tstart2,Tend3,Commodityconsumables = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime2_Vehicle0_Commodity4:
+   Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime2_Vehicle0_Commodity4:
    Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commodityequipment
    - Classic_commodity_inflow_0,3,3,Tstart2,Tend3,Commodityequipment = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime2_Vehicle0_Commodity5:
+   Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime2_Vehicle0_Commodity5:
    Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commoditysamples
    - Classic_commodity_inflow_0,3,3,Tstart2,Tend3,Commoditysamples = 0
@@ -11282,20 +11386,30 @@ Subject To
    Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commoditypropellant
    - Classic_commodity_inflow_0,3,3,Tstart2,Tend3,Commoditypropellant
    + 0.00273972602739726 isru_arc_propellant_vehicle0_node3_time2 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime2_Vehicle0_Commodity7:
+   Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime2_Vehicle0_Commodity7:
    Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commoditypackaged_isru
    - Classic_commodity_inflow_0,3,3,Tstart2,Tend3,Commoditypackaged_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime2_Vehicle0_Commodity8:
+   Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime2_Vehicle0_Commodity8:
    Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commodityactive_isru
    - Classic_commodity_inflow_0,3,3,Tstart2,Tend3,Commodityactive_isru = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime2_Vehicle0_Commodity9:
+   Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime2_Vehicle0_Commodity9:
    sc_commodity_outflow_0,3,3,Tstart2,Tend3
    - sc_commodity_inflow_0,3,3,Tstart2,Tend3 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime2_Vehicle0_Commodity10:
+   Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime2_Vehicle0_Commodity10:
    SC_payload_commodity_outflow_0,3,3,Tstart2,Tend3,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_0,3,3,Tstart2,Tend3,CommoditypayloadVarVehicle_0
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime2_Vehicle0_Commodity11:
+   Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime2_Vehicle0_Commodity11:
    SC_payload_commodity_outflow_0,3,3,Tstart2,Tend3,CommoditypayloadVarVehicle_1
    - SC_payload_commodity_inflow_0,3,3,Tstart2,Tend3,CommoditypayloadVarVehicle_1
@@ -11304,25 +11418,37 @@ Subject To
    - Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commoditypropellant
    + Classic_commodity_inflow_0,3,3,Tstart2,Tend3,Commoditypropellant
    >= -4000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime2_Vehicle1_Commodity0:
+   Classic_commodity_outflow_1,3,3,Tstart2,Tend3,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime2_Vehicle1_Commodity0:
    Classic_commodity_outflow_1,3,3,Tstart2,Tend3,Commoditycrew
    - Classic_commodity_inflow_1,3,3,Tstart2,Tend3,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime2_Vehicle1_Commodity1:
+   Classic_commodity_outflow_1,3,3,Tstart2,Tend3,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime2_Vehicle1_Commodity1:
    Classic_commodity_outflow_1,3,3,Tstart2,Tend3,Commoditycrew_interim
    - Classic_commodity_inflow_1,3,3,Tstart2,Tend3,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime2_Vehicle1_Commodity2:
+   Classic_commodity_outflow_1,3,3,Tstart2,Tend3,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime2_Vehicle1_Commodity2:
    Classic_commodity_outflow_1,3,3,Tstart2,Tend3,Commoditycrew_return
    - Classic_commodity_inflow_1,3,3,Tstart2,Tend3,Commoditycrew_return = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime2_Vehicle1_Commodity3:
+   Classic_commodity_outflow_1,3,3,Tstart2,Tend3,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime2_Vehicle1_Commodity3:
    - 7.1 Classic_commodity_outflow_1,3,3,Tstart2,Tend3,Commoditycrew
    - 7.1 Classic_commodity_outflow_1,3,3,Tstart2,Tend3,Commoditycrew_interim
    - 7.1 Classic_commodity_outflow_1,3,3,Tstart2,Tend3,Commoditycrew_return
    + Classic_commodity_outflow_1,3,3,Tstart2,Tend3,Commodityconsumables
    - Classic_commodity_inflow_1,3,3,Tstart2,Tend3,Commodityconsumables = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime2_Vehicle1_Commodity4:
+   Classic_commodity_outflow_1,3,3,Tstart2,Tend3,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime2_Vehicle1_Commodity4:
    Classic_commodity_outflow_1,3,3,Tstart2,Tend3,Commodityequipment
    - Classic_commodity_inflow_1,3,3,Tstart2,Tend3,Commodityequipment = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime2_Vehicle1_Commodity5:
+   Classic_commodity_outflow_1,3,3,Tstart2,Tend3,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime2_Vehicle1_Commodity5:
    Classic_commodity_outflow_1,3,3,Tstart2,Tend3,Commoditysamples
    - Classic_commodity_inflow_1,3,3,Tstart2,Tend3,Commoditysamples = 0
@@ -12493,20 +12619,30 @@ Subject To
    Classic_commodity_outflow_1,3,3,Tstart2,Tend3,Commoditypropellant
    - Classic_commodity_inflow_1,3,3,Tstart2,Tend3,Commoditypropellant
    + 0.00273972602739726 isru_arc_propellant_vehicle1_node3_time2 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime2_Vehicle1_Commodity7:
+   Classic_commodity_outflow_1,3,3,Tstart2,Tend3,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime2_Vehicle1_Commodity7:
    Classic_commodity_outflow_1,3,3,Tstart2,Tend3,Commoditypackaged_isru
    - Classic_commodity_inflow_1,3,3,Tstart2,Tend3,Commoditypackaged_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime2_Vehicle1_Commodity8:
+   Classic_commodity_outflow_1,3,3,Tstart2,Tend3,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime2_Vehicle1_Commodity8:
    Classic_commodity_outflow_1,3,3,Tstart2,Tend3,Commodityactive_isru
    - Classic_commodity_inflow_1,3,3,Tstart2,Tend3,Commodityactive_isru = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime2_Vehicle1_Commodity9:
+   Classic_commodity_outflow_1,3,3,Tstart2,Tend3,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime2_Vehicle1_Commodity9:
    sc_commodity_outflow_1,3,3,Tstart2,Tend3
    - sc_commodity_inflow_1,3,3,Tstart2,Tend3 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime2_Vehicle1_Commodity10:
+   Classic_commodity_outflow_1,3,3,Tstart2,Tend3,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime2_Vehicle1_Commodity10:
    SC_payload_commodity_outflow_1,3,3,Tstart2,Tend3,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_1,3,3,Tstart2,Tend3,CommoditypayloadVarVehicle_0
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime2_Vehicle1_Commodity11:
+   Classic_commodity_outflow_1,3,3,Tstart2,Tend3,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime2_Vehicle1_Commodity11:
    SC_payload_commodity_outflow_1,3,3,Tstart2,Tend3,CommoditypayloadVarVehicle_1
    - SC_payload_commodity_inflow_1,3,3,Tstart2,Tend3,CommoditypayloadVarVehicle_1
@@ -12841,25 +12977,37 @@ Subject To
    - Classic_commodity_outflow_1,3,2,Tstart3,Tend4,Commoditypropellant
    + Classic_commodity_inflow_1,3,2,Tstart3,Tend4,Commoditypropellant
    >= -17000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime3_Vehicle0_Commodity0:
+   Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime3_Vehicle0_Commodity0:
    Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commoditycrew
    - Classic_commodity_inflow_0,3,3,Tstart3,Tend4,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime3_Vehicle0_Commodity1:
+   Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime3_Vehicle0_Commodity1:
    Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commoditycrew_interim
    - Classic_commodity_inflow_0,3,3,Tstart3,Tend4,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime3_Vehicle0_Commodity2:
+   Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime3_Vehicle0_Commodity2:
    Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commoditycrew_return
    - Classic_commodity_inflow_0,3,3,Tstart3,Tend4,Commoditycrew_return = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime3_Vehicle0_Commodity3:
+   Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime3_Vehicle0_Commodity3:
    - 7.1 Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commoditycrew
    - 7.1 Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commoditycrew_interim
    - 7.1 Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commoditycrew_return
    + Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commodityconsumables
    - Classic_commodity_inflow_0,3,3,Tstart3,Tend4,Commodityconsumables = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime3_Vehicle0_Commodity4:
+   Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime3_Vehicle0_Commodity4:
    Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commodityequipment
    - Classic_commodity_inflow_0,3,3,Tstart3,Tend4,Commodityequipment = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime3_Vehicle0_Commodity5:
+   Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime3_Vehicle0_Commodity5:
    Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commoditysamples
    - Classic_commodity_inflow_0,3,3,Tstart3,Tend4,Commoditysamples = 0
@@ -14030,20 +14178,30 @@ Subject To
    Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commoditypropellant
    - Classic_commodity_inflow_0,3,3,Tstart3,Tend4,Commoditypropellant
    + 0.00273972602739726 isru_arc_propellant_vehicle0_node3_time3 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime3_Vehicle0_Commodity7:
+   Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime3_Vehicle0_Commodity7:
    Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commoditypackaged_isru
    - Classic_commodity_inflow_0,3,3,Tstart3,Tend4,Commoditypackaged_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime3_Vehicle0_Commodity8:
+   Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime3_Vehicle0_Commodity8:
    Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commodityactive_isru
    - Classic_commodity_inflow_0,3,3,Tstart3,Tend4,Commodityactive_isru = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime3_Vehicle0_Commodity9:
+   Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime3_Vehicle0_Commodity9:
    sc_commodity_outflow_0,3,3,Tstart3,Tend4
    - sc_commodity_inflow_0,3,3,Tstart3,Tend4 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime3_Vehicle0_Commodity10:
+   Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime3_Vehicle0_Commodity10:
    SC_payload_commodity_outflow_0,3,3,Tstart3,Tend4,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_0,3,3,Tstart3,Tend4,CommoditypayloadVarVehicle_0
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime3_Vehicle0_Commodity11:
+   Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime3_Vehicle0_Commodity11:
    SC_payload_commodity_outflow_0,3,3,Tstart3,Tend4,CommoditypayloadVarVehicle_1
    - SC_payload_commodity_inflow_0,3,3,Tstart3,Tend4,CommoditypayloadVarVehicle_1
@@ -14052,25 +14210,37 @@ Subject To
    - Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commoditypropellant
    + Classic_commodity_inflow_0,3,3,Tstart3,Tend4,Commoditypropellant
    >= -4000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime3_Vehicle1_Commodity0:
+   Classic_commodity_outflow_1,3,3,Tstart3,Tend4,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime3_Vehicle1_Commodity0:
    Classic_commodity_outflow_1,3,3,Tstart3,Tend4,Commoditycrew
    - Classic_commodity_inflow_1,3,3,Tstart3,Tend4,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime3_Vehicle1_Commodity1:
+   Classic_commodity_outflow_1,3,3,Tstart3,Tend4,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime3_Vehicle1_Commodity1:
    Classic_commodity_outflow_1,3,3,Tstart3,Tend4,Commoditycrew_interim
    - Classic_commodity_inflow_1,3,3,Tstart3,Tend4,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime3_Vehicle1_Commodity2:
+   Classic_commodity_outflow_1,3,3,Tstart3,Tend4,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime3_Vehicle1_Commodity2:
    Classic_commodity_outflow_1,3,3,Tstart3,Tend4,Commoditycrew_return
    - Classic_commodity_inflow_1,3,3,Tstart3,Tend4,Commoditycrew_return = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime3_Vehicle1_Commodity3:
+   Classic_commodity_outflow_1,3,3,Tstart3,Tend4,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime3_Vehicle1_Commodity3:
    - 7.1 Classic_commodity_outflow_1,3,3,Tstart3,Tend4,Commoditycrew
    - 7.1 Classic_commodity_outflow_1,3,3,Tstart3,Tend4,Commoditycrew_interim
    - 7.1 Classic_commodity_outflow_1,3,3,Tstart3,Tend4,Commoditycrew_return
    + Classic_commodity_outflow_1,3,3,Tstart3,Tend4,Commodityconsumables
    - Classic_commodity_inflow_1,3,3,Tstart3,Tend4,Commodityconsumables = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime3_Vehicle1_Commodity4:
+   Classic_commodity_outflow_1,3,3,Tstart3,Tend4,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime3_Vehicle1_Commodity4:
    Classic_commodity_outflow_1,3,3,Tstart3,Tend4,Commodityequipment
    - Classic_commodity_inflow_1,3,3,Tstart3,Tend4,Commodityequipment = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime3_Vehicle1_Commodity5:
+   Classic_commodity_outflow_1,3,3,Tstart3,Tend4,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime3_Vehicle1_Commodity5:
    Classic_commodity_outflow_1,3,3,Tstart3,Tend4,Commoditysamples
    - Classic_commodity_inflow_1,3,3,Tstart3,Tend4,Commoditysamples = 0
@@ -15241,20 +15411,30 @@ Subject To
    Classic_commodity_outflow_1,3,3,Tstart3,Tend4,Commoditypropellant
    - Classic_commodity_inflow_1,3,3,Tstart3,Tend4,Commoditypropellant
    + 0.00273972602739726 isru_arc_propellant_vehicle1_node3_time3 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime3_Vehicle1_Commodity7:
+   Classic_commodity_outflow_1,3,3,Tstart3,Tend4,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime3_Vehicle1_Commodity7:
    Classic_commodity_outflow_1,3,3,Tstart3,Tend4,Commoditypackaged_isru
    - Classic_commodity_inflow_1,3,3,Tstart3,Tend4,Commoditypackaged_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime3_Vehicle1_Commodity8:
+   Classic_commodity_outflow_1,3,3,Tstart3,Tend4,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime3_Vehicle1_Commodity8:
    Classic_commodity_outflow_1,3,3,Tstart3,Tend4,Commodityactive_isru
    - Classic_commodity_inflow_1,3,3,Tstart3,Tend4,Commodityactive_isru = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime3_Vehicle1_Commodity9:
+   Classic_commodity_outflow_1,3,3,Tstart3,Tend4,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime3_Vehicle1_Commodity9:
    sc_commodity_outflow_1,3,3,Tstart3,Tend4
    - sc_commodity_inflow_1,3,3,Tstart3,Tend4 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime3_Vehicle1_Commodity10:
+   Classic_commodity_outflow_1,3,3,Tstart3,Tend4,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime3_Vehicle1_Commodity10:
    SC_payload_commodity_outflow_1,3,3,Tstart3,Tend4,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_1,3,3,Tstart3,Tend4,CommoditypayloadVarVehicle_0
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime3_Vehicle1_Commodity11:
+   Classic_commodity_outflow_1,3,3,Tstart3,Tend4,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime3_Vehicle1_Commodity11:
    SC_payload_commodity_outflow_1,3,3,Tstart3,Tend4,CommoditypayloadVarVehicle_1
    - SC_payload_commodity_inflow_1,3,3,Tstart3,Tend4,CommoditypayloadVarVehicle_1
@@ -15797,25 +15977,37 @@ Subject To
    - Classic_commodity_outflow_1,3,2,Tstart4,Tend5,Commoditypropellant
    + Classic_commodity_inflow_1,3,2,Tstart4,Tend5,Commoditypropellant
    >= -17000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime4_Vehicle0_Commodity0:
+   Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime4_Vehicle0_Commodity0:
    Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commoditycrew
    - Classic_commodity_inflow_0,3,3,Tstart4,Tend5,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime4_Vehicle0_Commodity1:
+   Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime4_Vehicle0_Commodity1:
    Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commoditycrew_interim
    - Classic_commodity_inflow_0,3,3,Tstart4,Tend5,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime4_Vehicle0_Commodity2:
+   Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime4_Vehicle0_Commodity2:
    Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commoditycrew_return
    - Classic_commodity_inflow_0,3,3,Tstart4,Tend5,Commoditycrew_return = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime4_Vehicle0_Commodity3:
+   Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime4_Vehicle0_Commodity3:
    - 7.1 Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commoditycrew
    - 7.1 Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commoditycrew_interim
    - 7.1 Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commoditycrew_return
    + Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commodityconsumables
    - Classic_commodity_inflow_0,3,3,Tstart4,Tend5,Commodityconsumables = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime4_Vehicle0_Commodity4:
+   Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime4_Vehicle0_Commodity4:
    Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commodityequipment
    - Classic_commodity_inflow_0,3,3,Tstart4,Tend5,Commodityequipment = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime4_Vehicle0_Commodity5:
+   Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime4_Vehicle0_Commodity5:
    Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commoditysamples
    - Classic_commodity_inflow_0,3,3,Tstart4,Tend5,Commoditysamples = 0
@@ -16986,20 +17178,30 @@ Subject To
    Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commoditypropellant
    - Classic_commodity_inflow_0,3,3,Tstart4,Tend5,Commoditypropellant
    + 0.00273972602739726 isru_arc_propellant_vehicle0_node3_time4 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime4_Vehicle0_Commodity7:
+   Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime4_Vehicle0_Commodity7:
    Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commoditypackaged_isru
    - Classic_commodity_inflow_0,3,3,Tstart4,Tend5,Commoditypackaged_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime4_Vehicle0_Commodity8:
+   Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime4_Vehicle0_Commodity8:
    Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commodityactive_isru
    - Classic_commodity_inflow_0,3,3,Tstart4,Tend5,Commodityactive_isru = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime4_Vehicle0_Commodity9:
+   Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime4_Vehicle0_Commodity9:
    sc_commodity_outflow_0,3,3,Tstart4,Tend5
    - sc_commodity_inflow_0,3,3,Tstart4,Tend5 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime4_Vehicle0_Commodity10:
+   Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime4_Vehicle0_Commodity10:
    SC_payload_commodity_outflow_0,3,3,Tstart4,Tend5,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_0,3,3,Tstart4,Tend5,CommoditypayloadVarVehicle_0
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime4_Vehicle0_Commodity11:
+   Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime4_Vehicle0_Commodity11:
    SC_payload_commodity_outflow_0,3,3,Tstart4,Tend5,CommoditypayloadVarVehicle_1
    - SC_payload_commodity_inflow_0,3,3,Tstart4,Tend5,CommoditypayloadVarVehicle_1
@@ -17008,25 +17210,37 @@ Subject To
    - Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commoditypropellant
    + Classic_commodity_inflow_0,3,3,Tstart4,Tend5,Commoditypropellant
    >= -4000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime4_Vehicle1_Commodity0:
+   Classic_commodity_outflow_1,3,3,Tstart4,Tend5,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime4_Vehicle1_Commodity0:
    Classic_commodity_outflow_1,3,3,Tstart4,Tend5,Commoditycrew
    - Classic_commodity_inflow_1,3,3,Tstart4,Tend5,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime4_Vehicle1_Commodity1:
+   Classic_commodity_outflow_1,3,3,Tstart4,Tend5,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime4_Vehicle1_Commodity1:
    Classic_commodity_outflow_1,3,3,Tstart4,Tend5,Commoditycrew_interim
    - Classic_commodity_inflow_1,3,3,Tstart4,Tend5,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime4_Vehicle1_Commodity2:
+   Classic_commodity_outflow_1,3,3,Tstart4,Tend5,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime4_Vehicle1_Commodity2:
    Classic_commodity_outflow_1,3,3,Tstart4,Tend5,Commoditycrew_return
    - Classic_commodity_inflow_1,3,3,Tstart4,Tend5,Commoditycrew_return = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime4_Vehicle1_Commodity3:
+   Classic_commodity_outflow_1,3,3,Tstart4,Tend5,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime4_Vehicle1_Commodity3:
    - 7.1 Classic_commodity_outflow_1,3,3,Tstart4,Tend5,Commoditycrew
    - 7.1 Classic_commodity_outflow_1,3,3,Tstart4,Tend5,Commoditycrew_interim
    - 7.1 Classic_commodity_outflow_1,3,3,Tstart4,Tend5,Commoditycrew_return
    + Classic_commodity_outflow_1,3,3,Tstart4,Tend5,Commodityconsumables
    - Classic_commodity_inflow_1,3,3,Tstart4,Tend5,Commodityconsumables = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime4_Vehicle1_Commodity4:
+   Classic_commodity_outflow_1,3,3,Tstart4,Tend5,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime4_Vehicle1_Commodity4:
    Classic_commodity_outflow_1,3,3,Tstart4,Tend5,Commodityequipment
    - Classic_commodity_inflow_1,3,3,Tstart4,Tend5,Commodityequipment = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime4_Vehicle1_Commodity5:
+   Classic_commodity_outflow_1,3,3,Tstart4,Tend5,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime4_Vehicle1_Commodity5:
    Classic_commodity_outflow_1,3,3,Tstart4,Tend5,Commoditysamples
    - Classic_commodity_inflow_1,3,3,Tstart4,Tend5,Commoditysamples = 0
@@ -18197,20 +18411,30 @@ Subject To
    Classic_commodity_outflow_1,3,3,Tstart4,Tend5,Commoditypropellant
    - Classic_commodity_inflow_1,3,3,Tstart4,Tend5,Commoditypropellant
    + 0.00273972602739726 isru_arc_propellant_vehicle1_node3_time4 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime4_Vehicle1_Commodity7:
+   Classic_commodity_outflow_1,3,3,Tstart4,Tend5,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime4_Vehicle1_Commodity7:
    Classic_commodity_outflow_1,3,3,Tstart4,Tend5,Commoditypackaged_isru
    - Classic_commodity_inflow_1,3,3,Tstart4,Tend5,Commoditypackaged_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime4_Vehicle1_Commodity8:
+   Classic_commodity_outflow_1,3,3,Tstart4,Tend5,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime4_Vehicle1_Commodity8:
    Classic_commodity_outflow_1,3,3,Tstart4,Tend5,Commodityactive_isru
    - Classic_commodity_inflow_1,3,3,Tstart4,Tend5,Commodityactive_isru = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime4_Vehicle1_Commodity9:
+   Classic_commodity_outflow_1,3,3,Tstart4,Tend5,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime4_Vehicle1_Commodity9:
    sc_commodity_outflow_1,3,3,Tstart4,Tend5
    - sc_commodity_inflow_1,3,3,Tstart4,Tend5 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime4_Vehicle1_Commodity10:
+   Classic_commodity_outflow_1,3,3,Tstart4,Tend5,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime4_Vehicle1_Commodity10:
    SC_payload_commodity_outflow_1,3,3,Tstart4,Tend5,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_1,3,3,Tstart4,Tend5,CommoditypayloadVarVehicle_0
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime4_Vehicle1_Commodity11:
+   Classic_commodity_outflow_1,3,3,Tstart4,Tend5,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime4_Vehicle1_Commodity11:
    SC_payload_commodity_outflow_1,3,3,Tstart4,Tend5,CommoditypayloadVarVehicle_1
    - SC_payload_commodity_inflow_1,3,3,Tstart4,Tend5,CommoditypayloadVarVehicle_1
@@ -18755,25 +18979,37 @@ Subject To
    - Classic_commodity_outflow_1,3,2,Tstart5,Tend6,Commoditypropellant
    + Classic_commodity_inflow_1,3,2,Tstart5,Tend6,Commoditypropellant
    >= -17000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime5_Vehicle0_Commodity0:
+   Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime5_Vehicle0_Commodity0:
    Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commoditycrew
    - Classic_commodity_inflow_0,3,3,Tstart5,Tend6,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime5_Vehicle0_Commodity1:
+   Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime5_Vehicle0_Commodity1:
    Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commoditycrew_interim
    - Classic_commodity_inflow_0,3,3,Tstart5,Tend6,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime5_Vehicle0_Commodity2:
+   Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime5_Vehicle0_Commodity2:
    Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commoditycrew_return
    - Classic_commodity_inflow_0,3,3,Tstart5,Tend6,Commoditycrew_return = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime5_Vehicle0_Commodity3:
+   Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime5_Vehicle0_Commodity3:
    - 7.1 Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commoditycrew
    - 7.1 Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commoditycrew_interim
    - 7.1 Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commoditycrew_return
    + Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commodityconsumables
    - Classic_commodity_inflow_0,3,3,Tstart5,Tend6,Commodityconsumables = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime5_Vehicle0_Commodity4:
+   Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime5_Vehicle0_Commodity4:
    Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commodityequipment
    - Classic_commodity_inflow_0,3,3,Tstart5,Tend6,Commodityequipment = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime5_Vehicle0_Commodity5:
+   Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime5_Vehicle0_Commodity5:
    Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commoditysamples
    - Classic_commodity_inflow_0,3,3,Tstart5,Tend6,Commoditysamples = 0
@@ -19944,20 +20180,30 @@ Subject To
    Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commoditypropellant
    - Classic_commodity_inflow_0,3,3,Tstart5,Tend6,Commoditypropellant
    + 0.00273972602739726 isru_arc_propellant_vehicle0_node3_time5 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime5_Vehicle0_Commodity7:
+   Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime5_Vehicle0_Commodity7:
    Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commoditypackaged_isru
    - Classic_commodity_inflow_0,3,3,Tstart5,Tend6,Commoditypackaged_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime5_Vehicle0_Commodity8:
+   Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime5_Vehicle0_Commodity8:
    Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commodityactive_isru
    - Classic_commodity_inflow_0,3,3,Tstart5,Tend6,Commodityactive_isru = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime5_Vehicle0_Commodity9:
+   Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime5_Vehicle0_Commodity9:
    sc_commodity_outflow_0,3,3,Tstart5,Tend6
    - sc_commodity_inflow_0,3,3,Tstart5,Tend6 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime5_Vehicle0_Commodity10:
+   Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime5_Vehicle0_Commodity10:
    SC_payload_commodity_outflow_0,3,3,Tstart5,Tend6,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_0,3,3,Tstart5,Tend6,CommoditypayloadVarVehicle_0
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime5_Vehicle0_Commodity11:
+   Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime5_Vehicle0_Commodity11:
    SC_payload_commodity_outflow_0,3,3,Tstart5,Tend6,CommoditypayloadVarVehicle_1
    - SC_payload_commodity_inflow_0,3,3,Tstart5,Tend6,CommoditypayloadVarVehicle_1
@@ -19966,25 +20212,37 @@ Subject To
    - Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commoditypropellant
    + Classic_commodity_inflow_0,3,3,Tstart5,Tend6,Commoditypropellant
    >= -4000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime5_Vehicle1_Commodity0:
+   Classic_commodity_outflow_1,3,3,Tstart5,Tend6,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime5_Vehicle1_Commodity0:
    Classic_commodity_outflow_1,3,3,Tstart5,Tend6,Commoditycrew
    - Classic_commodity_inflow_1,3,3,Tstart5,Tend6,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime5_Vehicle1_Commodity1:
+   Classic_commodity_outflow_1,3,3,Tstart5,Tend6,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime5_Vehicle1_Commodity1:
    Classic_commodity_outflow_1,3,3,Tstart5,Tend6,Commoditycrew_interim
    - Classic_commodity_inflow_1,3,3,Tstart5,Tend6,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime5_Vehicle1_Commodity2:
+   Classic_commodity_outflow_1,3,3,Tstart5,Tend6,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime5_Vehicle1_Commodity2:
    Classic_commodity_outflow_1,3,3,Tstart5,Tend6,Commoditycrew_return
    - Classic_commodity_inflow_1,3,3,Tstart5,Tend6,Commoditycrew_return = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime5_Vehicle1_Commodity3:
+   Classic_commodity_outflow_1,3,3,Tstart5,Tend6,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime5_Vehicle1_Commodity3:
    - 7.1 Classic_commodity_outflow_1,3,3,Tstart5,Tend6,Commoditycrew
    - 7.1 Classic_commodity_outflow_1,3,3,Tstart5,Tend6,Commoditycrew_interim
    - 7.1 Classic_commodity_outflow_1,3,3,Tstart5,Tend6,Commoditycrew_return
    + Classic_commodity_outflow_1,3,3,Tstart5,Tend6,Commodityconsumables
    - Classic_commodity_inflow_1,3,3,Tstart5,Tend6,Commodityconsumables = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime5_Vehicle1_Commodity4:
+   Classic_commodity_outflow_1,3,3,Tstart5,Tend6,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime5_Vehicle1_Commodity4:
    Classic_commodity_outflow_1,3,3,Tstart5,Tend6,Commodityequipment
    - Classic_commodity_inflow_1,3,3,Tstart5,Tend6,Commodityequipment = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime5_Vehicle1_Commodity5:
+   Classic_commodity_outflow_1,3,3,Tstart5,Tend6,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime5_Vehicle1_Commodity5:
    Classic_commodity_outflow_1,3,3,Tstart5,Tend6,Commoditysamples
    - Classic_commodity_inflow_1,3,3,Tstart5,Tend6,Commoditysamples = 0
@@ -21155,20 +21413,30 @@ Subject To
    Classic_commodity_outflow_1,3,3,Tstart5,Tend6,Commoditypropellant
    - Classic_commodity_inflow_1,3,3,Tstart5,Tend6,Commoditypropellant
    + 0.00273972602739726 isru_arc_propellant_vehicle1_node3_time5 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime5_Vehicle1_Commodity7:
+   Classic_commodity_outflow_1,3,3,Tstart5,Tend6,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime5_Vehicle1_Commodity7:
    Classic_commodity_outflow_1,3,3,Tstart5,Tend6,Commoditypackaged_isru
    - Classic_commodity_inflow_1,3,3,Tstart5,Tend6,Commoditypackaged_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime5_Vehicle1_Commodity8:
+   Classic_commodity_outflow_1,3,3,Tstart5,Tend6,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime5_Vehicle1_Commodity8:
    Classic_commodity_outflow_1,3,3,Tstart5,Tend6,Commodityactive_isru
    - Classic_commodity_inflow_1,3,3,Tstart5,Tend6,Commodityactive_isru = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime5_Vehicle1_Commodity9:
+   Classic_commodity_outflow_1,3,3,Tstart5,Tend6,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime5_Vehicle1_Commodity9:
    sc_commodity_outflow_1,3,3,Tstart5,Tend6
    - sc_commodity_inflow_1,3,3,Tstart5,Tend6 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime5_Vehicle1_Commodity10:
+   Classic_commodity_outflow_1,3,3,Tstart5,Tend6,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime5_Vehicle1_Commodity10:
    SC_payload_commodity_outflow_1,3,3,Tstart5,Tend6,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_1,3,3,Tstart5,Tend6,CommoditypayloadVarVehicle_0
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime5_Vehicle1_Commodity11:
+   Classic_commodity_outflow_1,3,3,Tstart5,Tend6,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime5_Vehicle1_Commodity11:
    SC_payload_commodity_outflow_1,3,3,Tstart5,Tend6,CommoditypayloadVarVehicle_1
    - SC_payload_commodity_inflow_1,3,3,Tstart5,Tend6,CommoditypayloadVarVehicle_1
@@ -21503,17 +21771,25 @@ Subject To
    - Classic_commodity_outflow_1,3,2,Tstart6,Tend7,Commoditypropellant
    + Classic_commodity_inflow_1,3,2,Tstart6,Tend7,Commoditypropellant
    >= -17000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime6_Vehicle0_Commodity0:
+   Classic_commodity_outflow_0,3,3,Tstart6,Tend11,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime6_Vehicle0_Commodity0:
    Classic_commodity_outflow_0,3,3,Tstart6,Tend11,Commoditycrew
    - Classic_commodity_inflow_0,3,3,Tstart6,Tend11,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime6_Vehicle0_Commodity1:
+   Classic_commodity_outflow_0,3,3,Tstart6,Tend11,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime6_Vehicle0_Commodity1:
    Classic_commodity_outflow_0,3,3,Tstart6,Tend11,Commoditycrew_interim
    - Classic_commodity_inflow_0,3,3,Tstart6,Tend11,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime6_Vehicle0_Commodity2:
+   Classic_commodity_outflow_0,3,3,Tstart6,Tend11,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime6_Vehicle0_Commodity2:
    Classic_commodity_outflow_0,3,3,Tstart6,Tend11,Commoditycrew_return
    - Classic_commodity_inflow_0,3,3,Tstart6,Tend11,Commoditycrew_return
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime6_Vehicle0_Commodity3:
+   Classic_commodity_outflow_0,3,3,Tstart6,Tend11,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime6_Vehicle0_Commodity3:
    - 7.1 Classic_commodity_outflow_0,3,3,Tstart6,Tend11,Commoditycrew
    - 7.1 Classic_commodity_outflow_0,3,3,Tstart6,Tend11,Commoditycrew_interim
@@ -21521,9 +21797,13 @@ Subject To
    + Classic_commodity_outflow_0,3,3,Tstart6,Tend11,Commodityconsumables
    - Classic_commodity_inflow_0,3,3,Tstart6,Tend11,Commodityconsumables
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime6_Vehicle0_Commodity4:
+   Classic_commodity_outflow_0,3,3,Tstart6,Tend11,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime6_Vehicle0_Commodity4:
    Classic_commodity_outflow_0,3,3,Tstart6,Tend11,Commodityequipment
    - Classic_commodity_inflow_0,3,3,Tstart6,Tend11,Commodityequipment = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime6_Vehicle0_Commodity5:
+   Classic_commodity_outflow_0,3,3,Tstart6,Tend11,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime6_Vehicle0_Commodity5:
    Classic_commodity_outflow_0,3,3,Tstart6,Tend11,Commoditysamples
    - Classic_commodity_inflow_0,3,3,Tstart6,Tend11,Commoditysamples = 0
@@ -22694,21 +22974,31 @@ Subject To
    Classic_commodity_outflow_0,3,3,Tstart6,Tend11,Commoditypropellant
    - Classic_commodity_inflow_0,3,3,Tstart6,Tend11,Commoditypropellant
    + 0.0136986301369863 isru_arc_propellant_vehicle0_node3_time6 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime6_Vehicle0_Commodity7:
+   Classic_commodity_outflow_0,3,3,Tstart6,Tend11,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime6_Vehicle0_Commodity7:
    Classic_commodity_outflow_0,3,3,Tstart6,Tend11,Commoditypackaged_isru
    - Classic_commodity_inflow_0,3,3,Tstart6,Tend11,Commoditypackaged_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime6_Vehicle0_Commodity8:
+   Classic_commodity_outflow_0,3,3,Tstart6,Tend11,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime6_Vehicle0_Commodity8:
    Classic_commodity_outflow_0,3,3,Tstart6,Tend11,Commodityactive_isru
    - Classic_commodity_inflow_0,3,3,Tstart6,Tend11,Commodityactive_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime6_Vehicle0_Commodity9:
+   Classic_commodity_outflow_0,3,3,Tstart6,Tend11,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime6_Vehicle0_Commodity9:
    sc_commodity_outflow_0,3,3,Tstart6,Tend11
    - sc_commodity_inflow_0,3,3,Tstart6,Tend11 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime6_Vehicle0_Commodity10:
+   Classic_commodity_outflow_0,3,3,Tstart6,Tend11,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime6_Vehicle0_Commodity10:
    SC_payload_commodity_outflow_0,3,3,Tstart6,Tend11,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_0,3,3,Tstart6,Tend11,CommoditypayloadVarVehicle_0
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime6_Vehicle0_Commodity11:
+   Classic_commodity_outflow_0,3,3,Tstart6,Tend11,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime6_Vehicle0_Commodity11:
    SC_payload_commodity_outflow_0,3,3,Tstart6,Tend11,CommoditypayloadVarVehicle_1
    - SC_payload_commodity_inflow_0,3,3,Tstart6,Tend11,CommoditypayloadVarVehicle_1
@@ -22717,17 +23007,25 @@ Subject To
    - Classic_commodity_outflow_0,3,3,Tstart6,Tend11,Commoditypropellant
    + Classic_commodity_inflow_0,3,3,Tstart6,Tend11,Commoditypropellant
    >= -4000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime6_Vehicle1_Commodity0:
+   Classic_commodity_outflow_1,3,3,Tstart6,Tend11,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime6_Vehicle1_Commodity0:
    Classic_commodity_outflow_1,3,3,Tstart6,Tend11,Commoditycrew
    - Classic_commodity_inflow_1,3,3,Tstart6,Tend11,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime6_Vehicle1_Commodity1:
+   Classic_commodity_outflow_1,3,3,Tstart6,Tend11,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime6_Vehicle1_Commodity1:
    Classic_commodity_outflow_1,3,3,Tstart6,Tend11,Commoditycrew_interim
    - Classic_commodity_inflow_1,3,3,Tstart6,Tend11,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime6_Vehicle1_Commodity2:
+   Classic_commodity_outflow_1,3,3,Tstart6,Tend11,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime6_Vehicle1_Commodity2:
    Classic_commodity_outflow_1,3,3,Tstart6,Tend11,Commoditycrew_return
    - Classic_commodity_inflow_1,3,3,Tstart6,Tend11,Commoditycrew_return
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime6_Vehicle1_Commodity3:
+   Classic_commodity_outflow_1,3,3,Tstart6,Tend11,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime6_Vehicle1_Commodity3:
    - 7.1 Classic_commodity_outflow_1,3,3,Tstart6,Tend11,Commoditycrew
    - 7.1 Classic_commodity_outflow_1,3,3,Tstart6,Tend11,Commoditycrew_interim
@@ -22735,9 +23033,13 @@ Subject To
    + Classic_commodity_outflow_1,3,3,Tstart6,Tend11,Commodityconsumables
    - Classic_commodity_inflow_1,3,3,Tstart6,Tend11,Commodityconsumables
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime6_Vehicle1_Commodity4:
+   Classic_commodity_outflow_1,3,3,Tstart6,Tend11,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime6_Vehicle1_Commodity4:
    Classic_commodity_outflow_1,3,3,Tstart6,Tend11,Commodityequipment
    - Classic_commodity_inflow_1,3,3,Tstart6,Tend11,Commodityequipment = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime6_Vehicle1_Commodity5:
+   Classic_commodity_outflow_1,3,3,Tstart6,Tend11,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime6_Vehicle1_Commodity5:
    Classic_commodity_outflow_1,3,3,Tstart6,Tend11,Commoditysamples
    - Classic_commodity_inflow_1,3,3,Tstart6,Tend11,Commoditysamples = 0
@@ -23908,21 +24210,31 @@ Subject To
    Classic_commodity_outflow_1,3,3,Tstart6,Tend11,Commoditypropellant
    - Classic_commodity_inflow_1,3,3,Tstart6,Tend11,Commoditypropellant
    + 0.0136986301369863 isru_arc_propellant_vehicle1_node3_time6 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime6_Vehicle1_Commodity7:
+   Classic_commodity_outflow_1,3,3,Tstart6,Tend11,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime6_Vehicle1_Commodity7:
    Classic_commodity_outflow_1,3,3,Tstart6,Tend11,Commoditypackaged_isru
    - Classic_commodity_inflow_1,3,3,Tstart6,Tend11,Commoditypackaged_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime6_Vehicle1_Commodity8:
+   Classic_commodity_outflow_1,3,3,Tstart6,Tend11,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime6_Vehicle1_Commodity8:
    Classic_commodity_outflow_1,3,3,Tstart6,Tend11,Commodityactive_isru
    - Classic_commodity_inflow_1,3,3,Tstart6,Tend11,Commodityactive_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime6_Vehicle1_Commodity9:
+   Classic_commodity_outflow_1,3,3,Tstart6,Tend11,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime6_Vehicle1_Commodity9:
    sc_commodity_outflow_1,3,3,Tstart6,Tend11
    - sc_commodity_inflow_1,3,3,Tstart6,Tend11 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime6_Vehicle1_Commodity10:
+   Classic_commodity_outflow_1,3,3,Tstart6,Tend11,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime6_Vehicle1_Commodity10:
    SC_payload_commodity_outflow_1,3,3,Tstart6,Tend11,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_1,3,3,Tstart6,Tend11,CommoditypayloadVarVehicle_0
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime6_Vehicle1_Commodity11:
+   Classic_commodity_outflow_1,3,3,Tstart6,Tend11,Commodityactive_isru = 0
  Arc_transformationConstraint_Start3_End3_Starttime6_Vehicle1_Commodity11:
    SC_payload_commodity_outflow_1,3,3,Tstart6,Tend11,CommoditypayloadVarVehicle_1
    - SC_payload_commodity_inflow_1,3,3,Tstart6,Tend11,CommoditypayloadVarVehicle_1
@@ -26053,16 +26365,28 @@ Subject To
    - Classic_commodity_outflow_1,2,2,Tstart11,Tend365,Commoditypropellant
    + Classic_commodity_inflow_1,2,2,Tstart11,Tend365,Commoditypropellant
    >= -17000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime11_Vehicle0_Commodity0:
+   Classic_commodity_outflow_0,3,3,Tstart11,Tend365,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime11_Vehicle0_Commodity0:
    Classic_commodity_outflow_0,3,3,Tstart11,Tend365,Commoditycrew
    - Classic_commodity_inflow_0,3,3,Tstart11,Tend365,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime11_Vehicle0_Commodity1:
+   Classic_commodity_outflow_0,3,3,Tstart11,Tend365,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime11_Vehicle0_Commodity1:
    Classic_commodity_outflow_0,3,3,Tstart11,Tend365,Commoditycrew_interim
    - Classic_commodity_inflow_0,3,3,Tstart11,Tend365,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime11_Vehicle0_Commodity2:
+   Classic_commodity_outflow_0,3,3,Tstart11,Tend365,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime11_Vehicle0_Commodity2:
    Classic_commodity_outflow_0,3,3,Tstart11,Tend365,Commoditycrew_return
    - Classic_commodity_inflow_0,3,3,Tstart11,Tend365,Commoditycrew_return
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime11_Vehicle0_Commodity3:
+   Classic_commodity_outflow_0,3,3,Tstart11,Tend365,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime11_Vehicle0_Commodity3:
    - 7.1 Classic_commodity_outflow_0,3,3,Tstart11,Tend365,Commoditycrew
@@ -26071,9 +26395,15 @@ Subject To
    + Classic_commodity_outflow_0,3,3,Tstart11,Tend365,Commodityconsumables
    - Classic_commodity_inflow_0,3,3,Tstart11,Tend365,Commodityconsumables
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime11_Vehicle0_Commodity4:
+   Classic_commodity_outflow_0,3,3,Tstart11,Tend365,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime11_Vehicle0_Commodity4:
    Classic_commodity_outflow_0,3,3,Tstart11,Tend365,Commodityequipment
    - Classic_commodity_inflow_0,3,3,Tstart11,Tend365,Commodityequipment
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime11_Vehicle0_Commodity5:
+   Classic_commodity_outflow_0,3,3,Tstart11,Tend365,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime11_Vehicle0_Commodity5:
    Classic_commodity_outflow_0,3,3,Tstart11,Tend365,Commoditysamples
@@ -27245,20 +27575,35 @@ Subject To
    Classic_commodity_outflow_0,3,3,Tstart11,Tend365,Commoditypropellant
    - Classic_commodity_inflow_0,3,3,Tstart11,Tend365,Commoditypropellant
    + 0.9698630136986301 isru_arc_propellant_vehicle0_node3_time11 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime11_Vehicle0_Commodity7:
+   Classic_commodity_outflow_0,3,3,Tstart11,Tend365,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime11_Vehicle0_Commodity7:
    Classic_commodity_outflow_0,3,3,Tstart11,Tend365,Commoditypackaged_isru
    - Classic_commodity_inflow_0,3,3,Tstart11,Tend365,Commoditypackaged_isru
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime11_Vehicle0_Commodity8:
+   Classic_commodity_outflow_0,3,3,Tstart11,Tend365,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime11_Vehicle0_Commodity8:
    Classic_commodity_outflow_0,3,3,Tstart11,Tend365,Commodityactive_isru
    - Classic_commodity_inflow_0,3,3,Tstart11,Tend365,Commodityactive_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime11_Vehicle0_Commodity9:
+   Classic_commodity_outflow_0,3,3,Tstart11,Tend365,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime11_Vehicle0_Commodity9:
    sc_commodity_outflow_0,3,3,Tstart11,Tend365
    - sc_commodity_inflow_0,3,3,Tstart11,Tend365 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime11_Vehicle0_Commodity10:
+   Classic_commodity_outflow_0,3,3,Tstart11,Tend365,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime11_Vehicle0_Commodity10:
    SC_payload_commodity_outflow_0,3,3,Tstart11,Tend365,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_0,3,3,Tstart11,Tend365,CommoditypayloadVarVehicle_0
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime11_Vehicle0_Commodity11:
+   Classic_commodity_outflow_0,3,3,Tstart11,Tend365,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime11_Vehicle0_Commodity11:
    SC_payload_commodity_outflow_0,3,3,Tstart11,Tend365,CommoditypayloadVarVehicle_1
@@ -27268,16 +27613,28 @@ Subject To
    - Classic_commodity_outflow_0,3,3,Tstart11,Tend365,Commoditypropellant
    + Classic_commodity_inflow_0,3,3,Tstart11,Tend365,Commoditypropellant
    >= -4000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime11_Vehicle1_Commodity0:
+   Classic_commodity_outflow_1,3,3,Tstart11,Tend365,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime11_Vehicle1_Commodity0:
    Classic_commodity_outflow_1,3,3,Tstart11,Tend365,Commoditycrew
    - Classic_commodity_inflow_1,3,3,Tstart11,Tend365,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime11_Vehicle1_Commodity1:
+   Classic_commodity_outflow_1,3,3,Tstart11,Tend365,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime11_Vehicle1_Commodity1:
    Classic_commodity_outflow_1,3,3,Tstart11,Tend365,Commoditycrew_interim
    - Classic_commodity_inflow_1,3,3,Tstart11,Tend365,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime11_Vehicle1_Commodity2:
+   Classic_commodity_outflow_1,3,3,Tstart11,Tend365,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime11_Vehicle1_Commodity2:
    Classic_commodity_outflow_1,3,3,Tstart11,Tend365,Commoditycrew_return
    - Classic_commodity_inflow_1,3,3,Tstart11,Tend365,Commoditycrew_return
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime11_Vehicle1_Commodity3:
+   Classic_commodity_outflow_1,3,3,Tstart11,Tend365,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime11_Vehicle1_Commodity3:
    - 7.1 Classic_commodity_outflow_1,3,3,Tstart11,Tend365,Commoditycrew
@@ -27286,9 +27643,15 @@ Subject To
    + Classic_commodity_outflow_1,3,3,Tstart11,Tend365,Commodityconsumables
    - Classic_commodity_inflow_1,3,3,Tstart11,Tend365,Commodityconsumables
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime11_Vehicle1_Commodity4:
+   Classic_commodity_outflow_1,3,3,Tstart11,Tend365,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime11_Vehicle1_Commodity4:
    Classic_commodity_outflow_1,3,3,Tstart11,Tend365,Commodityequipment
    - Classic_commodity_inflow_1,3,3,Tstart11,Tend365,Commodityequipment
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime11_Vehicle1_Commodity5:
+   Classic_commodity_outflow_1,3,3,Tstart11,Tend365,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime11_Vehicle1_Commodity5:
    Classic_commodity_outflow_1,3,3,Tstart11,Tend365,Commoditysamples
@@ -28460,20 +28823,35 @@ Subject To
    Classic_commodity_outflow_1,3,3,Tstart11,Tend365,Commoditypropellant
    - Classic_commodity_inflow_1,3,3,Tstart11,Tend365,Commoditypropellant
    + 0.9698630136986301 isru_arc_propellant_vehicle1_node3_time11 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime11_Vehicle1_Commodity7:
+   Classic_commodity_outflow_1,3,3,Tstart11,Tend365,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime11_Vehicle1_Commodity7:
    Classic_commodity_outflow_1,3,3,Tstart11,Tend365,Commoditypackaged_isru
    - Classic_commodity_inflow_1,3,3,Tstart11,Tend365,Commoditypackaged_isru
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime11_Vehicle1_Commodity8:
+   Classic_commodity_outflow_1,3,3,Tstart11,Tend365,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime11_Vehicle1_Commodity8:
    Classic_commodity_outflow_1,3,3,Tstart11,Tend365,Commodityactive_isru
    - Classic_commodity_inflow_1,3,3,Tstart11,Tend365,Commodityactive_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime11_Vehicle1_Commodity9:
+   Classic_commodity_outflow_1,3,3,Tstart11,Tend365,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime11_Vehicle1_Commodity9:
    sc_commodity_outflow_1,3,3,Tstart11,Tend365
    - sc_commodity_inflow_1,3,3,Tstart11,Tend365 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime11_Vehicle1_Commodity10:
+   Classic_commodity_outflow_1,3,3,Tstart11,Tend365,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime11_Vehicle1_Commodity10:
    SC_payload_commodity_outflow_1,3,3,Tstart11,Tend365,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_1,3,3,Tstart11,Tend365,CommoditypayloadVarVehicle_0
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime11_Vehicle1_Commodity11:
+   Classic_commodity_outflow_1,3,3,Tstart11,Tend365,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime11_Vehicle1_Commodity11:
    SC_payload_commodity_outflow_1,3,3,Tstart11,Tend365,CommoditypayloadVarVehicle_1
@@ -29043,16 +29421,28 @@ Subject To
    - Classic_commodity_outflow_1,3,2,Tstart365,Tend366,Commoditypropellant
    + Classic_commodity_inflow_1,3,2,Tstart365,Tend366,Commoditypropellant
    >= -17000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime365_Vehicle0_Commodity0:
+   Classic_commodity_outflow_0,3,3,Tstart365,Tend367,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime365_Vehicle0_Commodity0:
    Classic_commodity_outflow_0,3,3,Tstart365,Tend367,Commoditycrew
    - Classic_commodity_inflow_0,3,3,Tstart365,Tend367,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime365_Vehicle0_Commodity1:
+   Classic_commodity_outflow_0,3,3,Tstart365,Tend367,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime365_Vehicle0_Commodity1:
    Classic_commodity_outflow_0,3,3,Tstart365,Tend367,Commoditycrew_interim
    - Classic_commodity_inflow_0,3,3,Tstart365,Tend367,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime365_Vehicle0_Commodity2:
+   Classic_commodity_outflow_0,3,3,Tstart365,Tend367,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime365_Vehicle0_Commodity2:
    Classic_commodity_outflow_0,3,3,Tstart365,Tend367,Commoditycrew_return
    - Classic_commodity_inflow_0,3,3,Tstart365,Tend367,Commoditycrew_return
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime365_Vehicle0_Commodity3:
+   Classic_commodity_outflow_0,3,3,Tstart365,Tend367,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime365_Vehicle0_Commodity3:
    - 7.1 Classic_commodity_outflow_0,3,3,Tstart365,Tend367,Commoditycrew
@@ -29061,9 +29451,15 @@ Subject To
    + Classic_commodity_outflow_0,3,3,Tstart365,Tend367,Commodityconsumables
    - Classic_commodity_inflow_0,3,3,Tstart365,Tend367,Commodityconsumables
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime365_Vehicle0_Commodity4:
+   Classic_commodity_outflow_0,3,3,Tstart365,Tend367,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime365_Vehicle0_Commodity4:
    Classic_commodity_outflow_0,3,3,Tstart365,Tend367,Commodityequipment
    - Classic_commodity_inflow_0,3,3,Tstart365,Tend367,Commodityequipment
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime365_Vehicle0_Commodity5:
+   Classic_commodity_outflow_0,3,3,Tstart365,Tend367,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime365_Vehicle0_Commodity5:
    Classic_commodity_outflow_0,3,3,Tstart365,Tend367,Commoditysamples
@@ -30235,20 +30631,35 @@ Subject To
    Classic_commodity_outflow_0,3,3,Tstart365,Tend367,Commoditypropellant
    - Classic_commodity_inflow_0,3,3,Tstart365,Tend367,Commoditypropellant
    + 0.00547945205479452 isru_arc_propellant_vehicle0_node3_time365 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime365_Vehicle0_Commodity7:
+   Classic_commodity_outflow_0,3,3,Tstart365,Tend367,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime365_Vehicle0_Commodity7:
    Classic_commodity_outflow_0,3,3,Tstart365,Tend367,Commoditypackaged_isru
    - Classic_commodity_inflow_0,3,3,Tstart365,Tend367,Commoditypackaged_isru
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime365_Vehicle0_Commodity8:
+   Classic_commodity_outflow_0,3,3,Tstart365,Tend367,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime365_Vehicle0_Commodity8:
    Classic_commodity_outflow_0,3,3,Tstart365,Tend367,Commodityactive_isru
    - Classic_commodity_inflow_0,3,3,Tstart365,Tend367,Commodityactive_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime365_Vehicle0_Commodity9:
+   Classic_commodity_outflow_0,3,3,Tstart365,Tend367,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime365_Vehicle0_Commodity9:
    sc_commodity_outflow_0,3,3,Tstart365,Tend367
    - sc_commodity_inflow_0,3,3,Tstart365,Tend367 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime365_Vehicle0_Commodity10:
+   Classic_commodity_outflow_0,3,3,Tstart365,Tend367,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime365_Vehicle0_Commodity10:
    SC_payload_commodity_outflow_0,3,3,Tstart365,Tend367,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_0,3,3,Tstart365,Tend367,CommoditypayloadVarVehicle_0
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime365_Vehicle0_Commodity11:
+   Classic_commodity_outflow_0,3,3,Tstart365,Tend367,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime365_Vehicle0_Commodity11:
    SC_payload_commodity_outflow_0,3,3,Tstart365,Tend367,CommoditypayloadVarVehicle_1
@@ -30258,16 +30669,28 @@ Subject To
    - Classic_commodity_outflow_0,3,3,Tstart365,Tend367,Commoditypropellant
    + Classic_commodity_inflow_0,3,3,Tstart365,Tend367,Commoditypropellant
    >= -4000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime365_Vehicle1_Commodity0:
+   Classic_commodity_outflow_1,3,3,Tstart365,Tend367,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime365_Vehicle1_Commodity0:
    Classic_commodity_outflow_1,3,3,Tstart365,Tend367,Commoditycrew
    - Classic_commodity_inflow_1,3,3,Tstart365,Tend367,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime365_Vehicle1_Commodity1:
+   Classic_commodity_outflow_1,3,3,Tstart365,Tend367,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime365_Vehicle1_Commodity1:
    Classic_commodity_outflow_1,3,3,Tstart365,Tend367,Commoditycrew_interim
    - Classic_commodity_inflow_1,3,3,Tstart365,Tend367,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime365_Vehicle1_Commodity2:
+   Classic_commodity_outflow_1,3,3,Tstart365,Tend367,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime365_Vehicle1_Commodity2:
    Classic_commodity_outflow_1,3,3,Tstart365,Tend367,Commoditycrew_return
    - Classic_commodity_inflow_1,3,3,Tstart365,Tend367,Commoditycrew_return
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime365_Vehicle1_Commodity3:
+   Classic_commodity_outflow_1,3,3,Tstart365,Tend367,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime365_Vehicle1_Commodity3:
    - 7.1 Classic_commodity_outflow_1,3,3,Tstart365,Tend367,Commoditycrew
@@ -30276,9 +30699,15 @@ Subject To
    + Classic_commodity_outflow_1,3,3,Tstart365,Tend367,Commodityconsumables
    - Classic_commodity_inflow_1,3,3,Tstart365,Tend367,Commodityconsumables
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime365_Vehicle1_Commodity4:
+   Classic_commodity_outflow_1,3,3,Tstart365,Tend367,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime365_Vehicle1_Commodity4:
    Classic_commodity_outflow_1,3,3,Tstart365,Tend367,Commodityequipment
    - Classic_commodity_inflow_1,3,3,Tstart365,Tend367,Commodityequipment
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime365_Vehicle1_Commodity5:
+   Classic_commodity_outflow_1,3,3,Tstart365,Tend367,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime365_Vehicle1_Commodity5:
    Classic_commodity_outflow_1,3,3,Tstart365,Tend367,Commoditysamples
@@ -31450,20 +31879,35 @@ Subject To
    Classic_commodity_outflow_1,3,3,Tstart365,Tend367,Commoditypropellant
    - Classic_commodity_inflow_1,3,3,Tstart365,Tend367,Commoditypropellant
    + 0.00547945205479452 isru_arc_propellant_vehicle1_node3_time365 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime365_Vehicle1_Commodity7:
+   Classic_commodity_outflow_1,3,3,Tstart365,Tend367,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime365_Vehicle1_Commodity7:
    Classic_commodity_outflow_1,3,3,Tstart365,Tend367,Commoditypackaged_isru
    - Classic_commodity_inflow_1,3,3,Tstart365,Tend367,Commoditypackaged_isru
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime365_Vehicle1_Commodity8:
+   Classic_commodity_outflow_1,3,3,Tstart365,Tend367,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime365_Vehicle1_Commodity8:
    Classic_commodity_outflow_1,3,3,Tstart365,Tend367,Commodityactive_isru
    - Classic_commodity_inflow_1,3,3,Tstart365,Tend367,Commodityactive_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime365_Vehicle1_Commodity9:
+   Classic_commodity_outflow_1,3,3,Tstart365,Tend367,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime365_Vehicle1_Commodity9:
    sc_commodity_outflow_1,3,3,Tstart365,Tend367
    - sc_commodity_inflow_1,3,3,Tstart365,Tend367 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime365_Vehicle1_Commodity10:
+   Classic_commodity_outflow_1,3,3,Tstart365,Tend367,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime365_Vehicle1_Commodity10:
    SC_payload_commodity_outflow_1,3,3,Tstart365,Tend367,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_1,3,3,Tstart365,Tend367,CommoditypayloadVarVehicle_0
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime365_Vehicle1_Commodity11:
+   Classic_commodity_outflow_1,3,3,Tstart365,Tend367,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime365_Vehicle1_Commodity11:
    SC_payload_commodity_outflow_1,3,3,Tstart365,Tend367,CommoditypayloadVarVehicle_1
@@ -32177,16 +32621,28 @@ Subject To
    - Classic_commodity_outflow_1,3,2,Tstart367,Tend368,Commoditypropellant
    + Classic_commodity_inflow_1,3,2,Tstart367,Tend368,Commoditypropellant
    >= -17000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime367_Vehicle0_Commodity0:
+   Classic_commodity_outflow_0,3,3,Tstart367,Tend368,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime367_Vehicle0_Commodity0:
    Classic_commodity_outflow_0,3,3,Tstart367,Tend368,Commoditycrew
    - Classic_commodity_inflow_0,3,3,Tstart367,Tend368,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime367_Vehicle0_Commodity1:
+   Classic_commodity_outflow_0,3,3,Tstart367,Tend368,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime367_Vehicle0_Commodity1:
    Classic_commodity_outflow_0,3,3,Tstart367,Tend368,Commoditycrew_interim
    - Classic_commodity_inflow_0,3,3,Tstart367,Tend368,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime367_Vehicle0_Commodity2:
+   Classic_commodity_outflow_0,3,3,Tstart367,Tend368,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime367_Vehicle0_Commodity2:
    Classic_commodity_outflow_0,3,3,Tstart367,Tend368,Commoditycrew_return
    - Classic_commodity_inflow_0,3,3,Tstart367,Tend368,Commoditycrew_return
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime367_Vehicle0_Commodity3:
+   Classic_commodity_outflow_0,3,3,Tstart367,Tend368,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime367_Vehicle0_Commodity3:
    - 7.1 Classic_commodity_outflow_0,3,3,Tstart367,Tend368,Commoditycrew
@@ -32195,9 +32651,15 @@ Subject To
    + Classic_commodity_outflow_0,3,3,Tstart367,Tend368,Commodityconsumables
    - Classic_commodity_inflow_0,3,3,Tstart367,Tend368,Commodityconsumables
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime367_Vehicle0_Commodity4:
+   Classic_commodity_outflow_0,3,3,Tstart367,Tend368,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime367_Vehicle0_Commodity4:
    Classic_commodity_outflow_0,3,3,Tstart367,Tend368,Commodityequipment
    - Classic_commodity_inflow_0,3,3,Tstart367,Tend368,Commodityequipment
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime367_Vehicle0_Commodity5:
+   Classic_commodity_outflow_0,3,3,Tstart367,Tend368,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime367_Vehicle0_Commodity5:
    Classic_commodity_outflow_0,3,3,Tstart367,Tend368,Commoditysamples
@@ -33369,20 +33831,35 @@ Subject To
    Classic_commodity_outflow_0,3,3,Tstart367,Tend368,Commoditypropellant
    - Classic_commodity_inflow_0,3,3,Tstart367,Tend368,Commoditypropellant
    + 0.00273972602739726 isru_arc_propellant_vehicle0_node3_time367 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime367_Vehicle0_Commodity7:
+   Classic_commodity_outflow_0,3,3,Tstart367,Tend368,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime367_Vehicle0_Commodity7:
    Classic_commodity_outflow_0,3,3,Tstart367,Tend368,Commoditypackaged_isru
    - Classic_commodity_inflow_0,3,3,Tstart367,Tend368,Commoditypackaged_isru
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime367_Vehicle0_Commodity8:
+   Classic_commodity_outflow_0,3,3,Tstart367,Tend368,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime367_Vehicle0_Commodity8:
    Classic_commodity_outflow_0,3,3,Tstart367,Tend368,Commodityactive_isru
    - Classic_commodity_inflow_0,3,3,Tstart367,Tend368,Commodityactive_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime367_Vehicle0_Commodity9:
+   Classic_commodity_outflow_0,3,3,Tstart367,Tend368,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime367_Vehicle0_Commodity9:
    sc_commodity_outflow_0,3,3,Tstart367,Tend368
    - sc_commodity_inflow_0,3,3,Tstart367,Tend368 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime367_Vehicle0_Commodity10:
+   Classic_commodity_outflow_0,3,3,Tstart367,Tend368,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime367_Vehicle0_Commodity10:
    SC_payload_commodity_outflow_0,3,3,Tstart367,Tend368,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_0,3,3,Tstart367,Tend368,CommoditypayloadVarVehicle_0
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime367_Vehicle0_Commodity11:
+   Classic_commodity_outflow_0,3,3,Tstart367,Tend368,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime367_Vehicle0_Commodity11:
    SC_payload_commodity_outflow_0,3,3,Tstart367,Tend368,CommoditypayloadVarVehicle_1
@@ -33392,16 +33869,28 @@ Subject To
    - Classic_commodity_outflow_0,3,3,Tstart367,Tend368,Commoditypropellant
    + Classic_commodity_inflow_0,3,3,Tstart367,Tend368,Commoditypropellant
    >= -4000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime367_Vehicle1_Commodity0:
+   Classic_commodity_outflow_1,3,3,Tstart367,Tend368,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime367_Vehicle1_Commodity0:
    Classic_commodity_outflow_1,3,3,Tstart367,Tend368,Commoditycrew
    - Classic_commodity_inflow_1,3,3,Tstart367,Tend368,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime367_Vehicle1_Commodity1:
+   Classic_commodity_outflow_1,3,3,Tstart367,Tend368,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime367_Vehicle1_Commodity1:
    Classic_commodity_outflow_1,3,3,Tstart367,Tend368,Commoditycrew_interim
    - Classic_commodity_inflow_1,3,3,Tstart367,Tend368,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime367_Vehicle1_Commodity2:
+   Classic_commodity_outflow_1,3,3,Tstart367,Tend368,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime367_Vehicle1_Commodity2:
    Classic_commodity_outflow_1,3,3,Tstart367,Tend368,Commoditycrew_return
    - Classic_commodity_inflow_1,3,3,Tstart367,Tend368,Commoditycrew_return
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime367_Vehicle1_Commodity3:
+   Classic_commodity_outflow_1,3,3,Tstart367,Tend368,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime367_Vehicle1_Commodity3:
    - 7.1 Classic_commodity_outflow_1,3,3,Tstart367,Tend368,Commoditycrew
@@ -33410,9 +33899,15 @@ Subject To
    + Classic_commodity_outflow_1,3,3,Tstart367,Tend368,Commodityconsumables
    - Classic_commodity_inflow_1,3,3,Tstart367,Tend368,Commodityconsumables
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime367_Vehicle1_Commodity4:
+   Classic_commodity_outflow_1,3,3,Tstart367,Tend368,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime367_Vehicle1_Commodity4:
    Classic_commodity_outflow_1,3,3,Tstart367,Tend368,Commodityequipment
    - Classic_commodity_inflow_1,3,3,Tstart367,Tend368,Commodityequipment
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime367_Vehicle1_Commodity5:
+   Classic_commodity_outflow_1,3,3,Tstart367,Tend368,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime367_Vehicle1_Commodity5:
    Classic_commodity_outflow_1,3,3,Tstart367,Tend368,Commoditysamples
@@ -34584,20 +35079,35 @@ Subject To
    Classic_commodity_outflow_1,3,3,Tstart367,Tend368,Commoditypropellant
    - Classic_commodity_inflow_1,3,3,Tstart367,Tend368,Commoditypropellant
    + 0.00273972602739726 isru_arc_propellant_vehicle1_node3_time367 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime367_Vehicle1_Commodity7:
+   Classic_commodity_outflow_1,3,3,Tstart367,Tend368,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime367_Vehicle1_Commodity7:
    Classic_commodity_outflow_1,3,3,Tstart367,Tend368,Commoditypackaged_isru
    - Classic_commodity_inflow_1,3,3,Tstart367,Tend368,Commoditypackaged_isru
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime367_Vehicle1_Commodity8:
+   Classic_commodity_outflow_1,3,3,Tstart367,Tend368,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime367_Vehicle1_Commodity8:
    Classic_commodity_outflow_1,3,3,Tstart367,Tend368,Commodityactive_isru
    - Classic_commodity_inflow_1,3,3,Tstart367,Tend368,Commodityactive_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime367_Vehicle1_Commodity9:
+   Classic_commodity_outflow_1,3,3,Tstart367,Tend368,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime367_Vehicle1_Commodity9:
    sc_commodity_outflow_1,3,3,Tstart367,Tend368
    - sc_commodity_inflow_1,3,3,Tstart367,Tend368 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime367_Vehicle1_Commodity10:
+   Classic_commodity_outflow_1,3,3,Tstart367,Tend368,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime367_Vehicle1_Commodity10:
    SC_payload_commodity_outflow_1,3,3,Tstart367,Tend368,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_1,3,3,Tstart367,Tend368,CommoditypayloadVarVehicle_0
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime367_Vehicle1_Commodity11:
+   Classic_commodity_outflow_1,3,3,Tstart367,Tend368,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime367_Vehicle1_Commodity11:
    SC_payload_commodity_outflow_1,3,3,Tstart367,Tend368,CommoditypayloadVarVehicle_1
@@ -34959,16 +35469,28 @@ Subject To
    - Classic_commodity_outflow_1,3,2,Tstart368,Tend369,Commoditypropellant
    + Classic_commodity_inflow_1,3,2,Tstart368,Tend369,Commoditypropellant
    >= -17000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime368_Vehicle0_Commodity0:
+   Classic_commodity_outflow_0,3,3,Tstart368,Tend369,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime368_Vehicle0_Commodity0:
    Classic_commodity_outflow_0,3,3,Tstart368,Tend369,Commoditycrew
    - Classic_commodity_inflow_0,3,3,Tstart368,Tend369,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime368_Vehicle0_Commodity1:
+   Classic_commodity_outflow_0,3,3,Tstart368,Tend369,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime368_Vehicle0_Commodity1:
    Classic_commodity_outflow_0,3,3,Tstart368,Tend369,Commoditycrew_interim
    - Classic_commodity_inflow_0,3,3,Tstart368,Tend369,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime368_Vehicle0_Commodity2:
+   Classic_commodity_outflow_0,3,3,Tstart368,Tend369,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime368_Vehicle0_Commodity2:
    Classic_commodity_outflow_0,3,3,Tstart368,Tend369,Commoditycrew_return
    - Classic_commodity_inflow_0,3,3,Tstart368,Tend369,Commoditycrew_return
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime368_Vehicle0_Commodity3:
+   Classic_commodity_outflow_0,3,3,Tstart368,Tend369,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime368_Vehicle0_Commodity3:
    - 7.1 Classic_commodity_outflow_0,3,3,Tstart368,Tend369,Commoditycrew
@@ -34977,9 +35499,15 @@ Subject To
    + Classic_commodity_outflow_0,3,3,Tstart368,Tend369,Commodityconsumables
    - Classic_commodity_inflow_0,3,3,Tstart368,Tend369,Commodityconsumables
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime368_Vehicle0_Commodity4:
+   Classic_commodity_outflow_0,3,3,Tstart368,Tend369,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime368_Vehicle0_Commodity4:
    Classic_commodity_outflow_0,3,3,Tstart368,Tend369,Commodityequipment
    - Classic_commodity_inflow_0,3,3,Tstart368,Tend369,Commodityequipment
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime368_Vehicle0_Commodity5:
+   Classic_commodity_outflow_0,3,3,Tstart368,Tend369,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime368_Vehicle0_Commodity5:
    Classic_commodity_outflow_0,3,3,Tstart368,Tend369,Commoditysamples
@@ -36151,20 +36679,35 @@ Subject To
    Classic_commodity_outflow_0,3,3,Tstart368,Tend369,Commoditypropellant
    - Classic_commodity_inflow_0,3,3,Tstart368,Tend369,Commoditypropellant
    + 0.00273972602739726 isru_arc_propellant_vehicle0_node3_time368 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime368_Vehicle0_Commodity7:
+   Classic_commodity_outflow_0,3,3,Tstart368,Tend369,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime368_Vehicle0_Commodity7:
    Classic_commodity_outflow_0,3,3,Tstart368,Tend369,Commoditypackaged_isru
    - Classic_commodity_inflow_0,3,3,Tstart368,Tend369,Commoditypackaged_isru
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime368_Vehicle0_Commodity8:
+   Classic_commodity_outflow_0,3,3,Tstart368,Tend369,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime368_Vehicle0_Commodity8:
    Classic_commodity_outflow_0,3,3,Tstart368,Tend369,Commodityactive_isru
    - Classic_commodity_inflow_0,3,3,Tstart368,Tend369,Commodityactive_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime368_Vehicle0_Commodity9:
+   Classic_commodity_outflow_0,3,3,Tstart368,Tend369,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime368_Vehicle0_Commodity9:
    sc_commodity_outflow_0,3,3,Tstart368,Tend369
    - sc_commodity_inflow_0,3,3,Tstart368,Tend369 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime368_Vehicle0_Commodity10:
+   Classic_commodity_outflow_0,3,3,Tstart368,Tend369,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime368_Vehicle0_Commodity10:
    SC_payload_commodity_outflow_0,3,3,Tstart368,Tend369,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_0,3,3,Tstart368,Tend369,CommoditypayloadVarVehicle_0
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime368_Vehicle0_Commodity11:
+   Classic_commodity_outflow_0,3,3,Tstart368,Tend369,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime368_Vehicle0_Commodity11:
    SC_payload_commodity_outflow_0,3,3,Tstart368,Tend369,CommoditypayloadVarVehicle_1
@@ -36174,16 +36717,28 @@ Subject To
    - Classic_commodity_outflow_0,3,3,Tstart368,Tend369,Commoditypropellant
    + Classic_commodity_inflow_0,3,3,Tstart368,Tend369,Commoditypropellant
    >= -4000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime368_Vehicle1_Commodity0:
+   Classic_commodity_outflow_1,3,3,Tstart368,Tend369,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime368_Vehicle1_Commodity0:
    Classic_commodity_outflow_1,3,3,Tstart368,Tend369,Commoditycrew
    - Classic_commodity_inflow_1,3,3,Tstart368,Tend369,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime368_Vehicle1_Commodity1:
+   Classic_commodity_outflow_1,3,3,Tstart368,Tend369,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime368_Vehicle1_Commodity1:
    Classic_commodity_outflow_1,3,3,Tstart368,Tend369,Commoditycrew_interim
    - Classic_commodity_inflow_1,3,3,Tstart368,Tend369,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime368_Vehicle1_Commodity2:
+   Classic_commodity_outflow_1,3,3,Tstart368,Tend369,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime368_Vehicle1_Commodity2:
    Classic_commodity_outflow_1,3,3,Tstart368,Tend369,Commoditycrew_return
    - Classic_commodity_inflow_1,3,3,Tstart368,Tend369,Commoditycrew_return
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime368_Vehicle1_Commodity3:
+   Classic_commodity_outflow_1,3,3,Tstart368,Tend369,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime368_Vehicle1_Commodity3:
    - 7.1 Classic_commodity_outflow_1,3,3,Tstart368,Tend369,Commoditycrew
@@ -36192,9 +36747,15 @@ Subject To
    + Classic_commodity_outflow_1,3,3,Tstart368,Tend369,Commodityconsumables
    - Classic_commodity_inflow_1,3,3,Tstart368,Tend369,Commodityconsumables
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime368_Vehicle1_Commodity4:
+   Classic_commodity_outflow_1,3,3,Tstart368,Tend369,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime368_Vehicle1_Commodity4:
    Classic_commodity_outflow_1,3,3,Tstart368,Tend369,Commodityequipment
    - Classic_commodity_inflow_1,3,3,Tstart368,Tend369,Commodityequipment
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime368_Vehicle1_Commodity5:
+   Classic_commodity_outflow_1,3,3,Tstart368,Tend369,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime368_Vehicle1_Commodity5:
    Classic_commodity_outflow_1,3,3,Tstart368,Tend369,Commoditysamples
@@ -37366,20 +37927,35 @@ Subject To
    Classic_commodity_outflow_1,3,3,Tstart368,Tend369,Commoditypropellant
    - Classic_commodity_inflow_1,3,3,Tstart368,Tend369,Commoditypropellant
    + 0.00273972602739726 isru_arc_propellant_vehicle1_node3_time368 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime368_Vehicle1_Commodity7:
+   Classic_commodity_outflow_1,3,3,Tstart368,Tend369,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime368_Vehicle1_Commodity7:
    Classic_commodity_outflow_1,3,3,Tstart368,Tend369,Commoditypackaged_isru
    - Classic_commodity_inflow_1,3,3,Tstart368,Tend369,Commoditypackaged_isru
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime368_Vehicle1_Commodity8:
+   Classic_commodity_outflow_1,3,3,Tstart368,Tend369,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime368_Vehicle1_Commodity8:
    Classic_commodity_outflow_1,3,3,Tstart368,Tend369,Commodityactive_isru
    - Classic_commodity_inflow_1,3,3,Tstart368,Tend369,Commodityactive_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime368_Vehicle1_Commodity9:
+   Classic_commodity_outflow_1,3,3,Tstart368,Tend369,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime368_Vehicle1_Commodity9:
    sc_commodity_outflow_1,3,3,Tstart368,Tend369
    - sc_commodity_inflow_1,3,3,Tstart368,Tend369 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime368_Vehicle1_Commodity10:
+   Classic_commodity_outflow_1,3,3,Tstart368,Tend369,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime368_Vehicle1_Commodity10:
    SC_payload_commodity_outflow_1,3,3,Tstart368,Tend369,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_1,3,3,Tstart368,Tend369,CommoditypayloadVarVehicle_0
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime368_Vehicle1_Commodity11:
+   Classic_commodity_outflow_1,3,3,Tstart368,Tend369,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime368_Vehicle1_Commodity11:
    SC_payload_commodity_outflow_1,3,3,Tstart368,Tend369,CommoditypayloadVarVehicle_1
@@ -37967,16 +38543,28 @@ Subject To
    - Classic_commodity_outflow_1,3,2,Tstart369,Tend370,Commoditypropellant
    + Classic_commodity_inflow_1,3,2,Tstart369,Tend370,Commoditypropellant
    >= -17000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime369_Vehicle0_Commodity0:
+   Classic_commodity_outflow_0,3,3,Tstart369,Tend370,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime369_Vehicle0_Commodity0:
    Classic_commodity_outflow_0,3,3,Tstart369,Tend370,Commoditycrew
    - Classic_commodity_inflow_0,3,3,Tstart369,Tend370,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime369_Vehicle0_Commodity1:
+   Classic_commodity_outflow_0,3,3,Tstart369,Tend370,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime369_Vehicle0_Commodity1:
    Classic_commodity_outflow_0,3,3,Tstart369,Tend370,Commoditycrew_interim
    - Classic_commodity_inflow_0,3,3,Tstart369,Tend370,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime369_Vehicle0_Commodity2:
+   Classic_commodity_outflow_0,3,3,Tstart369,Tend370,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime369_Vehicle0_Commodity2:
    Classic_commodity_outflow_0,3,3,Tstart369,Tend370,Commoditycrew_return
    - Classic_commodity_inflow_0,3,3,Tstart369,Tend370,Commoditycrew_return
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime369_Vehicle0_Commodity3:
+   Classic_commodity_outflow_0,3,3,Tstart369,Tend370,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime369_Vehicle0_Commodity3:
    - 7.1 Classic_commodity_outflow_0,3,3,Tstart369,Tend370,Commoditycrew
@@ -37985,9 +38573,15 @@ Subject To
    + Classic_commodity_outflow_0,3,3,Tstart369,Tend370,Commodityconsumables
    - Classic_commodity_inflow_0,3,3,Tstart369,Tend370,Commodityconsumables
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime369_Vehicle0_Commodity4:
+   Classic_commodity_outflow_0,3,3,Tstart369,Tend370,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime369_Vehicle0_Commodity4:
    Classic_commodity_outflow_0,3,3,Tstart369,Tend370,Commodityequipment
    - Classic_commodity_inflow_0,3,3,Tstart369,Tend370,Commodityequipment
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime369_Vehicle0_Commodity5:
+   Classic_commodity_outflow_0,3,3,Tstart369,Tend370,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime369_Vehicle0_Commodity5:
    Classic_commodity_outflow_0,3,3,Tstart369,Tend370,Commoditysamples
@@ -39159,20 +39753,35 @@ Subject To
    Classic_commodity_outflow_0,3,3,Tstart369,Tend370,Commoditypropellant
    - Classic_commodity_inflow_0,3,3,Tstart369,Tend370,Commoditypropellant
    + 0.00273972602739726 isru_arc_propellant_vehicle0_node3_time369 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime369_Vehicle0_Commodity7:
+   Classic_commodity_outflow_0,3,3,Tstart369,Tend370,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime369_Vehicle0_Commodity7:
    Classic_commodity_outflow_0,3,3,Tstart369,Tend370,Commoditypackaged_isru
    - Classic_commodity_inflow_0,3,3,Tstart369,Tend370,Commoditypackaged_isru
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime369_Vehicle0_Commodity8:
+   Classic_commodity_outflow_0,3,3,Tstart369,Tend370,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime369_Vehicle0_Commodity8:
    Classic_commodity_outflow_0,3,3,Tstart369,Tend370,Commodityactive_isru
    - Classic_commodity_inflow_0,3,3,Tstart369,Tend370,Commodityactive_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime369_Vehicle0_Commodity9:
+   Classic_commodity_outflow_0,3,3,Tstart369,Tend370,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime369_Vehicle0_Commodity9:
    sc_commodity_outflow_0,3,3,Tstart369,Tend370
    - sc_commodity_inflow_0,3,3,Tstart369,Tend370 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime369_Vehicle0_Commodity10:
+   Classic_commodity_outflow_0,3,3,Tstart369,Tend370,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime369_Vehicle0_Commodity10:
    SC_payload_commodity_outflow_0,3,3,Tstart369,Tend370,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_0,3,3,Tstart369,Tend370,CommoditypayloadVarVehicle_0
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime369_Vehicle0_Commodity11:
+   Classic_commodity_outflow_0,3,3,Tstart369,Tend370,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime369_Vehicle0_Commodity11:
    SC_payload_commodity_outflow_0,3,3,Tstart369,Tend370,CommoditypayloadVarVehicle_1
@@ -39182,16 +39791,28 @@ Subject To
    - Classic_commodity_outflow_0,3,3,Tstart369,Tend370,Commoditypropellant
    + Classic_commodity_inflow_0,3,3,Tstart369,Tend370,Commoditypropellant
    >= -4000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime369_Vehicle1_Commodity0:
+   Classic_commodity_outflow_1,3,3,Tstart369,Tend370,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime369_Vehicle1_Commodity0:
    Classic_commodity_outflow_1,3,3,Tstart369,Tend370,Commoditycrew
    - Classic_commodity_inflow_1,3,3,Tstart369,Tend370,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime369_Vehicle1_Commodity1:
+   Classic_commodity_outflow_1,3,3,Tstart369,Tend370,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime369_Vehicle1_Commodity1:
    Classic_commodity_outflow_1,3,3,Tstart369,Tend370,Commoditycrew_interim
    - Classic_commodity_inflow_1,3,3,Tstart369,Tend370,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime369_Vehicle1_Commodity2:
+   Classic_commodity_outflow_1,3,3,Tstart369,Tend370,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime369_Vehicle1_Commodity2:
    Classic_commodity_outflow_1,3,3,Tstart369,Tend370,Commoditycrew_return
    - Classic_commodity_inflow_1,3,3,Tstart369,Tend370,Commoditycrew_return
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime369_Vehicle1_Commodity3:
+   Classic_commodity_outflow_1,3,3,Tstart369,Tend370,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime369_Vehicle1_Commodity3:
    - 7.1 Classic_commodity_outflow_1,3,3,Tstart369,Tend370,Commoditycrew
@@ -39200,9 +39821,15 @@ Subject To
    + Classic_commodity_outflow_1,3,3,Tstart369,Tend370,Commodityconsumables
    - Classic_commodity_inflow_1,3,3,Tstart369,Tend370,Commodityconsumables
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime369_Vehicle1_Commodity4:
+   Classic_commodity_outflow_1,3,3,Tstart369,Tend370,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime369_Vehicle1_Commodity4:
    Classic_commodity_outflow_1,3,3,Tstart369,Tend370,Commodityequipment
    - Classic_commodity_inflow_1,3,3,Tstart369,Tend370,Commodityequipment
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime369_Vehicle1_Commodity5:
+   Classic_commodity_outflow_1,3,3,Tstart369,Tend370,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime369_Vehicle1_Commodity5:
    Classic_commodity_outflow_1,3,3,Tstart369,Tend370,Commoditysamples
@@ -40374,20 +41001,35 @@ Subject To
    Classic_commodity_outflow_1,3,3,Tstart369,Tend370,Commoditypropellant
    - Classic_commodity_inflow_1,3,3,Tstart369,Tend370,Commoditypropellant
    + 0.00273972602739726 isru_arc_propellant_vehicle1_node3_time369 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime369_Vehicle1_Commodity7:
+   Classic_commodity_outflow_1,3,3,Tstart369,Tend370,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime369_Vehicle1_Commodity7:
    Classic_commodity_outflow_1,3,3,Tstart369,Tend370,Commoditypackaged_isru
    - Classic_commodity_inflow_1,3,3,Tstart369,Tend370,Commoditypackaged_isru
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime369_Vehicle1_Commodity8:
+   Classic_commodity_outflow_1,3,3,Tstart369,Tend370,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime369_Vehicle1_Commodity8:
    Classic_commodity_outflow_1,3,3,Tstart369,Tend370,Commodityactive_isru
    - Classic_commodity_inflow_1,3,3,Tstart369,Tend370,Commodityactive_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime369_Vehicle1_Commodity9:
+   Classic_commodity_outflow_1,3,3,Tstart369,Tend370,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime369_Vehicle1_Commodity9:
    sc_commodity_outflow_1,3,3,Tstart369,Tend370
    - sc_commodity_inflow_1,3,3,Tstart369,Tend370 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime369_Vehicle1_Commodity10:
+   Classic_commodity_outflow_1,3,3,Tstart369,Tend370,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime369_Vehicle1_Commodity10:
    SC_payload_commodity_outflow_1,3,3,Tstart369,Tend370,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_1,3,3,Tstart369,Tend370,CommoditypayloadVarVehicle_0
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime369_Vehicle1_Commodity11:
+   Classic_commodity_outflow_1,3,3,Tstart369,Tend370,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime369_Vehicle1_Commodity11:
    SC_payload_commodity_outflow_1,3,3,Tstart369,Tend370,CommoditypayloadVarVehicle_1
@@ -40977,16 +41619,28 @@ Subject To
    - Classic_commodity_outflow_1,3,2,Tstart370,Tend371,Commoditypropellant
    + Classic_commodity_inflow_1,3,2,Tstart370,Tend371,Commoditypropellant
    >= -17000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime370_Vehicle0_Commodity0:
+   Classic_commodity_outflow_0,3,3,Tstart370,Tend371,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime370_Vehicle0_Commodity0:
    Classic_commodity_outflow_0,3,3,Tstart370,Tend371,Commoditycrew
    - Classic_commodity_inflow_0,3,3,Tstart370,Tend371,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime370_Vehicle0_Commodity1:
+   Classic_commodity_outflow_0,3,3,Tstart370,Tend371,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime370_Vehicle0_Commodity1:
    Classic_commodity_outflow_0,3,3,Tstart370,Tend371,Commoditycrew_interim
    - Classic_commodity_inflow_0,3,3,Tstart370,Tend371,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime370_Vehicle0_Commodity2:
+   Classic_commodity_outflow_0,3,3,Tstart370,Tend371,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime370_Vehicle0_Commodity2:
    Classic_commodity_outflow_0,3,3,Tstart370,Tend371,Commoditycrew_return
    - Classic_commodity_inflow_0,3,3,Tstart370,Tend371,Commoditycrew_return
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime370_Vehicle0_Commodity3:
+   Classic_commodity_outflow_0,3,3,Tstart370,Tend371,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime370_Vehicle0_Commodity3:
    - 7.1 Classic_commodity_outflow_0,3,3,Tstart370,Tend371,Commoditycrew
@@ -40995,9 +41649,15 @@ Subject To
    + Classic_commodity_outflow_0,3,3,Tstart370,Tend371,Commodityconsumables
    - Classic_commodity_inflow_0,3,3,Tstart370,Tend371,Commodityconsumables
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime370_Vehicle0_Commodity4:
+   Classic_commodity_outflow_0,3,3,Tstart370,Tend371,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime370_Vehicle0_Commodity4:
    Classic_commodity_outflow_0,3,3,Tstart370,Tend371,Commodityequipment
    - Classic_commodity_inflow_0,3,3,Tstart370,Tend371,Commodityequipment
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime370_Vehicle0_Commodity5:
+   Classic_commodity_outflow_0,3,3,Tstart370,Tend371,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime370_Vehicle0_Commodity5:
    Classic_commodity_outflow_0,3,3,Tstart370,Tend371,Commoditysamples
@@ -42169,20 +42829,35 @@ Subject To
    Classic_commodity_outflow_0,3,3,Tstart370,Tend371,Commoditypropellant
    - Classic_commodity_inflow_0,3,3,Tstart370,Tend371,Commoditypropellant
    + 0.00273972602739726 isru_arc_propellant_vehicle0_node3_time370 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime370_Vehicle0_Commodity7:
+   Classic_commodity_outflow_0,3,3,Tstart370,Tend371,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime370_Vehicle0_Commodity7:
    Classic_commodity_outflow_0,3,3,Tstart370,Tend371,Commoditypackaged_isru
    - Classic_commodity_inflow_0,3,3,Tstart370,Tend371,Commoditypackaged_isru
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime370_Vehicle0_Commodity8:
+   Classic_commodity_outflow_0,3,3,Tstart370,Tend371,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime370_Vehicle0_Commodity8:
    Classic_commodity_outflow_0,3,3,Tstart370,Tend371,Commodityactive_isru
    - Classic_commodity_inflow_0,3,3,Tstart370,Tend371,Commodityactive_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime370_Vehicle0_Commodity9:
+   Classic_commodity_outflow_0,3,3,Tstart370,Tend371,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime370_Vehicle0_Commodity9:
    sc_commodity_outflow_0,3,3,Tstart370,Tend371
    - sc_commodity_inflow_0,3,3,Tstart370,Tend371 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime370_Vehicle0_Commodity10:
+   Classic_commodity_outflow_0,3,3,Tstart370,Tend371,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime370_Vehicle0_Commodity10:
    SC_payload_commodity_outflow_0,3,3,Tstart370,Tend371,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_0,3,3,Tstart370,Tend371,CommoditypayloadVarVehicle_0
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime370_Vehicle0_Commodity11:
+   Classic_commodity_outflow_0,3,3,Tstart370,Tend371,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime370_Vehicle0_Commodity11:
    SC_payload_commodity_outflow_0,3,3,Tstart370,Tend371,CommoditypayloadVarVehicle_1
@@ -42192,16 +42867,28 @@ Subject To
    - Classic_commodity_outflow_0,3,3,Tstart370,Tend371,Commoditypropellant
    + Classic_commodity_inflow_0,3,3,Tstart370,Tend371,Commoditypropellant
    >= -4000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime370_Vehicle1_Commodity0:
+   Classic_commodity_outflow_1,3,3,Tstart370,Tend371,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime370_Vehicle1_Commodity0:
    Classic_commodity_outflow_1,3,3,Tstart370,Tend371,Commoditycrew
    - Classic_commodity_inflow_1,3,3,Tstart370,Tend371,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime370_Vehicle1_Commodity1:
+   Classic_commodity_outflow_1,3,3,Tstart370,Tend371,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime370_Vehicle1_Commodity1:
    Classic_commodity_outflow_1,3,3,Tstart370,Tend371,Commoditycrew_interim
    - Classic_commodity_inflow_1,3,3,Tstart370,Tend371,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime370_Vehicle1_Commodity2:
+   Classic_commodity_outflow_1,3,3,Tstart370,Tend371,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime370_Vehicle1_Commodity2:
    Classic_commodity_outflow_1,3,3,Tstart370,Tend371,Commoditycrew_return
    - Classic_commodity_inflow_1,3,3,Tstart370,Tend371,Commoditycrew_return
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime370_Vehicle1_Commodity3:
+   Classic_commodity_outflow_1,3,3,Tstart370,Tend371,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime370_Vehicle1_Commodity3:
    - 7.1 Classic_commodity_outflow_1,3,3,Tstart370,Tend371,Commoditycrew
@@ -42210,9 +42897,15 @@ Subject To
    + Classic_commodity_outflow_1,3,3,Tstart370,Tend371,Commodityconsumables
    - Classic_commodity_inflow_1,3,3,Tstart370,Tend371,Commodityconsumables
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime370_Vehicle1_Commodity4:
+   Classic_commodity_outflow_1,3,3,Tstart370,Tend371,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime370_Vehicle1_Commodity4:
    Classic_commodity_outflow_1,3,3,Tstart370,Tend371,Commodityequipment
    - Classic_commodity_inflow_1,3,3,Tstart370,Tend371,Commodityequipment
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime370_Vehicle1_Commodity5:
+   Classic_commodity_outflow_1,3,3,Tstart370,Tend371,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime370_Vehicle1_Commodity5:
    Classic_commodity_outflow_1,3,3,Tstart370,Tend371,Commoditysamples
@@ -43384,20 +44077,35 @@ Subject To
    Classic_commodity_outflow_1,3,3,Tstart370,Tend371,Commoditypropellant
    - Classic_commodity_inflow_1,3,3,Tstart370,Tend371,Commoditypropellant
    + 0.00273972602739726 isru_arc_propellant_vehicle1_node3_time370 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime370_Vehicle1_Commodity7:
+   Classic_commodity_outflow_1,3,3,Tstart370,Tend371,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime370_Vehicle1_Commodity7:
    Classic_commodity_outflow_1,3,3,Tstart370,Tend371,Commoditypackaged_isru
    - Classic_commodity_inflow_1,3,3,Tstart370,Tend371,Commoditypackaged_isru
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime370_Vehicle1_Commodity8:
+   Classic_commodity_outflow_1,3,3,Tstart370,Tend371,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime370_Vehicle1_Commodity8:
    Classic_commodity_outflow_1,3,3,Tstart370,Tend371,Commodityactive_isru
    - Classic_commodity_inflow_1,3,3,Tstart370,Tend371,Commodityactive_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime370_Vehicle1_Commodity9:
+   Classic_commodity_outflow_1,3,3,Tstart370,Tend371,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime370_Vehicle1_Commodity9:
    sc_commodity_outflow_1,3,3,Tstart370,Tend371
    - sc_commodity_inflow_1,3,3,Tstart370,Tend371 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime370_Vehicle1_Commodity10:
+   Classic_commodity_outflow_1,3,3,Tstart370,Tend371,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime370_Vehicle1_Commodity10:
    SC_payload_commodity_outflow_1,3,3,Tstart370,Tend371,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_1,3,3,Tstart370,Tend371,CommoditypayloadVarVehicle_0
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime370_Vehicle1_Commodity11:
+   Classic_commodity_outflow_1,3,3,Tstart370,Tend371,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime370_Vehicle1_Commodity11:
    SC_payload_commodity_outflow_1,3,3,Tstart370,Tend371,CommoditypayloadVarVehicle_1
@@ -43759,16 +44467,28 @@ Subject To
    - Classic_commodity_outflow_1,3,2,Tstart371,Tend372,Commoditypropellant
    + Classic_commodity_inflow_1,3,2,Tstart371,Tend372,Commoditypropellant
    >= -17000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime371_Vehicle0_Commodity0:
+   Classic_commodity_outflow_0,3,3,Tstart371,Tend376,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime371_Vehicle0_Commodity0:
    Classic_commodity_outflow_0,3,3,Tstart371,Tend376,Commoditycrew
    - Classic_commodity_inflow_0,3,3,Tstart371,Tend376,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime371_Vehicle0_Commodity1:
+   Classic_commodity_outflow_0,3,3,Tstart371,Tend376,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime371_Vehicle0_Commodity1:
    Classic_commodity_outflow_0,3,3,Tstart371,Tend376,Commoditycrew_interim
    - Classic_commodity_inflow_0,3,3,Tstart371,Tend376,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime371_Vehicle0_Commodity2:
+   Classic_commodity_outflow_0,3,3,Tstart371,Tend376,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime371_Vehicle0_Commodity2:
    Classic_commodity_outflow_0,3,3,Tstart371,Tend376,Commoditycrew_return
    - Classic_commodity_inflow_0,3,3,Tstart371,Tend376,Commoditycrew_return
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime371_Vehicle0_Commodity3:
+   Classic_commodity_outflow_0,3,3,Tstart371,Tend376,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime371_Vehicle0_Commodity3:
    - 7.1 Classic_commodity_outflow_0,3,3,Tstart371,Tend376,Commoditycrew
@@ -43777,9 +44497,15 @@ Subject To
    + Classic_commodity_outflow_0,3,3,Tstart371,Tend376,Commodityconsumables
    - Classic_commodity_inflow_0,3,3,Tstart371,Tend376,Commodityconsumables
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime371_Vehicle0_Commodity4:
+   Classic_commodity_outflow_0,3,3,Tstart371,Tend376,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime371_Vehicle0_Commodity4:
    Classic_commodity_outflow_0,3,3,Tstart371,Tend376,Commodityequipment
    - Classic_commodity_inflow_0,3,3,Tstart371,Tend376,Commodityequipment
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime371_Vehicle0_Commodity5:
+   Classic_commodity_outflow_0,3,3,Tstart371,Tend376,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime371_Vehicle0_Commodity5:
    Classic_commodity_outflow_0,3,3,Tstart371,Tend376,Commoditysamples
@@ -44951,20 +45677,35 @@ Subject To
    Classic_commodity_outflow_0,3,3,Tstart371,Tend376,Commoditypropellant
    - Classic_commodity_inflow_0,3,3,Tstart371,Tend376,Commoditypropellant
    + 0.0136986301369863 isru_arc_propellant_vehicle0_node3_time371 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime371_Vehicle0_Commodity7:
+   Classic_commodity_outflow_0,3,3,Tstart371,Tend376,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime371_Vehicle0_Commodity7:
    Classic_commodity_outflow_0,3,3,Tstart371,Tend376,Commoditypackaged_isru
    - Classic_commodity_inflow_0,3,3,Tstart371,Tend376,Commoditypackaged_isru
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime371_Vehicle0_Commodity8:
+   Classic_commodity_outflow_0,3,3,Tstart371,Tend376,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime371_Vehicle0_Commodity8:
    Classic_commodity_outflow_0,3,3,Tstart371,Tend376,Commodityactive_isru
    - Classic_commodity_inflow_0,3,3,Tstart371,Tend376,Commodityactive_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime371_Vehicle0_Commodity9:
+   Classic_commodity_outflow_0,3,3,Tstart371,Tend376,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime371_Vehicle0_Commodity9:
    sc_commodity_outflow_0,3,3,Tstart371,Tend376
    - sc_commodity_inflow_0,3,3,Tstart371,Tend376 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime371_Vehicle0_Commodity10:
+   Classic_commodity_outflow_0,3,3,Tstart371,Tend376,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime371_Vehicle0_Commodity10:
    SC_payload_commodity_outflow_0,3,3,Tstart371,Tend376,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_0,3,3,Tstart371,Tend376,CommoditypayloadVarVehicle_0
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime371_Vehicle0_Commodity11:
+   Classic_commodity_outflow_0,3,3,Tstart371,Tend376,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime371_Vehicle0_Commodity11:
    SC_payload_commodity_outflow_0,3,3,Tstart371,Tend376,CommoditypayloadVarVehicle_1
@@ -44974,16 +45715,28 @@ Subject To
    - Classic_commodity_outflow_0,3,3,Tstart371,Tend376,Commoditypropellant
    + Classic_commodity_inflow_0,3,3,Tstart371,Tend376,Commoditypropellant
    >= -4000
+ ActiveISRU_negationConstraint_Start3_End3_Starttime371_Vehicle1_Commodity0:
+   Classic_commodity_outflow_1,3,3,Tstart371,Tend376,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime371_Vehicle1_Commodity0:
    Classic_commodity_outflow_1,3,3,Tstart371,Tend376,Commoditycrew
    - Classic_commodity_inflow_1,3,3,Tstart371,Tend376,Commoditycrew = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime371_Vehicle1_Commodity1:
+   Classic_commodity_outflow_1,3,3,Tstart371,Tend376,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime371_Vehicle1_Commodity1:
    Classic_commodity_outflow_1,3,3,Tstart371,Tend376,Commoditycrew_interim
    - Classic_commodity_inflow_1,3,3,Tstart371,Tend376,Commoditycrew_interim
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime371_Vehicle1_Commodity2:
+   Classic_commodity_outflow_1,3,3,Tstart371,Tend376,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime371_Vehicle1_Commodity2:
    Classic_commodity_outflow_1,3,3,Tstart371,Tend376,Commoditycrew_return
    - Classic_commodity_inflow_1,3,3,Tstart371,Tend376,Commoditycrew_return
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime371_Vehicle1_Commodity3:
+   Classic_commodity_outflow_1,3,3,Tstart371,Tend376,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime371_Vehicle1_Commodity3:
    - 7.1 Classic_commodity_outflow_1,3,3,Tstart371,Tend376,Commoditycrew
@@ -44992,9 +45745,15 @@ Subject To
    + Classic_commodity_outflow_1,3,3,Tstart371,Tend376,Commodityconsumables
    - Classic_commodity_inflow_1,3,3,Tstart371,Tend376,Commodityconsumables
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime371_Vehicle1_Commodity4:
+   Classic_commodity_outflow_1,3,3,Tstart371,Tend376,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime371_Vehicle1_Commodity4:
    Classic_commodity_outflow_1,3,3,Tstart371,Tend376,Commodityequipment
    - Classic_commodity_inflow_1,3,3,Tstart371,Tend376,Commodityequipment
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime371_Vehicle1_Commodity5:
+   Classic_commodity_outflow_1,3,3,Tstart371,Tend376,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime371_Vehicle1_Commodity5:
    Classic_commodity_outflow_1,3,3,Tstart371,Tend376,Commoditysamples
@@ -46166,20 +46925,35 @@ Subject To
    Classic_commodity_outflow_1,3,3,Tstart371,Tend376,Commoditypropellant
    - Classic_commodity_inflow_1,3,3,Tstart371,Tend376,Commoditypropellant
    + 0.0136986301369863 isru_arc_propellant_vehicle1_node3_time371 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime371_Vehicle1_Commodity7:
+   Classic_commodity_outflow_1,3,3,Tstart371,Tend376,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime371_Vehicle1_Commodity7:
    Classic_commodity_outflow_1,3,3,Tstart371,Tend376,Commoditypackaged_isru
    - Classic_commodity_inflow_1,3,3,Tstart371,Tend376,Commoditypackaged_isru
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime371_Vehicle1_Commodity8:
+   Classic_commodity_outflow_1,3,3,Tstart371,Tend376,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime371_Vehicle1_Commodity8:
    Classic_commodity_outflow_1,3,3,Tstart371,Tend376,Commodityactive_isru
    - Classic_commodity_inflow_1,3,3,Tstart371,Tend376,Commodityactive_isru
    = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime371_Vehicle1_Commodity9:
+   Classic_commodity_outflow_1,3,3,Tstart371,Tend376,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime371_Vehicle1_Commodity9:
    sc_commodity_outflow_1,3,3,Tstart371,Tend376
    - sc_commodity_inflow_1,3,3,Tstart371,Tend376 = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime371_Vehicle1_Commodity10:
+   Classic_commodity_outflow_1,3,3,Tstart371,Tend376,Commodityactive_isru
+   = 0
  Arc_transformationConstraint_Start3_End3_Starttime371_Vehicle1_Commodity10:
    SC_payload_commodity_outflow_1,3,3,Tstart371,Tend376,CommoditypayloadVarVehicle_0
    - SC_payload_commodity_inflow_1,3,3,Tstart371,Tend376,CommoditypayloadVarVehicle_0
+   = 0
+ ActiveISRU_negationConstraint_Start3_End3_Starttime371_Vehicle1_Commodity11:
+   Classic_commodity_outflow_1,3,3,Tstart371,Tend376,Commodityactive_isru
    = 0
  Arc_transformationConstraint_Start3_End3_Starttime371_Vehicle1_Commodity11:
    SC_payload_commodity_outflow_1,3,3,Tstart371,Tend376,CommoditypayloadVarVehicle_1

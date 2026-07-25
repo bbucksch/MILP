@@ -123,14 +123,14 @@ def demand_supply(network, n_commodities, n_vehicles):
     #Consumables
     D[1][0][3] = 99999
 
-    D[1][0+365][3] = 99999
+    #D[1][0+365][3] = 99999
 
     #Equipment
     D[1][0][4] = 99999
     D[3][4][4] = -420
 
-    D[1][0+365][4] = 99999
-    D[3][4+365][4] = -420
+    #D[1][0+365][4] = 99999
+    #D[3][4+365][4] = -420
 
     #Samples
     for t in network.node_windows[3]:

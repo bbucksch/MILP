@@ -22,6 +22,7 @@ def val(x):
         try:
             return x[0].X
         except Exception:
+            print()
             return float(x)
 
 

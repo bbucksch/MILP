@@ -16,7 +16,11 @@ change the subject which is minimized or maximized
 
 def set_initial_mass_objective(model, ctx, start_node=1, start_time=0):
 
-    carriedvehicles = [k for k,i in enumerate(ctx["vehicle_data"].carriable)]
+    
+    carriedvehicles = []
+    for i,k in enumerate(ctx["vehicle_data"].carriable):
+        if k == True:
+            carriedvehicles.append(i)
     
     cost = (
         sum(
@@ -28,10 +32,10 @@ def set_initial_mass_objective(model, ctx, start_node=1, start_time=0):
 
         
         + sum(
-            ctx["vehicle_data"].structure_mass[k]
-            * ctx["scpayload_outflow"][v][start_node][j][start_time][k][0]
+            ctx["vehicle_data"].structure_mass[massnum]
+            * ctx["scpayload_outflow"][v][start_node][j][start_time][index][0]
             for v in range(ctx["V"])
-            for k in carriedvehicles
+            for index,massnum in enumerate(carriedvehicles)
             for j in ctx["all_arcs"][start_time][start_node]
         )
     )
