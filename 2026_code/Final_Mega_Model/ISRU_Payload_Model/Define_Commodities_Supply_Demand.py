@@ -183,7 +183,7 @@ def are_we_on_earth(i,j):
 #create a consumption matrix for the network model,based on number of commodities,
 #index position of propellant, and ISRU indices and masses of various systems
 def consumption_matrix(i, j, v, commodity_count, prop_index, crew_mass,
-                       daily_consumption, network, vehicle_data, Active_ISRU_index):
+                       daily_consumption, network, vehicle_data, Active_ISRU_index, ArcTOF):
     """
     Transformation matrix for commodities, active spacecraft, and spacecraft
     payloads.  ISRU commodities are pass-through here; eligible holdover arcs
@@ -220,9 +220,9 @@ def consumption_matrix(i, j, v, commodity_count, prop_index, crew_mass,
     if are_we_on_earth(i,j) == False:
         
         #exceptions consumption of consumables: crew ->consumables [3]
-        mat[3, 0] = -daily_consumption * network.tof[i][j] #Decrease in consumables due to crew consumption
-        mat[3, 1] = -daily_consumption * network.tof[i][j] #Decrease in consumables due to crew consumption
-        mat[3, 2] = -daily_consumption * network.tof[i][j] #Decrease in consumables due to crew consumption
+        mat[3, 0] = -daily_consumption * ArcTOF #Decrease in consumables due to crew consumption
+        mat[3, 1] = -daily_consumption * ArcTOF #Decrease in consumables due to crew consumption
+        mat[3, 2] = -daily_consumption * ArcTOF #Decrease in consumables due to crew consumption
         #crew, crew interim, crew return -> consumables
     
     #else: 

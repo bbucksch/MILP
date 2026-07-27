@@ -4,6 +4,7 @@ import copy
 import gurobipy as gp
 from gurobipy import GRB
 import numpy as np
+import pandas as pd
 
 """
 
@@ -288,6 +289,10 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
             flows=Cargoflows,
             use="out_mass"
         )
+        df = pd.DataFrame(mass_table)
+
+        # 3. Export to a CSV file (index=False prevents writing row numbers)
+        df.to_csv('Mass_table_output_ISRU_Payload.csv', index=False)
 
 
 

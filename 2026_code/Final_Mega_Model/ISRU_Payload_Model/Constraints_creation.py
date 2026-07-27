@@ -142,7 +142,8 @@ def add_arc_transformation_constraints(model, ctx):
                         daily_consumption= ctx["Commodities"].consumption_rate, 
                         network=ctx["network"], 
                         vehicle_data=ctx["vehicle_data"],
-                        Active_ISRU_index= ctx["Commodities"].isru_indices["active"]
+                        Active_ISRU_index= ctx["Commodities"].isru_indices["active"],
+                        ArcTOF= ctx["all_arcs"][t][i][j]["FullTravelTime"]
                     )
                     transformed = np.dot(consumed, Vout)
                     for row, (enterarc, leavearc) in enumerate(zip(transformed, Vin)):
