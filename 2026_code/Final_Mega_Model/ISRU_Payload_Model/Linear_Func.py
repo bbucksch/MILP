@@ -16,6 +16,8 @@ def add_log_pwl_1d(
     breakpoints=None,
     forbid_unused_codes=True,
     verify=True,
+    maxval = True,
+
 ):
     """
     Adds a 1D piecewise-linear approximation using lambda variables
@@ -131,11 +133,16 @@ def add_log_pwl_1d(
         name=f"{name}_x_interp",
     )
 
-    model.addConstr(
-        z_var == gp.quicksum(float(z_bp[k]) * lam[k] for k in range(n_breakpoints)),
-        name=f"{name}_z_interp",
-    )
-
+    if maxval:
+        model.addConstr(
+            z_var == gp.quicksum(float(z_bp[k]) * lam[k] for k in range(n_breakpoints)),
+            name=f"{name}_z_interp",
+        )
+    else:
+        model.addConstr(
+                    z_var <= gp.quicksum(float(z_bp[k]) * lam[k] for k in range(n_breakpoints)),
+                    name=f"{name}_z_interp",
+                )
     # ------------------------------------------------------------------
     # 4. Gray-code segment labels
     # ------------------------------------------------------------------

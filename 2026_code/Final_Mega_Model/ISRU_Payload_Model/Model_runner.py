@@ -16,15 +16,18 @@ From here the user controls which file is run for:
 4. Variable Creation
 5. Constriant Creation
 6. Objective Function Creation
-7. Optimiizing
+7. Optimizing
 8. Results extraction and visualization
 8b. Analysis of failure to optimize/infeasibility
 9. Sensitivity Analysis
 """
 
+Test = input("Have you changed the 3 input files to the correct model? (y/n): ")
+if Test.lower() != "y":
+    raise ValueError("Please change the 3 input files to the correct model before running this script.")
 
 #Network model + Spacecraft Design model +ISRU model defined for problem
-from Define_Network_Vehicle_ISRU import (
+from Test_PayloadSC.Define_Network_Vehicle_ISRU import (
     NetworkModel,
     reverse_tof,
     all_possible_outflow_arcs,
@@ -34,13 +37,18 @@ from Define_Network_Vehicle_ISRU import (
     ISRUfunc_test,
     ISRUtotal_test
 )
-
-from Define_Commodities_Supply_Demand import (
+# Define commodities, consumption matrix and supply and demand
+from Test_PayloadSC.Define_Commodities_Supply_Demand import (
     define_commodities,
     demand_supply,
     consumption_matrix
 
 )
+#Define Cost Function
+from Test_PayloadSC.Define_Cost_Func import (
+    set_initial_mass_objective
+)
+
 
 from Variable_Creation import (
     create_commodity_flow,
@@ -55,9 +63,7 @@ from Constraints_creation import (
     add_ISRU_negation_constraint
 )
 
-from Define_Cost_Func import (
-    set_initial_mass_objective
-)
+
 
 from Results import (
     extract_flows,
@@ -68,6 +74,12 @@ from Results import (
 
 )
 
+from Sensitivity import (
+    single_commodity_demand_sensitivity_analysis,
+    multi_commodity_demand_sensitivity_analysis,
+    LIP_conversion_demand_sensitivity_analysis
+)
+
 
 #payload 
 #carried_var_types = [GRB.INTEGER for _ in carriable]
@@ -76,7 +88,10 @@ from Results import (
 
 
 def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, isru_config=None, isru_prod_model = ISRU_total_annual_output,
-                commodities = None, model_name="MissionPlanning+ISRU", optimize=False, vizualize=False):
+                commodities = None, model_name="MissionPlanning+ISRU", optimize=False, vizualize=False, sensitivity_analysis=False, commodity_analysis=None):
+
+    
+    
     network = network or NetworkModel()
     vehicle_data = vehicle_data or VehicleModel()
     isru_config = isru_config or ISRUModel()
@@ -294,8 +309,58 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
         # 3. Export to a CSV file (index=False prevents writing row numbers)
         df.to_csv('Mass_table_output_ISRU_Payload.csv', index=False)
 
+    if sensitivity_analysis:
+
+        fixed_lp = Lin_model.fixed() #fixed model simplified
+        #fixed_lp.Params.OutputFlag = 0
+        fixed_lp.Params.Method = 1       # Dual simplex, optional
+        fixed_lp.optimize()
+
+        if fixed_lp.Status != GRB.OPTIMAL:
+            raise RuntimeError("Fixed LP was not solved to optimality")
+
+        #format for commodity analysis: dict as follows {0:{commodity name:, i_dem:, t_dem:, demand_change:, i_sup:, t_sup:},...}
+        if commodity_analysis:
+            ctx['shadow prices'] = {}
+            multi = []
+            for x in commodity_analysis.values():
+                
+                if x["Type"] == "Single":
+                    shadow_price = single_commodity_demand_sensitivity_analysis(
+                        model=Lin_model,
+                        ctx=ctx,
+                        commodity=x["commodity"],
+                        i_dem=x["i_dem"],
+                        t_dem=x["t_dem"],
+                        demand_change=x["demand_change"],
+                        i_sup=x.get("i_sup", None),
+                        t_sup=x.get("t_sup", None)
+                    )
+                    multi = []
+                    ctx['shadow prices'][f"shadow_price_{x['commodity']}_node{x['i_dem']}_time{x['t_dem']}_diff{x["demand_change"]}"] = shadow_price
+
+                    ctx['shadow prices'][f"shadow_price_{x['commodity']}_node{x['i_dem']}_time{x['t_dem']}_LINEAR"] = LIP_conversion_demand_sensitivity_analysis(
+                        fixed_lp=fixed_lp,
+                        ctx=ctx,
+                        commodity=x["commodity"],
+                        i_dem=x["i_dem"],
+                        t_dem=x["t_dem"]
+                    )
 
 
+                elif x["Type"] == "Multi":
+                    multi.append(x)
+                    if len(multi) == x["entries"]:
+                        # Perform multi-commodity sensitivity analysis
+                        shadow_price = multi_commodity_demand_sensitivity_analysis(
+                            model=Lin_model,
+                            ctx=ctx,
+                            description=multi
+                        )
+                        ctx['shadow prices'][f"shadow_price_multicommodity_{x['commodity']}"] = shadow_price
+                        multi = []
+
+                
 
 
     return ctx
@@ -304,5 +369,5 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
 
 
 if __name__ == "__main__":
-    context = build_model(optimize=True, vizualize=True)
+    context = build_model(optimize=True, vizualize=False, sensitivity_analysis=True)
     print(f"Built {context['model'].ModelName} with {context['model'].NumVars} variables.")

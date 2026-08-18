@@ -59,7 +59,8 @@ def add_mass_balance_constraints(model, ctx):
                                 -x_inflow_sum[ctx['Commodities'].isru_indices['active']][0] 
                                 -x_inflow_sum[ctx['Commodities'].isru_indices['packaged']][0] 
                                 <= ctx["Demands"][i][t][ctx['Commodities'].isru_indices['active']]
-                                + ctx["Demands"][i][t][ctx['Commodities'].isru_indices['packaged']])
+                                + ctx["Demands"][i][t][ctx['Commodities'].isru_indices['packaged']],
+                                name=f"Active+packaged_mass_balance_x_node{i}_time{t}")
                 
                 
                 #active +packaged IN + demands => active OUT
@@ -169,10 +170,12 @@ def add_arc_transformation_constraints(model, ctx):
                                     name=f"isru_pwl_vehicle{v}_node{i}_time{t}",
                                     x_var=ctx['x_outflow'][v][i][j][t][ctx['Commodities'].isru_indices['active']][0],
                                     z_var=arc_annual_output,
+                                    maxval=False #production may be lower than max
                                 )
                                 #create every total increase in propellant
                                 hold_days = ctx["all_arcs"][t][i][j]["FullTravelTime"]
 
+                                
                                 enterarc += arc_annual_output* (hold_days / ctx['isru_config'].days_per_year)
 
                         else:

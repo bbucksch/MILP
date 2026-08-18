@@ -146,7 +146,7 @@ Subject To
    Classic_commodity_outflow_0,1,1,Tstart0,Tend5,Commoditycrew
    + Classic_commodity_outflow_0,1,2,Tstart0,Tend3,Commoditycrew
    + Classic_commodity_outflow_1,1,1,Tstart0,Tend5,Commoditycrew
-   + Classic_commodity_outflow_1,1,2,Tstart0,Tend3,Commoditycrew <= 3
+   + Classic_commodity_outflow_1,1,2,Tstart0,Tend3,Commoditycrew <= 100
  mass_balance_x_node1_time0_comm1:
    Classic_commodity_outflow_0,1,1,Tstart0,Tend5,Commoditycrew_interim
    + Classic_commodity_outflow_0,1,2,Tstart0,Tend3,Commoditycrew_interim
@@ -253,7 +253,8 @@ Subject To
    + SC_payload_commodity_outflow_0,2,2,Tstart0,Tend1,CommoditypayloadVarVehicle_1
    + SC_payload_commodity_outflow_1,2,2,Tstart0,Tend1,CommoditypayloadVarVehicle_1
    <= 0
- R33: Classic_commodity_outflow_0,3,2,Tstart0,Tend1,Commoditypackaged_isru
+ Active+packaged_mass_balance_x_node3_time0:
+   Classic_commodity_outflow_0,3,2,Tstart0,Tend1,Commoditypackaged_isru
    + Classic_commodity_outflow_0,3,2,Tstart0,Tend1,Commodityactive_isru
    + Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commoditypackaged_isru
    + Classic_commodity_outflow_0,3,3,Tstart0,Tend2,Commodityactive_isru
@@ -558,7 +559,8 @@ Subject To
    - SC_payload_commodity_inflow_0,2,2,Tstart1,Tend2,CommoditypayloadVarVehicle_1
    - SC_payload_commodity_inflow_1,2,2,Tstart1,Tend2,CommoditypayloadVarVehicle_1
    <= 0
- R67: Classic_commodity_outflow_0,3,2,Tstart2,Tend3,Commoditypackaged_isru
+ Active+packaged_mass_balance_x_node3_time2:
+   Classic_commodity_outflow_0,3,2,Tstart2,Tend3,Commoditypackaged_isru
    + Classic_commodity_outflow_0,3,2,Tstart2,Tend3,Commodityactive_isru
    + Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commoditypackaged_isru
    + Classic_commodity_outflow_0,3,3,Tstart2,Tend3,Commodityactive_isru
@@ -832,7 +834,8 @@ Subject To
    - SC_payload_commodity_inflow_1,2,2,Tstart2,Tend3,CommoditypayloadVarVehicle_1
    - SC_payload_commodity_inflow_1,3,2,Tstart2,Tend3,CommoditypayloadVarVehicle_1
    <= 0
- R90: Classic_commodity_outflow_0,3,2,Tstart3,Tend4,Commoditypackaged_isru
+ Active+packaged_mass_balance_x_node3_time3:
+   Classic_commodity_outflow_0,3,2,Tstart3,Tend4,Commoditypackaged_isru
    + Classic_commodity_outflow_0,3,2,Tstart3,Tend4,Commodityactive_isru
    + Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commoditypackaged_isru
    + Classic_commodity_outflow_0,3,3,Tstart3,Tend4,Commodityactive_isru
@@ -1172,7 +1175,8 @@ Subject To
    - SC_payload_commodity_inflow_1,2,2,Tstart3,Tend4,CommoditypayloadVarVehicle_1
    - SC_payload_commodity_inflow_1,3,2,Tstart3,Tend4,CommoditypayloadVarVehicle_1
    <= 0
- R124: Classic_commodity_outflow_0,3,2,Tstart4,Tend5,Commoditypackaged_isru
+ Active+packaged_mass_balance_x_node3_time4:
+   Classic_commodity_outflow_0,3,2,Tstart4,Tend5,Commoditypackaged_isru
    + Classic_commodity_outflow_0,3,2,Tstart4,Tend5,Commodityactive_isru
    + Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commoditypackaged_isru
    + Classic_commodity_outflow_0,3,3,Tstart4,Tend5,Commodityactive_isru
@@ -1561,7 +1565,8 @@ Subject To
    - SC_payload_commodity_inflow_1,2,2,Tstart4,Tend5,CommoditypayloadVarVehicle_1
    - SC_payload_commodity_inflow_1,3,2,Tstart4,Tend5,CommoditypayloadVarVehicle_1
    <= 0
- R158: Classic_commodity_outflow_0,3,2,Tstart5,Tend6,Commoditypackaged_isru
+ Active+packaged_mass_balance_x_node3_time5:
+   Classic_commodity_outflow_0,3,2,Tstart5,Tend6,Commoditypackaged_isru
    + Classic_commodity_outflow_0,3,2,Tstart5,Tend6,Commodityactive_isru
    + Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commoditypackaged_isru
    + Classic_commodity_outflow_0,3,3,Tstart5,Tend6,Commodityactive_isru
@@ -1811,7 +1816,8 @@ Subject To
    - SC_payload_commodity_inflow_1,2,2,Tstart5,Tend6,CommoditypayloadVarVehicle_1
    - SC_payload_commodity_inflow_1,3,2,Tstart5,Tend6,CommoditypayloadVarVehicle_1
    <= 0
- R181: Classic_commodity_outflow_0,3,2,Tstart6,Tend7,Commoditypackaged_isru
+ Active+packaged_mass_balance_x_node3_time6:
+   Classic_commodity_outflow_0,3,2,Tstart6,Tend7,Commoditypackaged_isru
    + Classic_commodity_outflow_0,3,2,Tstart6,Tend7,Commodityactive_isru
    + Classic_commodity_outflow_0,3,3,Tstart6,Tend11,Commoditypackaged_isru
    + Classic_commodity_outflow_0,3,3,Tstart6,Tend11,Commodityactive_isru
@@ -3180,7 +3186,7 @@ Subject To
    - SC_payload_commodity_inflow_0,2,2,Tstart10,Tend11,CommoditypayloadVarVehicle_1
    - SC_payload_commodity_inflow_1,2,2,Tstart10,Tend11,CommoditypayloadVarVehicle_1
    <= 0
- R325:
+ Active+packaged_mass_balance_x_node3_time11:
    Classic_commodity_outflow_0,3,3,Tstart11,Tend365,Commoditypackaged_isru
    + Classic_commodity_outflow_0,3,3,Tstart11,Tend365,Commodityactive_isru
    + Classic_commodity_outflow_1,3,3,Tstart11,Tend365,Commoditypackaged_isru
@@ -3518,7 +3524,7 @@ Subject To
    - SC_payload_commodity_inflow_0,2,2,Tstart11,Tend365,CommoditypayloadVarVehicle_1
    - SC_payload_commodity_inflow_1,2,2,Tstart11,Tend365,CommoditypayloadVarVehicle_1
    <= 0
- R370:
+ Active+packaged_mass_balance_x_node3_time365:
    Classic_commodity_outflow_0,3,2,Tstart365,Tend366,Commoditypackaged_isru
    + Classic_commodity_outflow_0,3,2,Tstart365,Tend366,Commodityactive_isru
    + Classic_commodity_outflow_0,3,3,Tstart365,Tend367,Commoditypackaged_isru
@@ -3861,7 +3867,7 @@ Subject To
    - SC_payload_commodity_inflow_0,2,2,Tstart366,Tend367,CommoditypayloadVarVehicle_1
    - SC_payload_commodity_inflow_1,2,2,Tstart366,Tend367,CommoditypayloadVarVehicle_1
    <= 0
- R404:
+ Active+packaged_mass_balance_x_node3_time367:
    Classic_commodity_outflow_0,3,2,Tstart367,Tend368,Commoditypackaged_isru
    + Classic_commodity_outflow_0,3,2,Tstart367,Tend368,Commodityactive_isru
    + Classic_commodity_outflow_0,3,3,Tstart367,Tend368,Commoditypackaged_isru
@@ -4141,7 +4147,7 @@ Subject To
    - SC_payload_commodity_inflow_1,2,2,Tstart367,Tend368,CommoditypayloadVarVehicle_1
    - SC_payload_commodity_inflow_1,3,2,Tstart367,Tend368,CommoditypayloadVarVehicle_1
    <= 0
- R427:
+ Active+packaged_mass_balance_x_node3_time368:
    Classic_commodity_outflow_0,3,2,Tstart368,Tend369,Commoditypackaged_isru
    + Classic_commodity_outflow_0,3,2,Tstart368,Tend369,Commodityactive_isru
    + Classic_commodity_outflow_0,3,3,Tstart368,Tend369,Commoditypackaged_isru
@@ -4490,7 +4496,7 @@ Subject To
    - SC_payload_commodity_inflow_1,2,2,Tstart368,Tend369,CommoditypayloadVarVehicle_1
    - SC_payload_commodity_inflow_1,3,2,Tstart368,Tend369,CommoditypayloadVarVehicle_1
    <= 0
- R461:
+ Active+packaged_mass_balance_x_node3_time369:
    Classic_commodity_outflow_0,3,2,Tstart369,Tend370,Commoditypackaged_isru
    + Classic_commodity_outflow_0,3,2,Tstart369,Tend370,Commodityactive_isru
    + Classic_commodity_outflow_0,3,3,Tstart369,Tend370,Commoditypackaged_isru
@@ -4887,7 +4893,7 @@ Subject To
    - SC_payload_commodity_inflow_1,2,2,Tstart369,Tend370,CommoditypayloadVarVehicle_1
    - SC_payload_commodity_inflow_1,3,2,Tstart369,Tend370,CommoditypayloadVarVehicle_1
    <= 0
- R495:
+ Active+packaged_mass_balance_x_node3_time370:
    Classic_commodity_outflow_0,3,2,Tstart370,Tend371,Commoditypackaged_isru
    + Classic_commodity_outflow_0,3,2,Tstart370,Tend371,Commodityactive_isru
    + Classic_commodity_outflow_0,3,3,Tstart370,Tend371,Commoditypackaged_isru
@@ -5143,7 +5149,7 @@ Subject To
    - SC_payload_commodity_inflow_1,2,2,Tstart370,Tend371,CommoditypayloadVarVehicle_1
    - SC_payload_commodity_inflow_1,3,2,Tstart370,Tend371,CommoditypayloadVarVehicle_1
    <= 0
- R518:
+ Active+packaged_mass_balance_x_node3_time371:
    Classic_commodity_outflow_0,3,2,Tstart371,Tend372,Commoditypackaged_isru
    + Classic_commodity_outflow_0,3,2,Tstart371,Tend372,Commodityactive_isru
    + Classic_commodity_outflow_0,3,3,Tstart371,Tend376,Commoditypackaged_isru
@@ -6470,7 +6476,7 @@ Subject To
    - SC_payload_commodity_inflow_0,2,2,Tstart375,Tend376,CommoditypayloadVarVehicle_1
    - SC_payload_commodity_inflow_1,2,2,Tstart375,Tend376,CommoditypayloadVarVehicle_1
    <= 0
- R662:
+ Active+packaged_mass_balance_x_node3_time376:
    - Classic_commodity_inflow_0,2,3,Tstart375,Tend376,Commoditypackaged_isru
    - Classic_commodity_inflow_0,2,3,Tstart375,Tend376,Commodityactive_isru
    - Classic_commodity_inflow_0,3,3,Tstart371,Tend376,Commoditypackaged_isru
@@ -7625,7 +7631,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle0_node3_time0_lambda_97
    - 82035.44523668587 isru_pwl_vehicle0_node3_time0_lambda_98
    - 82914.62641699228 isru_pwl_vehicle0_node3_time0_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle0_node3_time0_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle0_node3_time0_lambda_100 <= 0
  isru_pwl_vehicle0_node3_time0_branch_pos_bit_0:
    isru_pwl_vehicle0_node3_time0_lambda_65
    + isru_pwl_vehicle0_node3_time0_lambda_66
@@ -8836,7 +8842,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle1_node3_time0_lambda_97
    - 82035.44523668587 isru_pwl_vehicle1_node3_time0_lambda_98
    - 82914.62641699228 isru_pwl_vehicle1_node3_time0_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle1_node3_time0_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle1_node3_time0_lambda_100 <= 0
  isru_pwl_vehicle1_node3_time0_branch_pos_bit_0:
    isru_pwl_vehicle1_node3_time0_lambda_65
    + isru_pwl_vehicle1_node3_time0_lambda_66
@@ -10987,7 +10993,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle0_node3_time2_lambda_97
    - 82035.44523668587 isru_pwl_vehicle0_node3_time2_lambda_98
    - 82914.62641699228 isru_pwl_vehicle0_node3_time2_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle0_node3_time2_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle0_node3_time2_lambda_100 <= 0
  isru_pwl_vehicle0_node3_time2_branch_pos_bit_0:
    isru_pwl_vehicle0_node3_time2_lambda_65
    + isru_pwl_vehicle0_node3_time2_lambda_66
@@ -12198,7 +12204,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle1_node3_time2_lambda_97
    - 82035.44523668587 isru_pwl_vehicle1_node3_time2_lambda_98
    - 82914.62641699228 isru_pwl_vehicle1_node3_time2_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle1_node3_time2_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle1_node3_time2_lambda_100 <= 0
  isru_pwl_vehicle1_node3_time2_branch_pos_bit_0:
    isru_pwl_vehicle1_node3_time2_lambda_65
    + isru_pwl_vehicle1_node3_time2_lambda_66
@@ -13879,7 +13885,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle0_node3_time3_lambda_97
    - 82035.44523668587 isru_pwl_vehicle0_node3_time3_lambda_98
    - 82914.62641699228 isru_pwl_vehicle0_node3_time3_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle0_node3_time3_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle0_node3_time3_lambda_100 <= 0
  isru_pwl_vehicle0_node3_time3_branch_pos_bit_0:
    isru_pwl_vehicle0_node3_time3_lambda_65
    + isru_pwl_vehicle0_node3_time3_lambda_66
@@ -15090,7 +15096,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle1_node3_time3_lambda_97
    - 82035.44523668587 isru_pwl_vehicle1_node3_time3_lambda_98
    - 82914.62641699228 isru_pwl_vehicle1_node3_time3_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle1_node3_time3_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle1_node3_time3_lambda_100 <= 0
  isru_pwl_vehicle1_node3_time3_branch_pos_bit_0:
    isru_pwl_vehicle1_node3_time3_lambda_65
    + isru_pwl_vehicle1_node3_time3_lambda_66
@@ -17069,7 +17075,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle0_node3_time4_lambda_97
    - 82035.44523668587 isru_pwl_vehicle0_node3_time4_lambda_98
    - 82914.62641699228 isru_pwl_vehicle0_node3_time4_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle0_node3_time4_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle0_node3_time4_lambda_100 <= 0
  isru_pwl_vehicle0_node3_time4_branch_pos_bit_0:
    isru_pwl_vehicle0_node3_time4_lambda_65
    + isru_pwl_vehicle0_node3_time4_lambda_66
@@ -18280,7 +18286,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle1_node3_time4_lambda_97
    - 82035.44523668587 isru_pwl_vehicle1_node3_time4_lambda_98
    - 82914.62641699228 isru_pwl_vehicle1_node3_time4_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle1_node3_time4_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle1_node3_time4_lambda_100 <= 0
  isru_pwl_vehicle1_node3_time4_branch_pos_bit_0:
    isru_pwl_vehicle1_node3_time4_lambda_65
    + isru_pwl_vehicle1_node3_time4_lambda_66
@@ -20267,7 +20273,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle0_node3_time5_lambda_97
    - 82035.44523668587 isru_pwl_vehicle0_node3_time5_lambda_98
    - 82914.62641699228 isru_pwl_vehicle0_node3_time5_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle0_node3_time5_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle0_node3_time5_lambda_100 <= 0
  isru_pwl_vehicle0_node3_time5_branch_pos_bit_0:
    isru_pwl_vehicle0_node3_time5_lambda_65
    + isru_pwl_vehicle0_node3_time5_lambda_66
@@ -21478,7 +21484,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle1_node3_time5_lambda_97
    - 82035.44523668587 isru_pwl_vehicle1_node3_time5_lambda_98
    - 82914.62641699228 isru_pwl_vehicle1_node3_time5_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle1_node3_time5_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle1_node3_time5_lambda_100 <= 0
  isru_pwl_vehicle1_node3_time5_branch_pos_bit_0:
    isru_pwl_vehicle1_node3_time5_lambda_65
    + isru_pwl_vehicle1_node3_time5_lambda_66
@@ -23161,7 +23167,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle0_node3_time6_lambda_97
    - 82035.44523668587 isru_pwl_vehicle0_node3_time6_lambda_98
    - 82914.62641699228 isru_pwl_vehicle0_node3_time6_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle0_node3_time6_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle0_node3_time6_lambda_100 <= 0
  isru_pwl_vehicle0_node3_time6_branch_pos_bit_0:
    isru_pwl_vehicle0_node3_time6_lambda_65
    + isru_pwl_vehicle0_node3_time6_lambda_66
@@ -24375,7 +24381,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle1_node3_time6_lambda_97
    - 82035.44523668587 isru_pwl_vehicle1_node3_time6_lambda_98
    - 82914.62641699228 isru_pwl_vehicle1_node3_time6_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle1_node3_time6_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle1_node3_time6_lambda_100 <= 0
  isru_pwl_vehicle1_node3_time6_branch_pos_bit_0:
    isru_pwl_vehicle1_node3_time6_lambda_65
    + isru_pwl_vehicle1_node3_time6_lambda_66
@@ -28864,7 +28870,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle0_node3_time11_lambda_97
    - 82035.44523668587 isru_pwl_vehicle0_node3_time11_lambda_98
    - 82914.62641699228 isru_pwl_vehicle0_node3_time11_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle0_node3_time11_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle0_node3_time11_lambda_100 <= 0
  isru_pwl_vehicle0_node3_time11_branch_pos_bit_0:
    isru_pwl_vehicle0_node3_time11_lambda_65
    + isru_pwl_vehicle0_node3_time11_lambda_66
@@ -30079,7 +30085,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle1_node3_time11_lambda_97
    - 82035.44523668587 isru_pwl_vehicle1_node3_time11_lambda_98
    - 82914.62641699228 isru_pwl_vehicle1_node3_time11_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle1_node3_time11_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle1_node3_time11_lambda_100 <= 0
  isru_pwl_vehicle1_node3_time11_branch_pos_bit_0:
    isru_pwl_vehicle1_node3_time11_lambda_65
    + isru_pwl_vehicle1_node3_time11_lambda_66
@@ -32208,7 +32214,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle0_node3_time365_lambda_97
    - 82035.44523668587 isru_pwl_vehicle0_node3_time365_lambda_98
    - 82914.62641699228 isru_pwl_vehicle0_node3_time365_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle0_node3_time365_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle0_node3_time365_lambda_100 <= 0
  isru_pwl_vehicle0_node3_time365_branch_pos_bit_0:
    isru_pwl_vehicle0_node3_time365_lambda_65
    + isru_pwl_vehicle0_node3_time365_lambda_66
@@ -33423,7 +33429,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle1_node3_time365_lambda_97
    - 82035.44523668587 isru_pwl_vehicle1_node3_time365_lambda_98
    - 82914.62641699228 isru_pwl_vehicle1_node3_time365_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle1_node3_time365_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle1_node3_time365_lambda_100 <= 0
  isru_pwl_vehicle1_node3_time365_branch_pos_bit_0:
    isru_pwl_vehicle1_node3_time365_lambda_65
    + isru_pwl_vehicle1_node3_time365_lambda_66
@@ -35774,7 +35780,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle0_node3_time367_lambda_97
    - 82035.44523668587 isru_pwl_vehicle0_node3_time367_lambda_98
    - 82914.62641699228 isru_pwl_vehicle0_node3_time367_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle0_node3_time367_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle0_node3_time367_lambda_100 <= 0
  isru_pwl_vehicle0_node3_time367_branch_pos_bit_0:
    isru_pwl_vehicle0_node3_time367_lambda_65
    + isru_pwl_vehicle0_node3_time367_lambda_66
@@ -36989,7 +36995,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle1_node3_time367_lambda_97
    - 82035.44523668587 isru_pwl_vehicle1_node3_time367_lambda_98
    - 82914.62641699228 isru_pwl_vehicle1_node3_time367_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle1_node3_time367_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle1_node3_time367_lambda_100 <= 0
  isru_pwl_vehicle1_node3_time367_branch_pos_bit_0:
    isru_pwl_vehicle1_node3_time367_lambda_65
    + isru_pwl_vehicle1_node3_time367_lambda_66
@@ -38772,7 +38778,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle0_node3_time368_lambda_97
    - 82035.44523668587 isru_pwl_vehicle0_node3_time368_lambda_98
    - 82914.62641699228 isru_pwl_vehicle0_node3_time368_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle0_node3_time368_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle0_node3_time368_lambda_100 <= 0
  isru_pwl_vehicle0_node3_time368_branch_pos_bit_0:
    isru_pwl_vehicle0_node3_time368_lambda_65
    + isru_pwl_vehicle0_node3_time368_lambda_66
@@ -39987,7 +39993,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle1_node3_time368_lambda_97
    - 82035.44523668587 isru_pwl_vehicle1_node3_time368_lambda_98
    - 82914.62641699228 isru_pwl_vehicle1_node3_time368_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle1_node3_time368_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle1_node3_time368_lambda_100 <= 0
  isru_pwl_vehicle1_node3_time368_branch_pos_bit_0:
    isru_pwl_vehicle1_node3_time368_lambda_65
    + isru_pwl_vehicle1_node3_time368_lambda_66
@@ -42134,7 +42140,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle0_node3_time369_lambda_97
    - 82035.44523668587 isru_pwl_vehicle0_node3_time369_lambda_98
    - 82914.62641699228 isru_pwl_vehicle0_node3_time369_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle0_node3_time369_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle0_node3_time369_lambda_100 <= 0
  isru_pwl_vehicle0_node3_time369_branch_pos_bit_0:
    isru_pwl_vehicle0_node3_time369_lambda_65
    + isru_pwl_vehicle0_node3_time369_lambda_66
@@ -43349,7 +43355,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle1_node3_time369_lambda_97
    - 82035.44523668587 isru_pwl_vehicle1_node3_time369_lambda_98
    - 82914.62641699228 isru_pwl_vehicle1_node3_time369_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle1_node3_time369_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle1_node3_time369_lambda_100 <= 0
  isru_pwl_vehicle1_node3_time369_branch_pos_bit_0:
    isru_pwl_vehicle1_node3_time369_lambda_65
    + isru_pwl_vehicle1_node3_time369_lambda_66
@@ -45504,7 +45510,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle0_node3_time370_lambda_97
    - 82035.44523668587 isru_pwl_vehicle0_node3_time370_lambda_98
    - 82914.62641699228 isru_pwl_vehicle0_node3_time370_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle0_node3_time370_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle0_node3_time370_lambda_100 <= 0
  isru_pwl_vehicle0_node3_time370_branch_pos_bit_0:
    isru_pwl_vehicle0_node3_time370_lambda_65
    + isru_pwl_vehicle0_node3_time370_lambda_66
@@ -46719,7 +46725,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle1_node3_time370_lambda_97
    - 82035.44523668587 isru_pwl_vehicle1_node3_time370_lambda_98
    - 82914.62641699228 isru_pwl_vehicle1_node3_time370_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle1_node3_time370_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle1_node3_time370_lambda_100 <= 0
  isru_pwl_vehicle1_node3_time370_branch_pos_bit_0:
    isru_pwl_vehicle1_node3_time370_lambda_65
    + isru_pwl_vehicle1_node3_time370_lambda_66
@@ -48502,7 +48508,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle0_node3_time371_lambda_97
    - 82035.44523668587 isru_pwl_vehicle0_node3_time371_lambda_98
    - 82914.62641699228 isru_pwl_vehicle0_node3_time371_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle0_node3_time371_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle0_node3_time371_lambda_100 <= 0
  isru_pwl_vehicle0_node3_time371_branch_pos_bit_0:
    isru_pwl_vehicle0_node3_time371_lambda_65
    + isru_pwl_vehicle0_node3_time371_lambda_66
@@ -49717,7 +49723,7 @@ Subject To
    - 81156.0569286141 isru_pwl_vehicle1_node3_time371_lambda_97
    - 82035.44523668587 isru_pwl_vehicle1_node3_time371_lambda_98
    - 82914.62641699228 isru_pwl_vehicle1_node3_time371_lambda_99
-   - 83793.59545341873 isru_pwl_vehicle1_node3_time371_lambda_100 = 0
+   - 83793.59545341873 isru_pwl_vehicle1_node3_time371_lambda_100 <= 0
  isru_pwl_vehicle1_node3_time371_branch_pos_bit_0:
    isru_pwl_vehicle1_node3_time371_lambda_65
    + isru_pwl_vehicle1_node3_time371_lambda_66
