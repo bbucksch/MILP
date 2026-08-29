@@ -46,7 +46,8 @@ from Test_PayloadSC.Define_Commodities_Supply_Demand import (
 )
 #Define Cost Function
 from Test_PayloadSC.Define_Cost_Func import (
-    set_initial_mass_objective
+    set_initial_mass_objective,
+    Mission_mass_objective
 )
 
 
@@ -231,9 +232,11 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
     
     add_concurrency_constraints(Lin_model, ctx)
     
-    obj1 = set_initial_mass_objective(Lin_model, ctx) #default start time 0
-    obj2 = set_initial_mass_objective(Lin_model, ctx,start_time=365) #start time 365
-    ctx["objective"] = obj1+obj2
+
+    
+    ctx["objective"] = Mission_mass_objective(Lin_model, ctx)
+
+    
     Lin_model.setObjective(ctx["objective"], GRB.MINIMIZE)
 
 

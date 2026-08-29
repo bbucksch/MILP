@@ -41,3 +41,13 @@ def set_initial_mass_objective(model, ctx, start_node=1, start_time=0):
     )
     
     return cost
+
+
+
+#Chosen mission objective
+
+def Mission_mass_objective(model,ctx):
+    obj1 = set_initial_mass_objective(model, ctx) #default start time 0
+    obj2 = set_initial_mass_objective(model, ctx, start_time=365) #start time 365
+    objfinal = obj1 +obj2
+    return objfinal

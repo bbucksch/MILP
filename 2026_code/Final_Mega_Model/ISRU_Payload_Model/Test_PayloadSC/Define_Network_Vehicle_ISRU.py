@@ -174,7 +174,7 @@ def ISRUModel():
     ISRU.active_name = "active_isru"
     return ISRU
 
-#Function defining ISRU productivity in kg/ o2/year/kg ISRU
+#Function defining ISRU productivity in kg of o2/year/kg ISRU
 def ISRUfunc(x):
     """ISRU productivity in kg O2/year/kg ISRU, copied from Linearization.py."""
     if x < 400:
