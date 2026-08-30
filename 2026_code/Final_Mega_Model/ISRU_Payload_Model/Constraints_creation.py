@@ -294,6 +294,22 @@ def add_concurrency_constraints(model, ctx):
                             name=f"Max_concurrency_constraint_row{row}_vehicle{v}_startnode{i}_endnode{j}_starttime{t}",
                         )
 
+def add_SCP_concurrency_constraint(model,ctx):
+
+    for v in range(ctx["V"]):
+            for t in ctx["all_arcs"]:
+                for i in ctx["all_arcs"][t]:
+                    for j in ctx["all_arcs"][t][i]:
+                        SCP_commodity = sum(ctx["scpayload_outflow"][v][i][j][t])
+
+                        model.addConstr(
+                            SCP_commodity[0] <= ctx["y_outflow"][v][i][j][t][0]*100,
+                            name=f"Minimum_SCP_concurrency_constraint_vehicle{v}_startnode{i}_endnode{j}_starttime{t}",
+                        )
+
+
+    return
+
 def add_time_window_constraints(model, ctx):
     for t in ctx["all_arcs"]:
         for i in ctx["all_arcs"][t]:

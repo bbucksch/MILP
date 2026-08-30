@@ -1,0 +1,23 @@
+vehicle,v,from_node,to_node,i,j,t_depart,t_arrive,active_vehicle_mass,cargo_mass,total_outgoing_mass,n_ships
+Saturn_V_third,1,Earth Surface,Low Earth Orbit,0,1,0,1,12014.0,85267.68365077983,97281.68365077983,1.0
+Saturn_V_third,1,Low Earth Orbit,Low Lunar Orbit,1,2,1,4,12014.0,94529.68364706193,106543.68364706193,1.0
+Saturn_V_third,1,Low Lunar Orbit,Low Lunar Orbit,2,2,4,5,12014.0,8651.360954583157,20665.360954583157,1.0
+Saturn_V_third,1,Low Lunar Orbit,Low Lunar Orbit,2,2,5,6,12014.0,8651.36095458339,20665.36095458339,1.0
+Saturn_V_third,1,Low Lunar Orbit,Low Lunar Orbit,2,2,6,7,12014.0,8651.36095458518,20665.36095458518,1.0
+Saturn_V_third,1,Low Lunar Orbit,Low Lunar Orbit,2,2,8,9,12014.0,0.0,12014.0,1.0
+Saturn_V_third,1,Low Lunar Orbit,Low Lunar Orbit,2,2,9,10,12014.0,0.0,12014.0,1.0
+Command_module,2,Earth Surface,Low Earth Orbit,0,1,0,1,4841.0,4420.999996282031,9261.999996282031,1.0
+Command_module,2,Low Lunar Orbit,Low Lunar Orbit,2,2,4,5,4841.0,161.99999628368641,5002.999996283686,1.0
+Command_module,2,Low Lunar Orbit,Low Lunar Orbit,2,2,5,6,4841.0,157.8666629503532,4998.866662950353,1.0
+Command_module,2,Low Lunar Orbit,Low Lunar Orbit,2,2,6,7,4841.0,153.7333296182769,4994.733329618277,1.0
+Command_module,2,Low Lunar Orbit,Low Lunar Orbit,2,2,7,8,4841.0,12014.0,16855.0,1.0
+Command_module,2,Low Lunar Orbit,Low Lunar Orbit,2,2,8,9,4841.0,0.0,4841.0,1.0
+Command_module,2,Low Lunar Orbit,Low Lunar Orbit,2,2,9,10,4841.0,0.0,4841.0,1.0
+Service_module,3,Earth Surface,Earth Surface,0,0,0,1,6053.0,0.0,6053.0,1.0
+Service_module,3,Earth Surface,Earth Surface,0,0,1,2,6053.0,0.0,6053.0,1.0
+LM_descend_stage,4,Low Earth Orbit,Earth Surface,1,0,10,11,2770.0,422.4000000000001,3192.4,1.0
+LM_descend_stage,4,Low Lunar Orbit,Low Earth Orbit,2,1,7,10,2770.0,9110.960950892164,11880.960950892164,1.0
+LM_descend_stage,4,Low Lunar Orbit,Lunar surface,2,3,4,5,2770.0,11543.307052526277,14313.307052526277,1.0
+LM_descend_stage,4,Lunar surface,Low Lunar Orbit,3,2,6,7,2770.0,2933.9978389627468,5703.997838962747,1.0
+LM_descend_stage,4,Lunar surface,Lunar surface,3,3,5,6,2770.0,474.26450564380366,3244.2645056438037,1.0
+LM_ascend_stage,5,Lunar surface,Lunar surface,3,3,5,6,1719.0,2358.0,4077.0,1.0
