@@ -208,7 +208,7 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
         add_ISRU_negation_constraint(Lin_model, ctx)
 
     add_concurrency_constraints(Lin_model, ctx)
-    # add_time_window_constraints(Lin_model, ctx)
+    add_time_window_constraints(Lin_model, ctx)
     Lin_model.update()
 
     obj1 = set_initial_mass_objective(Lin_model, ctx, start_node=0, end_node=1)  # measured at all valid times

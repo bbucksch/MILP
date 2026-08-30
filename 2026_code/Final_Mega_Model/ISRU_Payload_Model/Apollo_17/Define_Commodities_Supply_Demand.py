@@ -69,7 +69,7 @@ def define_commodities(ISRUModelvar):
     Comm.mass_conversion = [Comm.crew_mass, Comm.crew_mass, 1, 1, 1, 1, Comm.crew_mass]
     # Comm.consumption_rate = 1.0 + 5.0 + 1.1
     # Comm.consumption_rate = 1.015 + 6.37 + 1.18
-    Comm.consumption_rate = 124/(10*3) - 1e-10
+    Comm.consumption_rate = 124/(10*3)
     return Comm
 
 
