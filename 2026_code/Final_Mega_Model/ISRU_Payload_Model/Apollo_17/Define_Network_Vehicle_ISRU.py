@@ -128,7 +128,6 @@ def NetworkModel(campaign=False):
                     next_mission_windows.append(t + 365)
                 Net.node_windows[i][j].extend(next_mission_windows)
 
-        Net.T += 365
         # print(Net.node_windows)
 
     # if campaign:
@@ -219,7 +218,7 @@ def VehicleModel():
     Vehicle.number_vehicle_types = 6 #How many vehicles are being defined
     Vehicle.vehicle_type_names = ["Saturn_V_second", "Saturn_V_third", "Command_module",
                                   "Service_module", "LM_descend_stage", "LM_ascend_stage"] #Names of the vehicles being defined
-    Vehicle.carriable = [False, True, True, True, True, True] #Whether or not the vehicle can be carried as payload
+    Vehicle.carriable = [False, False, True, True, True, True] #Whether or not the vehicle can be carried as payload
 
     return Vehicle
 

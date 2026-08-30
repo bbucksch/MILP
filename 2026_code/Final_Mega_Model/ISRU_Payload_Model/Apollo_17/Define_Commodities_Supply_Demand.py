@@ -105,7 +105,7 @@ def demand_supply(network, n_commodities, n_vehicles):
     #Commmodity demand array
     # commodity = ["crew","crew_return","consumables","equipment","samples","propellant"]
     #Demand network is defined as [Node][Time][Commodity]
-    D = [[np.array([1e10 if ((i == 0 and (x in [0, 2, 3, 5])) or (i == 3 and x == 4)) else 0 for x in range(n_commodities)],
+    D = [[np.array([1e15 if ((i == 0 and (x in [0, 2, 3, 5])) or (i == 3 and x == 4)) else 0 for x in range(n_commodities)],
                    dtype=float)
           for _ in range(network.T)]
          for i in network.connections]

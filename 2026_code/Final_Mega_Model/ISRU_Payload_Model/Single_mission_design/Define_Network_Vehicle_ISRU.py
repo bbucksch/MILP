@@ -79,7 +79,7 @@ def NetworkModel(campaign=False):
         3: [2, 3],
     }
 
-    Net.T= 12 #total time of entire model (in days)
+    Net.T= 14 #total time of entire model (in days)
 
     # Windows always open
     Net.node_windows = {
@@ -88,18 +88,10 @@ def NetworkModel(campaign=False):
         } for i in Net.connections
     }
 
-    # Net.node_windows = {
-    #
-    #     0: [t for t in range(Net.T)],
-    #     1: [t for t in range(Net.T)],
-    #     2: [t for t in range(Net.T)],
-    #     3: [t for t in range(Net.T)],
-    # }
-
     Net.delta_v = {
         0: {0: 0, 1: 0},
         1: {0: 0, 1: 0, 2: 4.04},
-        2: {1: 3.97, 2: 0, 3: 1.87},
+        2: {1: 4.04, 2: 0, 3: 1.87},
         3: {2: 1.87, 3: 0},
     }
 
@@ -128,7 +120,6 @@ def NetworkModel(campaign=False):
                     next_mission_windows.append(t + 365)
                 Net.node_windows[i][j].extend(next_mission_windows)
 
-        Net.T += 365
         # print(Net.node_windows)
 
     # if campaign:
@@ -211,15 +202,14 @@ def VehicleModel():
 
 
     #Vehicle design parameters
-    Vehicle.structure_mass = np.array([38415, 12014, 4841, 6053, 2770, 1719])
-    Vehicle.isp = np.array([421, 421, 0, 314, 311, 311])
-    Vehicle.payload_cap = np.array([0, 0, 524, 60, 500, 250])
-    Vehicle.propellant_cap = np.array([452045, 107725, 0, 18413, 8804, 2358])
+    Vehicle.structure_mass = np.array([17996, 7342])
+    Vehicle.isp = np.array([330, 330])
+    Vehicle.payload_cap = np.array([2020, 2262])
+    Vehicle.propellant_cap = np.array([166481, 23891])
     Vehicle.sc_vtype = GRB.INTEGER
-    Vehicle.number_vehicle_types = 6 #How many vehicles are being defined
-    Vehicle.vehicle_type_names = ["Saturn_V_second", "Saturn_V_third", "Command_module",
-                                  "Service_module", "LM_descend_stage", "LM_ascend_stage"] #Names of the vehicles being defined
-    Vehicle.carriable = [False, True, True, True, True, True] #Whether or not the vehicle can be carried as payload
+    Vehicle.number_vehicle_types = 2 #How many vehicles are being defined
+    Vehicle.vehicle_type_names = ["Type_1", "Type_2"] #Names of the vehicles being defined
+    Vehicle.carriable = [True, True] #Whether or not the vehicle can be carried as payload
 
     return Vehicle
 
