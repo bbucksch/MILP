@@ -1,6 +1,5 @@
 import math
 import copy
-import csv
 
 import gurobipy as gp
 from gurobipy import GRB
@@ -30,7 +29,7 @@ if Test != "y":
     raise ValueError("Please change the input files.")
 
 # Network model + Spacecraft Design model +ISRU model defined for problem
-from Apollo_17.Define_Network_Vehicle_ISRU import (
+from Single_mission_design.Define_Network_Vehicle_ISRU import (
     NetworkModel,
     reverse_tof,
     all_possible_outflow_arcs,
@@ -41,14 +40,14 @@ from Apollo_17.Define_Network_Vehicle_ISRU import (
     ISRUtotal_test
 )
 # Define commodities, consumption matrix and supply and demand
-from Apollo_17.Define_Commodities_Supply_Demand import (
+from Single_mission_design.Define_Commodities_Supply_Demand import (
     define_commodities,
     demand_supply,
     consumption_matrix
 
 )
 # Define Cost Function
-from Apollo_17.Define_Cost_Func import (
+from Single_mission_design.Define_Cost_Func import (
     set_initial_mass_objective
 )
 
@@ -63,7 +62,6 @@ from Constraints_creation import (
     add_arc_transformation_constraints,
     add_concurrency_constraints,
     add_ISRU_negation_constraint,
-    add_SCP_concurrency_constraint,
     add_time_window_constraints
 )
 
@@ -212,7 +210,6 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
         add_ISRU_negation_constraint(Lin_model, ctx)
 
     add_concurrency_constraints(Lin_model, ctx)
-    add_SCP_concurrency_constraint(Lin_model,ctx)
     add_time_window_constraints(Lin_model, ctx)
     Lin_model.update()
 
@@ -233,21 +230,6 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
             Lin_model.Params.DualReductions = 0
             Lin_model.optimize()
         """
-        if Lin_model.SolCount > 0:
-
-            with open("solution_ISRU_Model.csv", "w", newline="") as csvfile:
-                writer = csv.writer(csvfile)
-
-                # Header
-                writer.writerow(["Variable", "Value"])
-
-                # Write non-zero variables
-                for var in Lin_model.getVars():
-                    if abs(var.X) > 1e-6:
-                        writer.writerow([var.VarName, var.X])
-
-            print("Solution saved to solution_ISRU_Model.csv")
-
 
         if Lin_model.Status == GRB.INFEASIBLE:
             print("Model is Infeasible. Compute IIS now!:")
@@ -338,7 +320,6 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
 
         # 3. Export to a CSV file (index=False prevents writing row numbers)
         df.to_csv('Mass_table_output_ISRU_Payload.csv', index=False)
-        Shipflows.to_csv('Shipflow_output_ISRU_Payload', index=False)
 
     if sensitivity_analysis:
 
