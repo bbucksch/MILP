@@ -4,7 +4,7 @@ import copy
 import gurobipy as gp
 from gurobipy import GRB
 import numpy as np
-from torch import obj
+# from torch import obj
 
 """
 This file defines the sensitivity analysis function for the model.

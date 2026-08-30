@@ -129,8 +129,10 @@ def extract_flows(
                     # 2. Carried spacecraft as cargo
                     # --------------------------------------------------
                     if payloadflows is not None and Carryship is not None:
+                        count_scpayload = 0
                         for v1 in Carryship:
-                            carried_number = val(payloadflows[v][i][j][t][v1])
+                            carried_number = val(payloadflows[v][i][j][t][count_scpayload])
+                            count_scpayload += 1
 
                             if abs(carried_number) <= tol:
                                 continue

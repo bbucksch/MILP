@@ -9,10 +9,10 @@ from Linear_Func import (
     add_log_pwl_1d
 )
 
-from Define_Commodities_Supply_Demand import (
+from Apollo_17.Define_Commodities_Supply_Demand import (
     consumption_matrix,
 )
-from Define_Network_Vehicle_ISRU import (
+from Apollo_17.Define_Network_Vehicle_ISRU import (
     ISRU_total_annual_output
 )
 
@@ -32,24 +32,42 @@ def is_eligible_isru_arc(i, j, isru_config):
 
 
 def add_mass_balance_constraints(model, ctx):
-    for t in ctx["all_arcs"]:
-        for i in ctx["all_arcs"][t]:
+    # Map indices v to scpayload indices (scpayload_idxs[v] = index of scpayload)
+    scpayload_idxs = {}
+    current_carr_idx = 0
+
+    for v, carr_bool in enumerate(ctx["vehicle_data"].carriable):
+        if carr_bool:
+            scpayload_idxs[v] = current_carr_idx
+            current_carr_idx += 1
+
+
+    # Get timesteps that are both/either departure and arrival
+    active_timesteps = set(ctx["all_arcs"].keys()) | set(ctx["rev_arcs"].keys())
+
+    for t in active_timesteps:
+        # Get nodes i that are both/either departure and arrival
+        active_i = set(ctx["all_arcs"].get(t, {}).keys()) | set(ctx["rev_arcs"].get(t, {}).keys())
+
+        for i in active_i:
             x_outflow_sum = sum(
-                ctx["x_outflow"][v][i][j][t]
+                (ctx["x_outflow"][v][i][j][t]
                 if (t in ctx["all_arcs"]) and (i in ctx["all_arcs"][t]) and (j in ctx["all_arcs"][t][i])
                 else np.array([[0] for _ in range(len(ctx["Commodities"].commodity_names))])
                 for v in range(ctx["V"])
-                for j in ctx["connections"][i]
+                for j in ctx["connections"][i]),
+                start=np.zeros((len(ctx["Commodities"].commodity_names), 1))
             )
             x_inflow_sum = sum(
-                ctx["x_inflow"][v][j][i][ctx["rev_arcs"][t][i][j]["ArrivalTime"]]
+                (ctx["x_inflow"][v][j][i][ctx["rev_arcs"][t][i][j]["ArrivalTime"]]
                 if (t in ctx["rev_arcs"]) and (i in ctx["rev_arcs"][t]) and (j in ctx["rev_arcs"][t][i])
                 else np.array([[0] for _ in range(len(ctx["Commodities"].commodity_names))])
                 for v in range(ctx["V"])
-                for j in ctx["connections"][i]
+                for j in ctx["connections"][i]),
+                start=np.zeros((len(ctx["Commodities"].commodity_names), 1))
             )
             #if ISRU can be deployed, packaged ISRU can be activated 
-            if is_eligible_isru_arc(i,i,ctx["isru_config"]):
+            if ctx["isru_config"].enabled and is_eligible_isru_arc(i,i,ctx["isru_config"]):
                 
                 
                 #active + packaged IN => active +packaged OUT
@@ -80,31 +98,35 @@ def add_mass_balance_constraints(model, ctx):
 
             for v in range(ctx["V"]):
                 y_outflow_sum = sum(
-                    ctx["y_outflow"][v][i][j][t]
+                    (ctx["y_outflow"][v][i][j][t]
                     if (t in ctx["all_arcs"]) and (i in ctx["all_arcs"][t]) and (j in ctx["all_arcs"][t][i])
                     else np.array([0])
-                    for j in ctx["connections"][i]
+                    for j in ctx["connections"][i]),
+                    start=np.array([0])
                 )
                 y_inflow_sum = sum(
-                    ctx["y_inflow"][v][j][i][ctx["rev_arcs"][t][i][j]["ArrivalTime"]]
+                    (ctx["y_inflow"][v][j][i][ctx["rev_arcs"][t][i][j]["ArrivalTime"]]
                     if (t in ctx["rev_arcs"]) and (i in ctx["rev_arcs"][t]) and (j in ctx["rev_arcs"][t][i])
                     else np.array([0])
-                    for j in ctx["connections"][i]
+                    for j in ctx["connections"][i]),
+                    start=np.array([0])
                 )
 
                 payload_out = sum(
-                    ctx["scpayload_outflow"][carrier][i][j][t][v]
-                    if (t in ctx["all_arcs"]) and (i in ctx["all_arcs"][t]) and (j in ctx["all_arcs"][t][i])
+                    (ctx["scpayload_outflow"][carrier][i][j][t][scpayload_idxs[v]]
+                    if (t in ctx["all_arcs"]) and (i in ctx["all_arcs"][t]) and (j in ctx["all_arcs"][t][i]) and (ctx["vehicle_data"].carriable[v])
                     else np.array([0])
                     for carrier in range(ctx["V"])
-                    for j in ctx["connections"][i]
+                    for j in ctx["connections"][i]),
+                    start=np.array([0])
                 )
                 payload_in = sum(
-                    ctx["scpayload_inflow"][carrier][j][i][ctx["rev_arcs"][t][i][j]["ArrivalTime"]][v]
-                    if (t in ctx["rev_arcs"]) and (i in ctx["rev_arcs"][t]) and (j in ctx["rev_arcs"][t][i])
+                    (ctx["scpayload_inflow"][carrier][j][i][ctx["rev_arcs"][t][i][j]["ArrivalTime"]][scpayload_idxs[v]]
+                    if (t in ctx["rev_arcs"]) and (i in ctx["rev_arcs"][t]) and (j in ctx["rev_arcs"][t][i]) and (ctx["vehicle_data"].carriable[v])
                     else np.array([0])
                     for carrier in range(ctx["V"])
-                    for j in ctx["connections"][i]
+                    for j in ctx["connections"][i]),
+                    start=np.array([0])
                 )
 
                 y_outflow_sum = y_outflow_sum + payload_out
@@ -130,21 +152,22 @@ def add_arc_transformation_constraints(model, ctx):
                         np.array([ctx["y_inflow"][v][i][j][t]]),
                     ), axis=0)
                     for i1,c1 in enumerate(ctx["scpayload_outflow"][v][i][j][t]):
-                        Vout = np.append(Vout, ctx["scpayload_outflow"][v][i][j][t][i1])
-                        Vin = np.append(Vin, ctx["scpayload_inflow"][v][i][j][t][i1])
+                        Vout = np.append(Vout, np.array([ctx["scpayload_outflow"][v][i][j][t][i1]]), axis=0)
+                        Vin = np.append(Vin, np.array([ctx["scpayload_inflow"][v][i][j][t][i1]]), axis=0)
 
                     consumed = consumption_matrix(
                         i=i, 
                         j=j, 
                         v=v, 
-                        commodity_count= len(ctx["Commodities"].commodity_names), 
+                        commodity_names= ctx["Commodities"].commodity_names,
                         prop_index= ctx["Commodities"].prop_index, 
                         crew_mass= ctx["Commodities"].crew_mass,
                         daily_consumption= ctx["Commodities"].consumption_rate, 
                         network=ctx["network"], 
                         vehicle_data=ctx["vehicle_data"],
                         Active_ISRU_index= ctx["Commodities"].isru_indices["active"],
-                        ArcTOF= ctx["all_arcs"][t][i][j]["FullTravelTime"]
+                        ArcTOF= ctx["all_arcs"][t][i][j]["FullTravelTime"],
+                        ISRU_enabled= ctx["isru_config"].enabled
                     )
                     transformed = np.dot(consumed, Vout)
                     for row, (enterarc, leavearc) in enumerate(zip(transformed, Vin)):
@@ -178,21 +201,21 @@ def add_arc_transformation_constraints(model, ctx):
                                 
                                 enterarc += arc_annual_output* (hold_days / ctx['isru_config'].days_per_year)
 
-                        else:
+                        elif ctx["isru_config"].enabled:
                             #Commodity for Active ISRU is 0 if not eligible
                             model.addConstr(ctx['x_outflow'][v][i][j][t][ctx['Commodities'].isru_indices['active']][0] == 0,
                                              name=f"ActiveISRU_negationConstraint_Start{i}_End{j}_Starttime{t}_Vehicle{v}_Commodity{row}"
                                 )
 
                         model.addConstr(
-                            enterarc == leavearc,
+                            enterarc[0] == leavearc[0],
                             name=f"Arc_transformationConstraint_Start{i}_End{j}_Starttime{t}_Vehicle{v}_Commodity{row}",
                         )
 
                     model.addConstr(
                         ctx["x_inflow"][v][i][j][t][ctx["Commodities"].prop_index][0]
                         >= ctx["x_outflow"][v][i][j][t][ctx["Commodities"].prop_index][0]
-                        - ctx["vehicle_data"].propellant_cap[v],
+                        - ctx["vehicle_data"].propellant_cap[v]*ctx["y_outflow"][v][i][j][t][0],
                         name=f"PropellantTankOnlyBurn_vehicle{v}_start{i}_end{j}_time{t}",
                     )
 
@@ -211,42 +234,27 @@ def add_ISRU_negation_constraint(model,ctx):
     return
 
 
-def create_concurrency_constraint(connections, mass_conversion, prop_index, structure_mass, carriable):
+def create_concurrency_constraint(connections, mass_conversion, prop_index):
     payload_row = copy.deepcopy(mass_conversion)
     payload_row[prop_index] = 0
     prop_row = [0] * len(mass_conversion)
     prop_row[prop_index] = 1
-    combined_row = copy.deepcopy(mass_conversion)
 
-    for payload_vehicle,payload_boolean in enumerate(carriable):
-        if payload_boolean == True:
-
-            payload_row.append(structure_mass[payload_vehicle])
-            prop_row.append(0)
-            combined_row.append(structure_mass[payload_vehicle])
-
-    return {
-        i: {
-            j: np.array([payload_row, prop_row, combined_row])
-            for j in connections[i]
-        }
-        for i in connections
-    }
-
+    return np.array([payload_row, prop_row])
 
 def create_sc_design_parameters(vehicle_data):
     Extra_carry_payloads = vehicle_data.carriable.count(True)
     V = len(vehicle_data.structure_mass)
-    e = np.zeros((V, 3, 1 + Extra_carry_payloads))
+    e = np.zeros((V, 2, 1 + Extra_carry_payloads))
     
     for v in range(V):
         e[v][0][0] = vehicle_data.payload_cap[v]
         e[v][1][0] = vehicle_data.propellant_cap[v]
-        e[v][2][0] = vehicle_data.payload_cap[v] + vehicle_data.propellant_cap[v]
         
         offset=0
         for payload_vehicle,boolean in enumerate(vehicle_data.carriable):
             if boolean == True:
+                e[v][0][1 + offset] = vehicle_data.payload_cap[payload_vehicle]
                 e[v][1][1 + offset] = vehicle_data.propellant_cap[payload_vehicle]
                 offset+=1
     return e
@@ -257,8 +265,6 @@ def add_concurrency_constraints(model, ctx):
         ctx["connections"],
         ctx["Commodities"].mass_conversion,
         ctx["Commodities"].prop_index,
-        ctx["vehicle_data"].structure_mass,
-        ctx["vehicle_data"].carriable,
     )
     e = create_sc_design_parameters(ctx["vehicle_data"])
 
@@ -268,19 +274,54 @@ def add_concurrency_constraints(model, ctx):
                 for j in ctx["all_arcs"][t][i]:
                     extended_commodity = ctx["x_outflow"][v][i][j][t]
                     extended_constraint = [ctx["y_outflow"][v][i][j][t]]
+
+                    count_idx = 0
                     for i1,c in enumerate(ctx["vehicle_data"].carriable):
                         if c == True:
-                            extended_commodity = np.append(
-                                extended_commodity,
-                                ctx["scpayload_outflow"][v][i][j][t][i1],
+
+                            extended_constraint = np.append(
+                                extended_constraint,
+                                np.array([ctx["scpayload_outflow"][v][i][j][t][count_idx]]),
+                                axis=0,
                             )
-                            extended_constraint.append(ctx["scpayload_outflow"][v][i][j][t][i1])
+                            count_idx+=1
 
                     for row, (commodity, constraint) in enumerate(zip(
-                        np.dot(H[i][j], extended_commodity),
+                        np.dot(H, extended_commodity),
                         np.dot(e[v], extended_constraint),
                     )):
+
                         model.addConstr(
-                            commodity <= constraint[0],
+                            commodity[0] <= constraint[0],
                             name=f"Max_concurrency_constraint_row{row}_vehicle{v}_startnode{i}_endnode{j}_starttime{t}",
                         )
+
+def add_time_window_constraints(model, ctx):
+    for t in ctx["all_arcs"]:
+        for i in ctx["all_arcs"][t]:
+            for j in ctx["all_arcs"][t][i]:
+                for v in range(ctx["V"]):
+                    if t in ctx["network"].node_windows[i][j]:
+                        for idx, x in enumerate(ctx["x_outflow"][v][i][j][t]):
+                            model.addConstr(
+                                x[0] >= 0,
+                                name=f"Outflow_inside_time_window_constraint_vehicle{v}_startnode{i}_endnode{j}_starttime{t},Commodity{ctx['Commodities'].commodity_names[idx]}",
+                            )
+                        for idx, x in enumerate(ctx["x_inflow"][v][i][j][t]):
+                            model.addConstr(
+                                x[0] >= 0,
+                                name=f"Inflow_inside_time_window_constraint_vehicle{v}_startnode{i}_endnode{j}_starttime{t},Commodity{ctx['Commodities'].commodity_names[idx]}",
+                            )
+
+                    else:
+                        for idx, x in enumerate(ctx["x_outflow"][v][i][j][t]):
+                            model.addConstr(
+                                x[0] == 0,
+                                name=f"Outflow_outside_time_window_constraint_vehicle{v}_startnode{i}_endnode{j}_starttime{t},Commodity{ctx['Commodities'].commodity_names[idx]}",
+                            )
+                        for idx, x in enumerate(ctx["x_inflow"][v][i][j][t]):
+                            model.addConstr(
+                                x[0] == 0,
+                                name=f"Inflow_outside_time_window_constraint_vehicle{v}_startnode{i}_endnode{j}_starttime{t},Commodity{ctx['Commodities'].commodity_names[idx]}",
+                            )
+

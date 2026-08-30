@@ -24,7 +24,7 @@ Dataclasses used in the model are defined here for usage in the rest of the mode
 # single mutable default between model runs.
 @dataclass
 class NetworkData:
-    g0: float = 9.80665
+    g0: float = 9.8
     connections: dict = field(default_factory=lambda: {
         0: [0, 1],
         1: [0, 1, 2],
