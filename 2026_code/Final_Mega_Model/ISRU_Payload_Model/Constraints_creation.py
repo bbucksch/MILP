@@ -9,13 +9,6 @@ from Linear_Func import (
     add_log_pwl_1d
 )
 
-from Apollo_17.Define_Commodities_Supply_Demand import (
-    consumption_matrix,
-)
-from Apollo_17.Define_Network_Vehicle_ISRU import (
-    ISRU_total_annual_output
-)
-
 """
 Constraints file
 The functions defined in theis file create the constraints for the model
@@ -138,7 +131,7 @@ def add_mass_balance_constraints(model, ctx):
                     name=f"SC_mass_balance_x_node{i}_time{t}_vehicle{v}",
                 )
 
-def add_arc_transformation_constraints(model, ctx):
+def add_arc_transformation_constraints(model, ctx, consumption_matrix):
     for t in ctx["all_arcs"]:
         for i in ctx["all_arcs"][t]:
             for j in ctx["all_arcs"][t][i]:

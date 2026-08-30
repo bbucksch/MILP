@@ -29,7 +29,7 @@ if Test != "y":
     raise ValueError("Please change the input files.")
 
 # Network model + Spacecraft Design model +ISRU model defined for problem
-from Apollo_17.Define_Network_Vehicle_ISRU import (
+from Single_mission_design.Define_Network_Vehicle_ISRU import (
     NetworkModel,
     reverse_tof,
     all_possible_outflow_arcs,
@@ -40,14 +40,14 @@ from Apollo_17.Define_Network_Vehicle_ISRU import (
     ISRUtotal_test
 )
 # Define commodities, consumption matrix and supply and demand
-from Apollo_17.Define_Commodities_Supply_Demand import (
+from Single_mission_design.Define_Commodities_Supply_Demand import (
     define_commodities,
     demand_supply,
     consumption_matrix
 
 )
 # Define Cost Function
-from Apollo_17.Define_Cost_Func import (
+from Single_mission_design.Define_Cost_Func import (
     set_initial_mass_objective
 )
 
