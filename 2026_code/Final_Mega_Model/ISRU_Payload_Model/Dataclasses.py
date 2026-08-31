@@ -112,5 +112,6 @@ class VehicleData:
     payload_cap: np.ndarray = field(default_factory=lambda: np.array([10000, 75]))
     propellant_cap: np.ndarray = field(default_factory=lambda: np.array([4000, 17000]))
     carriable: list = field(default_factory=lambda: [True, True])
+    max_carried: list = field(default_factory=lambda: [100, 100])
     sc_vtype: str = GRB.INTEGER
     

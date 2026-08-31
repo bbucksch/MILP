@@ -210,6 +210,7 @@ def VehicleModel():
     Vehicle.number_vehicle_types = 2 #How many vehicles are being defined
     Vehicle.vehicle_type_names = ["Type_1", "Type_2"] #Names of the vehicles being defined
     Vehicle.carriable = [True, True] #Whether or not the vehicle can be carried as payload
+    Vehicle.max_carried = [100, 100]  # How many scpayloads each vehicle can carry
 
     return Vehicle
 

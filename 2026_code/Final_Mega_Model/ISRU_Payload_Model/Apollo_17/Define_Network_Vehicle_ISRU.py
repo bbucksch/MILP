@@ -219,6 +219,7 @@ def VehicleModel():
     Vehicle.vehicle_type_names = ["Saturn_V_second", "Saturn_V_third", "Command_module",
                                   "Service_module", "LM_descend_stage", "LM_ascend_stage"] #Names of the vehicles being defined
     Vehicle.carriable = [False, False, True, True, True, True] #Whether or not the vehicle can be carried as payload
+    Vehicle.max_carried = [100, 100, 100, 100, 100, 100] # How many scpayloads each vehicle can carry
 
     return Vehicle
 

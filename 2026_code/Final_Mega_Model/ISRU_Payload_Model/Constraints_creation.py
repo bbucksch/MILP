@@ -296,7 +296,7 @@ def add_SCP_concurrency_constraint(model,ctx):
                         SCP_commodity = sum(ctx["scpayload_outflow"][v][i][j][t])
 
                         model.addConstr(
-                            SCP_commodity[0] <= ctx["y_outflow"][v][i][j][t][0]*100,
+                            SCP_commodity[0] <= ctx["y_outflow"][v][i][j][t][0]*ctx["vehicle_data"].max_carried[v],
                             name=f"Minimum_SCP_concurrency_constraint_vehicle{v}_startnode{i}_endnode{j}_starttime{t}",
                         )
 
