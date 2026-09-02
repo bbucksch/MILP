@@ -59,6 +59,7 @@ def add_mass_balance_constraints(model, ctx):
                 for j in ctx["connections"][i]),
                 start=np.zeros((len(ctx["Commodities"].commodity_names), 1))
             )
+            
             #if ISRU can be deployed, packaged ISRU can be activated 
             if ctx["isru_config"].enabled and is_eligible_isru_arc(i,i,ctx["isru_config"]):
                 

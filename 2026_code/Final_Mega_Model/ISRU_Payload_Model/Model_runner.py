@@ -297,7 +297,8 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
             legs =Shipflows,
             cargo= Cargoflows,
             node_order= ctx["network"].node_names,
-            title = "Space_time_graph"
+            title = "Space_time_graph",
+            Vehicledata = vehicle_data
         )
 
         mass_table = make_mass_flow_table(
