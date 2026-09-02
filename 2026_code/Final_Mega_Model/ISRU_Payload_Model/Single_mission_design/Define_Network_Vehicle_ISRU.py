@@ -81,11 +81,31 @@ def NetworkModel(campaign=False):
 
     Net.T= 14 #total time of entire model (in days)
 
-    # Windows always open
+    # # Windows always open
+    # Net.node_windows = {
+    #     i: {
+    #         j: [t for t in range(Net.T) if t+Net.tof[i][j] < Net.T] for j in Net.connections[i]
+    #     } for i in Net.connections
+    # }
+
     Net.node_windows = {
-        i: {
-            j: [t for t in range(Net.T) if t+Net.tof[i][j] < Net.T] for j in Net.connections[i]
-        } for i in Net.connections
+        0: {
+            1: [0],
+        },
+        1: {
+            0: [12],
+            1: [1, 12, 13],
+            2: [1]
+        },
+        2: {
+            1: [9],
+            2: [4, 9, 13],
+            3: [4]
+        },
+        3: {
+            2: [8],
+            3: [5, 8, 13]
+        }
     }
 
     Net.delta_v = {
@@ -96,11 +116,18 @@ def NetworkModel(campaign=False):
     }
 
     Net.tof = {
-        0: {0: 1, 1: 1},
-        1: {0: 1, 1: 1, 2: 3},
-        2: {1: 3, 2: 1, 3: 1},
-        3: {2: 1, 3: 1},
+        0: {1: 1},
+        1: {0: 1, 2: 3},
+        2: {1: 3, 3: 1},
+        3: {2: 1},
     }
+
+    # Net.tof = {
+    #     0: {0: 1, 1: 1},
+    #     1: {0: 1, 1: 1, 2: 3},
+    #     2: {1: 3, 2: 1, 3: 1},
+    #     3: {2: 1, 3: 1},
+    # }
 
     Net.node_names = [
         "Earth Surface",
@@ -143,8 +170,20 @@ def all_possible_outflow_arcs(window, tof_used, T, reverse=False):
     all_arcs = {}
     for i in window:
         for j in window[i]:
-            for t in window[i][j]:
-                t_arrival = t + abs(tof_used[i][j])
+            if i==j:
+                dep_times = sorted(window[i][i])
+                arc_instances = [
+                    (dep_times[k], dep_times[k + 1], dep_times[k + 1] - dep_times[k])
+                    for k in range(len(dep_times) - 1)
+                ]
+
+            else:
+                arc_instances = [
+                    (t_departure, t_departure+abs(tof_used[i][j]), abs(tof_used[i][j]))
+                    for t_departure in window[i][j]
+                ]
+
+            for t, t_arrival, delta_t in arc_instances:
                 if t_arrival >= T:
                     continue
 
@@ -156,7 +195,7 @@ def all_possible_outflow_arcs(window, tof_used, T, reverse=False):
 
                     all_arcs[t][i][j] = {
                         "ArrivalTime": t_arrival,
-                        "FullTravelTime": tof_used[i][j],
+                        "FullTravelTime": delta_t,
                     }
 
                 else:
@@ -167,10 +206,44 @@ def all_possible_outflow_arcs(window, tof_used, T, reverse=False):
 
                     all_arcs[t_arrival][j][i] = {
                         "ArrivalTime": t, # Departure time from i to get to j (which later becomes j to get to i)
-                        "FullTravelTime": tof_used[i][j],
+                        "FullTravelTime": -delta_t,
                     }
 
     return all_arcs
+
+
+# def all_possible_outflow_arcs(window, tof_used, T, reverse=False):
+#     all_arcs = {}
+#     for i in window:
+#         for j in window[i]:
+#             for t in window[i][j]:
+#                 t_arrival = t + abs(tof_used[i][j])
+#                 if t_arrival >= T:
+#                     continue
+#
+#                 if not reverse:
+#                     if t not in all_arcs:
+#                         all_arcs[t] = {}
+#                     if i not in all_arcs[t]:
+#                         all_arcs[t][i] = {}
+#
+#                     all_arcs[t][i][j] = {
+#                         "ArrivalTime": t_arrival,
+#                         "FullTravelTime": tof_used[i][j],
+#                     }
+#
+#                 else:
+#                     if t_arrival not in all_arcs:
+#                         all_arcs[t_arrival] = {}
+#                     if j not in all_arcs[t_arrival]:
+#                         all_arcs[t_arrival][j] = {}
+#
+#                     all_arcs[t_arrival][j][i] = {
+#                         "ArrivalTime": t, # Departure time from i to get to j (which later becomes j to get to i)
+#                         "FullTravelTime": tof_used[i][j],
+#                     }
+#
+#     return all_arcs
 
 
 # def all_possible_outflow_arcs(connections, time_range, window, tof_used):
@@ -204,8 +277,8 @@ def VehicleModel():
     #Vehicle design parameters
     Vehicle.structure_mass = np.array([17996, 7342])
     Vehicle.isp = np.array([330, 330])
-    Vehicle.payload_cap = np.array([2020, 2262])
-    Vehicle.propellant_cap = np.array([166481, 23891])
+    Vehicle.payload_cap = np.array([2200, 2500])
+    Vehicle.propellant_cap = np.array([175000, 30000])
     Vehicle.sc_vtype = GRB.INTEGER
     Vehicle.number_vehicle_types = 2 #How many vehicles are being defined
     Vehicle.vehicle_type_names = ["Type_1", "Type_2"] #Names of the vehicles being defined
@@ -234,7 +307,7 @@ def ISRUfunc(x):
     if x < 400:
         return 0
     c1 = -0.438
-    c2 = 1 - math.exp(x / -812.15163)
+    c2 = 1 - math.exp(x / -812.1563)
     c3 = 1 - math.exp(x / -3967.2644)
     return c1 + (6.9623 * c2) + (2.0173 * c3)
 

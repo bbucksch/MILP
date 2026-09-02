@@ -77,8 +77,12 @@ class Commodities:
             GRB.CONTINUOUS,
             GRB.CONTINUOUS,
     ])
-    prop_index: int = 4 #Index of propellant in the commodities list
+    prop_index: list = field(default_factory=lambda: [4]) #Index of propellant in the commodities list
+    prop_percentages: list = field(default_factory=lambda: [1]) # Percentage of each type of propellant component
+    oxygen_boiloff: float = 0.00016
+    sc_flight_maintenance: float = 0.01
     isru_indices:dict = field(default_factory=lambda: {"packaged": 5, "active": 6})
+    isru_yearly_maintenance: float = 0.1
     crew_mass:float = 100
     mass_conversion: list = field(default_factory=lambda: [1, 1, 1, 1, 1, 1, 1]) #test value, to be overwritten
     consumption_rate: float = 1.0 + 5.0 + 1.1

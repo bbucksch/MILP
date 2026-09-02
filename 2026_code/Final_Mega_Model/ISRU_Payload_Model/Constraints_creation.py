@@ -160,14 +160,15 @@ def add_arc_transformation_constraints(model, ctx, consumption_matrix):
                         vehicle_data=ctx["vehicle_data"],
                         Active_ISRU_index= ctx["Commodities"].isru_indices["active"],
                         ArcTOF= ctx["all_arcs"][t][i][j]["FullTravelTime"],
-                        ISRU_enabled= ctx["isru_config"].enabled
+                        commodities= ctx["Commodities"],
+                        days_per_year= ctx['isru_config'].days_per_year,
                     )
                     transformed = np.dot(consumed, Vout)
                     for row, (enterarc, leavearc) in enumerate(zip(transformed, Vin)):
                         if ctx["isru_config"].enabled and is_eligible_isru_arc(i, j, ctx["isru_config"]):
                             
                             
-                            if row == ctx["Commodities"].prop_index:
+                            if row == ctx["Commodities"].prop_index[0]:
                                 
                                 #create linearized variables for the ISRU output
                                 arc_annual_output = model.addVar(lb=0,
@@ -199,12 +200,28 @@ def add_arc_transformation_constraints(model, ctx, consumption_matrix):
                             name=f"Arc_transformationConstraint_Start{i}_End{j}_Starttime{t}_Vehicle{v}_Commodity{row}",
                         )
 
-                    model.addConstr(
-                        ctx["x_inflow"][v][i][j][t][ctx["Commodities"].prop_index][0]
-                        >= ctx["x_outflow"][v][i][j][t][ctx["Commodities"].prop_index][0]
-                        - ctx["vehicle_data"].propellant_cap[v]*ctx["y_outflow"][v][i][j][t][0],
-                        name=f"PropellantTankOnlyBurn_vehicle{v}_start{i}_end{j}_time{t}",
-                    )
+                    if len(ctx["Commodities"].prop_index) > 1:
+                        total_prop_outflow = sum((ctx["x_outflow"][v][i][j][t][p]
+                                                 for p in ctx["Commodities"].prop_index),
+                                                 start=np.array([0]))
+                        total_prop_inflow = sum((ctx["x_inflow"][v][i][j][t][p]
+                                                 for p in ctx["Commodities"].prop_index),
+                                                 start=np.array([0]))
+
+                        model.addConstr(
+                            total_prop_inflow[0]
+                            >= total_prop_outflow[0]
+                            - ctx["vehicle_data"].propellant_cap[v] * ctx["y_outflow"][v][i][j][t][0],
+                            name=f"PropellantTankOnlyBurn_vehicle{v}_start{i}_end{j}_time{t}",
+                        )
+
+                    else:
+                        model.addConstr(
+                            ctx["x_inflow"][v][i][j][t][ctx["Commodities"].prop_index[0]][0]
+                            >= ctx["x_outflow"][v][i][j][t][ctx["Commodities"].prop_index[0]][0]
+                            - ctx["vehicle_data"].propellant_cap[v]*ctx["y_outflow"][v][i][j][t][0],
+                            name=f"PropellantTankOnlyBurn_vehicle{v}_start{i}_end{j}_time{t}",
+                        )
 
 
 
@@ -225,11 +242,19 @@ def add_ISRU_negation_constraint(model,ctx):
     return
 
 
-def create_concurrency_constraint(connections, mass_conversion, prop_index):
+def create_concurrency_constraint(connections, mass_conversion, propellant_indices):
     payload_row = copy.deepcopy(mass_conversion)
-    payload_row[prop_index] = 0
     prop_row = [0] * len(mass_conversion)
-    prop_row[prop_index] = 1
+
+    if len(propellant_indices) > 1:
+        for p in propellant_indices:
+            payload_row[p] = 0
+            prop_row[p] = 1
+
+    else:
+        p = propellant_indices[0]
+        payload_row[p] = 0
+        prop_row[p] = 1
 
     return np.array([payload_row, prop_row])
 

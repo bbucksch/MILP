@@ -243,7 +243,7 @@ def ISRUfunc(x):
     if x < 400:
         return 0
     c1 = -0.438
-    c2 = 1 - math.exp(x / -812.15163)
+    c2 = 1 - math.exp(x / -812.1563)
     c3 = 1 - math.exp(x / -3967.2644)
     return c1 + (6.9623 * c2) + (2.0173 * c3)
 

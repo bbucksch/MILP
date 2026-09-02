@@ -27,20 +27,14 @@ def define_commodities(ISRUModelvar):
             "consumables",
             "equipment",
             "samples",
-            "propellant",
+            "propellant_oxygen",
             "crew_interim",
+            ISRUModelvar.packaged_name,
+            ISRUModelvar.active_name,
+            "propellant_kerosene",
+            "maintenance_mass"
     ]
-    # Comm.commodity_names = [
-    #     "crew",
-    #     "crew_interim",
-    #     "crew_return",
-    #     "consumables",
-    #     "equipment",
-    #     "samples",
-    #     "propellant",
-    #     ISRUModelvar.packaged_name,
-    #     ISRUModelvar.active_name,
-    # ]
+
     Comm.Variable_type = [
             GRB.INTEGER,
             GRB.INTEGER,
@@ -49,27 +43,22 @@ def define_commodities(ISRUModelvar):
             GRB.CONTINUOUS,
             GRB.CONTINUOUS,
             GRB.INTEGER,
+            GRB.CONTINUOUS,
+            GRB.CONTINUOUS,
+            GRB.CONTINUOUS,
+            GRB.CONTINUOUS,
     ]
-
-    # Comm.Variable_type = [
-    #     GRB.INTEGER,
-    #     GRB.INTEGER,
-    #     GRB.INTEGER,
-    #     GRB.CONTINUOUS,
-    #     GRB.CONTINUOUS,
-    #     GRB.CONTINUOUS,
-    #     GRB.CONTINUOUS,
-    #     GRB.CONTINUOUS,
-    #     GRB.CONTINUOUS,
-    # ]
     
-    Comm.prop_index = 5 #Index of propellant in the commodities list
+    Comm.prop_index = [5,9] #Index of propellant in the commodities list
+    Comm.prop_percentages = [0.7191, 1-0.7191] # Percentage of each type of propellant component
+    Comm.oxygen_boiloff = 0.00016
+    Comm.sc_flight_maintenance = 0.01
     Comm.isru_indices = {"packaged": 7, "active": 8}
+    Comm.isru_yearly_maintenance = 0.1
     Comm.crew_mass = 100
-    Comm.mass_conversion = [Comm.crew_mass, Comm.crew_mass, 1, 1, 1, 1, Comm.crew_mass]
-    # Comm.consumption_rate = 1.0 + 5.0 + 1.1
-    # Comm.consumption_rate = 1.015 + 6.37 + 1.18
-    Comm.consumption_rate = 124/(10*3)
+    Comm.mass_conversion = [Comm.crew_mass, Comm.crew_mass, 1, 1, 1, 1, Comm.crew_mass, 1, 1, 1, 1]
+    Comm.consumption_rate = 1.015 + 6.37 + 1.18
+    # Comm.consumption_rate = 124/(10*3)
     return Comm
 
 
@@ -103,41 +92,36 @@ def Validation_Demand_Supply(network, D, d):
 def demand_supply(network, n_commodities, n_vehicles):
 
     #Commmodity demand array
-    # commodity = ["crew","crew_return","consumables","equipment","samples","propellant"]
+    # commodity = ["crew","crew_return","consumables","equipment",
+    # "samples","propellant_ox","crew_interim","ISRU_packaged",
+    # "ISRU_active" , "propellant_ker", "maint_mass"]
     #Demand network is defined as [Node][Time][Commodity]
-    D = [[np.array([1e15 if ((i == 0 and (x in [0, 2, 3, 5])) or (i == 3 and x == 4)) else 0 for x in range(n_commodities)],
+    D = [[np.array([1e15 if ((i == 0 and (x in [0, 2, 3, 5, 7, 9, 10])) or (i == 3 and x == 4)) else 0 for x in range(n_commodities)],
                    dtype=float)
           for _ in range(network.T)]
          for i in network.connections]
 
     #Crew
-    D[3][5][0] = -2
-    D[2][4][0] = -1
+    D[3][5][0] = -12
 
     # Crew interim
-    D[3][5][6] = 2
-    D[2][4][6] = 1
+    D[3][5][6] = 12
 
-    D[3][6][6] = -2
-    D[2][7][6] = -1
+    D[3][8][6] = -12
 
     #CrewReturn
-    D[3][6][1] = 2
-    D[2][7][1] = 1
-    D[0][11][1] = -3
+    D[3][8][1] = 12
+
+    D[0][13][1] = -12
 
     #Equipment
-    D[3][5][3] = -420
+    D[3][5][3] = -4200
 
     #Samples
-    D[0][11][4] = -110
-
-    # #ISRU packaged
-    # D[1][0][7] = 10000.0
-
+    D[0][13][4] = -500
 
     #Vehicle Demand array [Node][vehicle][Time]
-    d = [[[1 if (i == 0 and t == 0 and v != 0) else 0 for t in range(network.T)]
+    d = [[[2 if (i == 0 and t == 0) else 0 for t in range(network.T)]
           for v in range(n_vehicles)]
          for i in network.connections]
     
@@ -169,7 +153,7 @@ def are_we_on_earth(i,j):
 #index position of propellant, and ISRU indices and masses of various systems
 def consumption_matrix(i, j, v, commodity_names, prop_index, crew_mass,
                        daily_consumption, network, vehicle_data, Active_ISRU_index, ArcTOF,
-                       ISRU_enabled):
+                       commodities, days_per_year):
     """
     Transformation matrix for commodities, active spacecraft, and spacecraft
     payloads.  ISRU commodities are pass-through here; eligible holdover arcs
@@ -194,39 +178,54 @@ def consumption_matrix(i, j, v, commodity_names, prop_index, crew_mass,
     
     #as default all commodities count as weight toward propellant usage,
     #specific mass conversion is manually defined
-    mat[prop_index, :] = -active_phi
-    #Active ISRU is exempt from propellant usage in this matrix,
-    if ISRU_enabled:
-        mat[prop_index,Active_ISRU_index] = 0
+    prop_percentages = commodities.prop_percentages
+    #first define oxygen usage
+    mat[prop_index[0], :] = -active_phi * prop_percentages[0]
+    #then kerosene usage
+    mat[prop_index[1], :] = -active_phi * prop_percentages[1]
+
     # Generic pass-through for any added commodity, including packaged/active
     # ISRU.  Active ISRU is separately restricted to eligible holdover arcs.
     for c in range(commodity_count):
         mat[c, c] = 1
-    
-    #no consumable consumption on earth (default zeros) or from PAC to LEO
-    if not (are_we_on_earth(i,j) or (i==0 and j==1)):
-        
-        #exceptions consumption of consumables: crew ->consumables [3]
-        consumables_idx = commodity_names.index("consumables")
-        mat[consumables_idx, 0] = -daily_consumption * ArcTOF #Decrease in consumables due to crew consumption
-        mat[consumables_idx, 1] = -daily_consumption * ArcTOF #Decrease in consumables due to crew consumption
-        mat[consumables_idx, 6] = -daily_consumption * ArcTOF #Decrease in consumables due to crew consumption
-        #crew, crew interim, crew return -> consumables
-    
-    #else: 
-    #    print(i,j)
-    #    print(mat[3,0])
 
+    consumables_idx = commodity_names.index("consumables")
+    maintenance_idx = commodity_names.index("maintenance_mass")
 
     #crew, crew interim, crew return -> propellant
-    mat[prop_index, 0] = -crew_mass * active_phi #crew mass multiplication
-    mat[prop_index, 1] = -crew_mass * active_phi #crew mass multiplication
-    mat[prop_index, 6] = -crew_mass * active_phi #crew mass multiplication
+    mat[prop_index[0], 0] *= crew_mass #crew mass multiplication
+    mat[prop_index[0], 1] *= crew_mass #crew mass multiplication
+    mat[prop_index[0], 6] *= crew_mass #crew mass multiplication
 
-    mat[prop_index, prop_index] = 1 - active_phi #propellant function
+    mat[prop_index[1], 0] *= crew_mass  # crew mass multiplication
+    mat[prop_index[1], 1] *= crew_mass  # crew mass multiplication
+    mat[prop_index[1], 6] *= crew_mass  # crew mass multiplication
+
+    mat[prop_index[0], prop_index[0]] = 1 - active_phi*prop_percentages[0] #propellant function oxidizer
+    mat[prop_index[1], prop_index[1]] = 1 - active_phi*prop_percentages[1] # propellant function kerosene
     
-    mat[prop_index, commodity_count] = -vehicle_data.structure_mass[v] * active_phi
+    mat[prop_index[0], commodity_count] *= vehicle_data.structure_mass[v]
+    mat[prop_index[1], commodity_count] *= vehicle_data.structure_mass[v]
     mat[commodity_count, commodity_count] = 1 #this and the above line reer to changes in the number of SC, no changes
+
+
+    # no consumable consumption on earth (default zeros) or from PAC to LEO
+    if not (are_we_on_earth(i, j) or (i == 0 and j == 1)):
+        # exceptions consumption of consumables: crew ->consumables [3]
+        mat[consumables_idx, 0] = -daily_consumption * ArcTOF  # Decrease in consumables due to crew consumption
+        mat[consumables_idx, 1] = -daily_consumption * ArcTOF  # Decrease in consumables due to crew consumption
+        mat[consumables_idx, 6] = -daily_consumption * ArcTOF  # Decrease in consumables due to crew consumption
+        # crew, crew interim, crew return -> consumables
+
+        # Spacecraft maintenance = 1% of spacecraft mass per arc (not per day)
+        mat[maintenance_idx, commodity_count] = -commodities.sc_flight_maintenance*vehicle_data.structure_mass[v]
+
+        # Oxygen boiloff: according to paper table, 0.016% per day. However, in the result they use 0.016% per arc
+        # mat[prop_index[0], prop_index[0]] *= (1-commodities.oxygen_boiloff)**ArcTOF
+        mat[prop_index[0], prop_index[0]] *= (1 - commodities.oxygen_boiloff)
+
+        # Active ISRU maintenance = 10% of ISRU mass per year
+        mat[maintenance_idx, Active_ISRU_index] = -(commodities.isru_yearly_maintenance / days_per_year) * ArcTOF
 
 
     #additonal SC payload mass entries, require the structure values
@@ -237,7 +236,12 @@ def consumption_matrix(i, j, v, commodity_names, prop_index, crew_mass,
             
             idx = commodity_count + 1 + offset
             mat[idx, idx] = 1
-            mat[prop_index, idx] = -1* vehicle_data.structure_mass[vcount] * active_phi
+            mat[prop_index[0], idx] *= vehicle_data.structure_mass[vcount]
+            mat[prop_index[1], idx] *= vehicle_data.structure_mass[vcount]
+
+            # Spacecraft maintenance = 1% of spacecraft mass per arc (not per day)
+            if not (are_we_on_earth(i, j) or (i == 0 and j == 1)):
+                mat[maintenance_idx, idx] = -commodities.sc_flight_maintenance * vehicle_data.structure_mass[vcount]
             
             offset +=1
     

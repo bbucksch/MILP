@@ -63,8 +63,12 @@ def define_commodities(ISRUModelvar):
     #     GRB.CONTINUOUS,
     # ]
     
-    Comm.prop_index = 5 #Index of propellant in the commodities list
+    Comm.prop_index = [5] #Index of propellant in the commodities list
+    Comm.prop_percentages = [1] # Percentage of each type of propellant component
+    Comm.oxygen_boiloff = 0.00016
+    Comm.sc_flight_maintenance = 0.01
     Comm.isru_indices = {"packaged": 7, "active": 8}
+    Comm.isru_yearly_maintenance = 0.1
     Comm.crew_mass = 100
     Comm.mass_conversion = [Comm.crew_mass, Comm.crew_mass, 1, 1, 1, 1, Comm.crew_mass]
     # Comm.consumption_rate = 1.0 + 5.0 + 1.1
@@ -169,7 +173,7 @@ def are_we_on_earth(i,j):
 #index position of propellant, and ISRU indices and masses of various systems
 def consumption_matrix(i, j, v, commodity_names, prop_index, crew_mass,
                        daily_consumption, network, vehicle_data, Active_ISRU_index, ArcTOF,
-                       ISRU_enabled):
+                       commodities, days_per_year):
     """
     Transformation matrix for commodities, active spacecraft, and spacecraft
     payloads.  ISRU commodities are pass-through here; eligible holdover arcs
@@ -180,6 +184,7 @@ def consumption_matrix(i, j, v, commodity_names, prop_index, crew_mass,
     if network.delta_v[i][j] <= 0:
         active_phi = 0
 
+    prop_idx = prop_index[0]
 
     Extra_carry_payloads = vehicle_data.carriable.count(True)
 
@@ -194,10 +199,8 @@ def consumption_matrix(i, j, v, commodity_names, prop_index, crew_mass,
     
     #as default all commodities count as weight toward propellant usage,
     #specific mass conversion is manually defined
-    mat[prop_index, :] = -active_phi
-    #Active ISRU is exempt from propellant usage in this matrix,
-    if ISRU_enabled:
-        mat[prop_index,Active_ISRU_index] = 0
+    mat[prop_idx, :] = -active_phi
+
     # Generic pass-through for any added commodity, including packaged/active
     # ISRU.  Active ISRU is separately restricted to eligible holdover arcs.
     for c in range(commodity_count):
@@ -219,13 +222,13 @@ def consumption_matrix(i, j, v, commodity_names, prop_index, crew_mass,
 
 
     #crew, crew interim, crew return -> propellant
-    mat[prop_index, 0] = -crew_mass * active_phi #crew mass multiplication
-    mat[prop_index, 1] = -crew_mass * active_phi #crew mass multiplication
-    mat[prop_index, 6] = -crew_mass * active_phi #crew mass multiplication
+    mat[prop_idx, 0] = -crew_mass * active_phi #crew mass multiplication
+    mat[prop_idx, 1] = -crew_mass * active_phi #crew mass multiplication
+    mat[prop_idx, 6] = -crew_mass * active_phi #crew mass multiplication
 
-    mat[prop_index, prop_index] = 1 - active_phi #propellant function
+    mat[prop_idx, prop_idx] = 1 - active_phi #propellant function
     
-    mat[prop_index, commodity_count] = -vehicle_data.structure_mass[v] * active_phi
+    mat[prop_idx, commodity_count] = -vehicle_data.structure_mass[v] * active_phi
     mat[commodity_count, commodity_count] = 1 #this and the above line reer to changes in the number of SC, no changes
 
 
@@ -237,7 +240,7 @@ def consumption_matrix(i, j, v, commodity_names, prop_index, crew_mass,
             
             idx = commodity_count + 1 + offset
             mat[idx, idx] = 1
-            mat[prop_index, idx] = -1* vehicle_data.structure_mass[vcount] * active_phi
+            mat[prop_idx, idx] = -1 * vehicle_data.structure_mass[vcount] * active_phi
             
             offset +=1
     
