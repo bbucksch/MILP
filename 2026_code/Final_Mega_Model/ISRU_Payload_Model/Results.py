@@ -193,7 +193,8 @@ def plot_time_space_network(
     cargo=None,
     node_order=None,
     title="Time-space spacecraft solution",
-    tol=1e-6
+    tol=1e-6,
+    Vehicledata = None
 ):
     if legs.empty:
         print("No spacecraft legs found.")
@@ -327,7 +328,15 @@ def plot_time_space_network(
                     continue
 
                 if str(item).startswith("Carried SC:"):
-                    hover_lines.append(f"{item}: {mass:.2f} kg dry mass")
+
+                    if Vehicledata:
+                        VmassIndex = Vehicledata.vehicle_type_names.index(item.split("Carried SC: ")[-1])    
+                        Vmass = Vehicledata.structure_mass[VmassIndex]
+                        hover_lines.append(f"{item}: {mass/Vmass} Vehicles")
+                        hover_lines.append(f"{mass:.2f} kg total dry mass")
+                    
+                    else:
+                        hover_lines.append(f"{item}: {mass:.2f} kg dry mass")
                 else:
                     hover_lines.append(f"{item}: {mass:.2f} kg")
 

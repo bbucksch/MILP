@@ -293,7 +293,7 @@ def VehicleModel():
 #ISRU model data
 def ISRUModel():
     ISRU = ISRUConfig()
-    ISRU.enabled = False
+    ISRU.enabled = True
     ISRU.active_nodes = [3] #ISRU can only be active on the moon (node 3)
     ISRU.max_mass = 10000.0
     ISRU.n_segments = 100
