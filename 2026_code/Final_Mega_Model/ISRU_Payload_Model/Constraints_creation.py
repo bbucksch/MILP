@@ -168,7 +168,7 @@ def add_arc_transformation_constraints(model, ctx, consumption_matrix):
                     for row, (enterarc, leavearc) in enumerate(zip(transformed, Vin)):
                         if ctx["isru_config"].enabled and is_eligible_isru_arc(i, j, ctx["isru_config"]):
                             
-                            
+                            #for models with multiple propellant commodities, the first index is always the one created by ISRU (oxygen)
                             if row == ctx["Commodities"].prop_index[0]:
                                 
                                 #create linearized variables for the ISRU output
