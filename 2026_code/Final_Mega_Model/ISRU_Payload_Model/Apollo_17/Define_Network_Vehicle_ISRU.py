@@ -71,7 +71,8 @@ def validate_network_model(Net: NetworkData):
 #this function is called to define the network model
 def NetworkModel(campaign=False):
     Net = NetworkData()
-    Net.g0 = 9.8
+    # Net.g0 = 9.8
+    Net.g0 = 9.80665
     Net.connections = {
         0: [0, 1],
         1: [0, 1, 2],
@@ -88,20 +89,20 @@ def NetworkModel(campaign=False):
         } for i in Net.connections
     }
 
-    # Net.node_windows = {
-    #
-    #     0: [t for t in range(Net.T)],
-    #     1: [t for t in range(Net.T)],
-    #     2: [t for t in range(Net.T)],
-    #     3: [t for t in range(Net.T)],
-    # }
-
     Net.delta_v = {
         0: {0: 0, 1: 0},
         1: {0: 0, 1: 0, 2: 4.04},
-        2: {1: 3.97, 2: 0, 3: 1.87},
+        2: {1: 4.04, 2: 0, 3: 1.87},
         3: {2: 1.87, 3: 0},
     }
+
+    # Delta v for accurate result
+    # Net.delta_v = {
+    #     0: {0: 0, 1: 0},
+    #     1: {0: 0, 1: 0, 2: 4.04},
+    #     2: {1: 3.97, 2: 0, 3: 1.87},
+    #     3: {2: 1.87, 3: 0},
+    # }
 
     Net.tof = {
         0: {0: 1, 1: 1},
@@ -120,26 +121,6 @@ def NetworkModel(campaign=False):
 
     validate_network_model(Net)
 
-    if campaign:
-        for i, connections in Net.node_windows.items():
-            for j, time_window in connections.items():
-                next_mission_windows = []
-                for t in time_window:
-                    next_mission_windows.append(t + 365)
-                Net.node_windows[i][j].extend(next_mission_windows)
-
-        # print(Net.node_windows)
-
-    # if campaign:
-    #     for node, time_window in Net.node_windows.items():
-    #         next_mission_windows = []
-    #         for t in time_window:
-    #             next_mission_windows.append(t + 365)
-    #         Net.node_windows[node].extend(next_mission_windows)
-    #
-    #     Net.T += 365
-    #     print(Net.node_windows)
-
     return Net
 
 #reverse the tof list (negative travel times, to see what nodes can travel to a single end result)
@@ -147,7 +128,53 @@ def reverse_tof(tof):
     return {i: {j: -dt for j, dt in dests.items()} for i, dests in tof.items()}
 
 #function to ensure all possible arcs are covered [t][i][j]
-def all_possible_outflow_arcs(window, tof_used, T, reverse=False):
+def all_possible_outflow_arcs_nonuniform_holdover(window, tof_used, T, reverse=False):
+    all_arcs = {}
+    for i in window:
+        for j in window[i]:
+            if i==j:
+                dep_times = sorted(window[i][i])
+                arc_instances = [
+                    (dep_times[k], dep_times[k + 1], dep_times[k + 1] - dep_times[k])
+                    for k in range(len(dep_times) - 1)
+                ]
+
+            else:
+                arc_instances = [
+                    (t_departure, t_departure+abs(tof_used[i][j]), abs(tof_used[i][j]))
+                    for t_departure in window[i][j]
+                ]
+
+            for t, t_arrival, delta_t in arc_instances:
+                if t_arrival >= T:
+                    continue
+
+                if not reverse:
+                    if t not in all_arcs:
+                        all_arcs[t] = {}
+                    if i not in all_arcs[t]:
+                        all_arcs[t][i] = {}
+
+                    all_arcs[t][i][j] = {
+                        "ArrivalTime": t_arrival,
+                        "FullTravelTime": delta_t,
+                    }
+
+                else:
+                    if t_arrival not in all_arcs:
+                        all_arcs[t_arrival] = {}
+                    if j not in all_arcs[t_arrival]:
+                        all_arcs[t_arrival][j] = {}
+
+                    all_arcs[t_arrival][j][i] = {
+                        "ArrivalTime": t, # Departure time from i to get to j (which later becomes j to get to i)
+                        "FullTravelTime": -delta_t,
+                    }
+
+    return all_arcs
+
+
+def all_possible_outflow_arcs_uniform_holdover(window, tof_used, T, reverse=False):
     all_arcs = {}
     for i in window:
         for j in window[i]:
@@ -213,7 +240,10 @@ def VehicleModel():
     Vehicle.structure_mass = np.array([38415, 12014, 4841, 6053, 2770, 1719])
     Vehicle.isp = np.array([421, 421, 0, 314, 311, 311])
     Vehicle.payload_cap = np.array([0, 0, 524, 60, 500, 250])
-    Vehicle.propellant_cap = np.array([452045, 107725, 0, 18413, 8804, 2358])
+    # Paper reported propellant capacity
+    # Vehicle.propellant_cap = np.array([452045, 107725, 0, 18413, 8804, 2358])
+    # Feasible propellant capacity
+    Vehicle.propellant_cap = np.array([452045, 107725, 0, 18413, 8917, 2358])
     Vehicle.sc_vtype = GRB.INTEGER
     Vehicle.number_vehicle_types = 6 #How many vehicles are being defined
     Vehicle.vehicle_type_names = ["Saturn_V_second", "Saturn_V_third", "Command_module",

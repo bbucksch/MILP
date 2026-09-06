@@ -58,7 +58,7 @@ def define_commodities(ISRUModelvar):
     Comm.crew_mass = 100
     Comm.mass_conversion = [Comm.crew_mass, Comm.crew_mass, 1, 1, 1, 1, Comm.crew_mass, 1, 1, 1, 1]
     Comm.consumption_rate = 1.015 + 6.37 + 1.18
-    # Comm.consumption_rate = 124/(10*3)
+    # Comm.consumption_rate = 1247/(12*12)
     return Comm
 
 
@@ -221,8 +221,8 @@ def consumption_matrix(i, j, v, commodity_names, prop_index, crew_mass,
         mat[maintenance_idx, commodity_count] = -commodities.sc_flight_maintenance*vehicle_data.structure_mass[v]
 
         # Oxygen boiloff: according to paper table, 0.016% per day. However, in the result they use 0.016% per arc
-        # mat[prop_index[0], prop_index[0]] *= (1-commodities.oxygen_boiloff)**ArcTOF
-        mat[prop_index[0], prop_index[0]] *= (1 - commodities.oxygen_boiloff)
+        # mat[prop_index[0], :] *= (1-commodities.oxygen_boiloff)**ArcTOF
+        mat[prop_index[0], :] *= (1 - commodities.oxygen_boiloff)
 
         # Active ISRU maintenance = 10% of ISRU mass per year
         mat[maintenance_idx, Active_ISRU_index] = -(commodities.isru_yearly_maintenance / days_per_year) * ArcTOF

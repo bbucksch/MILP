@@ -33,7 +33,7 @@ if Test != "y":
 from Single_mission_design.Define_Network_Vehicle_ISRU import (
     NetworkModel,
     reverse_tof,
-    all_possible_outflow_arcs,
+    all_possible_outflow_arcs_nonuniform_holdover,
     VehicleModel,
     ISRUModel,
     ISRU_total_annual_output,
@@ -102,13 +102,13 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
     T_adv = list(range(network.T))
 
     # all_arcs and rev_arcs are dictionaries of all the possible open arcs
-    all_arcs = all_possible_outflow_arcs(
+    all_arcs = all_possible_outflow_arcs_nonuniform_holdover(
         window=network.node_windows,
         tof_used=network.tof,
         T=network.T,
     )
 
-    rev_arcs = all_possible_outflow_arcs(
+    rev_arcs = all_possible_outflow_arcs_nonuniform_holdover(
         window=network.node_windows,
         tof_used=network.tof,
         T=network.T,
