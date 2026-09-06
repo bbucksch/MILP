@@ -243,7 +243,7 @@ def add_ISRU_negation_constraint(model,ctx):
     return
 
 
-def create_concurrency_constraint(connections, mass_conversion, propellant_indices):
+def create_concurrency_constraint(mass_conversion, propellant_indices):
     payload_row = copy.deepcopy(mass_conversion)
     prop_row = [0] * len(mass_conversion)
 
@@ -279,7 +279,6 @@ def create_sc_design_parameters(vehicle_data):
 
 def add_concurrency_constraints(model, ctx):
     H = create_concurrency_constraint(
-        ctx["connections"],
         ctx["Commodities"].mass_conversion,
         ctx["Commodities"].prop_index,
     )
