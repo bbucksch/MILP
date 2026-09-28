@@ -141,6 +141,11 @@ def NetworkModel(campaign=False):
         "Lunar surface"
     ]
 
+    surface_nodes = [
+        0,
+        3
+    ]
+
 
     validate_network_model(Net)
 

@@ -288,6 +288,12 @@ def add_concurrency_constraints(model, ctx):
         for t in ctx["all_arcs"]:
             for i in ctx["all_arcs"][t]:
                 for j in ctx["all_arcs"][t][i]:
+
+                    # if (i == j) and (i in ctx["network"].surface_nodes):
+                    #     # If stationary on a surface, don't enforce concurrency constraints
+                    #     # Commodities can stay there without active spacecrafts
+                    #     continue
+
                     extended_commodity = ctx["x_outflow"][v][i][j][t]
                     extended_constraint = [ctx["y_outflow"][v][i][j][t]]
 
@@ -318,7 +324,8 @@ def add_SCP_concurrency_constraint(model,ctx):
             for t in ctx["all_arcs"]:
                 for i in ctx["all_arcs"][t]:
                     for j in ctx["all_arcs"][t][i]:
-                        SCP_commodity = sum(ctx["scpayload_outflow"][v][i][j][t])
+                        SCP_commodity = sum((ctx["scpayload_outflow"][v][i][j][t]),
+                                            start=np.array([0]))
 
                         model.addConstr(
                             SCP_commodity[0] <= ctx["y_outflow"][v][i][j][t][0]*ctx["vehicle_data"].max_carried[v],
@@ -357,3 +364,26 @@ def add_time_window_constraints(model, ctx):
                                 name=f"Inflow_outside_time_window_constraint_vehicle{v}_startnode{i}_endnode{j}_starttime{t},Commodity{ctx['Commodities'].commodity_names[idx]}",
                             )
 
+
+def add_number_active_spacecraft_constraints(model, ctx, max_active_vehicles):
+    for v in range(ctx["V"]):
+        for t in ctx["all_arcs"]:
+            active_vehicles_at_t = sum([ctx["y_outflow"][v][i][j][t]
+                                        for i in ctx["all_arcs"][t]
+                                        for j in ctx["all_arcs"][t][i]],
+                                       start=np.array([0]))
+
+            count_idx = 0
+            for i1, c in enumerate(ctx["vehicle_data"].carriable):
+                if c == True:
+                    if i1 == v:
+                        active_vehicles_at_t += sum([ctx["scpayload_outflow"][v][i][j][t][count_idx]
+                                                     for i in ctx["all_arcs"][t]
+                                                     for j in ctx["all_arcs"][t][i]],
+                                                    start=np.array([0]))
+                    count_idx += 1
+
+            model.addConstr(
+                active_vehicles_at_t[0] <= max_active_vehicles[v],
+                name=f"Maximum_active_vehicles_vehicle{v}_starttime{t}",
+            )

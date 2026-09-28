@@ -4,9 +4,10 @@ import plotly.colors as pc
 import pandas as pd
 import numpy as np
 
-#TOF tells you the travel times
+
+# TOF tells you the travel times
 def check_destination_window(startnode, endnode, tstart, All_nodes, TOF):
-    arrival =  TOF[startnode][endnode]+tstart
+    arrival = TOF[startnode][endnode] + tstart
 
     if arrival in All_nodes:
         return True
@@ -14,7 +15,7 @@ def check_destination_window(startnode, endnode, tstart, All_nodes, TOF):
         return False
 
 
-#Extract Ships and Commodities
+# Extract Ships and Commodities
 def val(x):
     """Safely get Gurobi variable value."""
     try:
@@ -28,22 +29,22 @@ def val(x):
 
 
 def extract_flows(
-    x_outflow,
-    x_inflow,
-    y_outflow,
-    arcs,
-    node_names,
-    vehicle_names,
-    commodity_names,
-    tof,
-    T,
-    T_adv,
-    CommMass,
-    StructMass,
-    tol=1e-6,
-    AllArcs=None,
-    payloadflows=None,
-    Carryship=None
+        x_outflow,
+        x_inflow,
+        y_outflow,
+        arcs,
+        node_names,
+        vehicle_names,
+        commodity_names,
+        tof,
+        T,
+        T_adv,
+        CommMass,
+        StructMass,
+        tol=1e-6,
+        AllArcs=None,
+        payloadflows=None,
+        Carryship=None
 ):
     """
     Returns:
@@ -62,14 +63,14 @@ def extract_flows(
             for j in arcs[i]:
                 for t in T_adv:
 
-                    #if not check_destination_window(i, j, t, T_adv, tof):
+                    # if not check_destination_window(i, j, t, T_adv, tof):
                     #    continue
 
                     if AllArcs is not None:
                         if not (
-                            (t in AllArcs)
-                            and (i in AllArcs[t])
-                            and (j in AllArcs[t][i])
+                                (t in AllArcs)
+                                and (i in AllArcs[t])
+                                and (j in AllArcs[t][i])
                         ):
                             continue
 
@@ -78,6 +79,10 @@ def extract_flows(
                         t_arrive = t + tof[i][j]
 
                     n_ships = val(y_outflow[v][i][j][t][0])
+
+                    # Skip arcs without an active carrier spacecraft
+                    if n_ships <= tol:
+                        continue
 
                     total_mass_out = 0.0
 
@@ -167,10 +172,6 @@ def extract_flows(
                     active_vehicle_mass = StructMass[v] * n_ships
                     total_mass_out += active_vehicle_mass
 
-                    # Skip arcs without an active carrier spacecraft and no mass
-                    if n_ships <= tol and total_mass_out <= tol:
-                        continue
-
                     ship_rows.append({
                         "vehicle": vehicle,
                         "v": v,
@@ -188,13 +189,14 @@ def extract_flows(
 
     return pd.DataFrame(cargo_rows), pd.DataFrame(ship_rows)
 
+
 def plot_time_space_network(
-    legs,
-    cargo=None,
-    node_order=None,
-    title="Time-space spacecraft solution",
-    tol=1e-6,
-    Vehicledata = None
+        legs,
+        cargo=None,
+        node_order=None,
+        title="Time-space spacecraft solution",
+        tol=1e-6,
+        Vehicledata=None
 ):
     if legs.empty:
         print("No spacecraft legs found.")
@@ -279,7 +281,7 @@ def plot_time_space_network(
         for idx, vehicle in enumerate(vehicles)
     }
 
-    palette = px.colors.qualitative.Plotly   # px is already imported at the top of the file
+    palette = px.colors.qualitative.Plotly  # px is already imported at the top of the file
     vehicle_colors = {
         vehicle: palette[idx % len(palette)]
         for idx, vehicle in enumerate(vehicles)
@@ -330,11 +332,11 @@ def plot_time_space_network(
                 if str(item).startswith("Carried SC:"):
 
                     if Vehicledata:
-                        VmassIndex = Vehicledata.vehicle_type_names.index(item.split("Carried SC: ")[-1])    
+                        VmassIndex = Vehicledata.vehicle_type_names.index(item.split("Carried SC: ")[-1])
                         Vmass = Vehicledata.structure_mass[VmassIndex]
-                        hover_lines.append(f"{item}: {mass/Vmass} Vehicles")
+                        hover_lines.append(f"{item}: {mass / Vmass} Vehicles")
                         hover_lines.append(f"{mass:.2f} kg total dry mass")
-                    
+
                     else:
                         hover_lines.append(f"{item}: {mass:.2f} kg dry mass")
                 else:
@@ -349,20 +351,6 @@ def plot_time_space_network(
             showlegend=showlegend,
             line=dict(width=line_width, dash=line_dash, color=vehicle_colors[vehicle]),
             marker=dict(size=8, color=vehicle_colors[vehicle]),
-            hoverinfo="skip"
-        ))
-
-        t_mid = (row["t_depart"] + row["t_arrive"]) / 2.0
-        y_mid = (y0 + y1) / 2.0
-
-        fig.add_trace(go.Scatter(
-            x=[t_mid],
-            y=[y_mid],
-            mode="markers",
-            name=vehicle,
-            legendgroup=vehicle,
-            showlegend=False,
-            marker=dict(size=14, opacity=0, color=vehicle_colors[vehicle]),
             hovertext="<br>".join(hover_lines),
             hoverinfo="text"
         ))
@@ -383,7 +371,8 @@ def plot_time_space_network(
     fig.show()
     return fig
 
-#mass flows table may have extra code in the show file
+
+# mass flows table may have extra code in the show file
 def make_mass_flow_table(flows, use="out_mass"):
     table = flows.pivot_table(
         index=[
@@ -405,6 +394,7 @@ def make_mass_flow_table(flows, use="out_mass"):
     return table.reset_index().sort_values(
         ["t_depart", "from_node", "to_node", "vehicle"]
     )
+
 
 def propellantUsage(flows):
     prop = flows[flows["item"] == "propellant"].copy()
@@ -475,4 +465,3 @@ def plot_vehicle_gantt(flows, title="Spacecraft activity timeline"):
 
     fig.show()
     return
-

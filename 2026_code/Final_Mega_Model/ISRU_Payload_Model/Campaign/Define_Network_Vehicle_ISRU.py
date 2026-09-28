@@ -74,7 +74,8 @@ def NetworkModel(campaign=False):
     Net.g0 = 9.8
     # Net.g0 = 9.80665
     Net.connections = {
-        0: [0, 1],
+        # 0: [0, 1],
+        0: [1], # No holdover on Earth for paper-accuracy
         1: [0, 1, 2],
         2: [1, 2, 3],
         3: [2, 3],
@@ -93,8 +94,8 @@ def NetworkModel(campaign=False):
     # For all_possible_outflow_arcs_nonuniform_holdover
     Net.node_windows = {
         0: {
-            0: [0, 13, 0+365, 13+365, 0+365*2, 13+365*2],
-            1: [0, 0+365, 0+365*2],
+            # 0: [0, 13, 0+365, 13+365, 0+365*2, 13+365*2],
+            1: [0, 0+365, 0+365*2], # No holdover on Earth for paper-accuracy
         },
         1: {
             0: [12, 12+365, 12+365*2],
@@ -113,7 +114,8 @@ def NetworkModel(campaign=False):
     }
 
     Net.delta_v = {
-        0: {0: 0, 1: 0},
+        # 0: {0: 0, 1: 0},
+        0: {1: 0}, # No holdover on Earth for paper-accuracy
         1: {0: 0, 1: 0, 2: 4.04},
         2: {1: 4.04, 2: 0, 3: 1.87},
         3: {2: 1.87, 3: 0},
@@ -140,6 +142,11 @@ def NetworkModel(campaign=False):
         "Low Earth Orbit",
         "Low Lunar Orbit",
         "Lunar surface"
+    ]
+
+    surface_nodes = [
+        0,
+        3
     ]
 
 

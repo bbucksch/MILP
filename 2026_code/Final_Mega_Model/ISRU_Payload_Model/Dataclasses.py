@@ -56,6 +56,10 @@ class NetworkData:
         "Low Lunar Orbit",
         "Lunar surface"
     ])
+    surface_nodes: list = field(default_factory=lambda: [
+        0,
+        3
+    ])
 
 @dataclass
 class Commodities:

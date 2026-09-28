@@ -85,12 +85,12 @@ def NetworkModel(campaign=False):
     # Windows always open
     Net.node_windows = {
         i: {
-            j: [t for t in range(Net.T) if t+Net.tof[i][j] < Net.T] for j in Net.connections[i]
+            j: [t for t in range(Net.T) if t+Net.tof[i][j] < Net.T] for j in Net.connections[i] if not (i==0 and j==0)
         } for i in Net.connections
     }
 
     Net.delta_v = {
-        0: {0: 0, 1: 0},
+        0: {1: 0},
         1: {0: 0, 1: 0, 2: 4.04},
         2: {1: 4.04, 2: 0, 3: 1.87},
         3: {2: 1.87, 3: 0},
@@ -116,6 +116,11 @@ def NetworkModel(campaign=False):
         "Low Earth Orbit",
         "Low Lunar Orbit",
         "Lunar surface"
+    ]
+
+    surface_nodes = [
+        0,
+        3
     ]
 
 
