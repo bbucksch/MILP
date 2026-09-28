@@ -107,7 +107,7 @@ def Validation_Demand_Supply(network, D, d):
 def demand_supply(network, n_commodities, n_vehicles):
 
     #Commmodity demand array
-    # commodity = ["crew","crew_return","consumables","equipment","samples","propellant"]
+    # commodity = ["crew","crew_return","consumables","equipment","samples","propellant", "crew_interim"]
     #Demand network is defined as [Node][Time][Commodity]
     D = [[np.array([1e15 if ((i == 0 and (x in [0, 2, 3, 5])) or (i == 3 and x == 4)) else 0 for x in range(n_commodities)],
                    dtype=float)
@@ -229,7 +229,7 @@ def consumption_matrix(i, j, v, commodity_names, prop_index, crew_mass,
     mat[prop_idx, prop_idx] = 1 - active_phi #propellant function
     
     mat[prop_idx, commodity_count] = -vehicle_data.structure_mass[v] * active_phi
-    mat[commodity_count, commodity_count] = 1 #this and the above line reer to changes in the number of SC, no changes
+    mat[commodity_count, commodity_count] = 1 #this and the above line refer to changes in the number of SC, no changes
 
 
     #additonal SC payload mass entries, require the structure values
