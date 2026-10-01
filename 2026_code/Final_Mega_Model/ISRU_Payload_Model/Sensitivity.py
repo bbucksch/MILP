@@ -33,10 +33,12 @@ In order to get comparisons for effects, the effect on the objective function, n
 
 """
 
-def single_commodity_demand_sensitivity_analysis(model, ctx, commodity, i_dem, t_dem,  demand_change, i_sup=None,t_sup=None):
+def single_commodity_demand_sensitivity_analysis(modelog, ctx, commodity, i_dem, t_dem,  demand_change, i_sup=None,t_sup=None):
 
-    obj_initial = model.objVal
-    
+    model = modelog.copy()
+    model.optimize()
+    obj_initial = model.ObjVal
+
 
     #find commodity index for the given commodity name
     commodity_index = ctx["Commodities"].commodity_names.index(commodity)
@@ -46,7 +48,18 @@ def single_commodity_demand_sensitivity_analysis(model, ctx, commodity, i_dem, t
     dem = model.getConstrByName(
     f"mass_balance_x_node{i_dem}_time{t_dem}_comm{commodity_index}" )
 
+    print(dem)
+
+
+    if dem is None:
+        print(f"Model variation for {commodity} at {t_dem} time and {i_dem} does not exist.")
+        return 100000000000
     old_rhs = dem.RHS
+
+    #if dem != None:
+    #    old_rhs = dem.RHS
+    #else:
+    #    old_rhs = 0
 
     dem.RHS = old_rhs - demand_change  # Decrease demand (increase negative value)
 
@@ -61,6 +74,10 @@ def single_commodity_demand_sensitivity_analysis(model, ctx, commodity, i_dem, t
 
     # Re-optimize the model
     model.optimize()
+
+    if model.Status == GRB.INFEASIBLE:
+        print(f"Model variation for {commodity} at {t_dem} time and {i_dem} demand is infeasible")
+        return None
 
     obj_final = model.objVal
 
@@ -81,13 +98,17 @@ def single_commodity_demand_sensitivity_analysis(model, ctx, commodity, i_dem, t
 
     return shadow_price
 
-def multi_commodity_demand_sensitivity_analysis(model, ctx, description):
-    obj_initial = model.objVal
+def multi_commodity_demand_sensitivity_analysis(modelog, ctx, description):
+
+    model = modelog.copy()
+    model.optimize()
+    obj_initial = model.ObjVal
 
     old_dem_rhs_multi = []
     old_sup_rhs_multi = []
     demand_changes = []
-        
+    print(description)
+
     for x in description:
         commodity = x['commodity']
         i_dem = x['i_dem'] 
@@ -101,9 +122,20 @@ def multi_commodity_demand_sensitivity_analysis(model, ctx, description):
         # remember demand is negative, supply is positive
         dem = model.getConstrByName(
         f"mass_balance_x_node{i_dem}_time{t_dem}_comm{commodity_index}" )
-    
+
+        if dem is None:
+            print(f"Model variation for {commodity} at {t_dem} time and {i_dem} does not exist.")
+            return 100000000000
         old_rhs = dem.RHS
+        #if dem != None:
+        #    old_rhs = dem.RHS
+        #else:
+        #    old_rhs = 0
+
+
+
         old_dem_rhs_multi.append((dem, old_rhs))
+
         dem.RHS = old_rhs - demand_change  # Decrease demand (increase negative value)
 
         demand_changes.append(demand_change)
@@ -120,7 +152,10 @@ def multi_commodity_demand_sensitivity_analysis(model, ctx, description):
     
     # Re-optimize the model
     model.optimize()
-    
+    if model.Status == GRB.INFEASIBLE:
+            print(f"Model variation for multicommodity {description} is infeasible")
+            return None
+
     obj_final = model.objVal
     
     # Restore original demands
