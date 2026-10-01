@@ -1,8 +1,4 @@
-import math
 import copy
-
-import gurobipy as gp
-from gurobipy import GRB
 import numpy as np
 
 from Linear_Func import (

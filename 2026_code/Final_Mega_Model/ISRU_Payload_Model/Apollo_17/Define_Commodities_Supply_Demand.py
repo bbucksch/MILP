@@ -76,15 +76,6 @@ def define_commodities(ISRUModelvar):
     Comm.consumption_rate = 124/(10*3)
     return Comm
 
-
-#Demand and Supply is defined here, based on the number of 
-#Non-payload Commodities, the number of active vehicle types 
-# and the  original network
-
-#Since these values are defined manually,
-#this function ensures all non zero demand and supply falls
-#on a node in a valid time window
-#the strucutre uses the index value as the relevant vehicle/node/commodity/time
 def Validation_Demand_Supply(network, D, d):
     for node in range(len(D)):
         for t in range(len(D[node])):
@@ -144,9 +135,7 @@ def demand_supply(network, n_commodities, n_vehicles):
     d = [[[1 if (i == 0 and t == 0 and v != 0) else 0 for t in range(network.T)]
           for v in range(n_vehicles)]
          for i in network.connections]
-    
-    # #Validate D and d
-    # Validation_Demand_Supply(network, D, d)
+
     return D, d
 
 
@@ -174,11 +163,6 @@ def are_we_on_earth(i,j):
 def consumption_matrix(i, j, v, commodity_names, prop_index, crew_mass,
                        daily_consumption, network, vehicle_data, Active_ISRU_index, ArcTOF,
                        commodities, days_per_year):
-    """
-    Transformation matrix for commodities, active spacecraft, and spacecraft
-    payloads.  ISRU commodities are pass-through here; eligible holdover arcs
-    receive custom deployment/production rows later.
-    """
 
     active_phi = phi(i, j, v, network.delta_v, vehicle_data.isp, network.g0)
     if network.delta_v[i][j] <= 0:
@@ -192,17 +176,8 @@ def consumption_matrix(i, j, v, commodity_names, prop_index, crew_mass,
     full_len = commodity_count + 1 + Extra_carry_payloads # +1 for sc
     mat = np.zeros((full_len, full_len))
 
-    #matrix works by going through the commodity vector first
-    #then the spacecraft structure variable
-    #then the payload spacecrafts
-    #all collated in 1 vector for matrix multiplication
-    
-    #as default all commodities count as weight toward propellant usage,
-    #specific mass conversion is manually defined
     mat[prop_idx, :] = -active_phi
 
-    # Generic pass-through for any added commodity, including packaged/active
-    # ISRU.  Active ISRU is separately restricted to eligible holdover arcs.
     for c in range(commodity_count):
         mat[c, c] = 1
     
