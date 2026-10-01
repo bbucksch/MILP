@@ -359,7 +359,7 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
 
                 if x["Type"] == "Single":
                     shadow_price = single_commodity_demand_sensitivity_analysis(
-                        model=Lin_model,
+                        modelog=Lin_model,
                         ctx=ctx,
                         commodity=x["commodity"],
                         i_dem=x["i_dem"],
@@ -387,7 +387,7 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
                     if len(multi) == x["entries"]:
                         # Perform multi-commodity sensitivity analysis
                         shadow_price = multi_commodity_demand_sensitivity_analysis(
-                            model=Lin_model,
+                            modelog=Lin_model,
                             ctx=ctx,
                             description=multi
                         )
