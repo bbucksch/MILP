@@ -38,8 +38,7 @@ commodity2 = {
 
 }
 
-context = build_model(optimize=True, vizualize=True, sensitivity_analysis=True,commodity_analysis= commodity2)
-
+context = build_model(optimize=True, vizualize=True, sensitivity_analysis=True,commodity_analysis= Commodity)
 
 print(f"Built {context['model'].ModelName} with {context['model'].NumVars} variables.")
 

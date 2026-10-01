@@ -133,12 +133,12 @@ Subject To
    sc_commodity_outflow_0,0,1,Tstart0,Tend1
    + SC_payload_commodity_outflow_0,0,1,Tstart0,Tend1,CommoditypayloadVarType_1
    + SC_payload_commodity_outflow_1,0,1,Tstart0,Tend1,CommoditypayloadVarType_1
-   <= 2
+   <= 3
  SC_mass_balance_x_node0_time0_vehicle1:
    sc_commodity_outflow_1,0,1,Tstart0,Tend1
    + SC_payload_commodity_outflow_0,0,1,Tstart0,Tend1,CommoditypayloadVarType_2
    + SC_payload_commodity_outflow_1,0,1,Tstart0,Tend1,CommoditypayloadVarType_2
-   <= 2
+   <= 3
  mass_balance_x_node1_time1_comm0:
    Classic_commodity_outflow_0,1,1,Tstart1,Tend12,Commoditycrew
    + Classic_commodity_outflow_0,1,2,Tstart1,Tend4,Commoditycrew
@@ -939,12 +939,12 @@ Subject To
    sc_commodity_outflow_0,0,1,Tstart730,Tend731
    + SC_payload_commodity_outflow_0,0,1,Tstart730,Tend731,CommoditypayloadVarType_1
    + SC_payload_commodity_outflow_1,0,1,Tstart730,Tend731,CommoditypayloadVarType_1
-   <= 2
+   <= 3
  SC_mass_balance_x_node0_time730_vehicle1:
    sc_commodity_outflow_1,0,1,Tstart730,Tend731
    + SC_payload_commodity_outflow_0,0,1,Tstart730,Tend731,CommoditypayloadVarType_2
    + SC_payload_commodity_outflow_1,0,1,Tstart730,Tend731,CommoditypayloadVarType_2
-   <= 2
+   <= 3
  mass_balance_x_node1_time731_comm0:
    Classic_commodity_outflow_0,1,1,Tstart731,Tend742,Commoditycrew
    + Classic_commodity_outflow_0,1,2,Tstart731,Tend734,Commoditycrew
@@ -2014,12 +2014,12 @@ Subject To
    sc_commodity_outflow_0,0,1,Tstart365,Tend366
    + SC_payload_commodity_outflow_0,0,1,Tstart365,Tend366,CommoditypayloadVarType_1
    + SC_payload_commodity_outflow_1,0,1,Tstart365,Tend366,CommoditypayloadVarType_1
-   <= 2
+   <= 3
  SC_mass_balance_x_node0_time365_vehicle1:
    sc_commodity_outflow_1,0,1,Tstart365,Tend366
    + SC_payload_commodity_outflow_0,0,1,Tstart365,Tend366,CommoditypayloadVarType_2
    + SC_payload_commodity_outflow_1,0,1,Tstart365,Tend366,CommoditypayloadVarType_2
-   <= 2
+   <= 3
  mass_balance_x_node1_time366_comm0:
    Classic_commodity_outflow_0,1,1,Tstart366,Tend377,Commoditycrew
    + Classic_commodity_outflow_0,1,2,Tstart366,Tend369,Commoditycrew

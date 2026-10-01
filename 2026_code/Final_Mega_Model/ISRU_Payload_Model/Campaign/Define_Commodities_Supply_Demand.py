@@ -159,7 +159,7 @@ def demand_supply(network, n_commodities, n_vehicles):
     D[0][13+365*2][4] = -500
 
     #Vehicle Demand array [Node][vehicle][Time]
-    d = [[[2 if (i == 0 and (t == 0 or t==0+365 or t==0+365*2)) else 0 for t in range(network.T)]
+    d = [[[3 if (i == 0 and (t == 0 or t==0+365 or t==0+365*2)) else 0 for t in range(network.T)]
           for v in range(n_vehicles)]
          for i in network.connections]
 

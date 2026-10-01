@@ -23,6 +23,10 @@ ISRUModelvar.active_name,
 
 #multi commodity checks have a entries value that tells you how many commodities are achanged together
 
+
+Commodity = {1:{"Type":"Single","commodity":"crew", "i_dem":3, "t_dem":5, "demand_change":1, "i_sup":None, "t_sup":None}, # D[3][5][0] = -12
+}
+"""
 Commodity = {
     1:{"Type":"Single","commodity":"equipment", "i_dem":3, "t_dem":5, "demand_change":1, "i_sup":0, "t_sup":0}, #original D[3][5][3] = -4200
     2:{"Type":"Single","commodity":"equipment", "i_dem":3, "t_dem":370, "demand_change":1, "i_sup":0, "t_sup":365}, #original D[3][370][3] = -4200
@@ -52,9 +56,9 @@ Commodity = {
     18:{"Type":"Single","commodity":"equipment", "i_dem":3, "t_dem":5, "demand_change":100, "i_sup":0, "t_sup":0}, #D[0][11][5] = -500,
     19:{"Type":"Single","commodity":"crew", "i_dem":3, "t_dem":5, "demand_change":10, "i_sup":0, "t_sup":0}, # D[3][5][0] = -12
 }
+"""
 
-
-context = build_model(optimize=True, vizualize=False, sensitivity_analysis=True,commodity_analysis= Commodity)
+context = build_model(optimize=True, vizualize=True, sensitivity_analysis=True,commodity_analysis= Commodity)
 
 
 print(f"Built {context['model'].ModelName} with {context['model'].NumVars} variables.")
@@ -78,3 +82,5 @@ print(f"Built {context2['model'].ModelName} with {context2['model'].NumVars} var
 
 for x in context2['shadow prices'].keys():
     print(x, context2['shadow prices'][x])
+
+print(context['model'].ObjVal, context2['model'].ObjVal)
