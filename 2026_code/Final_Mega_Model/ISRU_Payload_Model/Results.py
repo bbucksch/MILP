@@ -16,7 +16,6 @@ def check_destination_window(startnode, endnode, tstart, All_nodes, TOF):
 
 #Extract Ships and Commodities
 def val(x):
-    """Safely get Gurobi variable value."""
     try:
         return x.X
     except AttributeError:
@@ -45,14 +44,6 @@ def extract_flows(
     payloadflows=None,
     Carryship=None
 ):
-    """
-    Returns:
-        cargo_df:
-            One row per commodity or carried spacecraft on each active vehicle arc.
-
-        ship_df:
-            One row per active spacecraft leg, including total outgoing mass.
-    """
 
     cargo_rows = []
     ship_rows = []
@@ -81,9 +72,6 @@ def extract_flows(
 
                     total_mass_out = 0.0
 
-                    # --------------------------------------------------
-                    # 1. Normal commodities
-                    # --------------------------------------------------
                     for k, commodity in enumerate(commodity_names):
                         out_quantity = val(x_outflow[v][i][j][t][k])
                         in_quantity = val(x_inflow[v][i][j][t][k])
@@ -121,9 +109,6 @@ def extract_flows(
                             "n_ships": n_ships
                         })
 
-                    # --------------------------------------------------
-                    # 2. Carried spacecraft as cargo
-                    # --------------------------------------------------
                     if payloadflows is not None and Carryship is not None:
                         count_scpayload = 0
                         for v1 in Carryship:
@@ -161,9 +146,6 @@ def extract_flows(
                                 "n_ships": n_ships
                             })
 
-                    # --------------------------------------------------
-                    # 3. Active spacecraft dry mass
-                    # --------------------------------------------------
                     active_vehicle_mass = StructMass[v] * n_ships
                     total_mass_out += active_vehicle_mass
 
@@ -220,9 +202,6 @@ def plot_time_space_network(
         "t_arrive"
     ]
 
-    # --------------------------------------------------
-    # Build cargo summary for normal commodities + carried spacecraft
-    # --------------------------------------------------
     if cargo is not None and not cargo.empty:
         cargo_summary = (
             cargo.pivot_table(
@@ -451,7 +430,6 @@ def plot_vehicle_gantt(flows, title="Spacecraft activity timeline"):
     legs["arc"] = legs["from_node"] + " → " + legs["to_node"]
     legs["vehicle_arc"] = legs["vehicle"] + " | " + legs["arc"]
 
-    # Plotly timeline works best with dates, so use an arbitrary base date.
     base = pd.Timestamp("2000-01-01")
     legs["start"] = base + pd.to_timedelta(legs["t_depart"], unit="D")
     legs["finish"] = base + pd.to_timedelta(legs["t_arrive"], unit="D")

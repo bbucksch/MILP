@@ -26,8 +26,6 @@ defined by the max mass of ISRU that can be brought as well as the exact
 """
 
 
-#Dataclasses have default values for model parameters,
-#Picking different values is necessary to specify the scenario
 from Dataclasses import (
     NetworkData,
     ISRUConfig,

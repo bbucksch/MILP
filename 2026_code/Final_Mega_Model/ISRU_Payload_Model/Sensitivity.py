@@ -34,23 +34,6 @@ In order to get comparisons for effects, the effect on the objective function, n
 """
 
 def single_commodity_demand_sensitivity_analysis(model, ctx, commodity, i_dem, t_dem,  demand_change, i_sup=None,t_sup=None):
-    """
-    Perform sensitivity analysis on the demand of a specific commodity.
-
-    Parameters:
-    - model: The Gurobi model object.
-    - ctx: The context dictionary containing model data.
-    - commodity_index: The index of the commodity to analyze.
-    - i_dem: node where demand is increased
-    - t_dem: time window where demand is increased
-    - i_sup: node where supply is increased (not required if supply is already large)
-    - t_sup: time window where supply is increased (idem)
-    - demand_change: The amount by which to change the demand.
-    Only change the demand in nodes and timewindows where the demand is nonzero
-    Only increase demand in a single time window, and if relevant, increase the supply
-    Returns:
-    - shadow_price: The shadow price for the specified commodity demand change.
-    """
 
     obj_initial = model.objVal
     
@@ -99,21 +82,6 @@ def single_commodity_demand_sensitivity_analysis(model, ctx, commodity, i_dem, t
     return shadow_price
 
 def multi_commodity_demand_sensitivity_analysis(model, ctx, description):
-    """
-    Perform sensitivity analysis on the demand of multiple commodities, same as single but changes more than 1 thing at once, and returns the shadow price for the combined change.
-
-    Parameters:
-    - model: The Gurobi model object.
-    - ctx: The context dictionary containing model data.
-    - commodity_changes: A list of dictionaries, each containing:
-        - 'commodity': The name of the commodity.
-        - 'i_dem': Node where demand is increased.
-        - 't_dem': Time window where demand is increased.
-        - 'demand_change': The amount by which to change the demand.
-        - 'i_sup': Node where supply is increased (optional).
-        - 't_sup': Time window where supply is increased (optional).
-        
-        """
     obj_initial = model.objVal
 
     old_dem_rhs_multi = []
@@ -173,12 +141,7 @@ def multi_commodity_demand_sensitivity_analysis(model, ctx, description):
     
     return shadow_price
     
-def LIP_conversion_demand_sensitivity_analysis(fixed_lp, ctx, commodity, i_dem, t_dem,):    
-
-
-    """
-    This function uses the converted lp system to use guroobi's' built in shadow prices function
-    """
+def LIP_conversion_demand_sensitivity_analysis(fixed_lp, ctx, commodity, i_dem, t_dem,):
 
     #find commodity index for the given commodity name
     commodity_index = ctx["Commodities"].commodity_names.index(commodity)

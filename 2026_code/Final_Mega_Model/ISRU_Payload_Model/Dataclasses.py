@@ -11,17 +11,6 @@ import numpy as np
 Dataclasses used in the model are defined here for usage in the rest of the model
 """
 
-
-# @dataclass is used for scenario inputs that are mostly data.
-# It automatically creates an __init__ method, readable repr, and simple
-# attribute storage, so a scenario can override only the values it needs:
-# VehicleData(payload_cap=np.array([...])).
-
-
-
-# field(default_factory=...) is important for lists, dictionaries, and arrays.
-# It gives each NetworkData instance its own fresh object instead of sharing a
-# single mutable default between model runs.
 @dataclass
 class NetworkData:
     g0: float = 9.8
@@ -91,12 +80,6 @@ class Commodities:
     mass_conversion: list = field(default_factory=lambda: [1, 1, 1, 1, 1, 1, 1]) #test value, to be overwritten
     consumption_rate: float = 1.0 + 5.0 + 1.1
 
-#guao = Commodities()
-#print(type(guao))
-
-
-# ISRUConfig is also a dataclass because it is a compact bundle of parameters
-# that changes between scenario runs but has no solver behavior of its own.
 @dataclass
 class ISRUConfig:
     enabled: bool = True

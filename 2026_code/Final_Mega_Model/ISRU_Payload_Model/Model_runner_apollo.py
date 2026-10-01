@@ -255,12 +255,11 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
             print("INSTANT INFEASIBILITY DIAGNOSTIC (< 0.1s)")
             print("=" * 70)
 
-            # 1. Temporarily relax the model to find the exact minimal violations
             # relaxobjtype=0 (minimize sum of violations), minring=True, vrelax=False, crelax=True
             Lin_model.feasRelaxS(0, True, False, True)
             Lin_model.optimize()
 
-            print("\n>>> EXACT CONSTRAINTS CAUSING INFEASIBILITY:")
+            print("\nEXACT CONSTRAINTS CAUSING INFEASIBILITY:")
             found_violation = False
             for c in Lin_model.getConstrs():
                 # If a constraint was violated, its artificial slack variable will be > 0
@@ -337,7 +336,6 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
         )
         df = pd.DataFrame(mass_table)
 
-        # 3. Export to a CSV file (index=False prevents writing row numbers)
         df.to_csv('Mass_table_output_ISRU_Payload.csv', index=False)
         Shipflows.to_csv('Shipflow_output_ISRU_Payload', index=False)
 
