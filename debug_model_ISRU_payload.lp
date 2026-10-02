@@ -1,6 +1,6 @@
 \ Model MissionPlanning+ISRU
 \ LP format - for model browsing. Use MPS format to capture full model detail.
-\ Signature: 0x39ab683cefb2560a
+\ Signature: 0x5a1668e881e66df1
 Minimize
   100 Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commoditycrew
    + 100 Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commoditycrew_return
@@ -88,85 +88,57 @@ Minimize
    + 7342 SC_payload_commodity_outflow_1,0,1,Tstart730,Tend731,CommoditypayloadVarType_2
 Subject To
  mass_balance_x_node0_time0_comm0:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditycrew
-   + Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commoditycrew
-   + Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditycrew
+   Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commoditycrew
    + Classic_commodity_outflow_1,0,1,Tstart0,Tend1,Commoditycrew <= 1e+15
  mass_balance_x_node0_time0_comm1:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditycrew_return
-   + Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commoditycrew_return
-   + Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditycrew_return
+   Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commoditycrew_return
    + Classic_commodity_outflow_1,0,1,Tstart0,Tend1,Commoditycrew_return
    <= 0
  mass_balance_x_node0_time0_comm2:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commodityconsumables
-   + Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commodityconsumables
-   + Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commodityconsumables
+   Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commodityconsumables
    + Classic_commodity_outflow_1,0,1,Tstart0,Tend1,Commodityconsumables
-   <= 1e+15
+   <= 1233.36
  mass_balance_x_node0_time0_comm3:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commodityequipment
-   + Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commodityequipment
-   + Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commodityequipment
+   Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commodityequipment
    + Classic_commodity_outflow_1,0,1,Tstart0,Tend1,Commodityequipment
-   <= 1e+15
+   <= 4200
  mass_balance_x_node0_time0_comm4:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditysamples
-   + Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commoditysamples
-   + Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditysamples
+   Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commoditysamples
    + Classic_commodity_outflow_1,0,1,Tstart0,Tend1,Commoditysamples <= 0
  mass_balance_x_node0_time0_comm5:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditypropellant_oxygen
-   + Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commoditypropellant_oxygen
-   + Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditypropellant_oxygen
+   Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commoditypropellant_oxygen
    + Classic_commodity_outflow_1,0,1,Tstart0,Tend1,Commoditypropellant_oxygen
    <= 1e+15
  mass_balance_x_node0_time0_comm6:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditycrew_interim
-   + Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commoditycrew_interim
-   + Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditycrew_interim
+   Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commoditycrew_interim
    + Classic_commodity_outflow_1,0,1,Tstart0,Tend1,Commoditycrew_interim
    <= 0
  mass_balance_x_node0_time0_comm7:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditypackaged_isru
-   + Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commoditypackaged_isru
-   + Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditypackaged_isru
+   Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commoditypackaged_isru
    + Classic_commodity_outflow_1,0,1,Tstart0,Tend1,Commoditypackaged_isru
    <= 1e+15
  mass_balance_x_node0_time0_comm8:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commodityactive_isru
-   + Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commodityactive_isru
-   + Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commodityactive_isru
+   Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commodityactive_isru
    + Classic_commodity_outflow_1,0,1,Tstart0,Tend1,Commodityactive_isru
    <= 0
  mass_balance_x_node0_time0_comm9:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditypropellant_kerosene
-   + Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commoditypropellant_kerosene
-   + Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditypropellant_kerosene
+   Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commoditypropellant_kerosene
    + Classic_commodity_outflow_1,0,1,Tstart0,Tend1,Commoditypropellant_kerosene
    <= 1e+15
  mass_balance_x_node0_time0_comm10:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditymaintenance_mass
-   + Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commoditymaintenance_mass
-   + Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditymaintenance_mass
+   Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commoditymaintenance_mass
    + Classic_commodity_outflow_1,0,1,Tstart0,Tend1,Commoditymaintenance_mass
    <= 1e+15
  SC_mass_balance_x_node0_time0_vehicle0:
-   sc_commodity_outflow_0,0,0,Tstart0,Tend13
-   + sc_commodity_outflow_0,0,1,Tstart0,Tend1
-   + SC_payload_commodity_outflow_0,0,0,Tstart0,Tend13,CommoditypayloadVarType_1
+   sc_commodity_outflow_0,0,1,Tstart0,Tend1
    + SC_payload_commodity_outflow_0,0,1,Tstart0,Tend1,CommoditypayloadVarType_1
-   + SC_payload_commodity_outflow_1,0,0,Tstart0,Tend13,CommoditypayloadVarType_1
    + SC_payload_commodity_outflow_1,0,1,Tstart0,Tend1,CommoditypayloadVarType_1
-   <= 2
+   <= 3
  SC_mass_balance_x_node0_time0_vehicle1:
-   sc_commodity_outflow_1,0,0,Tstart0,Tend13
-   + sc_commodity_outflow_1,0,1,Tstart0,Tend1
-   + SC_payload_commodity_outflow_0,0,0,Tstart0,Tend13,CommoditypayloadVarType_2
+   sc_commodity_outflow_1,0,1,Tstart0,Tend1
    + SC_payload_commodity_outflow_0,0,1,Tstart0,Tend1,CommoditypayloadVarType_2
-   + SC_payload_commodity_outflow_1,0,0,Tstart0,Tend13,CommoditypayloadVarType_2
    + SC_payload_commodity_outflow_1,0,1,Tstart0,Tend1,CommoditypayloadVarType_2
-   <= 2
+   <= 3
  mass_balance_x_node1_time1_comm0:
    Classic_commodity_outflow_0,1,1,Tstart1,Tend12,Commoditycrew
    + Classic_commodity_outflow_0,1,2,Tstart1,Tend4,Commoditycrew
@@ -418,8 +390,7 @@ Subject To
    Classic_commodity_outflow_0,3,3,Tstart5,Tend8,Commoditysamples
    + Classic_commodity_outflow_1,3,3,Tstart5,Tend8,Commoditysamples
    - Classic_commodity_inflow_0,2,3,Tstart4,Tend5,Commoditysamples
-   - Classic_commodity_inflow_1,2,3,Tstart4,Tend5,Commoditysamples
-   <= 1e+15
+   - Classic_commodity_inflow_1,2,3,Tstart4,Tend5,Commoditysamples <= 0
  mass_balance_x_node3_time5_comm5:
    Classic_commodity_outflow_0,3,3,Tstart5,Tend8,Commoditypropellant_oxygen
    + Classic_commodity_outflow_1,3,3,Tstart5,Tend8,Commoditypropellant_oxygen
@@ -524,8 +495,7 @@ Subject To
    + Classic_commodity_outflow_1,3,2,Tstart8,Tend9,Commoditysamples
    + Classic_commodity_outflow_1,3,3,Tstart8,Tend370,Commoditysamples
    - Classic_commodity_inflow_0,3,3,Tstart5,Tend8,Commoditysamples
-   - Classic_commodity_inflow_1,3,3,Tstart5,Tend8,Commoditysamples
-   <= 1e+15
+   - Classic_commodity_inflow_1,3,3,Tstart5,Tend8,Commoditysamples <= 500
  mass_balance_x_node3_time8_comm5:
    Classic_commodity_outflow_0,3,2,Tstart8,Tend9,Commoditypropellant_oxygen
    + Classic_commodity_outflow_0,3,3,Tstart8,Tend370,Commoditypropellant_oxygen
@@ -869,224 +839,112 @@ Subject To
    - SC_payload_commodity_inflow_1,2,1,Tstart9,Tend12,CommoditypayloadVarType_2
    <= 0
  mass_balance_x_node0_time13_comm0:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditycrew
-   + Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditycrew
-   - Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditycrew
    - Classic_commodity_inflow_0,1,0,Tstart12,Tend13,Commoditycrew
-   - Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditycrew
    - Classic_commodity_inflow_1,1,0,Tstart12,Tend13,Commoditycrew <= 1e+15
  mass_balance_x_node0_time13_comm1:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditycrew_return
-   + Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditycrew_return
-   - Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditycrew_return
    - Classic_commodity_inflow_0,1,0,Tstart12,Tend13,Commoditycrew_return
-   - Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditycrew_return
    - Classic_commodity_inflow_1,1,0,Tstart12,Tend13,Commoditycrew_return
    <= -12
  mass_balance_x_node0_time13_comm2:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commodityconsumables
-   + Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commodityconsumables
-   - Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commodityconsumables
    - Classic_commodity_inflow_0,1,0,Tstart12,Tend13,Commodityconsumables
-   - Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commodityconsumables
    - Classic_commodity_inflow_1,1,0,Tstart12,Tend13,Commodityconsumables
-   <= 1e+15
+   <= 0
  mass_balance_x_node0_time13_comm3:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commodityequipment
-   + Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commodityequipment
-   - Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commodityequipment
    - Classic_commodity_inflow_0,1,0,Tstart12,Tend13,Commodityequipment
-   - Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commodityequipment
    - Classic_commodity_inflow_1,1,0,Tstart12,Tend13,Commodityequipment
-   <= 1e+15
+   <= 0
  mass_balance_x_node0_time13_comm4:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditysamples
-   + Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditysamples
-   - Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditysamples
    - Classic_commodity_inflow_0,1,0,Tstart12,Tend13,Commoditysamples
-   - Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditysamples
    - Classic_commodity_inflow_1,1,0,Tstart12,Tend13,Commoditysamples
    <= -500
  mass_balance_x_node0_time13_comm5:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditypropellant_oxygen
-   + Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditypropellant_oxygen
-   - Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditypropellant_oxygen
    - Classic_commodity_inflow_0,1,0,Tstart12,Tend13,Commoditypropellant_oxygen
-   - Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditypropellant_oxygen
    - Classic_commodity_inflow_1,1,0,Tstart12,Tend13,Commoditypropellant_oxygen
    <= 1e+15
  mass_balance_x_node0_time13_comm6:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditycrew_interim
-   + Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditycrew_interim
-   - Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditycrew_interim
    - Classic_commodity_inflow_0,1,0,Tstart12,Tend13,Commoditycrew_interim
-   - Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditycrew_interim
    - Classic_commodity_inflow_1,1,0,Tstart12,Tend13,Commoditycrew_interim
    <= 0
  mass_balance_x_node0_time13_comm7:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditypackaged_isru
-   + Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditypackaged_isru
-   - Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditypackaged_isru
    - Classic_commodity_inflow_0,1,0,Tstart12,Tend13,Commoditypackaged_isru
-   - Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditypackaged_isru
    - Classic_commodity_inflow_1,1,0,Tstart12,Tend13,Commoditypackaged_isru
    <= 1e+15
  mass_balance_x_node0_time13_comm8:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commodityactive_isru
-   + Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commodityactive_isru
-   - Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commodityactive_isru
    - Classic_commodity_inflow_0,1,0,Tstart12,Tend13,Commodityactive_isru
-   - Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commodityactive_isru
    - Classic_commodity_inflow_1,1,0,Tstart12,Tend13,Commodityactive_isru
    <= 0
  mass_balance_x_node0_time13_comm9:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditypropellant_kerosene
-   + Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditypropellant_kerosene
-   - Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditypropellant_kerosene
    - Classic_commodity_inflow_0,1,0,Tstart12,Tend13,Commoditypropellant_kerosene
-   - Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditypropellant_kerosene
    - Classic_commodity_inflow_1,1,0,Tstart12,Tend13,Commoditypropellant_kerosene
    <= 1e+15
  mass_balance_x_node0_time13_comm10:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditymaintenance_mass
-   + Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditymaintenance_mass
-   - Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditymaintenance_mass
    - Classic_commodity_inflow_0,1,0,Tstart12,Tend13,Commoditymaintenance_mass
-   - Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditymaintenance_mass
    - Classic_commodity_inflow_1,1,0,Tstart12,Tend13,Commoditymaintenance_mass
    <= 1e+15
  SC_mass_balance_x_node0_time13_vehicle0:
-   sc_commodity_outflow_0,0,0,Tstart13,Tend365
-   - sc_commodity_inflow_0,0,0,Tstart0,Tend13
    - sc_commodity_inflow_0,1,0,Tstart12,Tend13
-   + SC_payload_commodity_outflow_0,0,0,Tstart13,Tend365,CommoditypayloadVarType_1
-   + SC_payload_commodity_outflow_1,0,0,Tstart13,Tend365,CommoditypayloadVarType_1
-   - SC_payload_commodity_inflow_0,0,0,Tstart0,Tend13,CommoditypayloadVarType_1
    - SC_payload_commodity_inflow_0,1,0,Tstart12,Tend13,CommoditypayloadVarType_1
-   - SC_payload_commodity_inflow_1,0,0,Tstart0,Tend13,CommoditypayloadVarType_1
    - SC_payload_commodity_inflow_1,1,0,Tstart12,Tend13,CommoditypayloadVarType_1
    <= 0
  SC_mass_balance_x_node0_time13_vehicle1:
-   sc_commodity_outflow_1,0,0,Tstart13,Tend365
-   - sc_commodity_inflow_1,0,0,Tstart0,Tend13
    - sc_commodity_inflow_1,1,0,Tstart12,Tend13
-   + SC_payload_commodity_outflow_0,0,0,Tstart13,Tend365,CommoditypayloadVarType_2
-   + SC_payload_commodity_outflow_1,0,0,Tstart13,Tend365,CommoditypayloadVarType_2
-   - SC_payload_commodity_inflow_0,0,0,Tstart0,Tend13,CommoditypayloadVarType_2
    - SC_payload_commodity_inflow_0,1,0,Tstart12,Tend13,CommoditypayloadVarType_2
-   - SC_payload_commodity_inflow_1,0,0,Tstart0,Tend13,CommoditypayloadVarType_2
    - SC_payload_commodity_inflow_1,1,0,Tstart12,Tend13,CommoditypayloadVarType_2
    <= 0
  mass_balance_x_node0_time730_comm0:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditycrew
-   + Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commoditycrew
-   + Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditycrew
+   Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commoditycrew
    + Classic_commodity_outflow_1,0,1,Tstart730,Tend731,Commoditycrew
-   - Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditycrew
-   - Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditycrew
    <= 1e+15
  mass_balance_x_node0_time730_comm1:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditycrew_return
-   + Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commoditycrew_return
-   + Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditycrew_return
+   Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commoditycrew_return
    + Classic_commodity_outflow_1,0,1,Tstart730,Tend731,Commoditycrew_return
-   - Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditycrew_return
-   - Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditycrew_return
    <= 0
  mass_balance_x_node0_time730_comm2:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commodityconsumables
-   + Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commodityconsumables
-   + Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commodityconsumables
+   Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commodityconsumables
    + Classic_commodity_outflow_1,0,1,Tstart730,Tend731,Commodityconsumables
-   - Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commodityconsumables
-   - Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commodityconsumables
-   <= 1e+15
+   <= 1233.36
  mass_balance_x_node0_time730_comm3:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commodityequipment
-   + Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commodityequipment
-   + Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commodityequipment
+   Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commodityequipment
    + Classic_commodity_outflow_1,0,1,Tstart730,Tend731,Commodityequipment
-   - Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commodityequipment
-   - Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commodityequipment
-   <= 1e+15
+   <= 4200
  mass_balance_x_node0_time730_comm4:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditysamples
-   + Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commoditysamples
-   + Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditysamples
+   Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commoditysamples
    + Classic_commodity_outflow_1,0,1,Tstart730,Tend731,Commoditysamples
-   - Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditysamples
-   - Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditysamples
    <= 0
  mass_balance_x_node0_time730_comm5:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditypropellant_oxygen
-   + Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commoditypropellant_oxygen
-   + Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditypropellant_oxygen
+   Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commoditypropellant_oxygen
    + Classic_commodity_outflow_1,0,1,Tstart730,Tend731,Commoditypropellant_oxygen
-   - Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditypropellant_oxygen
-   - Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditypropellant_oxygen
    <= 1e+15
  mass_balance_x_node0_time730_comm6:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditycrew_interim
-   + Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commoditycrew_interim
-   + Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditycrew_interim
+   Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commoditycrew_interim
    + Classic_commodity_outflow_1,0,1,Tstart730,Tend731,Commoditycrew_interim
-   - Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditycrew_interim
-   - Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditycrew_interim
    <= 0
  mass_balance_x_node0_time730_comm7:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditypackaged_isru
-   + Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commoditypackaged_isru
-   + Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditypackaged_isru
+   Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commoditypackaged_isru
    + Classic_commodity_outflow_1,0,1,Tstart730,Tend731,Commoditypackaged_isru
-   - Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditypackaged_isru
-   - Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditypackaged_isru
    <= 1e+15
  mass_balance_x_node0_time730_comm8:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commodityactive_isru
-   + Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commodityactive_isru
-   + Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commodityactive_isru
+   Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commodityactive_isru
    + Classic_commodity_outflow_1,0,1,Tstart730,Tend731,Commodityactive_isru
-   - Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commodityactive_isru
-   - Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commodityactive_isru
    <= 0
  mass_balance_x_node0_time730_comm9:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditypropellant_kerosene
-   + Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commoditypropellant_kerosene
-   + Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditypropellant_kerosene
+   Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commoditypropellant_kerosene
    + Classic_commodity_outflow_1,0,1,Tstart730,Tend731,Commoditypropellant_kerosene
-   - Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditypropellant_kerosene
-   - Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditypropellant_kerosene
    <= 1e+15
  mass_balance_x_node0_time730_comm10:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditymaintenance_mass
-   + Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commoditymaintenance_mass
-   + Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditymaintenance_mass
+   Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commoditymaintenance_mass
    + Classic_commodity_outflow_1,0,1,Tstart730,Tend731,Commoditymaintenance_mass
-   - Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditymaintenance_mass
-   - Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditymaintenance_mass
    <= 1e+15
  SC_mass_balance_x_node0_time730_vehicle0:
-   sc_commodity_outflow_0,0,0,Tstart730,Tend743
-   + sc_commodity_outflow_0,0,1,Tstart730,Tend731
-   - sc_commodity_inflow_0,0,0,Tstart378,Tend730
-   + SC_payload_commodity_outflow_0,0,0,Tstart730,Tend743,CommoditypayloadVarType_1
+   sc_commodity_outflow_0,0,1,Tstart730,Tend731
    + SC_payload_commodity_outflow_0,0,1,Tstart730,Tend731,CommoditypayloadVarType_1
-   + SC_payload_commodity_outflow_1,0,0,Tstart730,Tend743,CommoditypayloadVarType_1
    + SC_payload_commodity_outflow_1,0,1,Tstart730,Tend731,CommoditypayloadVarType_1
-   - SC_payload_commodity_inflow_0,0,0,Tstart378,Tend730,CommoditypayloadVarType_1
-   - SC_payload_commodity_inflow_1,0,0,Tstart378,Tend730,CommoditypayloadVarType_1
-   <= 2
+   <= 3
  SC_mass_balance_x_node0_time730_vehicle1:
-   sc_commodity_outflow_1,0,0,Tstart730,Tend743
-   + sc_commodity_outflow_1,0,1,Tstart730,Tend731
-   - sc_commodity_inflow_1,0,0,Tstart378,Tend730
-   + SC_payload_commodity_outflow_0,0,0,Tstart730,Tend743,CommoditypayloadVarType_2
+   sc_commodity_outflow_1,0,1,Tstart730,Tend731
    + SC_payload_commodity_outflow_0,0,1,Tstart730,Tend731,CommoditypayloadVarType_2
-   + SC_payload_commodity_outflow_1,0,0,Tstart730,Tend743,CommoditypayloadVarType_2
    + SC_payload_commodity_outflow_1,0,1,Tstart730,Tend731,CommoditypayloadVarType_2
-   - SC_payload_commodity_inflow_0,0,0,Tstart378,Tend730,CommoditypayloadVarType_2
-   - SC_payload_commodity_inflow_1,0,0,Tstart378,Tend730,CommoditypayloadVarType_2
-   <= 2
+   <= 3
  mass_balance_x_node1_time731_comm0:
    Classic_commodity_outflow_0,1,1,Tstart731,Tend742,Commoditycrew
    + Classic_commodity_outflow_0,1,2,Tstart731,Tend734,Commoditycrew
@@ -1413,7 +1271,7 @@ Subject To
    - Classic_commodity_inflow_0,3,3,Tstart373,Tend735,Commoditysamples
    - Classic_commodity_inflow_1,2,3,Tstart734,Tend735,Commoditysamples
    - Classic_commodity_inflow_1,3,3,Tstart373,Tend735,Commoditysamples
-   <= 1e+15
+   <= 0
  mass_balance_x_node3_time735_comm5:
    Classic_commodity_outflow_0,3,3,Tstart735,Tend738,Commoditypropellant_oxygen
    + Classic_commodity_outflow_1,3,3,Tstart735,Tend738,Commoditypropellant_oxygen
@@ -1540,7 +1398,7 @@ Subject To
    + Classic_commodity_outflow_1,3,3,Tstart738,Tend743,Commoditysamples
    - Classic_commodity_inflow_0,3,3,Tstart735,Tend738,Commoditysamples
    - Classic_commodity_inflow_1,3,3,Tstart735,Tend738,Commoditysamples
-   <= 1e+15
+   <= 500
  mass_balance_x_node3_time738_comm5:
    Classic_commodity_outflow_0,3,2,Tstart738,Tend739,Commoditypropellant_oxygen
    + Classic_commodity_outflow_0,3,3,Tstart738,Tend743,Commoditypropellant_oxygen
@@ -1888,85 +1746,57 @@ Subject To
    - SC_payload_commodity_inflow_1,2,1,Tstart739,Tend742,CommoditypayloadVarType_2
    <= 0
  mass_balance_x_node0_time743_comm0:
-   - Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditycrew
    - Classic_commodity_inflow_0,1,0,Tstart742,Tend743,Commoditycrew
-   - Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditycrew
    - Classic_commodity_inflow_1,1,0,Tstart742,Tend743,Commoditycrew
    <= 1e+15
  mass_balance_x_node0_time743_comm1:
-   - Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditycrew_return
    - Classic_commodity_inflow_0,1,0,Tstart742,Tend743,Commoditycrew_return
-   - Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditycrew_return
    - Classic_commodity_inflow_1,1,0,Tstart742,Tend743,Commoditycrew_return
    <= -12
  mass_balance_x_node0_time743_comm2:
-   - Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commodityconsumables
    - Classic_commodity_inflow_0,1,0,Tstart742,Tend743,Commodityconsumables
-   - Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commodityconsumables
    - Classic_commodity_inflow_1,1,0,Tstart742,Tend743,Commodityconsumables
-   <= 1e+15
+   <= 0
  mass_balance_x_node0_time743_comm3:
-   - Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commodityequipment
    - Classic_commodity_inflow_0,1,0,Tstart742,Tend743,Commodityequipment
-   - Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commodityequipment
    - Classic_commodity_inflow_1,1,0,Tstart742,Tend743,Commodityequipment
-   <= 1e+15
+   <= 0
  mass_balance_x_node0_time743_comm4:
-   - Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditysamples
    - Classic_commodity_inflow_0,1,0,Tstart742,Tend743,Commoditysamples
-   - Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditysamples
    - Classic_commodity_inflow_1,1,0,Tstart742,Tend743,Commoditysamples
    <= -500
  mass_balance_x_node0_time743_comm5:
-   - Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditypropellant_oxygen
    - Classic_commodity_inflow_0,1,0,Tstart742,Tend743,Commoditypropellant_oxygen
-   - Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditypropellant_oxygen
    - Classic_commodity_inflow_1,1,0,Tstart742,Tend743,Commoditypropellant_oxygen
    <= 1e+15
  mass_balance_x_node0_time743_comm6:
-   - Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditycrew_interim
    - Classic_commodity_inflow_0,1,0,Tstart742,Tend743,Commoditycrew_interim
-   - Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditycrew_interim
    - Classic_commodity_inflow_1,1,0,Tstart742,Tend743,Commoditycrew_interim
    <= 0
  mass_balance_x_node0_time743_comm7:
-   - Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditypackaged_isru
    - Classic_commodity_inflow_0,1,0,Tstart742,Tend743,Commoditypackaged_isru
-   - Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditypackaged_isru
    - Classic_commodity_inflow_1,1,0,Tstart742,Tend743,Commoditypackaged_isru
    <= 1e+15
  mass_balance_x_node0_time743_comm8:
-   - Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commodityactive_isru
    - Classic_commodity_inflow_0,1,0,Tstart742,Tend743,Commodityactive_isru
-   - Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commodityactive_isru
    - Classic_commodity_inflow_1,1,0,Tstart742,Tend743,Commodityactive_isru
    <= 0
  mass_balance_x_node0_time743_comm9:
-   - Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditypropellant_kerosene
    - Classic_commodity_inflow_0,1,0,Tstart742,Tend743,Commoditypropellant_kerosene
-   - Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditypropellant_kerosene
    - Classic_commodity_inflow_1,1,0,Tstart742,Tend743,Commoditypropellant_kerosene
    <= 1e+15
  mass_balance_x_node0_time743_comm10:
-   - Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditymaintenance_mass
    - Classic_commodity_inflow_0,1,0,Tstart742,Tend743,Commoditymaintenance_mass
-   - Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditymaintenance_mass
    - Classic_commodity_inflow_1,1,0,Tstart742,Tend743,Commoditymaintenance_mass
    <= 1e+15
  SC_mass_balance_x_node0_time743_vehicle0:
-   - sc_commodity_inflow_0,0,0,Tstart730,Tend743
    - sc_commodity_inflow_0,1,0,Tstart742,Tend743
-   - SC_payload_commodity_inflow_0,0,0,Tstart730,Tend743,CommoditypayloadVarType_1
    - SC_payload_commodity_inflow_0,1,0,Tstart742,Tend743,CommoditypayloadVarType_1
-   - SC_payload_commodity_inflow_1,0,0,Tstart730,Tend743,CommoditypayloadVarType_1
    - SC_payload_commodity_inflow_1,1,0,Tstart742,Tend743,CommoditypayloadVarType_1
    <= 0
  SC_mass_balance_x_node0_time743_vehicle1:
-   - sc_commodity_inflow_1,0,0,Tstart730,Tend743
    - sc_commodity_inflow_1,1,0,Tstart742,Tend743
-   - SC_payload_commodity_inflow_0,0,0,Tstart730,Tend743,CommoditypayloadVarType_2
    - SC_payload_commodity_inflow_0,1,0,Tstart742,Tend743,CommoditypayloadVarType_2
-   - SC_payload_commodity_inflow_1,0,0,Tstart730,Tend743,CommoditypayloadVarType_2
    - SC_payload_commodity_inflow_1,1,0,Tstart742,Tend743,CommoditypayloadVarType_2
    <= 0
  mass_balance_x_node1_time743_comm0:
@@ -2099,7 +1929,7 @@ Subject To
  mass_balance_x_node3_time743_comm4:
    - Classic_commodity_inflow_0,3,3,Tstart738,Tend743,Commoditysamples
    - Classic_commodity_inflow_1,3,3,Tstart738,Tend743,Commoditysamples
-   <= 1e+15
+   <= 0
  mass_balance_x_node3_time743_comm5:
    - Classic_commodity_inflow_0,3,3,Tstart738,Tend743,Commoditypropellant_oxygen
    - Classic_commodity_inflow_1,3,3,Tstart738,Tend743,Commoditypropellant_oxygen
@@ -2137,114 +1967,59 @@ Subject To
    - SC_payload_commodity_inflow_1,3,3,Tstart738,Tend743,CommoditypayloadVarType_2
    <= 0
  mass_balance_x_node0_time365_comm0:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditycrew
-   + Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commoditycrew
-   + Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditycrew
+   Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commoditycrew
    + Classic_commodity_outflow_1,0,1,Tstart365,Tend366,Commoditycrew
-   - Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditycrew
-   - Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditycrew
    <= 1e+15
  mass_balance_x_node0_time365_comm1:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditycrew_return
-   + Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commoditycrew_return
-   + Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditycrew_return
+   Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commoditycrew_return
    + Classic_commodity_outflow_1,0,1,Tstart365,Tend366,Commoditycrew_return
-   - Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditycrew_return
-   - Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditycrew_return
    <= 0
  mass_balance_x_node0_time365_comm2:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commodityconsumables
-   + Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commodityconsumables
-   + Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commodityconsumables
+   Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commodityconsumables
    + Classic_commodity_outflow_1,0,1,Tstart365,Tend366,Commodityconsumables
-   - Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commodityconsumables
-   - Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commodityconsumables
-   <= 1e+15
+   <= 1233.36
  mass_balance_x_node0_time365_comm3:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commodityequipment
-   + Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commodityequipment
-   + Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commodityequipment
+   Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commodityequipment
    + Classic_commodity_outflow_1,0,1,Tstart365,Tend366,Commodityequipment
-   - Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commodityequipment
-   - Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commodityequipment
-   <= 1e+15
+   <= 4200
  mass_balance_x_node0_time365_comm4:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditysamples
-   + Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commoditysamples
-   + Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditysamples
+   Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commoditysamples
    + Classic_commodity_outflow_1,0,1,Tstart365,Tend366,Commoditysamples
-   - Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditysamples
-   - Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditysamples <= 0
+   <= 0
  mass_balance_x_node0_time365_comm5:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditypropellant_oxygen
-   + Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commoditypropellant_oxygen
-   + Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditypropellant_oxygen
+   Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commoditypropellant_oxygen
    + Classic_commodity_outflow_1,0,1,Tstart365,Tend366,Commoditypropellant_oxygen
-   - Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditypropellant_oxygen
-   - Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditypropellant_oxygen
    <= 1e+15
  mass_balance_x_node0_time365_comm6:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditycrew_interim
-   + Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commoditycrew_interim
-   + Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditycrew_interim
+   Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commoditycrew_interim
    + Classic_commodity_outflow_1,0,1,Tstart365,Tend366,Commoditycrew_interim
-   - Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditycrew_interim
-   - Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditycrew_interim
    <= 0
  mass_balance_x_node0_time365_comm7:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditypackaged_isru
-   + Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commoditypackaged_isru
-   + Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditypackaged_isru
+   Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commoditypackaged_isru
    + Classic_commodity_outflow_1,0,1,Tstart365,Tend366,Commoditypackaged_isru
-   - Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditypackaged_isru
-   - Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditypackaged_isru
    <= 1e+15
  mass_balance_x_node0_time365_comm8:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commodityactive_isru
-   + Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commodityactive_isru
-   + Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commodityactive_isru
+   Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commodityactive_isru
    + Classic_commodity_outflow_1,0,1,Tstart365,Tend366,Commodityactive_isru
-   - Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commodityactive_isru
-   - Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commodityactive_isru
    <= 0
  mass_balance_x_node0_time365_comm9:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditypropellant_kerosene
-   + Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commoditypropellant_kerosene
-   + Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditypropellant_kerosene
+   Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commoditypropellant_kerosene
    + Classic_commodity_outflow_1,0,1,Tstart365,Tend366,Commoditypropellant_kerosene
-   - Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditypropellant_kerosene
-   - Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditypropellant_kerosene
    <= 1e+15
  mass_balance_x_node0_time365_comm10:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditymaintenance_mass
-   + Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commoditymaintenance_mass
-   + Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditymaintenance_mass
+   Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commoditymaintenance_mass
    + Classic_commodity_outflow_1,0,1,Tstart365,Tend366,Commoditymaintenance_mass
-   - Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditymaintenance_mass
-   - Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditymaintenance_mass
    <= 1e+15
  SC_mass_balance_x_node0_time365_vehicle0:
-   sc_commodity_outflow_0,0,0,Tstart365,Tend378
-   + sc_commodity_outflow_0,0,1,Tstart365,Tend366
-   - sc_commodity_inflow_0,0,0,Tstart13,Tend365
-   + SC_payload_commodity_outflow_0,0,0,Tstart365,Tend378,CommoditypayloadVarType_1
+   sc_commodity_outflow_0,0,1,Tstart365,Tend366
    + SC_payload_commodity_outflow_0,0,1,Tstart365,Tend366,CommoditypayloadVarType_1
-   + SC_payload_commodity_outflow_1,0,0,Tstart365,Tend378,CommoditypayloadVarType_1
    + SC_payload_commodity_outflow_1,0,1,Tstart365,Tend366,CommoditypayloadVarType_1
-   - SC_payload_commodity_inflow_0,0,0,Tstart13,Tend365,CommoditypayloadVarType_1
-   - SC_payload_commodity_inflow_1,0,0,Tstart13,Tend365,CommoditypayloadVarType_1
-   <= 2
+   <= 3
  SC_mass_balance_x_node0_time365_vehicle1:
-   sc_commodity_outflow_1,0,0,Tstart365,Tend378
-   + sc_commodity_outflow_1,0,1,Tstart365,Tend366
-   - sc_commodity_inflow_1,0,0,Tstart13,Tend365
-   + SC_payload_commodity_outflow_0,0,0,Tstart365,Tend378,CommoditypayloadVarType_2
+   sc_commodity_outflow_1,0,1,Tstart365,Tend366
    + SC_payload_commodity_outflow_0,0,1,Tstart365,Tend366,CommoditypayloadVarType_2
-   + SC_payload_commodity_outflow_1,0,0,Tstart365,Tend378,CommoditypayloadVarType_2
    + SC_payload_commodity_outflow_1,0,1,Tstart365,Tend366,CommoditypayloadVarType_2
-   - SC_payload_commodity_inflow_0,0,0,Tstart13,Tend365,CommoditypayloadVarType_2
-   - SC_payload_commodity_inflow_1,0,0,Tstart13,Tend365,CommoditypayloadVarType_2
-   <= 2
+   <= 3
  mass_balance_x_node1_time366_comm0:
    Classic_commodity_outflow_0,1,1,Tstart366,Tend377,Commoditycrew
    + Classic_commodity_outflow_0,1,2,Tstart366,Tend369,Commoditycrew
@@ -2568,8 +2343,7 @@ Subject To
    - Classic_commodity_inflow_0,2,3,Tstart369,Tend370,Commoditysamples
    - Classic_commodity_inflow_0,3,3,Tstart8,Tend370,Commoditysamples
    - Classic_commodity_inflow_1,2,3,Tstart369,Tend370,Commoditysamples
-   - Classic_commodity_inflow_1,3,3,Tstart8,Tend370,Commoditysamples
-   <= 1e+15
+   - Classic_commodity_inflow_1,3,3,Tstart8,Tend370,Commoditysamples <= 0
  mass_balance_x_node3_time370_comm5:
    Classic_commodity_outflow_0,3,3,Tstart370,Tend373,Commoditypropellant_oxygen
    + Classic_commodity_outflow_1,3,3,Tstart370,Tend373,Commoditypropellant_oxygen
@@ -2696,7 +2470,7 @@ Subject To
    + Classic_commodity_outflow_1,3,3,Tstart373,Tend735,Commoditysamples
    - Classic_commodity_inflow_0,3,3,Tstart370,Tend373,Commoditysamples
    - Classic_commodity_inflow_1,3,3,Tstart370,Tend373,Commoditysamples
-   <= 1e+15
+   <= 500
  mass_balance_x_node3_time373_comm5:
    Classic_commodity_outflow_0,3,2,Tstart373,Tend374,Commoditypropellant_oxygen
    + Classic_commodity_outflow_0,3,3,Tstart373,Tend735,Commoditypropellant_oxygen
@@ -3044,231 +2818,59 @@ Subject To
    - SC_payload_commodity_inflow_1,2,1,Tstart374,Tend377,CommoditypayloadVarType_2
    <= 0
  mass_balance_x_node0_time378_comm0:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditycrew
-   + Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditycrew
-   - Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditycrew
    - Classic_commodity_inflow_0,1,0,Tstart377,Tend378,Commoditycrew
-   - Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditycrew
    - Classic_commodity_inflow_1,1,0,Tstart377,Tend378,Commoditycrew
    <= 1e+15
  mass_balance_x_node0_time378_comm1:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditycrew_return
-   + Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditycrew_return
-   - Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditycrew_return
    - Classic_commodity_inflow_0,1,0,Tstart377,Tend378,Commoditycrew_return
-   - Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditycrew_return
    - Classic_commodity_inflow_1,1,0,Tstart377,Tend378,Commoditycrew_return
    <= -12
  mass_balance_x_node0_time378_comm2:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commodityconsumables
-   + Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commodityconsumables
-   - Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commodityconsumables
    - Classic_commodity_inflow_0,1,0,Tstart377,Tend378,Commodityconsumables
-   - Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commodityconsumables
    - Classic_commodity_inflow_1,1,0,Tstart377,Tend378,Commodityconsumables
-   <= 1e+15
+   <= 0
  mass_balance_x_node0_time378_comm3:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commodityequipment
-   + Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commodityequipment
-   - Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commodityequipment
    - Classic_commodity_inflow_0,1,0,Tstart377,Tend378,Commodityequipment
-   - Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commodityequipment
    - Classic_commodity_inflow_1,1,0,Tstart377,Tend378,Commodityequipment
-   <= 1e+15
+   <= 0
  mass_balance_x_node0_time378_comm4:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditysamples
-   + Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditysamples
-   - Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditysamples
    - Classic_commodity_inflow_0,1,0,Tstart377,Tend378,Commoditysamples
-   - Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditysamples
    - Classic_commodity_inflow_1,1,0,Tstart377,Tend378,Commoditysamples
    <= -500
  mass_balance_x_node0_time378_comm5:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditypropellant_oxygen
-   + Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditypropellant_oxygen
-   - Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditypropellant_oxygen
    - Classic_commodity_inflow_0,1,0,Tstart377,Tend378,Commoditypropellant_oxygen
-   - Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditypropellant_oxygen
    - Classic_commodity_inflow_1,1,0,Tstart377,Tend378,Commoditypropellant_oxygen
    <= 1e+15
  mass_balance_x_node0_time378_comm6:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditycrew_interim
-   + Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditycrew_interim
-   - Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditycrew_interim
    - Classic_commodity_inflow_0,1,0,Tstart377,Tend378,Commoditycrew_interim
-   - Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditycrew_interim
    - Classic_commodity_inflow_1,1,0,Tstart377,Tend378,Commoditycrew_interim
    <= 0
  mass_balance_x_node0_time378_comm7:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditypackaged_isru
-   + Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditypackaged_isru
-   - Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditypackaged_isru
    - Classic_commodity_inflow_0,1,0,Tstart377,Tend378,Commoditypackaged_isru
-   - Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditypackaged_isru
    - Classic_commodity_inflow_1,1,0,Tstart377,Tend378,Commoditypackaged_isru
    <= 1e+15
  mass_balance_x_node0_time378_comm8:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commodityactive_isru
-   + Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commodityactive_isru
-   - Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commodityactive_isru
    - Classic_commodity_inflow_0,1,0,Tstart377,Tend378,Commodityactive_isru
-   - Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commodityactive_isru
    - Classic_commodity_inflow_1,1,0,Tstart377,Tend378,Commodityactive_isru
    <= 0
  mass_balance_x_node0_time378_comm9:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditypropellant_kerosene
-   + Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditypropellant_kerosene
-   - Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditypropellant_kerosene
    - Classic_commodity_inflow_0,1,0,Tstart377,Tend378,Commoditypropellant_kerosene
-   - Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditypropellant_kerosene
    - Classic_commodity_inflow_1,1,0,Tstart377,Tend378,Commoditypropellant_kerosene
    <= 1e+15
  mass_balance_x_node0_time378_comm10:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditymaintenance_mass
-   + Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditymaintenance_mass
-   - Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditymaintenance_mass
    - Classic_commodity_inflow_0,1,0,Tstart377,Tend378,Commoditymaintenance_mass
-   - Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditymaintenance_mass
    - Classic_commodity_inflow_1,1,0,Tstart377,Tend378,Commoditymaintenance_mass
    <= 1e+15
  SC_mass_balance_x_node0_time378_vehicle0:
-   sc_commodity_outflow_0,0,0,Tstart378,Tend730
-   - sc_commodity_inflow_0,0,0,Tstart365,Tend378
    - sc_commodity_inflow_0,1,0,Tstart377,Tend378
-   + SC_payload_commodity_outflow_0,0,0,Tstart378,Tend730,CommoditypayloadVarType_1
-   + SC_payload_commodity_outflow_1,0,0,Tstart378,Tend730,CommoditypayloadVarType_1
-   - SC_payload_commodity_inflow_0,0,0,Tstart365,Tend378,CommoditypayloadVarType_1
    - SC_payload_commodity_inflow_0,1,0,Tstart377,Tend378,CommoditypayloadVarType_1
-   - SC_payload_commodity_inflow_1,0,0,Tstart365,Tend378,CommoditypayloadVarType_1
    - SC_payload_commodity_inflow_1,1,0,Tstart377,Tend378,CommoditypayloadVarType_1
    <= 0
  SC_mass_balance_x_node0_time378_vehicle1:
-   sc_commodity_outflow_1,0,0,Tstart378,Tend730
-   - sc_commodity_inflow_1,0,0,Tstart365,Tend378
    - sc_commodity_inflow_1,1,0,Tstart377,Tend378
-   + SC_payload_commodity_outflow_0,0,0,Tstart378,Tend730,CommoditypayloadVarType_2
-   + SC_payload_commodity_outflow_1,0,0,Tstart378,Tend730,CommoditypayloadVarType_2
-   - SC_payload_commodity_inflow_0,0,0,Tstart365,Tend378,CommoditypayloadVarType_2
    - SC_payload_commodity_inflow_0,1,0,Tstart377,Tend378,CommoditypayloadVarType_2
-   - SC_payload_commodity_inflow_1,0,0,Tstart365,Tend378,CommoditypayloadVarType_2
    - SC_payload_commodity_inflow_1,1,0,Tstart377,Tend378,CommoditypayloadVarType_2
    <= 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle0_Commodity0:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditycrew
-   - Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditycrew = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle0_Commodity1:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditycrew_return
-   - Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditycrew_return
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle0_Commodity2:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commodityconsumables
-   - Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commodityconsumables
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle0_Commodity3:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commodityequipment
-   - Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commodityequipment = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle0_Commodity4:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditysamples
-   - Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditysamples = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle0_Commodity5:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditypropellant_oxygen
-   - Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditypropellant_oxygen
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle0_Commodity6:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditycrew_interim
-   - Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditycrew_interim
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle0_Commodity7:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditypackaged_isru
-   - Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditypackaged_isru
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle0_Commodity8:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commodityactive_isru
-   - Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commodityactive_isru
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle0_Commodity9:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditypropellant_kerosene
-   - Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditypropellant_kerosene
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle0_Commodity10:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditymaintenance_mass
-   - Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditymaintenance_mass
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle0_Commodity11:
-   sc_commodity_outflow_0,0,0,Tstart0,Tend13
-   - sc_commodity_inflow_0,0,0,Tstart0,Tend13 = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle0_Commodity12:
-   SC_payload_commodity_outflow_0,0,0,Tstart0,Tend13,CommoditypayloadVarType_1
-   - SC_payload_commodity_inflow_0,0,0,Tstart0,Tend13,CommoditypayloadVarType_1
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle0_Commodity13:
-   SC_payload_commodity_outflow_0,0,0,Tstart0,Tend13,CommoditypayloadVarType_2
-   - SC_payload_commodity_inflow_0,0,0,Tstart0,Tend13,CommoditypayloadVarType_2
-   = 0
- PropellantTankOnlyBurn_vehicle0_start0_end0_time0:
-   - Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditypropellant_oxygen
-   - Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditypropellant_kerosene
-   + Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditypropellant_oxygen
-   + Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditypropellant_kerosene
-   + 198580 sc_commodity_outflow_0,0,0,Tstart0,Tend13 >= 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle1_Commodity0:
-   Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditycrew
-   - Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditycrew = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle1_Commodity1:
-   Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditycrew_return
-   - Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditycrew_return
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle1_Commodity2:
-   Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commodityconsumables
-   - Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commodityconsumables
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle1_Commodity3:
-   Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commodityequipment
-   - Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commodityequipment = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle1_Commodity4:
-   Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditysamples
-   - Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditysamples = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle1_Commodity5:
-   Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditypropellant_oxygen
-   - Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditypropellant_oxygen
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle1_Commodity6:
-   Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditycrew_interim
-   - Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditycrew_interim
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle1_Commodity7:
-   Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditypackaged_isru
-   - Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditypackaged_isru
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle1_Commodity8:
-   Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commodityactive_isru
-   - Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commodityactive_isru
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle1_Commodity9:
-   Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditypropellant_kerosene
-   - Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditypropellant_kerosene
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle1_Commodity10:
-   Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditymaintenance_mass
-   - Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditymaintenance_mass
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle1_Commodity11:
-   sc_commodity_outflow_1,0,0,Tstart0,Tend13
-   - sc_commodity_inflow_1,0,0,Tstart0,Tend13 = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle1_Commodity12:
-   SC_payload_commodity_outflow_1,0,0,Tstart0,Tend13,CommoditypayloadVarType_1
-   - SC_payload_commodity_inflow_1,0,0,Tstart0,Tend13,CommoditypayloadVarType_1
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime0_Vehicle1_Commodity13:
-   SC_payload_commodity_outflow_1,0,0,Tstart0,Tend13,CommoditypayloadVarType_2
-   - SC_payload_commodity_inflow_1,0,0,Tstart0,Tend13,CommoditypayloadVarType_2
-   = 0
- PropellantTankOnlyBurn_vehicle1_start0_end0_time0:
-   - Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditypropellant_oxygen
-   - Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditypropellant_kerosene
-   + Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditypropellant_oxygen
-   + Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditypropellant_kerosene
-   + 23891 sc_commodity_outflow_1,0,0,Tstart0,Tend13 >= 0
  Arc_transformationConstraint_Start0_End1_Starttime0_Vehicle0_Commodity0:
    Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commoditycrew
    - Classic_commodity_inflow_0,0,1,Tstart0,Tend1,Commoditycrew = 0
@@ -3379,242 +2981,6 @@ Subject To
    + Classic_commodity_inflow_1,0,1,Tstart0,Tend1,Commoditypropellant_oxygen
    + Classic_commodity_inflow_1,0,1,Tstart0,Tend1,Commoditypropellant_kerosene
    + 23891 sc_commodity_outflow_1,0,1,Tstart0,Tend1 >= 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle0_Commodity0:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditycrew
-   - Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditycrew = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle0_Commodity1:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditycrew_return
-   - Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditycrew_return
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle0_Commodity2:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commodityconsumables
-   - Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commodityconsumables
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle0_Commodity3:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commodityequipment
-   - Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commodityequipment
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle0_Commodity4:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditysamples
-   - Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditysamples = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle0_Commodity5:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditypropellant_oxygen
-   - Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditypropellant_oxygen
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle0_Commodity6:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditycrew_interim
-   - Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditycrew_interim
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle0_Commodity7:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditypackaged_isru
-   - Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditypackaged_isru
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle0_Commodity8:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commodityactive_isru
-   - Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commodityactive_isru
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle0_Commodity9:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditypropellant_kerosene
-   - Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditypropellant_kerosene
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle0_Commodity10:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditymaintenance_mass
-   - Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditymaintenance_mass
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle0_Commodity11:
-   sc_commodity_outflow_0,0,0,Tstart13,Tend365
-   - sc_commodity_inflow_0,0,0,Tstart13,Tend365 = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle0_Commodity12:
-   SC_payload_commodity_outflow_0,0,0,Tstart13,Tend365,CommoditypayloadVarType_1
-   - SC_payload_commodity_inflow_0,0,0,Tstart13,Tend365,CommoditypayloadVarType_1
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle0_Commodity13:
-   SC_payload_commodity_outflow_0,0,0,Tstart13,Tend365,CommoditypayloadVarType_2
-   - SC_payload_commodity_inflow_0,0,0,Tstart13,Tend365,CommoditypayloadVarType_2
-   = 0
- PropellantTankOnlyBurn_vehicle0_start0_end0_time13:
-   - Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditypropellant_oxygen
-   - Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditypropellant_kerosene
-   + Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditypropellant_oxygen
-   + Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditypropellant_kerosene
-   + 198580 sc_commodity_outflow_0,0,0,Tstart13,Tend365 >= 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle1_Commodity0:
-   Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditycrew
-   - Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditycrew = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle1_Commodity1:
-   Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditycrew_return
-   - Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditycrew_return
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle1_Commodity2:
-   Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commodityconsumables
-   - Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commodityconsumables
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle1_Commodity3:
-   Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commodityequipment
-   - Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commodityequipment
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle1_Commodity4:
-   Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditysamples
-   - Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditysamples = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle1_Commodity5:
-   Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditypropellant_oxygen
-   - Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditypropellant_oxygen
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle1_Commodity6:
-   Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditycrew_interim
-   - Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditycrew_interim
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle1_Commodity7:
-   Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditypackaged_isru
-   - Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditypackaged_isru
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle1_Commodity8:
-   Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commodityactive_isru
-   - Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commodityactive_isru
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle1_Commodity9:
-   Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditypropellant_kerosene
-   - Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditypropellant_kerosene
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle1_Commodity10:
-   Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditymaintenance_mass
-   - Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditymaintenance_mass
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle1_Commodity11:
-   sc_commodity_outflow_1,0,0,Tstart13,Tend365
-   - sc_commodity_inflow_1,0,0,Tstart13,Tend365 = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle1_Commodity12:
-   SC_payload_commodity_outflow_1,0,0,Tstart13,Tend365,CommoditypayloadVarType_1
-   - SC_payload_commodity_inflow_1,0,0,Tstart13,Tend365,CommoditypayloadVarType_1
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime13_Vehicle1_Commodity13:
-   SC_payload_commodity_outflow_1,0,0,Tstart13,Tend365,CommoditypayloadVarType_2
-   - SC_payload_commodity_inflow_1,0,0,Tstart13,Tend365,CommoditypayloadVarType_2
-   = 0
- PropellantTankOnlyBurn_vehicle1_start0_end0_time13:
-   - Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditypropellant_oxygen
-   - Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditypropellant_kerosene
-   + Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditypropellant_oxygen
-   + Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditypropellant_kerosene
-   + 23891 sc_commodity_outflow_1,0,0,Tstart13,Tend365 >= 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle0_Commodity0:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditycrew
-   - Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditycrew = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle0_Commodity1:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditycrew_return
-   - Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditycrew_return
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle0_Commodity2:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commodityconsumables
-   - Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commodityconsumables
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle0_Commodity3:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commodityequipment
-   - Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commodityequipment
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle0_Commodity4:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditysamples
-   - Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditysamples = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle0_Commodity5:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditypropellant_oxygen
-   - Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditypropellant_oxygen
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle0_Commodity6:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditycrew_interim
-   - Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditycrew_interim
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle0_Commodity7:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditypackaged_isru
-   - Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditypackaged_isru
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle0_Commodity8:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commodityactive_isru
-   - Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commodityactive_isru
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle0_Commodity9:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditypropellant_kerosene
-   - Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditypropellant_kerosene
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle0_Commodity10:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditymaintenance_mass
-   - Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditymaintenance_mass
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle0_Commodity11:
-   sc_commodity_outflow_0,0,0,Tstart365,Tend378
-   - sc_commodity_inflow_0,0,0,Tstart365,Tend378 = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle0_Commodity12:
-   SC_payload_commodity_outflow_0,0,0,Tstart365,Tend378,CommoditypayloadVarType_1
-   - SC_payload_commodity_inflow_0,0,0,Tstart365,Tend378,CommoditypayloadVarType_1
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle0_Commodity13:
-   SC_payload_commodity_outflow_0,0,0,Tstart365,Tend378,CommoditypayloadVarType_2
-   - SC_payload_commodity_inflow_0,0,0,Tstart365,Tend378,CommoditypayloadVarType_2
-   = 0
- PropellantTankOnlyBurn_vehicle0_start0_end0_time365:
-   - Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditypropellant_oxygen
-   - Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditypropellant_kerosene
-   + Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditypropellant_oxygen
-   + Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditypropellant_kerosene
-   + 198580 sc_commodity_outflow_0,0,0,Tstart365,Tend378 >= 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle1_Commodity0:
-   Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditycrew
-   - Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditycrew = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle1_Commodity1:
-   Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditycrew_return
-   - Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditycrew_return
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle1_Commodity2:
-   Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commodityconsumables
-   - Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commodityconsumables
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle1_Commodity3:
-   Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commodityequipment
-   - Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commodityequipment
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle1_Commodity4:
-   Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditysamples
-   - Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditysamples = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle1_Commodity5:
-   Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditypropellant_oxygen
-   - Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditypropellant_oxygen
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle1_Commodity6:
-   Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditycrew_interim
-   - Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditycrew_interim
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle1_Commodity7:
-   Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditypackaged_isru
-   - Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditypackaged_isru
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle1_Commodity8:
-   Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commodityactive_isru
-   - Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commodityactive_isru
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle1_Commodity9:
-   Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditypropellant_kerosene
-   - Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditypropellant_kerosene
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle1_Commodity10:
-   Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditymaintenance_mass
-   - Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditymaintenance_mass
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle1_Commodity11:
-   sc_commodity_outflow_1,0,0,Tstart365,Tend378
-   - sc_commodity_inflow_1,0,0,Tstart365,Tend378 = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle1_Commodity12:
-   SC_payload_commodity_outflow_1,0,0,Tstart365,Tend378,CommoditypayloadVarType_1
-   - SC_payload_commodity_inflow_1,0,0,Tstart365,Tend378,CommoditypayloadVarType_1
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime365_Vehicle1_Commodity13:
-   SC_payload_commodity_outflow_1,0,0,Tstart365,Tend378,CommoditypayloadVarType_2
-   - SC_payload_commodity_inflow_1,0,0,Tstart365,Tend378,CommoditypayloadVarType_2
-   = 0
- PropellantTankOnlyBurn_vehicle1_start0_end0_time365:
-   - Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditypropellant_oxygen
-   - Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditypropellant_kerosene
-   + Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditypropellant_oxygen
-   + Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditypropellant_kerosene
-   + 23891 sc_commodity_outflow_1,0,0,Tstart365,Tend378 >= 0
  Arc_transformationConstraint_Start0_End1_Starttime365_Vehicle0_Commodity0:
    Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commoditycrew
    - Classic_commodity_inflow_0,0,1,Tstart365,Tend366,Commoditycrew = 0
@@ -3733,242 +3099,6 @@ Subject To
    + Classic_commodity_inflow_1,0,1,Tstart365,Tend366,Commoditypropellant_oxygen
    + Classic_commodity_inflow_1,0,1,Tstart365,Tend366,Commoditypropellant_kerosene
    + 23891 sc_commodity_outflow_1,0,1,Tstart365,Tend366 >= 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle0_Commodity0:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditycrew
-   - Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditycrew = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle0_Commodity1:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditycrew_return
-   - Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditycrew_return
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle0_Commodity2:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commodityconsumables
-   - Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commodityconsumables
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle0_Commodity3:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commodityequipment
-   - Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commodityequipment
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle0_Commodity4:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditysamples
-   - Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditysamples = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle0_Commodity5:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditypropellant_oxygen
-   - Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditypropellant_oxygen
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle0_Commodity6:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditycrew_interim
-   - Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditycrew_interim
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle0_Commodity7:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditypackaged_isru
-   - Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditypackaged_isru
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle0_Commodity8:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commodityactive_isru
-   - Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commodityactive_isru
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle0_Commodity9:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditypropellant_kerosene
-   - Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditypropellant_kerosene
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle0_Commodity10:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditymaintenance_mass
-   - Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditymaintenance_mass
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle0_Commodity11:
-   sc_commodity_outflow_0,0,0,Tstart378,Tend730
-   - sc_commodity_inflow_0,0,0,Tstart378,Tend730 = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle0_Commodity12:
-   SC_payload_commodity_outflow_0,0,0,Tstart378,Tend730,CommoditypayloadVarType_1
-   - SC_payload_commodity_inflow_0,0,0,Tstart378,Tend730,CommoditypayloadVarType_1
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle0_Commodity13:
-   SC_payload_commodity_outflow_0,0,0,Tstart378,Tend730,CommoditypayloadVarType_2
-   - SC_payload_commodity_inflow_0,0,0,Tstart378,Tend730,CommoditypayloadVarType_2
-   = 0
- PropellantTankOnlyBurn_vehicle0_start0_end0_time378:
-   - Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditypropellant_oxygen
-   - Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditypropellant_kerosene
-   + Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditypropellant_oxygen
-   + Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditypropellant_kerosene
-   + 198580 sc_commodity_outflow_0,0,0,Tstart378,Tend730 >= 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle1_Commodity0:
-   Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditycrew
-   - Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditycrew = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle1_Commodity1:
-   Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditycrew_return
-   - Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditycrew_return
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle1_Commodity2:
-   Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commodityconsumables
-   - Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commodityconsumables
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle1_Commodity3:
-   Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commodityequipment
-   - Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commodityequipment
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle1_Commodity4:
-   Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditysamples
-   - Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditysamples = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle1_Commodity5:
-   Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditypropellant_oxygen
-   - Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditypropellant_oxygen
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle1_Commodity6:
-   Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditycrew_interim
-   - Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditycrew_interim
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle1_Commodity7:
-   Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditypackaged_isru
-   - Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditypackaged_isru
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle1_Commodity8:
-   Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commodityactive_isru
-   - Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commodityactive_isru
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle1_Commodity9:
-   Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditypropellant_kerosene
-   - Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditypropellant_kerosene
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle1_Commodity10:
-   Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditymaintenance_mass
-   - Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditymaintenance_mass
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle1_Commodity11:
-   sc_commodity_outflow_1,0,0,Tstart378,Tend730
-   - sc_commodity_inflow_1,0,0,Tstart378,Tend730 = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle1_Commodity12:
-   SC_payload_commodity_outflow_1,0,0,Tstart378,Tend730,CommoditypayloadVarType_1
-   - SC_payload_commodity_inflow_1,0,0,Tstart378,Tend730,CommoditypayloadVarType_1
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime378_Vehicle1_Commodity13:
-   SC_payload_commodity_outflow_1,0,0,Tstart378,Tend730,CommoditypayloadVarType_2
-   - SC_payload_commodity_inflow_1,0,0,Tstart378,Tend730,CommoditypayloadVarType_2
-   = 0
- PropellantTankOnlyBurn_vehicle1_start0_end0_time378:
-   - Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditypropellant_oxygen
-   - Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditypropellant_kerosene
-   + Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditypropellant_oxygen
-   + Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditypropellant_kerosene
-   + 23891 sc_commodity_outflow_1,0,0,Tstart378,Tend730 >= 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle0_Commodity0:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditycrew
-   - Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditycrew = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle0_Commodity1:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditycrew_return
-   - Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditycrew_return
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle0_Commodity2:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commodityconsumables
-   - Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commodityconsumables
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle0_Commodity3:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commodityequipment
-   - Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commodityequipment
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle0_Commodity4:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditysamples
-   - Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditysamples = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle0_Commodity5:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditypropellant_oxygen
-   - Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditypropellant_oxygen
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle0_Commodity6:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditycrew_interim
-   - Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditycrew_interim
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle0_Commodity7:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditypackaged_isru
-   - Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditypackaged_isru
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle0_Commodity8:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commodityactive_isru
-   - Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commodityactive_isru
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle0_Commodity9:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditypropellant_kerosene
-   - Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditypropellant_kerosene
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle0_Commodity10:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditymaintenance_mass
-   - Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditymaintenance_mass
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle0_Commodity11:
-   sc_commodity_outflow_0,0,0,Tstart730,Tend743
-   - sc_commodity_inflow_0,0,0,Tstart730,Tend743 = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle0_Commodity12:
-   SC_payload_commodity_outflow_0,0,0,Tstart730,Tend743,CommoditypayloadVarType_1
-   - SC_payload_commodity_inflow_0,0,0,Tstart730,Tend743,CommoditypayloadVarType_1
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle0_Commodity13:
-   SC_payload_commodity_outflow_0,0,0,Tstart730,Tend743,CommoditypayloadVarType_2
-   - SC_payload_commodity_inflow_0,0,0,Tstart730,Tend743,CommoditypayloadVarType_2
-   = 0
- PropellantTankOnlyBurn_vehicle0_start0_end0_time730:
-   - Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditypropellant_oxygen
-   - Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditypropellant_kerosene
-   + Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditypropellant_oxygen
-   + Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditypropellant_kerosene
-   + 198580 sc_commodity_outflow_0,0,0,Tstart730,Tend743 >= 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle1_Commodity0:
-   Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditycrew
-   - Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditycrew = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle1_Commodity1:
-   Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditycrew_return
-   - Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditycrew_return
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle1_Commodity2:
-   Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commodityconsumables
-   - Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commodityconsumables
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle1_Commodity3:
-   Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commodityequipment
-   - Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commodityequipment
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle1_Commodity4:
-   Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditysamples
-   - Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditysamples = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle1_Commodity5:
-   Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditypropellant_oxygen
-   - Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditypropellant_oxygen
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle1_Commodity6:
-   Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditycrew_interim
-   - Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditycrew_interim
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle1_Commodity7:
-   Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditypackaged_isru
-   - Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditypackaged_isru
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle1_Commodity8:
-   Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commodityactive_isru
-   - Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commodityactive_isru
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle1_Commodity9:
-   Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditypropellant_kerosene
-   - Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditypropellant_kerosene
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle1_Commodity10:
-   Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditymaintenance_mass
-   - Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditymaintenance_mass
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle1_Commodity11:
-   sc_commodity_outflow_1,0,0,Tstart730,Tend743
-   - sc_commodity_inflow_1,0,0,Tstart730,Tend743 = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle1_Commodity12:
-   SC_payload_commodity_outflow_1,0,0,Tstart730,Tend743,CommoditypayloadVarType_1
-   - SC_payload_commodity_inflow_1,0,0,Tstart730,Tend743,CommoditypayloadVarType_1
-   = 0
- Arc_transformationConstraint_Start0_End0_Starttime730_Vehicle1_Commodity13:
-   SC_payload_commodity_outflow_1,0,0,Tstart730,Tend743,CommoditypayloadVarType_2
-   - SC_payload_commodity_inflow_1,0,0,Tstart730,Tend743,CommoditypayloadVarType_2
-   = 0
- PropellantTankOnlyBurn_vehicle1_start0_end0_time730:
-   - Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditypropellant_oxygen
-   - Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditypropellant_kerosene
-   + Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditypropellant_oxygen
-   + Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditypropellant_kerosene
-   + 23891 sc_commodity_outflow_1,0,0,Tstart730,Tend743 >= 0
  Arc_transformationConstraint_Start0_End1_Starttime730_Vehicle0_Commodity0:
    Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commoditycrew
    - Classic_commodity_inflow_0,0,1,Tstart730,Tend731,Commoditycrew = 0
@@ -22973,43 +22103,15 @@ Subject To
    + Classic_commodity_inflow_1,3,3,Tstart735,Tend738,Commoditypropellant_oxygen
    + Classic_commodity_inflow_1,3,3,Tstart735,Tend738,Commoditypropellant_kerosene
    + 23891 sc_commodity_outflow_1,3,3,Tstart735,Tend738 >= 0
- ActiveISRU_negationConstraint_Start0_End0_Starttime0_Vehicle0:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commodityactive_isru = 0
- ActiveISRU_negationConstraint_Start0_End0_Starttime0_Vehicle1:
-   Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commodityactive_isru = 0
  ActiveISRU_negationConstraint_Start0_End1_Starttime0_Vehicle0:
    Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commodityactive_isru = 0
  ActiveISRU_negationConstraint_Start0_End1_Starttime0_Vehicle1:
    Classic_commodity_outflow_1,0,1,Tstart0,Tend1,Commodityactive_isru = 0
- ActiveISRU_negationConstraint_Start0_End0_Starttime13_Vehicle0:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commodityactive_isru
-   = 0
- ActiveISRU_negationConstraint_Start0_End0_Starttime13_Vehicle1:
-   Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commodityactive_isru
-   = 0
- ActiveISRU_negationConstraint_Start0_End0_Starttime365_Vehicle0:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commodityactive_isru
-   = 0
- ActiveISRU_negationConstraint_Start0_End0_Starttime365_Vehicle1:
-   Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commodityactive_isru
-   = 0
  ActiveISRU_negationConstraint_Start0_End1_Starttime365_Vehicle0:
    Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commodityactive_isru
    = 0
  ActiveISRU_negationConstraint_Start0_End1_Starttime365_Vehicle1:
    Classic_commodity_outflow_1,0,1,Tstart365,Tend366,Commodityactive_isru
-   = 0
- ActiveISRU_negationConstraint_Start0_End0_Starttime378_Vehicle0:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commodityactive_isru
-   = 0
- ActiveISRU_negationConstraint_Start0_End0_Starttime378_Vehicle1:
-   Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commodityactive_isru
-   = 0
- ActiveISRU_negationConstraint_Start0_End0_Starttime730_Vehicle0:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commodityactive_isru
-   = 0
- ActiveISRU_negationConstraint_Start0_End0_Starttime730_Vehicle1:
-   Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commodityactive_isru
    = 0
  ActiveISRU_negationConstraint_Start0_End1_Starttime730_Vehicle0:
    Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commodityactive_isru
@@ -23167,27 +22269,6 @@ Subject To
  ActiveISRU_negationConstraint_Start3_End2_Starttime738_Vehicle1:
    Classic_commodity_outflow_1,3,2,Tstart738,Tend739,Commodityactive_isru
    = 0
- Max_concurrency_constraint_row0_vehicle0_startnode0_endnode0_starttime0:
-   100 Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditycrew
-   + 100 Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditycrew_return
-   + Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commodityconsumables
-   + Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commodityequipment
-   + Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditysamples
-   + 100 Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditycrew_interim
-   + Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditypackaged_isru
-   + Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commodityactive_isru
-   + Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditymaintenance_mass
-   - 3978 sc_commodity_outflow_0,0,0,Tstart0,Tend13
-   - 3978 SC_payload_commodity_outflow_0,0,0,Tstart0,Tend13,CommoditypayloadVarType_1
-   - 2262 SC_payload_commodity_outflow_0,0,0,Tstart0,Tend13,CommoditypayloadVarType_2
-   <= 0
- Max_concurrency_constraint_row1_vehicle0_startnode0_endnode0_starttime0:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditypropellant_oxygen
-   + Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditypropellant_kerosene
-   - 198580 sc_commodity_outflow_0,0,0,Tstart0,Tend13
-   - 198580 SC_payload_commodity_outflow_0,0,0,Tstart0,Tend13,CommoditypayloadVarType_1
-   - 23891 SC_payload_commodity_outflow_0,0,0,Tstart0,Tend13,CommoditypayloadVarType_2
-   <= 0
  Max_concurrency_constraint_row0_vehicle0_startnode0_endnode1_starttime0:
    100 Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commoditycrew
    + 100 Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commoditycrew_return
@@ -23209,48 +22290,6 @@ Subject To
    - 198580 SC_payload_commodity_outflow_0,0,1,Tstart0,Tend1,CommoditypayloadVarType_1
    - 23891 SC_payload_commodity_outflow_0,0,1,Tstart0,Tend1,CommoditypayloadVarType_2
    <= 0
- Max_concurrency_constraint_row0_vehicle0_startnode0_endnode0_starttime13:
-   100 Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditycrew
-   + 100 Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditycrew_return
-   + Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commodityconsumables
-   + Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commodityequipment
-   + Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditysamples
-   + 100 Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditycrew_interim
-   + Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditypackaged_isru
-   + Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commodityactive_isru
-   + Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditymaintenance_mass
-   - 3978 sc_commodity_outflow_0,0,0,Tstart13,Tend365
-   - 3978 SC_payload_commodity_outflow_0,0,0,Tstart13,Tend365,CommoditypayloadVarType_1
-   - 2262 SC_payload_commodity_outflow_0,0,0,Tstart13,Tend365,CommoditypayloadVarType_2
-   <= 0
- Max_concurrency_constraint_row1_vehicle0_startnode0_endnode0_starttime13:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditypropellant_oxygen
-   + Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditypropellant_kerosene
-   - 198580 sc_commodity_outflow_0,0,0,Tstart13,Tend365
-   - 198580 SC_payload_commodity_outflow_0,0,0,Tstart13,Tend365,CommoditypayloadVarType_1
-   - 23891 SC_payload_commodity_outflow_0,0,0,Tstart13,Tend365,CommoditypayloadVarType_2
-   <= 0
- Max_concurrency_constraint_row0_vehicle0_startnode0_endnode0_starttime365:
-   100 Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditycrew
-   + 100 Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditycrew_return
-   + Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commodityconsumables
-   + Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commodityequipment
-   + Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditysamples
-   + 100 Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditycrew_interim
-   + Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditypackaged_isru
-   + Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commodityactive_isru
-   + Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditymaintenance_mass
-   - 3978 sc_commodity_outflow_0,0,0,Tstart365,Tend378
-   - 3978 SC_payload_commodity_outflow_0,0,0,Tstart365,Tend378,CommoditypayloadVarType_1
-   - 2262 SC_payload_commodity_outflow_0,0,0,Tstart365,Tend378,CommoditypayloadVarType_2
-   <= 0
- Max_concurrency_constraint_row1_vehicle0_startnode0_endnode0_starttime365:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditypropellant_oxygen
-   + Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditypropellant_kerosene
-   - 198580 sc_commodity_outflow_0,0,0,Tstart365,Tend378
-   - 198580 SC_payload_commodity_outflow_0,0,0,Tstart365,Tend378,CommoditypayloadVarType_1
-   - 23891 SC_payload_commodity_outflow_0,0,0,Tstart365,Tend378,CommoditypayloadVarType_2
-   <= 0
  Max_concurrency_constraint_row0_vehicle0_startnode0_endnode1_starttime365:
    100 Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commoditycrew
    + 100 Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commoditycrew_return
@@ -23271,48 +22310,6 @@ Subject To
    - 198580 sc_commodity_outflow_0,0,1,Tstart365,Tend366
    - 198580 SC_payload_commodity_outflow_0,0,1,Tstart365,Tend366,CommoditypayloadVarType_1
    - 23891 SC_payload_commodity_outflow_0,0,1,Tstart365,Tend366,CommoditypayloadVarType_2
-   <= 0
- Max_concurrency_constraint_row0_vehicle0_startnode0_endnode0_starttime378:
-   100 Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditycrew
-   + 100 Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditycrew_return
-   + Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commodityconsumables
-   + Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commodityequipment
-   + Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditysamples
-   + 100 Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditycrew_interim
-   + Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditypackaged_isru
-   + Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commodityactive_isru
-   + Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditymaintenance_mass
-   - 3978 sc_commodity_outflow_0,0,0,Tstart378,Tend730
-   - 3978 SC_payload_commodity_outflow_0,0,0,Tstart378,Tend730,CommoditypayloadVarType_1
-   - 2262 SC_payload_commodity_outflow_0,0,0,Tstart378,Tend730,CommoditypayloadVarType_2
-   <= 0
- Max_concurrency_constraint_row1_vehicle0_startnode0_endnode0_starttime378:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditypropellant_oxygen
-   + Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditypropellant_kerosene
-   - 198580 sc_commodity_outflow_0,0,0,Tstart378,Tend730
-   - 198580 SC_payload_commodity_outflow_0,0,0,Tstart378,Tend730,CommoditypayloadVarType_1
-   - 23891 SC_payload_commodity_outflow_0,0,0,Tstart378,Tend730,CommoditypayloadVarType_2
-   <= 0
- Max_concurrency_constraint_row0_vehicle0_startnode0_endnode0_starttime730:
-   100 Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditycrew
-   + 100 Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditycrew_return
-   + Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commodityconsumables
-   + Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commodityequipment
-   + Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditysamples
-   + 100 Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditycrew_interim
-   + Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditypackaged_isru
-   + Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commodityactive_isru
-   + Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditymaintenance_mass
-   - 3978 sc_commodity_outflow_0,0,0,Tstart730,Tend743
-   - 3978 SC_payload_commodity_outflow_0,0,0,Tstart730,Tend743,CommoditypayloadVarType_1
-   - 2262 SC_payload_commodity_outflow_0,0,0,Tstart730,Tend743,CommoditypayloadVarType_2
-   <= 0
- Max_concurrency_constraint_row1_vehicle0_startnode0_endnode0_starttime730:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditypropellant_oxygen
-   + Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditypropellant_kerosene
-   - 198580 sc_commodity_outflow_0,0,0,Tstart730,Tend743
-   - 198580 SC_payload_commodity_outflow_0,0,0,Tstart730,Tend743,CommoditypayloadVarType_1
-   - 23891 SC_payload_commodity_outflow_0,0,0,Tstart730,Tend743,CommoditypayloadVarType_2
    <= 0
  Max_concurrency_constraint_row0_vehicle0_startnode0_endnode1_starttime730:
    100 Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commoditycrew
@@ -24028,27 +23025,6 @@ Subject To
    - 198580 SC_payload_commodity_outflow_0,3,3,Tstart735,Tend738,CommoditypayloadVarType_1
    - 23891 SC_payload_commodity_outflow_0,3,3,Tstart735,Tend738,CommoditypayloadVarType_2
    <= 0
- Max_concurrency_constraint_row0_vehicle1_startnode0_endnode0_starttime0:
-   100 Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditycrew
-   + 100 Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditycrew_return
-   + Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commodityconsumables
-   + Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commodityequipment
-   + Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditysamples
-   + 100 Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditycrew_interim
-   + Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditypackaged_isru
-   + Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commodityactive_isru
-   + Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditymaintenance_mass
-   - 2262 sc_commodity_outflow_1,0,0,Tstart0,Tend13
-   - 3978 SC_payload_commodity_outflow_1,0,0,Tstart0,Tend13,CommoditypayloadVarType_1
-   - 2262 SC_payload_commodity_outflow_1,0,0,Tstart0,Tend13,CommoditypayloadVarType_2
-   <= 0
- Max_concurrency_constraint_row1_vehicle1_startnode0_endnode0_starttime0:
-   Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditypropellant_oxygen
-   + Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditypropellant_kerosene
-   - 23891 sc_commodity_outflow_1,0,0,Tstart0,Tend13
-   - 198580 SC_payload_commodity_outflow_1,0,0,Tstart0,Tend13,CommoditypayloadVarType_1
-   - 23891 SC_payload_commodity_outflow_1,0,0,Tstart0,Tend13,CommoditypayloadVarType_2
-   <= 0
  Max_concurrency_constraint_row0_vehicle1_startnode0_endnode1_starttime0:
    100 Classic_commodity_outflow_1,0,1,Tstart0,Tend1,Commoditycrew
    + 100 Classic_commodity_outflow_1,0,1,Tstart0,Tend1,Commoditycrew_return
@@ -24070,48 +23046,6 @@ Subject To
    - 198580 SC_payload_commodity_outflow_1,0,1,Tstart0,Tend1,CommoditypayloadVarType_1
    - 23891 SC_payload_commodity_outflow_1,0,1,Tstart0,Tend1,CommoditypayloadVarType_2
    <= 0
- Max_concurrency_constraint_row0_vehicle1_startnode0_endnode0_starttime13:
-   100 Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditycrew
-   + 100 Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditycrew_return
-   + Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commodityconsumables
-   + Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commodityequipment
-   + Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditysamples
-   + 100 Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditycrew_interim
-   + Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditypackaged_isru
-   + Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commodityactive_isru
-   + Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditymaintenance_mass
-   - 2262 sc_commodity_outflow_1,0,0,Tstart13,Tend365
-   - 3978 SC_payload_commodity_outflow_1,0,0,Tstart13,Tend365,CommoditypayloadVarType_1
-   - 2262 SC_payload_commodity_outflow_1,0,0,Tstart13,Tend365,CommoditypayloadVarType_2
-   <= 0
- Max_concurrency_constraint_row1_vehicle1_startnode0_endnode0_starttime13:
-   Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditypropellant_oxygen
-   + Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditypropellant_kerosene
-   - 23891 sc_commodity_outflow_1,0,0,Tstart13,Tend365
-   - 198580 SC_payload_commodity_outflow_1,0,0,Tstart13,Tend365,CommoditypayloadVarType_1
-   - 23891 SC_payload_commodity_outflow_1,0,0,Tstart13,Tend365,CommoditypayloadVarType_2
-   <= 0
- Max_concurrency_constraint_row0_vehicle1_startnode0_endnode0_starttime365:
-   100 Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditycrew
-   + 100 Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditycrew_return
-   + Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commodityconsumables
-   + Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commodityequipment
-   + Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditysamples
-   + 100 Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditycrew_interim
-   + Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditypackaged_isru
-   + Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commodityactive_isru
-   + Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditymaintenance_mass
-   - 2262 sc_commodity_outflow_1,0,0,Tstart365,Tend378
-   - 3978 SC_payload_commodity_outflow_1,0,0,Tstart365,Tend378,CommoditypayloadVarType_1
-   - 2262 SC_payload_commodity_outflow_1,0,0,Tstart365,Tend378,CommoditypayloadVarType_2
-   <= 0
- Max_concurrency_constraint_row1_vehicle1_startnode0_endnode0_starttime365:
-   Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditypropellant_oxygen
-   + Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditypropellant_kerosene
-   - 23891 sc_commodity_outflow_1,0,0,Tstart365,Tend378
-   - 198580 SC_payload_commodity_outflow_1,0,0,Tstart365,Tend378,CommoditypayloadVarType_1
-   - 23891 SC_payload_commodity_outflow_1,0,0,Tstart365,Tend378,CommoditypayloadVarType_2
-   <= 0
  Max_concurrency_constraint_row0_vehicle1_startnode0_endnode1_starttime365:
    100 Classic_commodity_outflow_1,0,1,Tstart365,Tend366,Commoditycrew
    + 100 Classic_commodity_outflow_1,0,1,Tstart365,Tend366,Commoditycrew_return
@@ -24132,48 +23066,6 @@ Subject To
    - 23891 sc_commodity_outflow_1,0,1,Tstart365,Tend366
    - 198580 SC_payload_commodity_outflow_1,0,1,Tstart365,Tend366,CommoditypayloadVarType_1
    - 23891 SC_payload_commodity_outflow_1,0,1,Tstart365,Tend366,CommoditypayloadVarType_2
-   <= 0
- Max_concurrency_constraint_row0_vehicle1_startnode0_endnode0_starttime378:
-   100 Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditycrew
-   + 100 Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditycrew_return
-   + Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commodityconsumables
-   + Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commodityequipment
-   + Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditysamples
-   + 100 Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditycrew_interim
-   + Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditypackaged_isru
-   + Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commodityactive_isru
-   + Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditymaintenance_mass
-   - 2262 sc_commodity_outflow_1,0,0,Tstart378,Tend730
-   - 3978 SC_payload_commodity_outflow_1,0,0,Tstart378,Tend730,CommoditypayloadVarType_1
-   - 2262 SC_payload_commodity_outflow_1,0,0,Tstart378,Tend730,CommoditypayloadVarType_2
-   <= 0
- Max_concurrency_constraint_row1_vehicle1_startnode0_endnode0_starttime378:
-   Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditypropellant_oxygen
-   + Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditypropellant_kerosene
-   - 23891 sc_commodity_outflow_1,0,0,Tstart378,Tend730
-   - 198580 SC_payload_commodity_outflow_1,0,0,Tstart378,Tend730,CommoditypayloadVarType_1
-   - 23891 SC_payload_commodity_outflow_1,0,0,Tstart378,Tend730,CommoditypayloadVarType_2
-   <= 0
- Max_concurrency_constraint_row0_vehicle1_startnode0_endnode0_starttime730:
-   100 Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditycrew
-   + 100 Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditycrew_return
-   + Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commodityconsumables
-   + Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commodityequipment
-   + Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditysamples
-   + 100 Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditycrew_interim
-   + Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditypackaged_isru
-   + Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commodityactive_isru
-   + Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditymaintenance_mass
-   - 2262 sc_commodity_outflow_1,0,0,Tstart730,Tend743
-   - 3978 SC_payload_commodity_outflow_1,0,0,Tstart730,Tend743,CommoditypayloadVarType_1
-   - 2262 SC_payload_commodity_outflow_1,0,0,Tstart730,Tend743,CommoditypayloadVarType_2
-   <= 0
- Max_concurrency_constraint_row1_vehicle1_startnode0_endnode0_starttime730:
-   Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditypropellant_oxygen
-   + Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditypropellant_kerosene
-   - 23891 sc_commodity_outflow_1,0,0,Tstart730,Tend743
-   - 198580 SC_payload_commodity_outflow_1,0,0,Tstart730,Tend743,CommoditypayloadVarType_1
-   - 23891 SC_payload_commodity_outflow_1,0,0,Tstart730,Tend743,CommoditypayloadVarType_2
    <= 0
  Max_concurrency_constraint_row0_vehicle1_startnode0_endnode1_starttime730:
    100 Classic_commodity_outflow_1,0,1,Tstart730,Tend731,Commoditycrew
@@ -24889,40 +23781,15 @@ Subject To
    - 198580 SC_payload_commodity_outflow_1,3,3,Tstart735,Tend738,CommoditypayloadVarType_1
    - 23891 SC_payload_commodity_outflow_1,3,3,Tstart735,Tend738,CommoditypayloadVarType_2
    <= 0
- Minimum_SCP_concurrency_constraint_vehicle0_startnode0_endnode0_starttime0:
-   - 100 sc_commodity_outflow_0,0,0,Tstart0,Tend13
-   + SC_payload_commodity_outflow_0,0,0,Tstart0,Tend13,CommoditypayloadVarType_1
-   + SC_payload_commodity_outflow_0,0,0,Tstart0,Tend13,CommoditypayloadVarType_2
-   <= 0
  Minimum_SCP_concurrency_constraint_vehicle0_startnode0_endnode1_starttime0:
    - 100 sc_commodity_outflow_0,0,1,Tstart0,Tend1
    + SC_payload_commodity_outflow_0,0,1,Tstart0,Tend1,CommoditypayloadVarType_1
    + SC_payload_commodity_outflow_0,0,1,Tstart0,Tend1,CommoditypayloadVarType_2
    <= 0
- Minimum_SCP_concurrency_constraint_vehicle0_startnode0_endnode0_starttime13:
-   - 100 sc_commodity_outflow_0,0,0,Tstart13,Tend365
-   + SC_payload_commodity_outflow_0,0,0,Tstart13,Tend365,CommoditypayloadVarType_1
-   + SC_payload_commodity_outflow_0,0,0,Tstart13,Tend365,CommoditypayloadVarType_2
-   <= 0
- Minimum_SCP_concurrency_constraint_vehicle0_startnode0_endnode0_starttime365:
-   - 100 sc_commodity_outflow_0,0,0,Tstart365,Tend378
-   + SC_payload_commodity_outflow_0,0,0,Tstart365,Tend378,CommoditypayloadVarType_1
-   + SC_payload_commodity_outflow_0,0,0,Tstart365,Tend378,CommoditypayloadVarType_2
-   <= 0
  Minimum_SCP_concurrency_constraint_vehicle0_startnode0_endnode1_starttime365:
    - 100 sc_commodity_outflow_0,0,1,Tstart365,Tend366
    + SC_payload_commodity_outflow_0,0,1,Tstart365,Tend366,CommoditypayloadVarType_1
    + SC_payload_commodity_outflow_0,0,1,Tstart365,Tend366,CommoditypayloadVarType_2
-   <= 0
- Minimum_SCP_concurrency_constraint_vehicle0_startnode0_endnode0_starttime378:
-   - 100 sc_commodity_outflow_0,0,0,Tstart378,Tend730
-   + SC_payload_commodity_outflow_0,0,0,Tstart378,Tend730,CommoditypayloadVarType_1
-   + SC_payload_commodity_outflow_0,0,0,Tstart378,Tend730,CommoditypayloadVarType_2
-   <= 0
- Minimum_SCP_concurrency_constraint_vehicle0_startnode0_endnode0_starttime730:
-   - 100 sc_commodity_outflow_0,0,0,Tstart730,Tend743
-   + SC_payload_commodity_outflow_0,0,0,Tstart730,Tend743,CommoditypayloadVarType_1
-   + SC_payload_commodity_outflow_0,0,0,Tstart730,Tend743,CommoditypayloadVarType_2
    <= 0
  Minimum_SCP_concurrency_constraint_vehicle0_startnode0_endnode1_starttime730:
    - 100 sc_commodity_outflow_0,0,1,Tstart730,Tend731
@@ -25094,40 +23961,15 @@ Subject To
    + SC_payload_commodity_outflow_0,3,3,Tstart735,Tend738,CommoditypayloadVarType_1
    + SC_payload_commodity_outflow_0,3,3,Tstart735,Tend738,CommoditypayloadVarType_2
    <= 0
- Minimum_SCP_concurrency_constraint_vehicle1_startnode0_endnode0_starttime0:
-   - 100 sc_commodity_outflow_1,0,0,Tstart0,Tend13
-   + SC_payload_commodity_outflow_1,0,0,Tstart0,Tend13,CommoditypayloadVarType_1
-   + SC_payload_commodity_outflow_1,0,0,Tstart0,Tend13,CommoditypayloadVarType_2
-   <= 0
  Minimum_SCP_concurrency_constraint_vehicle1_startnode0_endnode1_starttime0:
    - 100 sc_commodity_outflow_1,0,1,Tstart0,Tend1
    + SC_payload_commodity_outflow_1,0,1,Tstart0,Tend1,CommoditypayloadVarType_1
    + SC_payload_commodity_outflow_1,0,1,Tstart0,Tend1,CommoditypayloadVarType_2
    <= 0
- Minimum_SCP_concurrency_constraint_vehicle1_startnode0_endnode0_starttime13:
-   - 100 sc_commodity_outflow_1,0,0,Tstart13,Tend365
-   + SC_payload_commodity_outflow_1,0,0,Tstart13,Tend365,CommoditypayloadVarType_1
-   + SC_payload_commodity_outflow_1,0,0,Tstart13,Tend365,CommoditypayloadVarType_2
-   <= 0
- Minimum_SCP_concurrency_constraint_vehicle1_startnode0_endnode0_starttime365:
-   - 100 sc_commodity_outflow_1,0,0,Tstart365,Tend378
-   + SC_payload_commodity_outflow_1,0,0,Tstart365,Tend378,CommoditypayloadVarType_1
-   + SC_payload_commodity_outflow_1,0,0,Tstart365,Tend378,CommoditypayloadVarType_2
-   <= 0
  Minimum_SCP_concurrency_constraint_vehicle1_startnode0_endnode1_starttime365:
    - 100 sc_commodity_outflow_1,0,1,Tstart365,Tend366
    + SC_payload_commodity_outflow_1,0,1,Tstart365,Tend366,CommoditypayloadVarType_1
    + SC_payload_commodity_outflow_1,0,1,Tstart365,Tend366,CommoditypayloadVarType_2
-   <= 0
- Minimum_SCP_concurrency_constraint_vehicle1_startnode0_endnode0_starttime378:
-   - 100 sc_commodity_outflow_1,0,0,Tstart378,Tend730
-   + SC_payload_commodity_outflow_1,0,0,Tstart378,Tend730,CommoditypayloadVarType_1
-   + SC_payload_commodity_outflow_1,0,0,Tstart378,Tend730,CommoditypayloadVarType_2
-   <= 0
- Minimum_SCP_concurrency_constraint_vehicle1_startnode0_endnode0_starttime730:
-   - 100 sc_commodity_outflow_1,0,0,Tstart730,Tend743
-   + SC_payload_commodity_outflow_1,0,0,Tstart730,Tend743,CommoditypayloadVarType_1
-   + SC_payload_commodity_outflow_1,0,0,Tstart730,Tend743,CommoditypayloadVarType_2
    <= 0
  Minimum_SCP_concurrency_constraint_vehicle1_startnode0_endnode1_starttime730:
    - 100 sc_commodity_outflow_1,0,1,Tstart730,Tend731
@@ -25299,120 +24141,6 @@ Subject To
    + SC_payload_commodity_outflow_1,3,3,Tstart735,Tend738,CommoditypayloadVarType_1
    + SC_payload_commodity_outflow_1,3,3,Tstart735,Tend738,CommoditypayloadVarType_2
    <= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime0,Commoditycrew:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditycrew >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime0,Commoditycrew_return:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditycrew_return
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime0,Commodityconsumables:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commodityconsumables
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime0,Commodityequipment:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commodityequipment >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime0,Commoditysamples:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditysamples >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime0,Commoditypropellant_oxygen:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditypropellant_oxygen
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime0,Commoditycrew_interim:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditycrew_interim
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime0,Commoditypackaged_isru:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditypackaged_isru
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime0,Commodityactive_isru:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commodityactive_isru
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime0,Commoditypropellant_kerosene:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditypropellant_kerosene
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime0,Commoditymaintenance_mass:
-   Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditymaintenance_mass
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime0,Commoditycrew:
-   Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditycrew >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime0,Commoditycrew_return:
-   Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditycrew_return >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime0,Commodityconsumables:
-   Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commodityconsumables >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime0,Commodityequipment:
-   Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commodityequipment >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime0,Commoditysamples:
-   Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditysamples >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime0,Commoditypropellant_oxygen:
-   Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditypropellant_oxygen
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime0,Commoditycrew_interim:
-   Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditycrew_interim
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime0,Commoditypackaged_isru:
-   Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditypackaged_isru
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime0,Commodityactive_isru:
-   Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commodityactive_isru >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime0,Commoditypropellant_kerosene:
-   Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditypropellant_kerosene
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime0,Commoditymaintenance_mass:
-   Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditymaintenance_mass
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime0,Commoditycrew:
-   Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditycrew >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime0,Commoditycrew_return:
-   Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditycrew_return
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime0,Commodityconsumables:
-   Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commodityconsumables
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime0,Commodityequipment:
-   Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commodityequipment >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime0,Commoditysamples:
-   Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditysamples >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime0,Commoditypropellant_oxygen:
-   Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditypropellant_oxygen
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime0,Commoditycrew_interim:
-   Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditycrew_interim
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime0,Commoditypackaged_isru:
-   Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditypackaged_isru
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime0,Commodityactive_isru:
-   Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commodityactive_isru
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime0,Commoditypropellant_kerosene:
-   Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditypropellant_kerosene
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime0,Commoditymaintenance_mass:
-   Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditymaintenance_mass
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime0,Commoditycrew:
-   Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditycrew >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime0,Commoditycrew_return:
-   Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditycrew_return >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime0,Commodityconsumables:
-   Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commodityconsumables >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime0,Commodityequipment:
-   Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commodityequipment >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime0,Commoditysamples:
-   Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditysamples >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime0,Commoditypropellant_oxygen:
-   Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditypropellant_oxygen
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime0,Commoditycrew_interim:
-   Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditycrew_interim
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime0,Commoditypackaged_isru:
-   Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditypackaged_isru
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime0,Commodityactive_isru:
-   Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commodityactive_isru >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime0,Commoditypropellant_kerosene:
-   Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditypropellant_kerosene
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime0,Commoditymaintenance_mass:
-   Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditymaintenance_mass
-   >= 0
  Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode1_starttime0,Commoditycrew:
    Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commoditycrew >= 0
  Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode1_starttime0,Commoditycrew_return:
@@ -25518,252 +24246,6 @@ Subject To
    >= 0
  Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode1_starttime0,Commoditymaintenance_mass:
    Classic_commodity_inflow_1,0,1,Tstart0,Tend1,Commoditymaintenance_mass
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime13,Commoditycrew:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditycrew >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime13,Commoditycrew_return:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditycrew_return
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime13,Commodityconsumables:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commodityconsumables
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime13,Commodityequipment:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commodityequipment
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime13,Commoditysamples:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditysamples >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime13,Commoditypropellant_oxygen:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditypropellant_oxygen
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime13,Commoditycrew_interim:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditycrew_interim
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime13,Commoditypackaged_isru:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditypackaged_isru
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime13,Commodityactive_isru:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commodityactive_isru
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime13,Commoditypropellant_kerosene:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditypropellant_kerosene
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime13,Commoditymaintenance_mass:
-   Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditymaintenance_mass
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime13,Commoditycrew:
-   Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditycrew >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime13,Commoditycrew_return:
-   Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditycrew_return
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime13,Commodityconsumables:
-   Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commodityconsumables
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime13,Commodityequipment:
-   Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commodityequipment >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime13,Commoditysamples:
-   Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditysamples >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime13,Commoditypropellant_oxygen:
-   Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditypropellant_oxygen
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime13,Commoditycrew_interim:
-   Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditycrew_interim
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime13,Commoditypackaged_isru:
-   Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditypackaged_isru
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime13,Commodityactive_isru:
-   Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commodityactive_isru
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime13,Commoditypropellant_kerosene:
-   Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditypropellant_kerosene
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime13,Commoditymaintenance_mass:
-   Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditymaintenance_mass
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime13,Commoditycrew:
-   Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditycrew >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime13,Commoditycrew_return:
-   Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditycrew_return
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime13,Commodityconsumables:
-   Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commodityconsumables
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime13,Commodityequipment:
-   Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commodityequipment
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime13,Commoditysamples:
-   Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditysamples >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime13,Commoditypropellant_oxygen:
-   Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditypropellant_oxygen
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime13,Commoditycrew_interim:
-   Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditycrew_interim
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime13,Commoditypackaged_isru:
-   Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditypackaged_isru
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime13,Commodityactive_isru:
-   Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commodityactive_isru
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime13,Commoditypropellant_kerosene:
-   Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditypropellant_kerosene
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime13,Commoditymaintenance_mass:
-   Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditymaintenance_mass
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime13,Commoditycrew:
-   Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditycrew >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime13,Commoditycrew_return:
-   Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditycrew_return
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime13,Commodityconsumables:
-   Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commodityconsumables
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime13,Commodityequipment:
-   Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commodityequipment >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime13,Commoditysamples:
-   Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditysamples >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime13,Commoditypropellant_oxygen:
-   Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditypropellant_oxygen
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime13,Commoditycrew_interim:
-   Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditycrew_interim
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime13,Commoditypackaged_isru:
-   Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditypackaged_isru
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime13,Commodityactive_isru:
-   Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commodityactive_isru
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime13,Commoditypropellant_kerosene:
-   Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditypropellant_kerosene
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime13,Commoditymaintenance_mass:
-   Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditymaintenance_mass
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime365,Commoditycrew:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditycrew >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime365,Commoditycrew_return:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditycrew_return
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime365,Commodityconsumables:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commodityconsumables
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime365,Commodityequipment:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commodityequipment
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime365,Commoditysamples:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditysamples >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime365,Commoditypropellant_oxygen:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditypropellant_oxygen
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime365,Commoditycrew_interim:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditycrew_interim
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime365,Commoditypackaged_isru:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditypackaged_isru
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime365,Commodityactive_isru:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commodityactive_isru
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime365,Commoditypropellant_kerosene:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditypropellant_kerosene
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime365,Commoditymaintenance_mass:
-   Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditymaintenance_mass
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime365,Commoditycrew:
-   Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditycrew >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime365,Commoditycrew_return:
-   Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditycrew_return
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime365,Commodityconsumables:
-   Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commodityconsumables
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime365,Commodityequipment:
-   Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commodityequipment
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime365,Commoditysamples:
-   Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditysamples >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime365,Commoditypropellant_oxygen:
-   Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditypropellant_oxygen
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime365,Commoditycrew_interim:
-   Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditycrew_interim
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime365,Commoditypackaged_isru:
-   Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditypackaged_isru
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime365,Commodityactive_isru:
-   Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commodityactive_isru
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime365,Commoditypropellant_kerosene:
-   Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditypropellant_kerosene
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime365,Commoditymaintenance_mass:
-   Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditymaintenance_mass
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime365,Commoditycrew:
-   Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditycrew >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime365,Commoditycrew_return:
-   Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditycrew_return
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime365,Commodityconsumables:
-   Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commodityconsumables
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime365,Commodityequipment:
-   Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commodityequipment
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime365,Commoditysamples:
-   Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditysamples >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime365,Commoditypropellant_oxygen:
-   Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditypropellant_oxygen
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime365,Commoditycrew_interim:
-   Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditycrew_interim
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime365,Commoditypackaged_isru:
-   Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditypackaged_isru
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime365,Commodityactive_isru:
-   Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commodityactive_isru
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime365,Commoditypropellant_kerosene:
-   Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditypropellant_kerosene
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime365,Commoditymaintenance_mass:
-   Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditymaintenance_mass
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime365,Commoditycrew:
-   Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditycrew >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime365,Commoditycrew_return:
-   Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditycrew_return
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime365,Commodityconsumables:
-   Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commodityconsumables
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime365,Commodityequipment:
-   Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commodityequipment
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime365,Commoditysamples:
-   Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditysamples >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime365,Commoditypropellant_oxygen:
-   Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditypropellant_oxygen
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime365,Commoditycrew_interim:
-   Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditycrew_interim
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime365,Commoditypackaged_isru:
-   Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditypackaged_isru
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime365,Commodityactive_isru:
-   Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commodityactive_isru
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime365,Commoditypropellant_kerosene:
-   Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditypropellant_kerosene
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime365,Commoditymaintenance_mass:
-   Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditymaintenance_mass
    >= 0
  Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode1_starttime365,Commoditycrew:
    Classic_commodity_outflow_0,0,1,Tstart365,Tend366,Commoditycrew >= 0
@@ -25888,254 +24370,6 @@ Subject To
    >= 0
  Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode1_starttime365,Commoditymaintenance_mass:
    Classic_commodity_inflow_1,0,1,Tstart365,Tend366,Commoditymaintenance_mass
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime378,Commoditycrew:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditycrew >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime378,Commoditycrew_return:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditycrew_return
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime378,Commodityconsumables:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commodityconsumables
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime378,Commodityequipment:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commodityequipment
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime378,Commoditysamples:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditysamples >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime378,Commoditypropellant_oxygen:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditypropellant_oxygen
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime378,Commoditycrew_interim:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditycrew_interim
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime378,Commoditypackaged_isru:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditypackaged_isru
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime378,Commodityactive_isru:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commodityactive_isru
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime378,Commoditypropellant_kerosene:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditypropellant_kerosene
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime378,Commoditymaintenance_mass:
-   Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditymaintenance_mass
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime378,Commoditycrew:
-   Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditycrew >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime378,Commoditycrew_return:
-   Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditycrew_return
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime378,Commodityconsumables:
-   Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commodityconsumables
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime378,Commodityequipment:
-   Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commodityequipment
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime378,Commoditysamples:
-   Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditysamples >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime378,Commoditypropellant_oxygen:
-   Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditypropellant_oxygen
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime378,Commoditycrew_interim:
-   Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditycrew_interim
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime378,Commoditypackaged_isru:
-   Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditypackaged_isru
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime378,Commodityactive_isru:
-   Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commodityactive_isru
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime378,Commoditypropellant_kerosene:
-   Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditypropellant_kerosene
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime378,Commoditymaintenance_mass:
-   Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditymaintenance_mass
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime378,Commoditycrew:
-   Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditycrew >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime378,Commoditycrew_return:
-   Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditycrew_return
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime378,Commodityconsumables:
-   Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commodityconsumables
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime378,Commodityequipment:
-   Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commodityequipment
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime378,Commoditysamples:
-   Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditysamples >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime378,Commoditypropellant_oxygen:
-   Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditypropellant_oxygen
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime378,Commoditycrew_interim:
-   Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditycrew_interim
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime378,Commoditypackaged_isru:
-   Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditypackaged_isru
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime378,Commodityactive_isru:
-   Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commodityactive_isru
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime378,Commoditypropellant_kerosene:
-   Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditypropellant_kerosene
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime378,Commoditymaintenance_mass:
-   Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditymaintenance_mass
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime378,Commoditycrew:
-   Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditycrew >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime378,Commoditycrew_return:
-   Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditycrew_return
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime378,Commodityconsumables:
-   Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commodityconsumables
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime378,Commodityequipment:
-   Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commodityequipment
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime378,Commoditysamples:
-   Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditysamples >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime378,Commoditypropellant_oxygen:
-   Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditypropellant_oxygen
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime378,Commoditycrew_interim:
-   Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditycrew_interim
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime378,Commoditypackaged_isru:
-   Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditypackaged_isru
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime378,Commodityactive_isru:
-   Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commodityactive_isru
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime378,Commoditypropellant_kerosene:
-   Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditypropellant_kerosene
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime378,Commoditymaintenance_mass:
-   Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditymaintenance_mass
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime730,Commoditycrew:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditycrew >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime730,Commoditycrew_return:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditycrew_return
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime730,Commodityconsumables:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commodityconsumables
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime730,Commodityequipment:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commodityequipment
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime730,Commoditysamples:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditysamples >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime730,Commoditypropellant_oxygen:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditypropellant_oxygen
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime730,Commoditycrew_interim:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditycrew_interim
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime730,Commoditypackaged_isru:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditypackaged_isru
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime730,Commodityactive_isru:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commodityactive_isru
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime730,Commoditypropellant_kerosene:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditypropellant_kerosene
-   >= 0
- Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime730,Commoditymaintenance_mass:
-   Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditymaintenance_mass
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime730,Commoditycrew:
-   Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditycrew >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime730,Commoditycrew_return:
-   Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditycrew_return
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime730,Commodityconsumables:
-   Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commodityconsumables
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime730,Commodityequipment:
-   Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commodityequipment
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime730,Commoditysamples:
-   Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditysamples >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime730,Commoditypropellant_oxygen:
-   Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditypropellant_oxygen
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime730,Commoditycrew_interim:
-   Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditycrew_interim
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime730,Commoditypackaged_isru:
-   Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditypackaged_isru
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime730,Commodityactive_isru:
-   Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commodityactive_isru
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime730,Commoditypropellant_kerosene:
-   Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditypropellant_kerosene
-   >= 0
- Inflow_inside_time_window_constraint_vehicle0_startnode0_endnode0_starttime730,Commoditymaintenance_mass:
-   Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditymaintenance_mass
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime730,Commoditycrew:
-   Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditycrew >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime730,Commoditycrew_return:
-   Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditycrew_return
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime730,Commodityconsumables:
-   Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commodityconsumables
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime730,Commodityequipment:
-   Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commodityequipment
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime730,Commoditysamples:
-   Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditysamples >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime730,Commoditypropellant_oxygen:
-   Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditypropellant_oxygen
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime730,Commoditycrew_interim:
-   Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditycrew_interim
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime730,Commoditypackaged_isru:
-   Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditypackaged_isru
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime730,Commodityactive_isru:
-   Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commodityactive_isru
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime730,Commoditypropellant_kerosene:
-   Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditypropellant_kerosene
-   >= 0
- Outflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime730,Commoditymaintenance_mass:
-   Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditymaintenance_mass
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime730,Commoditycrew:
-   Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditycrew >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime730,Commoditycrew_return:
-   Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditycrew_return
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime730,Commodityconsumables:
-   Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commodityconsumables
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime730,Commodityequipment:
-   Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commodityequipment
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime730,Commoditysamples:
-   Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditysamples >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime730,Commoditypropellant_oxygen:
-   Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditypropellant_oxygen
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime730,Commoditycrew_interim:
-   Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditycrew_interim
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime730,Commoditypackaged_isru:
-   Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditypackaged_isru
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime730,Commodityactive_isru:
-   Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commodityactive_isru
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime730,Commoditypropellant_kerosene:
-   Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditypropellant_kerosene
-   >= 0
- Inflow_inside_time_window_constraint_vehicle1_startnode0_endnode0_starttime730,Commoditymaintenance_mass:
-   Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditymaintenance_mass
    >= 0
  Outflow_inside_time_window_constraint_vehicle0_startnode0_endnode1_starttime730,Commoditycrew:
    Classic_commodity_outflow_0,0,1,Tstart730,Tend731,Commoditycrew >= 0
@@ -31528,21 +29762,6 @@ Binaries
  isru_pwl_vehicle1_node3_time735_graybit_5
  isru_pwl_vehicle1_node3_time735_graybit_6
 Generals
- Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditycrew
- Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditycrew_return
- Classic_commodity_outflow_0,0,0,Tstart0,Tend13,Commoditycrew_interim
- Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditycrew
- Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditycrew_return
- Classic_commodity_outflow_0,0,0,Tstart13,Tend365,Commoditycrew_interim
- Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditycrew
- Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditycrew_return
- Classic_commodity_outflow_0,0,0,Tstart365,Tend378,Commoditycrew_interim
- Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditycrew
- Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditycrew_return
- Classic_commodity_outflow_0,0,0,Tstart378,Tend730,Commoditycrew_interim
- Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditycrew
- Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditycrew_return
- Classic_commodity_outflow_0,0,0,Tstart730,Tend743,Commoditycrew_interim
  Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commoditycrew
  Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commoditycrew_return
  Classic_commodity_outflow_0,0,1,Tstart0,Tend1,Commoditycrew_interim
@@ -31651,21 +29870,6 @@ Generals
  Classic_commodity_outflow_0,3,3,Tstart735,Tend738,Commoditycrew
  Classic_commodity_outflow_0,3,3,Tstart735,Tend738,Commoditycrew_return
  Classic_commodity_outflow_0,3,3,Tstart735,Tend738,Commoditycrew_interim
- Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditycrew
- Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditycrew_return
- Classic_commodity_outflow_1,0,0,Tstart0,Tend13,Commoditycrew_interim
- Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditycrew
- Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditycrew_return
- Classic_commodity_outflow_1,0,0,Tstart13,Tend365,Commoditycrew_interim
- Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditycrew
- Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditycrew_return
- Classic_commodity_outflow_1,0,0,Tstart365,Tend378,Commoditycrew_interim
- Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditycrew
- Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditycrew_return
- Classic_commodity_outflow_1,0,0,Tstart378,Tend730,Commoditycrew_interim
- Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditycrew
- Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditycrew_return
- Classic_commodity_outflow_1,0,0,Tstart730,Tend743,Commoditycrew_interim
  Classic_commodity_outflow_1,0,1,Tstart0,Tend1,Commoditycrew
  Classic_commodity_outflow_1,0,1,Tstart0,Tend1,Commoditycrew_return
  Classic_commodity_outflow_1,0,1,Tstart0,Tend1,Commoditycrew_interim
@@ -31774,21 +29978,6 @@ Generals
  Classic_commodity_outflow_1,3,3,Tstart735,Tend738,Commoditycrew
  Classic_commodity_outflow_1,3,3,Tstart735,Tend738,Commoditycrew_return
  Classic_commodity_outflow_1,3,3,Tstart735,Tend738,Commoditycrew_interim
- Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditycrew
- Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditycrew_return
- Classic_commodity_inflow_0,0,0,Tstart0,Tend13,Commoditycrew_interim
- Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditycrew
- Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditycrew_return
- Classic_commodity_inflow_0,0,0,Tstart13,Tend365,Commoditycrew_interim
- Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditycrew
- Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditycrew_return
- Classic_commodity_inflow_0,0,0,Tstart365,Tend378,Commoditycrew_interim
- Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditycrew
- Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditycrew_return
- Classic_commodity_inflow_0,0,0,Tstart378,Tend730,Commoditycrew_interim
- Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditycrew
- Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditycrew_return
- Classic_commodity_inflow_0,0,0,Tstart730,Tend743,Commoditycrew_interim
  Classic_commodity_inflow_0,0,1,Tstart0,Tend1,Commoditycrew
  Classic_commodity_inflow_0,0,1,Tstart0,Tend1,Commoditycrew_return
  Classic_commodity_inflow_0,0,1,Tstart0,Tend1,Commoditycrew_interim
@@ -31897,21 +30086,6 @@ Generals
  Classic_commodity_inflow_0,3,3,Tstart735,Tend738,Commoditycrew
  Classic_commodity_inflow_0,3,3,Tstart735,Tend738,Commoditycrew_return
  Classic_commodity_inflow_0,3,3,Tstart735,Tend738,Commoditycrew_interim
- Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditycrew
- Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditycrew_return
- Classic_commodity_inflow_1,0,0,Tstart0,Tend13,Commoditycrew_interim
- Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditycrew
- Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditycrew_return
- Classic_commodity_inflow_1,0,0,Tstart13,Tend365,Commoditycrew_interim
- Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditycrew
- Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditycrew_return
- Classic_commodity_inflow_1,0,0,Tstart365,Tend378,Commoditycrew_interim
- Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditycrew
- Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditycrew_return
- Classic_commodity_inflow_1,0,0,Tstart378,Tend730,Commoditycrew_interim
- Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditycrew
- Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditycrew_return
- Classic_commodity_inflow_1,0,0,Tstart730,Tend743,Commoditycrew_interim
  Classic_commodity_inflow_1,0,1,Tstart0,Tend1,Commoditycrew
  Classic_commodity_inflow_1,0,1,Tstart0,Tend1,Commoditycrew_return
  Classic_commodity_inflow_1,0,1,Tstart0,Tend1,Commoditycrew_interim
@@ -32020,11 +30194,6 @@ Generals
  Classic_commodity_inflow_1,3,3,Tstart735,Tend738,Commoditycrew
  Classic_commodity_inflow_1,3,3,Tstart735,Tend738,Commoditycrew_return
  Classic_commodity_inflow_1,3,3,Tstart735,Tend738,Commoditycrew_interim
- sc_commodity_outflow_0,0,0,Tstart0,Tend13
- sc_commodity_outflow_0,0,0,Tstart13,Tend365
- sc_commodity_outflow_0,0,0,Tstart365,Tend378
- sc_commodity_outflow_0,0,0,Tstart378,Tend730
- sc_commodity_outflow_0,0,0,Tstart730,Tend743
  sc_commodity_outflow_0,0,1,Tstart0,Tend1
  sc_commodity_outflow_0,0,1,Tstart365,Tend366
  sc_commodity_outflow_0,0,1,Tstart730,Tend731
@@ -32061,11 +30230,6 @@ Generals
  sc_commodity_outflow_0,3,3,Tstart5,Tend8
  sc_commodity_outflow_0,3,3,Tstart370,Tend373
  sc_commodity_outflow_0,3,3,Tstart735,Tend738
- sc_commodity_outflow_1,0,0,Tstart0,Tend13
- sc_commodity_outflow_1,0,0,Tstart13,Tend365
- sc_commodity_outflow_1,0,0,Tstart365,Tend378
- sc_commodity_outflow_1,0,0,Tstart378,Tend730
- sc_commodity_outflow_1,0,0,Tstart730,Tend743
  sc_commodity_outflow_1,0,1,Tstart0,Tend1
  sc_commodity_outflow_1,0,1,Tstart365,Tend366
  sc_commodity_outflow_1,0,1,Tstart730,Tend731
@@ -32102,11 +30266,6 @@ Generals
  sc_commodity_outflow_1,3,3,Tstart5,Tend8
  sc_commodity_outflow_1,3,3,Tstart370,Tend373
  sc_commodity_outflow_1,3,3,Tstart735,Tend738
- sc_commodity_inflow_0,0,0,Tstart0,Tend13
- sc_commodity_inflow_0,0,0,Tstart13,Tend365
- sc_commodity_inflow_0,0,0,Tstart365,Tend378
- sc_commodity_inflow_0,0,0,Tstart378,Tend730
- sc_commodity_inflow_0,0,0,Tstart730,Tend743
  sc_commodity_inflow_0,0,1,Tstart0,Tend1
  sc_commodity_inflow_0,0,1,Tstart365,Tend366
  sc_commodity_inflow_0,0,1,Tstart730,Tend731
@@ -32143,11 +30302,6 @@ Generals
  sc_commodity_inflow_0,3,3,Tstart5,Tend8
  sc_commodity_inflow_0,3,3,Tstart370,Tend373
  sc_commodity_inflow_0,3,3,Tstart735,Tend738
- sc_commodity_inflow_1,0,0,Tstart0,Tend13
- sc_commodity_inflow_1,0,0,Tstart13,Tend365
- sc_commodity_inflow_1,0,0,Tstart365,Tend378
- sc_commodity_inflow_1,0,0,Tstart378,Tend730
- sc_commodity_inflow_1,0,0,Tstart730,Tend743
  sc_commodity_inflow_1,0,1,Tstart0,Tend1
  sc_commodity_inflow_1,0,1,Tstart365,Tend366
  sc_commodity_inflow_1,0,1,Tstart730,Tend731
@@ -32184,16 +30338,6 @@ Generals
  sc_commodity_inflow_1,3,3,Tstart5,Tend8
  sc_commodity_inflow_1,3,3,Tstart370,Tend373
  sc_commodity_inflow_1,3,3,Tstart735,Tend738
- SC_payload_commodity_outflow_0,0,0,Tstart0,Tend13,CommoditypayloadVarType_1
- SC_payload_commodity_outflow_0,0,0,Tstart0,Tend13,CommoditypayloadVarType_2
- SC_payload_commodity_outflow_0,0,0,Tstart13,Tend365,CommoditypayloadVarType_1
- SC_payload_commodity_outflow_0,0,0,Tstart13,Tend365,CommoditypayloadVarType_2
- SC_payload_commodity_outflow_0,0,0,Tstart365,Tend378,CommoditypayloadVarType_1
- SC_payload_commodity_outflow_0,0,0,Tstart365,Tend378,CommoditypayloadVarType_2
- SC_payload_commodity_outflow_0,0,0,Tstart378,Tend730,CommoditypayloadVarType_1
- SC_payload_commodity_outflow_0,0,0,Tstart378,Tend730,CommoditypayloadVarType_2
- SC_payload_commodity_outflow_0,0,0,Tstart730,Tend743,CommoditypayloadVarType_1
- SC_payload_commodity_outflow_0,0,0,Tstart730,Tend743,CommoditypayloadVarType_2
  SC_payload_commodity_outflow_0,0,1,Tstart0,Tend1,CommoditypayloadVarType_1
  SC_payload_commodity_outflow_0,0,1,Tstart0,Tend1,CommoditypayloadVarType_2
  SC_payload_commodity_outflow_0,0,1,Tstart365,Tend366,CommoditypayloadVarType_1
@@ -32266,16 +30410,6 @@ Generals
  SC_payload_commodity_outflow_0,3,3,Tstart370,Tend373,CommoditypayloadVarType_2
  SC_payload_commodity_outflow_0,3,3,Tstart735,Tend738,CommoditypayloadVarType_1
  SC_payload_commodity_outflow_0,3,3,Tstart735,Tend738,CommoditypayloadVarType_2
- SC_payload_commodity_outflow_1,0,0,Tstart0,Tend13,CommoditypayloadVarType_1
- SC_payload_commodity_outflow_1,0,0,Tstart0,Tend13,CommoditypayloadVarType_2
- SC_payload_commodity_outflow_1,0,0,Tstart13,Tend365,CommoditypayloadVarType_1
- SC_payload_commodity_outflow_1,0,0,Tstart13,Tend365,CommoditypayloadVarType_2
- SC_payload_commodity_outflow_1,0,0,Tstart365,Tend378,CommoditypayloadVarType_1
- SC_payload_commodity_outflow_1,0,0,Tstart365,Tend378,CommoditypayloadVarType_2
- SC_payload_commodity_outflow_1,0,0,Tstart378,Tend730,CommoditypayloadVarType_1
- SC_payload_commodity_outflow_1,0,0,Tstart378,Tend730,CommoditypayloadVarType_2
- SC_payload_commodity_outflow_1,0,0,Tstart730,Tend743,CommoditypayloadVarType_1
- SC_payload_commodity_outflow_1,0,0,Tstart730,Tend743,CommoditypayloadVarType_2
  SC_payload_commodity_outflow_1,0,1,Tstart0,Tend1,CommoditypayloadVarType_1
  SC_payload_commodity_outflow_1,0,1,Tstart0,Tend1,CommoditypayloadVarType_2
  SC_payload_commodity_outflow_1,0,1,Tstart365,Tend366,CommoditypayloadVarType_1
@@ -32348,16 +30482,6 @@ Generals
  SC_payload_commodity_outflow_1,3,3,Tstart370,Tend373,CommoditypayloadVarType_2
  SC_payload_commodity_outflow_1,3,3,Tstart735,Tend738,CommoditypayloadVarType_1
  SC_payload_commodity_outflow_1,3,3,Tstart735,Tend738,CommoditypayloadVarType_2
- SC_payload_commodity_inflow_0,0,0,Tstart0,Tend13,CommoditypayloadVarType_1
- SC_payload_commodity_inflow_0,0,0,Tstart0,Tend13,CommoditypayloadVarType_2
- SC_payload_commodity_inflow_0,0,0,Tstart13,Tend365,CommoditypayloadVarType_1
- SC_payload_commodity_inflow_0,0,0,Tstart13,Tend365,CommoditypayloadVarType_2
- SC_payload_commodity_inflow_0,0,0,Tstart365,Tend378,CommoditypayloadVarType_1
- SC_payload_commodity_inflow_0,0,0,Tstart365,Tend378,CommoditypayloadVarType_2
- SC_payload_commodity_inflow_0,0,0,Tstart378,Tend730,CommoditypayloadVarType_1
- SC_payload_commodity_inflow_0,0,0,Tstart378,Tend730,CommoditypayloadVarType_2
- SC_payload_commodity_inflow_0,0,0,Tstart730,Tend743,CommoditypayloadVarType_1
- SC_payload_commodity_inflow_0,0,0,Tstart730,Tend743,CommoditypayloadVarType_2
  SC_payload_commodity_inflow_0,0,1,Tstart0,Tend1,CommoditypayloadVarType_1
  SC_payload_commodity_inflow_0,0,1,Tstart0,Tend1,CommoditypayloadVarType_2
  SC_payload_commodity_inflow_0,0,1,Tstart365,Tend366,CommoditypayloadVarType_1
@@ -32430,16 +30554,6 @@ Generals
  SC_payload_commodity_inflow_0,3,3,Tstart370,Tend373,CommoditypayloadVarType_2
  SC_payload_commodity_inflow_0,3,3,Tstart735,Tend738,CommoditypayloadVarType_1
  SC_payload_commodity_inflow_0,3,3,Tstart735,Tend738,CommoditypayloadVarType_2
- SC_payload_commodity_inflow_1,0,0,Tstart0,Tend13,CommoditypayloadVarType_1
- SC_payload_commodity_inflow_1,0,0,Tstart0,Tend13,CommoditypayloadVarType_2
- SC_payload_commodity_inflow_1,0,0,Tstart13,Tend365,CommoditypayloadVarType_1
- SC_payload_commodity_inflow_1,0,0,Tstart13,Tend365,CommoditypayloadVarType_2
- SC_payload_commodity_inflow_1,0,0,Tstart365,Tend378,CommoditypayloadVarType_1
- SC_payload_commodity_inflow_1,0,0,Tstart365,Tend378,CommoditypayloadVarType_2
- SC_payload_commodity_inflow_1,0,0,Tstart378,Tend730,CommoditypayloadVarType_1
- SC_payload_commodity_inflow_1,0,0,Tstart378,Tend730,CommoditypayloadVarType_2
- SC_payload_commodity_inflow_1,0,0,Tstart730,Tend743,CommoditypayloadVarType_1
- SC_payload_commodity_inflow_1,0,0,Tstart730,Tend743,CommoditypayloadVarType_2
  SC_payload_commodity_inflow_1,0,1,Tstart0,Tend1,CommoditypayloadVarType_1
  SC_payload_commodity_inflow_1,0,1,Tstart0,Tend1,CommoditypayloadVarType_2
  SC_payload_commodity_inflow_1,0,1,Tstart365,Tend366,CommoditypayloadVarType_1

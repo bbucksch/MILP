@@ -72,7 +72,7 @@ def validate_network_model(Net: NetworkData):
 def NetworkModel(campaign=False):
     Net = NetworkData()
     Net.g0 = 9.8
-    # Net.g0 = 9.80665
+    #Net.g0 = 9.80665
     Net.connections = {
         # 0: [0, 1],
         0: [1], # No holdover on Earth for paper-accuracy

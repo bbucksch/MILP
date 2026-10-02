@@ -216,7 +216,7 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
     add_concurrency_constraints(Lin_model, ctx)
     add_SCP_concurrency_constraint(Lin_model,ctx)
     add_time_window_constraints(Lin_model, ctx)
-    add_number_active_spacecraft_constraints(Lin_model, ctx, [2,2])
+    #add_number_active_spacecraft_constraints(Lin_model, ctx, [2,2])
     Lin_model.update()
 
     obj1 = set_initial_mass_objective(Lin_model, ctx, start_node=0, end_node=1)  # measured at all valid times
@@ -248,6 +248,7 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
                 for var in Lin_model.getVars():
                     if abs(var.X) > 1e-6:
                         writer.writerow([var.VarName, var.X])
+                writer.writerow(["Objective", Lin_model.ObjVal])
 
             print("Solution saved to solution_ISRU_Model.csv")
 
