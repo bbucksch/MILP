@@ -1,24 +1,36 @@
 vehicle,v,from_node,to_node,i,j,t_depart,t_arrive,active_vehicle_mass,cargo_mass,total_outgoing_mass,n_ships
-Saturn_V_third,1,Earth Surface,Low Earth Orbit,0,1,0,1,12014.0,86074.68368353262,98088.68368353262,1.0
-Saturn_V_third,1,Low Earth Orbit,Low Lunar Orbit,1,2,1,4,12014.0,94529.6836835323,106543.6836835323,1.0
-Saturn_V_third,1,Low Lunar Orbit,Low Lunar Orbit,2,2,4,5,12014.0,13654.360964534375,25668.360964534375,1.0
-Saturn_V_third,1,Low Lunar Orbit,Low Lunar Orbit,2,2,5,6,12014.0,13650.227631200687,25664.227631200687,1.0
-Saturn_V_third,1,Low Lunar Orbit,Low Lunar Orbit,2,2,6,7,12014.0,8651.360964534339,20665.36096453434,1.0
-Saturn_V_third,1,Low Lunar Orbit,Low Lunar Orbit,2,2,7,8,12014.0,0.0,12014.0,1.0
-Saturn_V_third,1,Low Lunar Orbit,Low Lunar Orbit,2,2,8,9,12014.0,0.0,12014.0,1.0
-Saturn_V_third,1,Low Lunar Orbit,Low Lunar Orbit,2,2,9,10,12014.0,0.0,12014.0,1.0
-Command_module,2,Earth Surface,Low Earth Orbit,0,1,0,1,4841.0,3613.99999999968,8454.99999999968,1.0
-Command_module,2,Low Lunar Orbit,Low Lunar Orbit,2,2,6,7,4841.0,153.73333333301343,4994.733333333013,1.0
-Command_module,2,Low Lunar Orbit,Low Lunar Orbit,2,2,7,8,4841.0,0.0,4841.0,1.0
-Command_module,2,Low Lunar Orbit,Low Lunar Orbit,2,2,8,9,4841.0,0.0,4841.0,1.0
-Command_module,2,Low Lunar Orbit,Low Lunar Orbit,2,2,9,10,4841.0,0.0,4841.0,1.0
-Service_module,3,Earth Surface,Earth Surface,0,0,0,1,6053.0,0.0,6053.0,1.0
-Service_module,3,Earth Surface,Earth Surface,0,0,1,2,6053.0,0.0,6053.0,1.0
-Service_module,3,Earth Surface,Earth Surface,0,0,2,3,6053.0,0.0,6053.0,1.0
-Service_module,3,Earth Surface,Earth Surface,0,0,3,4,6053.0,18413.0,24466.0,1.0
-LM_descend_stage,4,Low Earth Orbit,Earth Surface,1,0,10,11,2770.0,422.4000000000001,3192.4,1.0
-LM_descend_stage,4,Low Lunar Orbit,Low Earth Orbit,2,1,7,10,2770.0,9110.9609645337,11880.9609645337,1.0
-LM_descend_stage,4,Low Lunar Orbit,Lunar surface,2,3,4,5,2770.0,11543.307052557378,14313.307052557378,1.0
-LM_descend_stage,4,Lunar surface,Low Lunar Orbit,3,2,6,7,2770.0,2933.997838994068,5703.997838994068,1.0
-LM_descend_stage,4,Lunar surface,Lunar surface,3,3,5,6,2770.0,4551.264505660642,7321.264505660642,1.0
-LM_ascend_stage,5,Lunar surface,Lunar surface,3,3,6,7,1719.0,0.0,1719.0,1.0
+Type_1,0,Earth Surface,Low Earth Orbit,0,1,365,366,49490.0,401360.0,450850.0,2.0
+Type_1,0,Earth Surface,Low Earth Orbit,0,1,730,731,24745.0,202558.0,227303.0,1.0
+Type_1,0,Low Earth Orbit,Low Lunar Orbit,1,2,1,4,49490.0,469883.49000005116,519373.49000005116,2.0
+Type_1,0,Low Earth Orbit,Low Lunar Orbit,1,2,366,369,49490.0,404185.4800000144,453675.4800000144,2.0
+Type_1,0,Low Earth Orbit,Low Lunar Orbit,1,2,731,734,24745.0,230869.6873596174,255614.6873596174,1.0
+Type_1,0,Low Lunar Orbit,Low Lunar Orbit,2,2,4,9,24745.0,24661.104934713774,49406.104934713774,1.0
+Type_1,0,Low Lunar Orbit,Low Lunar Orbit,2,2,369,374,24745.0,38003.9654154287,62748.9654154287,1.0
+Type_1,0,Low Lunar Orbit,Low Lunar Orbit,2,2,374,734,24745.0,14964.620403137524,39709.620403137524,1.0
+Type_1,0,Low Lunar Orbit,Lunar surface,2,3,4,5,24745.0,35589.06646322963,60334.06646322963,1.0
+Type_1,0,Low Lunar Orbit,Lunar surface,2,3,369,370,24745.0,33938.53800692118,58683.53800692118,1.0
+Type_1,0,Low Lunar Orbit,Lunar surface,2,3,734,735,24745.0,43560.73945129954,68305.73945129954,1.0
+Type_2,1,Earth Surface,Low Earth Orbit,0,1,0,1,14684.0,504689.49000000366,519373.49000000366,2.0
+Type_2,1,Earth Surface,Low Earth Orbit,0,1,365,366,14684.0,49775.59381727897,64459.59381727897,2.0
+Type_2,1,Earth Surface,Low Earth Orbit,0,1,730,731,14684.0,51451.42999999279,66135.42999999279,2.0
+Type_2,1,Low Earth Orbit,Earth Surface,1,0,12,13,7342.0,1876.2000000000007,9218.2,1.0
+Type_2,1,Low Earth Orbit,Earth Surface,1,0,377,378,7342.0,1876.199999999997,9218.199999999997,1.0
+Type_2,1,Low Earth Orbit,Earth Surface,1,0,742,743,7342.0,1876.2000000000007,9218.2,1.0
+Type_2,1,Low Earth Orbit,Low Earth Orbit,1,1,366,377,7342.0,22091.2738172765,29433.2738172765,1.0
+Type_2,1,Low Earth Orbit,Low Earth Orbit,1,1,377,731,7342.0,21841.653817275743,29183.653817275743,1.0
+Type_2,1,Low Earth Orbit,Low Lunar Orbit,1,2,366,369,7342.0,24858.839999992793,32200.839999992793,1.0
+Type_2,1,Low Earth Orbit,Low Lunar Orbit,1,2,731,734,14684.0,52249.97645765172,66933.97645765172,2.0
+Type_2,1,Low Lunar Orbit,Low Earth Orbit,2,1,9,12,7342.0,26110.910070512182,33452.91007051218,1.0
+Type_2,1,Low Lunar Orbit,Low Earth Orbit,2,1,374,377,7342.0,25496.9072252478,32838.9072252478,1.0
+Type_2,1,Low Lunar Orbit,Low Earth Orbit,2,1,739,742,7342.0,26110.910070511643,33452.91007051164,1.0
+Type_2,1,Low Lunar Orbit,Low Lunar Orbit,2,2,734,739,7342.0,23506.924474666128,30848.924474666128,1.0
+Type_2,1,Low Lunar Orbit,Lunar surface,2,3,4,5,14684.0,23661.473416415967,38345.47341641597,2.0
+Type_2,1,Low Lunar Orbit,Lunar surface,2,3,369,370,7342.0,9774.08844131502,17116.08844131502,1.0
+Type_2,1,Lunar surface,Low Lunar Orbit,3,2,8,9,7342.0,9086.522123045615,16428.522123045615,1.0
+Type_2,1,Lunar surface,Low Lunar Orbit,3,2,373,374,7342.0,10882.440173144932,18224.440173144932,1.0
+Type_2,1,Lunar surface,Low Lunar Orbit,3,2,738,739,7342.0,10833.329907298248,18175.329907298248,1.0
+Type_2,1,Lunar surface,Lunar surface,3,3,5,8,14684.0,11243.137315032174,25927.137315032174,2.0
+Type_2,1,Lunar surface,Lunar surface,3,3,8,370,7342.0,2255.173704834222,9597.173704834222,1.0
+Type_2,1,Lunar surface,Lunar surface,3,3,370,373,14684.0,14586.489196722217,29270.489196722217,2.0
+Type_2,1,Lunar surface,Lunar surface,3,3,373,735,7342.0,3802.355574594918,11144.355574594918,1.0
+Type_2,1,Lunar surface,Lunar surface,3,3,735,738,7342.0,11207.692481742924,18549.692481742924,1.0

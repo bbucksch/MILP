@@ -248,6 +248,7 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
                 for var in Lin_model.getVars():
                     if abs(var.X) > 1e-6:
                         writer.writerow([var.VarName, var.X])
+                writer.writerow(["Objective", Lin_model.ObjVal])
 
             print("Solution saved to solution_ISRU_Model.csv")
 
