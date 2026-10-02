@@ -71,8 +71,7 @@ from Results import (
     extract_flows,
     make_mass_flow_table,
     plot_time_space_network,
-    propellantUsage,
-    plot_vehicle_gantt
+    
 
 )
 

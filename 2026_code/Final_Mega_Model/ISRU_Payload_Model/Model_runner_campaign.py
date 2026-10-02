@@ -72,8 +72,6 @@ from Results import (
     extract_flows,
     make_mass_flow_table,
     plot_time_space_network,
-    propellantUsage,
-    plot_vehicle_gantt
 
 )
 
@@ -240,7 +238,7 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
 
             with open("solution_ISRU_Model.csv", "w", newline="") as csvfile:
                 writer = csv.writer(csvfile)
-
+                
                 # Header
                 writer.writerow(["Variable", "Value"])
 
@@ -248,6 +246,8 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
                 for var in Lin_model.getVars():
                     if abs(var.X) > 1e-6:
                         writer.writerow([var.VarName, var.X])
+                
+                writer.writerow(["Objective Value", Lin_model.objVal])
 
             print("Solution saved to solution_ISRU_Model.csv")
 
@@ -405,3 +405,4 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
 if __name__ == "__main__":
     context = build_model(optimize=True, vizualize=True, sensitivity_analysis=False)
     print(f"Built {context['model'].ModelName} with {context['model'].NumVars} variables.")
+    

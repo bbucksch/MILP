@@ -67,12 +67,10 @@ from Constraints_creation import (
     add_time_window_constraints
 )
 
-from Results_old import (
+from Results import (
     extract_flows,
     make_mass_flow_table,
     plot_time_space_network,
-    propellantUsage,
-    plot_vehicle_gantt
 
 )
 
@@ -245,6 +243,8 @@ def build_model(network=None, vehicle_data=None, Demands=None, V_demands=None, i
                 for var in Lin_model.getVars():
                     if abs(var.X) > 1e-6:
                         writer.writerow([var.VarName, var.X])
+
+                writer.writerow(["Objective Value", Lin_model.objVal])
 
             print("Solution saved to solution_ISRU_Model.csv")
 

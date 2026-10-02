@@ -385,6 +385,10 @@ def make_mass_flow_table(flows, use="out_mass"):
         ["t_depart", "from_node", "to_node", "vehicle"]
     )
 
+
+
+#Testing functions
+"""
 def propellantUsage(flows):
     prop = flows[flows["item"] == "propellant"].copy()
     prop["propellant_used"] = prop["out_mass"] - prop["in_mass"]
@@ -454,3 +458,4 @@ def plot_vehicle_gantt(flows, title="Spacecraft activity timeline"):
     fig.show()
     return
 
+"""

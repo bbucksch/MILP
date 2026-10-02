@@ -51,13 +51,13 @@ def define_commodities(ISRUModelvar):
     
     Comm.prop_index = [5,9] #Index of propellant in the commodities list
     Comm.prop_percentages = [0.7191, 1-0.7191] # Percentage of each type of propellant component
-    Comm.oxygen_boiloff = 0.00016
-    Comm.sc_flight_maintenance = 0.01
+    Comm.oxygen_boiloff = 0.00016 
+    Comm.sc_flight_maintenance = 0.01 
     Comm.isru_indices = {"packaged": 7, "active": 8}
-    Comm.isru_yearly_maintenance = 0.1
+    Comm.isru_yearly_maintenance = 0.1 
     Comm.crew_mass = 100
     Comm.mass_conversion = [Comm.crew_mass, Comm.crew_mass, 1, 1, 1, 1, Comm.crew_mass, 1, 1, 1, 1]
-    Comm.consumption_rate = 1.015 + 6.37 + 1.18
+    Comm.consumption_rate = (1.015 + 6.37 + 1.18)
     # Comm.consumption_rate = 124/(10*3)
     return Comm
 
@@ -101,9 +101,9 @@ def demand_supply(network, n_commodities, n_vehicles):
 
     # Paper-accurate supply
     # Consumables - ensure they are not stored (they would expire)
-    D[0][0][2] = (1.015 + 6.37 + 1.18) * 12 * 12
-    D[0][0+365][2] = (1.015 + 6.37 + 1.18) * 12 * 12
-    D[0][0+365*2][2] = (1.015 + 6.37 + 1.18) * 12 * 12
+    D[0][0][2] = (1.015 + 6.37 + 1.18) * 12 * 12 
+    D[0][0+365][2] = (1.015 + 6.37 + 1.18) * 12 * 12 
+    D[0][0+365*2][2] = (1.015 + 6.37 + 1.18) * 12 * 12 
 
     # Equipment - ensure new equipment is brought every year
     D[0][0][3] = 4200
@@ -150,7 +150,7 @@ def demand_supply(network, n_commodities, n_vehicles):
     D[0][13+365*2][4] = -500
 
     #Vehicle Demand array [Node][vehicle][Time]
-    d = [[[3 if (i == 0 and (t == 0 or t==0+365 or t==0+365*2)) else 0 for t in range(network.T)]
+    d = [[[2 if (i == 0 and (t == 0 or t==0+365 or t==0+365*2)) else 0 for t in range(network.T)]
           for v in range(n_vehicles)]
          for i in network.connections]
 

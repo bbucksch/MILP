@@ -87,44 +87,32 @@ def demand_supply(network, n_commodities, n_vehicles):
     # "samples","propellant_ox","crew_interim","ISRU_packaged",
     # "ISRU_active" , "propellant_ker", "maint_mass"]
     #Demand network is defined as [Node][Time][Commodity]
-    D = [[np.array([1e15 if ((i == 0 and (x in [0, 2, 3, 5, 7, 9, 10])) or (i == 3 and x == 4)) else 0 for x in range(n_commodities)],
+    D = [[np.array([1e15 if ((i == 0 and (x in [0, 2, 3, 5, 7, 9, 10])) or (i == 6 and x == 4)) else 0 for x in range(n_commodities)],
                    dtype=float)
           for _ in range(network.T)]
          for i in network.connections]
 
     #Crew
-    D[3][5][0] = -12
-    D[3][5+365][0] = -12
-    D[3][5+365*2][0] = -12
 
     # Crew interim
-    D[3][5][6] = 12
-    D[3][5+365][6] = 12
-    D[3][5 + 365*2][6] = 12
+    D[6][365+210][6] = 1
 
-    D[3][8][6] = -12
-    D[3][8+365][6] = -12
-    D[3][8 + 365*2][6] = -12
+    D[6][365+214][6] = -1
+    
 
     #CrewReturn
-    D[3][8][1] = 12
-    D[3][8+365][1] = 12
-    D[3][8 + 365*2][1] = 12
+    D[6][214+365][1] = 1
+    
 
-    D[0][13][1] = -12
-    D[0][13+365][1] = -12
-    D[0][13 + 365*2][1] = -12
+    D[0][214+365+206+1][1] = -1
+    
 
     #Equipment
-    D[3][5][3] = -4200
-    D[3][5+365][3] = -4200
-    D[3][5 + 365*2][3] = -4200
+    D[6][365+210][3] = -4200
 
     #Samples
-    D[0][13][4] = -500
-    D[0][13+365][4] = -500
-    D[0][13+365*2][4] = -500
-
+    D[0][214+365+206+1][4] = -500
+    
     #Vehicle Demand array [Node][vehicle][Time]
     d = [[[2 if (i == 0 and (t == 0 or t==0+365 or t==0+365*2)) else 0 for t in range(network.T)]
           for v in range(n_vehicles)]

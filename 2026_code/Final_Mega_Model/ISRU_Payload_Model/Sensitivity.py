@@ -7,30 +7,14 @@ import numpy as np
 # from torch import obj
 
 """
-This file defines the sensitivity analysis function for the model.
+This file defines the sensitivity analysis function for the demand variation of the model model.
 
-Two areas of the system are defined: 
-1.Parameters that are part of the existing model (weights and costs of the model)
- a. Commodity demands
- b. Vehicle weights for structural, propellant and payload amounts and Isp
-2. Differences in the mission design:
- a. Network design: delta-v and time of flight
- b. ISRU Usage and function model
- c. Spacecraft Carriable or not
- d. Arc consumption
+It calculates the Shadow price for a given change in the demand of a specific commodity at a specific node and time window.
+The shadow price is calculated by changing the demand in the model, re-optimizing, and comparing the objective function value before and after the change.
 
-
-This is a lot of data, and only a fraction of possible parameters
-so only a basic sensitivity analysis will be made from this file:
-Locating the shadow price for a given change in each of the parameters
-
-Area 1 can be affected by changing the values of the parameters in the existing implementation
-while Area 2 requires a rebuilding of the model to create the new variables to test, this will be done by rebuidling the whole model as a new run 
-(not in this file)
-
-
-In order to get comparisons for effects, the effect on the objective function, number of spacecraft and fuel usage will be caluclated
-
+This can be done for single commodity changes or for multiple commodities changed at the same time.
+However! Shadow prices are calculated only for the single commodity change, for multiple commoidities it is assumed
+that a single change is effected (+ramifications), so dividing by 1 is not necessary, this can be done elsewhere.
 """
 
 def single_commodity_demand_sensitivity_analysis(modelog, ctx, commodity, i_dem, t_dem,  demand_change, i_sup=None,t_sup=None):
@@ -64,6 +48,7 @@ def single_commodity_demand_sensitivity_analysis(modelog, ctx, commodity, i_dem,
     dem.RHS = old_rhs - demand_change  # Decrease demand (increase negative value)
 
     if i_sup is not None and t_sup is not None:
+
         # Increase supply if specified
         sup = model.getConstrByName(
             f"mass_balance_x_node{i_sup}_time{t_sup}_comm{commodity_index}" )
@@ -113,9 +98,10 @@ def multi_commodity_demand_sensitivity_analysis(modelog, ctx, description):
         commodity = x['commodity']
         i_dem = x['i_dem'] 
         t_dem = x['t_dem']
-        demand_change = x['demand_change']
+        demand_change = x.get('demand_change', 0)
         i_sup = x.get('i_sup', None)
         t_sup = x.get('t_sup', None)
+        supply_change = x.get('supply_change', None)
         #find commodity index for the given commodity name
         commodity_index = ctx["Commodities"].commodity_names.index(commodity)
         
@@ -147,9 +133,12 @@ def multi_commodity_demand_sensitivity_analysis(modelog, ctx, description):
     
             old_rhs_sup = sup.RHS
             old_sup_rhs_multi.append((sup, old_rhs_sup))
-            sup.RHS = old_rhs_sup + demand_change  # Increase supply
-    
-    
+            if supply_change is not None:
+                sup.RHS = old_rhs_sup + supply_change  # Increase supply
+            else:
+                sup.RHS = old_rhs_sup + demand_change  # Increase supply
+
+
     # Re-optimize the model
     model.optimize()
     if model.Status == GRB.INFEASIBLE:
@@ -169,10 +158,10 @@ def multi_commodity_demand_sensitivity_analysis(modelog, ctx, description):
     
     model.optimize()  # Re-optimize to restore original state
     
-    shadow_price = (obj_final - obj_initial) / sum(demand_changes)
+    shadow_price = (obj_final - obj_initial)
     
     print(f"Initial Objective: {obj_initial}, Final Objective: {obj_final}")
-    print(f"Shadow price for multicommodity demand change of {demand_changes}: {shadow_price}")
+    print(f"Obj difference, NOT SP! for multicommodity demand change of {demand_changes}: {shadow_price}")
     
     return shadow_price
     
