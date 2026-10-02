@@ -57,7 +57,7 @@ def define_commodities(ISRUModelvar):
     Comm.isru_yearly_maintenance = 0.1 
     Comm.crew_mass = 100
     Comm.mass_conversion = [Comm.crew_mass, Comm.crew_mass, 1, 1, 1, 1, Comm.crew_mass, 1, 1, 1, 1]
-    Comm.consumption_rate = (1.015 + 6.37 + 1.18)
+    Comm.consumption_rate = 1.015 + 6.37 + 1.18
     # Comm.consumption_rate = 124/(10*3)
     return Comm
 
